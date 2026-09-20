@@ -1,0 +1,383 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const coveredAreas = [
+  "Centre de Jemappes & Avenue Maréchal Foch",
+  "Zone commerciale du Cora Jemappes & Grand-Prés Ouest",
+  "Flénu (Place, Cité ouvrière et abords du R5)",
+  "Avenue Wilson & Chaussée de Saint-Ghislain",
+  "Quartier du Campiau & Rue Lloyd George",
+  "Rives du Canal du Centre & Quai des Usines",
+  "Rue de la Corderie & Cités minières rénovées",
+  "Axe de liaison vers Quaregnon et Mons-Centre"
+];
+
+const drivingRoutes = [
+  {
+    from: "Depuis l'Autoroute E19 / E42 (Sortie 25 Jemappes)",
+    route: "Prendre immédiatement la sortie vers l'Avenue Maréchal Foch, accès direct au rond-point central de Jemappes.",
+    time: "3 à 5 minutes",
+    note: "Emplacement privilégié permettant un déploiement éclair sur tout le 7012."
+  },
+  {
+    from: "Depuis la Zone Commerciale Cora Jemappes",
+    route: "Remonter par la Rue Lloyd George ou l'Avenue Wilson pour atteindre les quartiers d'habitation et cités.",
+    time: "4 à 6 minutes",
+    note: "Véhicules de curage haute pression directement opérationnels."
+  },
+  {
+    from: "Depuis le R5 (Sortie Flénu)",
+    route: "Descendre par la Rue Sainte-Henriette puis rejoindre la Route de Mons vers le centre de Flénu et Jemappes.",
+    time: "6 à 8 minutes",
+    note: "Intervention rapide pour les maisons de rangée et résidences du Flénu."
+  },
+  {
+    from: "Depuis Mons Centre (Avenue de Jemappes)",
+    route: "Traverser la N51 en ligne droite sous le viaduc jusqu'à l'entrée est de Jemappes.",
+    time: "7 à 9 minutes",
+    note: "Nos techniciens d'astreinte basés à Mons vous rejoignent sans délai."
+  }
+];
+
+const localChallenges = [
+  {
+    title: "Sterputs de cours et siphons extérieurs bouchés",
+    icon: "filter_drama",
+    desc: "Les nombreuses maisons mitoyennes typiques de Jemappes possèdent un sterput de cour extérieure qui recueille eaux de pluie et de cuisine. L'accumulation de graisses et de débris provoque des inondations de cour lors des averses."
+  },
+  {
+    title: "Canalisations en grès affaissées (sol minier)",
+    icon: "layers",
+    desc: "Le sous-sol du bassin houiller de Jemappes et Flénu a provoqué avec les décennies de légers affaissements de terrain. Les vieux tuyaux en grès se déboîtent ou forment des contre-pentes, retenant les matières solides."
+  },
+  {
+    title: "Refoulements d'égout et odeurs nauséabondes",
+    icon: "masks",
+    desc: "L'absence fréquente de clapet anti-retour sur les anciennes connexions d'égouttage à Jemappes favorise la remontée des mauvaises odeurs et des eaux usées en cas de saturation du réseau public."
+  },
+  {
+    title: "Chauffe-eau et chaudières entartrés SWDE",
+    icon: "heat",
+    desc: "L'eau de distribution est très calcaire (35°fH), usant prématurément les corps de chauffe des boilers. Nous effectuons le détartrage mécanique d'urgence ou la pose d'adoucisseurs économiques."
+  }
+];
+
+const competitorComparison = [
+  {
+    criterion: "Temps d'arrivée réel à Jemappes & Flénu",
+    us: "25 à 30 minutes garanties 24h/7",
+    national: "2 à 4 heures via centres d'appel extérieurs",
+    handyman: "Disponibilité aléatoire"
+  },
+  {
+    criterion: "Spécialité sterputs belges & hydrocurage 200 bars",
+    us: "Matériel d'hydrocurage puissant embarqué",
+    national: "Matériel inadapté aux sterputs anciens",
+    handyman: "Produits chimiques dangereux et inefficaces"
+  },
+  {
+    criterion: "Inspection vidéo par caméra endoscopique HD",
+    us: "Diagnostic visuel immédiat avec détection d'affaissement",
+    national: "Option facturée au prix fort",
+    handyman: "Aucune caméra d'inspection"
+  },
+  {
+    criterion: "Devis transparent préalable avant travail",
+    us: "Prix forfaitaire annoncé et validé par écrit",
+    national: "Tarif opaque à la tête du client",
+    handyman: "Pas de devis écrit"
+  },
+  {
+    criterion: "Agrément officiel CERGA & Wallonie",
+    us: "Techniciens habilités et agréés en Belgique",
+    national: "Sous-traitance de techniciens non certifiés",
+    handyman: "Non agréé"
+  },
+  {
+    criterion: "Application de la TVA réduite à 6 %",
+    us: "Oui pour les habitations de plus de 10 ans",
+    national: "TVA 21 % courante ou irrégularités",
+    handyman: "Travail non déclaré"
+  }
+];
+
+const faqs = [
+  {
+    q: "Mon sterput de cour déborde quand il pleut à Jemappes, que faire ?",
+    a: "C'est souvent le signe d'un bouchon compact de graisses ou de feuilles dans la conduite de raccordement à l'égout. Ne versez pas de déboucheur chimique : nos artisans interviennent avec une buse hydrocureuse 200 bars pour nettoyer la canalisation sans abîmer les tuyaux."
+  },
+  {
+    q: "Intervenez-vous également à Flénu pour les urgences plomberie ?",
+    a: "Oui, nous desservons l'ensemble de l'entité 7012 (Jemappes et Flénu) avec les mêmes délais garantis de 25 à 30 minutes, 24 heures sur 24."
+  },
+  {
+    q: "Pouvez-vous vérifier si ma canalisation est fissurée ou déboîtée ?",
+    a: "Absolument. Nous introduisons notre caméra endoscopique haute définition dans votre réseau pour inspecter les parois, mesurer la distance exacte de la fissure et vous fournir un enregistrement clair."
+  },
+  {
+    q: "Combien coûte un débouchage d'urgence à Jemappes ?",
+    a: "Nos forfaits débouchage débutent à partir de 95 € HTVA. Le montant exact vous est annoncé et validé par écrit avant tout début d'intervention."
+  }
+];
+---
+
+<Layout
+  title="Plombier Jemappes 7012 | Débouchage Sterput, WC & Fuite en 30 Min"
+  description="Plombier dépanneur à Jemappes & Flénu (7012). Débouchage haute pression sterput de cour et WC, recherche de fuite, boiler et chaudière. Devis clair."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Artisan Plombier Déboucheur à 7012 Jemappes & Flénu</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Plombier à Jemappes (7012) : Dépannage & Débouchage en <span class="text-primary-container underline decoration-tertiary-container decoration-4">30 Minutes</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Sterput extérieur qui refoule, WC bouché, fuite sous évier ou coupure d'eau chaude à Jemappes ou Flénu ? Nos équipes d'astreinte arrivent sur place en <strong>25 à 30 minutes 24h/24 et 7j/7</strong> avec camion hydrocureur et outillage de pointe.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Arrivée en 25 à 30 min à Jemappes & Flénu</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">plumbing</span>
+              <span>Hydrocurage haute pression 200 bars & caméra</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Agréé CERGA & Région Wallonne (TVA 6%)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">price_check</span>
+              <span>Devis écrit préalable sans mauvaise surprise</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Jemappes%20(7012)"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Urgence Jemappes</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Dépannage Jemappes" subtitle="Intervention d'urgence ou devis gratuit à Jemappes 7012" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Local Service Area Details -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Périmètre d'Intervention</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Zones et quartiers desservis à Jemappes et Flénu (7012)
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Des abords du Cora et du canal aux cités ouvrières et hauteurs du Flénu, nous intervenons dans chaque rue.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {coveredAreas.map((area) => (
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">location_on</span>
+            <span class="text-xs md:text-sm font-semibold text-primary">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Directions from Major Landmarks -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Axes Routiers & Rapidité</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Comment nous arrivons en moins de 30 minutes chez vous à Jemappes
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Nos véhicules d'astreinte exploitent directement la sortie 25 de l'E19 et les grands boulevards pour intervenir sans attente.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {drivingRoutes.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container text-[22px]">directions_car</span>
+                <span>{item.from}</span>
+              </h3>
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary-container font-extrabold text-xs">
+                {item.time}
+              </span>
+            </div>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{item.route}</p>
+            <p class="text-[11px] font-semibold text-secondary flex items-center gap-1.5 pt-1">
+              <span class="material-symbols-outlined text-[16px]">info</span>
+              <span>{item.note}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhood-Specific Plumbing Challenges -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Réalités Sanitaires</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Les problèmes de plomberie et canalisation typiques de Jemappes
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          La morphologie urbaine boraine impose des compétences précises en assainissement et débouchage de sterputs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {localChallenges.map((ch) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">{ch.icon}</span>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="font-headline-sm text-base text-primary font-bold">{ch.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{ch.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Competitor Comparison Table -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Pourquoi Nous Choisir</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Comparatif : Plombier Mons Urgent vs Autres Dépanneurs à Jemappes
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Faites le choix de la sécurité : un véritable artisan qualifié, transparent et réactif.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-primary/10 shadow-sm bg-surface-container-lowest">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-surface-container-high text-primary border-b border-primary/10">
+              <th class="p-4 font-bold">Critères de choix</th>
+              <th class="p-4 font-extrabold text-primary-container bg-primary/5">Plombier Mons Urgent</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Plateformes web nationales</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Dépanneurs non agréés</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-primary/5">
+            {competitorComparison.map((row) => (
+              <tr class="hover:bg-surface-container-low/50 transition-colors">
+                <td class="p-4 font-bold text-primary">{row.criterion}</td>
+                <td class="p-4 font-bold text-primary-container bg-primary/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span>
+                    <span>{row.us}</span>
+                  </div>
+                </td>
+                <td class="p-4 text-on-surface-variant">{row.national}</td>
+                <td class="p-4 text-on-surface-variant">{row.handyman}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQs -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur nos interventions à Jemappes
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Urgence canalisation ou fuite à Jemappes (7012) ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Intervention express en 25 à 30 minutes. Camion hydrocureur et artisans agréés disponibles jour et nuit.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Jemappes"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>WhatsApp Dépanneur Jemappes</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,383 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const coveredAreas = [
+  "Centre de Cuesmes & Place du Peuple",
+  "Abords du Mont Héribus & Rue de la Croix Rouge",
+  "Quartier de la Maison Van Gogh (Rue du Pavillon)",
+  "Chaussée de Cuesmes (liaison Mons-Sud)",
+  "Rue de Frameries & Rue de Ciply",
+  "Quartier de la Malogne & anciennes carrières souterraines",
+  "Zones basses inondables lors de fortes pluies",
+  "Liaisons vers Hyon, Flénu et Frameries"
+];
+
+const drivingRoutes = [
+  {
+    from: "Depuis Mons-Sud / Porte de Bertaimont",
+    route: "Prendre directement la Chaussée de Cuesmes sous le pont ferroviaire, tout droit vers le centre de la commune.",
+    time: "5 à 7 minutes",
+    note: "Trajet le plus direct depuis notre atelier montois."
+  },
+  {
+    from: "Depuis le R5 (Sortie 3 Cuesmes - Frameries)",
+    route: "Emprunter la N544 puis la Rue de Frameries pour rejoindre la Place de Cuesmes en quelques minutes.",
+    time: "6 à 8 minutes",
+    note: "Idéal pour nos véhicules d'astreinte équipés de pompes d'épuisement."
+  },
+  {
+    from: "Depuis la Maison Van Gogh / Marais",
+    route: "Remonter la Rue du Pavillon et la Rue Ferrer pour desservir les habitations du flanc est.",
+    time: "3 à 5 minutes",
+    note: "Intervention rapide dans les ruelles et venelles cuesmoises."
+  },
+  {
+    from: "Depuis le Mont Héribus",
+    route: "Descendre par la Rue de la Croix Rouge vers les zones résidentielles en contrebas.",
+    time: "4 à 6 minutes",
+    note: "Déploiement d'urgence lors des ruissellements orageux."
+  }
+];
+
+const localChallenges = [
+  {
+    title: "Refoulements de caves et inondations d'orage",
+    icon: "flood",
+    desc: "En raison du relief incliné du Mont Héribus, les fortes pluies ruissellent brutalement vers les quartiers bas de Cuesmes. Les réseaux publics d'égouttage saturent, provoquant des refoulements directs dans les caves et sous-sols non protégés."
+  },
+  {
+    title: "Nécessité de clapets anti-retour & pompes de relevage",
+    icon: "water_damage",
+    desc: "Pour éviter d'avoir 20 cm d'eaux usées dans votre cave, l'installation d'un clapet anti-retour en fonte ou inox et d'une pompe de relevage automatique (vide-cave) est la seule solution technique efficace et pérenne."
+  },
+  {
+    title: "Canalisations anciennes sous fortes pressions",
+    icon: "speed",
+    desc: "Les habitations traditionnelles cuesmoises comportent souvent d'anciennes canalisations d'évacuation en grès ou fonte fragilisées par les mouvements d'eau sous pression lors des averses orageuses."
+  },
+  {
+    title: "Tartre calcaire massif sur boilers & chauffe-eau",
+    icon: "heat",
+    desc: "Comme partout dans le bassin montois, l'eau SWDE affiche une dureté élevée (35°fH). Les résistances de boiler s'entartrent vite, entraînant un manque d'eau chaude ou un claquement inquiétant de la cuve."
+  }
+];
+
+const competitorComparison = [
+  {
+    criterion: "Temps d'arrivée réel à Cuesmes (7033)",
+    us: "25 à 30 minutes garanties 24h/7",
+    national: "2 à 4 heures (centrales d'appel)",
+    handyman: "Plusieurs jours d'attente"
+  },
+  {
+    criterion: "Spécialiste inondations de caves & pompage d'urgence",
+    us: "Pompes d'épuisement submersibles à bord",
+    national: "Refuse souvent les sinistres d'inondation",
+    handyman: "Simple serpillière sans matériel"
+  },
+  {
+    criterion: "Pose de clapets anti-retour agréés aux normes",
+    us: "Matériel certifié anti-refoulement avec garantie",
+    national: "Solutions provisoires non durables",
+    handyman: "Incompétence sur les clapets de cave"
+  },
+  {
+    criterion: "Devis clair préalable avant travaux",
+    us: "Systématique et signé au centime près",
+    national: "Tarifs gonflés en situation de sinistre",
+    handyman: "Prix oral sans aucune garantie"
+  },
+  {
+    criterion: "Agrément officiel CERGA & Région Wallonne",
+    us: "Chauffagiste & plombier agréé Wallonie (TVA 6%)",
+    national: "Sous-traitance opaque",
+    handyman: "Non agréé"
+  },
+  {
+    criterion: "Disponibilité d'urgence les week-ends d'intempéries",
+    us: "Permanence 24h/24 y compris nuits et dimanches",
+    national: "Fermé ou injoignable par fortes pluies",
+    handyman: "Injoignable en dehors des heures ouvrées"
+  }
+];
+
+const faqs = [
+  {
+    q: "Ma cave est inondée après un gros orage à Cuesmes, pouvez-vous intervenir ?",
+    a: "Oui, notre équipe d'astreinte est équipée de pompes d'épuisement gros débit et d'aspirateurs à eau professionnels pour vider rapidement votre sous-sol et identifier l'origine du sinistre."
+  },
+  {
+    q: "Comment protéger définitivement ma maison des refoulements d'égout à Cuesmes ?",
+    a: "La pose d'un clapet anti-retour automatique conforme sur votre conduite principale d'évacuation est la recommandation numéro un. Lors d'une surcharge du collecteur de rue, le clapet se verrouille hermétiquement pour empêcher les eaux sales de pénétrer chez vous."
+  },
+  {
+    q: "Quel est le délai pour remplacer un boiler électrique en panne à Cuesmes ?",
+    a: "Nous disposons de boilers électriques de marques fiables (Ariston, Bulex, Atlantic) en stock permanent dans nos véhicules. Le remplacement et la mise en service se font généralement dans la journée."
+  },
+  {
+    q: "Puis-je bénéficier de la TVA à 6 % sur les travaux à Cuesmes ?",
+    a: "Oui, si votre maison a plus de 10 ans et constitue votre résidence privée, la TVA applicable sur la main-d'œuvre et le matériel fourni par notre entreprise est de 6 % au lieu de 21 %."
+  }
+];
+---
+
+<Layout
+  title="Plombier Cuesmes 7033 | Dépannage Inondation, Fuite & Clapet Anti-Retour"
+  description="Plombier à Cuesmes (7033). Intervention rapide sous 30 min : inondation de cave, clapet anti-retour, refoulement d'égout, débouchage et boiler. Devis gratuit."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Artisan Plombier Dépanneur à 7033 Cuesmes</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Plombier à Cuesmes (7033) : Urgence Plomberie en <span class="text-primary-container underline decoration-tertiary-container decoration-4">30 Minutes</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Cave inondée lors d'un orage, refoulement d'égout, fuite sous plancher ou panne de chauffage à Cuesmes ? Nos artisans qualifiés interviennent en <strong>25 à 30 minutes 24h/24 et 7j/7</strong> avec pompes d'épuisement, hydrocureuses et pièces certifiées.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Arrivée en 25 à 30 min à Cuesmes</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">flood</span>
+              <span>Spécialiste pompage de cave & clapet anti-retour</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Agréé CERGA & Région Wallonne (TVA 6%)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">price_check</span>
+              <span>Devis écrit avant travaux & agréé assurances</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Cuesmes%20(7033)"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Urgence Cuesmes</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Dépannage Plombier Cuesmes" subtitle="Urgence 24/7 ou devis gratuit à Cuesmes 7033" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Local Service Area Details -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Périmètre Communal</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Zones d'intervention à Cuesmes (Code Postal 7033)
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Du Mont Héribus aux abords de la Maison Van Gogh et aux quartiers bas, nous couvrons l'ensemble de Cuesmes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {coveredAreas.map((area) => (
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">location_on</span>
+            <span class="text-xs md:text-sm font-semibold text-primary">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Directions from Major Landmarks -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Accès & Déploiement</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Comment nos dépanneurs rejoignent Cuesmes en 25 minutes
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Liaisons immédiates depuis Mons-Sud et le ring R5 pour intervenir avant que les dégâts ne s'étendent.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {drivingRoutes.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container text-[22px]">directions_car</span>
+                <span>{item.from}</span>
+              </h3>
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary-container font-extrabold text-xs">
+                {item.time}
+              </span>
+            </div>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{item.route}</p>
+            <p class="text-[11px] font-semibold text-secondary flex items-center gap-1.5 pt-1">
+              <span class="material-symbols-outlined text-[16px]">info</span>
+              <span>{item.note}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhood-Specific Plumbing Challenges -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Topographie & Inondations</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Les risques de plomberie spécifiques au relief de Cuesmes
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          La pente du terril et des collines cuesmoises engendre des pressions d'eaux d'orage qui menacent les caves.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {localChallenges.map((ch) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">{ch.icon}</span>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="font-headline-sm text-base text-primary font-bold">{ch.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{ch.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Competitor Comparison Table -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Comparatif Local</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Plombier Mons Urgent vs Dépanneurs Web à Cuesmes
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Un vrai savoir-faire local sur les inondations de cave et la sécurisation par clapet anti-retour.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-primary/10 shadow-sm bg-surface-container-lowest">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-surface-container-high text-primary border-b border-primary/10">
+              <th class="p-4 font-bold">Critères de choix</th>
+              <th class="p-4 font-extrabold text-primary-container bg-primary/5">Plombier Mons Urgent</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Plateformes web nationales</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Dépanneurs non agréés</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-primary/5">
+            {competitorComparison.map((row) => (
+              <tr class="hover:bg-surface-container-low/50 transition-colors">
+                <td class="p-4 font-bold text-primary">{row.criterion}</td>
+                <td class="p-4 font-bold text-primary-container bg-primary/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span>
+                    <span>{row.us}</span>
+                  </div>
+                </td>
+                <td class="p-4 text-on-surface-variant">{row.national}</td>
+                <td class="p-4 text-on-surface-variant">{row.handyman}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQs -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur le dépannage de plomberie à Cuesmes
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Urgence plomberie ou cave inondée à Cuesmes (7033) ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Intervention express en 25 à 30 minutes. Pompes de relevage, colmatage de fuite et artisans certifiés disponibles 24h/24.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Cuesmes"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>WhatsApp Dépanneur Cuesmes</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

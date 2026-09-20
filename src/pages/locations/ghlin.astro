@@ -1,0 +1,383 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const coveredAreas = [
+  "Centre de Ghlin & Place communale",
+  "Axe Chaussée de Ghlin (N50)",
+  "Abords de l'Hippodrome de Wallonie",
+  "Zone industrielle et artisanale de Ghlin-Baudour",
+  "Quartier du Festinoy & Cité des Déportés",
+  "Rue des Sablières & Bois de Ghlin",
+  "Route de Wallonie (N552)",
+  "Lotissements résidentiels récents et villas individuelles"
+];
+
+const drivingRoutes = [
+  {
+    from: "Depuis l'Autoroute E19 / E42 (Sortie 23 Nimy - Ghlin)",
+    route: "Prendre directement la bretelle N552 Route de Wallonie, puis bifurquer vers la Chaussée de Ghlin.",
+    time: "6 à 8 minutes",
+    note: "Itinéraire prioritaire ultra-fluide même lors du trafic autoroutier matinal."
+  },
+  {
+    from: "Depuis l'Hippodrome de Wallonie",
+    route: "Descendre la Route de Wallonie puis emprunter la Rue de Mons en direction du centre de Ghlin.",
+    time: "4 à 6 minutes",
+    note: "Accès instantané pour les résidences pavillonnaires de l'ouest ghlinois."
+  },
+  {
+    from: "Depuis la Route de Tournai (N50)",
+    route: "Bifurquer à hauteur du carrefour des Sablières pour desservir le nord de Ghlin et la zone artisanale.",
+    time: "5 à 7 minutes",
+    note: "Camions de débouchage 200 bars directement déployés sur place."
+  },
+  {
+    from: "Depuis Mons Centre (Boulevard Sainctelette)",
+    route: "Prendre l'Avenue de Jemappes puis remonter le viaduc vers Ghlin-Centre.",
+    time: "8 à 10 minutes",
+    note: "Liaison directe depuis notre atelier de garde montois."
+  }
+];
+
+const localChallenges = [
+  {
+    title: "Intrusions de racines dans les canalisations enterrées",
+    icon: "park",
+    desc: "Les nombreuses maisons individuelles avec jardins arborés à Ghlin subissent régulièrement l'invasion de racines dans les collecteurs en grès ou PVC. Nous procédons au fraisage mécanique rotatif et à l'inspection par caméra HD."
+  },
+  {
+    title: "Eau exceptionnellement calcaire SWDE (36°fH)",
+    icon: "water_drop",
+    desc: "À Ghlin, la dureté de l'eau accélère le colmatage des serpentins de chaudière et brûle les résistances de boiler en moins de 3 ans. Nous installons des adoucisseurs d'eau compacts BWT et Durlem garantis 10 ans."
+  },
+  {
+    title: "Curage de sterputs de cour et fosses septiques",
+    icon: "cleaning_services",
+    desc: "Certains secteurs anciens de Ghlin disposent encore de fosses septiques ou de sterputs de jardin reliant les eaux pluviales et usées. Nos hydrocureuses 200 bars nettoient en profondeur et suppriment les odeurs de refoulement."
+  },
+  {
+    title: "Chaudières gaz à condensation & conformité CERGA",
+    icon: "mode_heat",
+    desc: "L'habitat pavillonnaire étant chauffé au gaz individuel, l'entretien triennal légal imposé par la Région Wallonne est obligatoire. Nos chauffagistes CERGA délivrent l'attestation officielle de contrôle périodique."
+  }
+];
+
+const competitorComparison = [
+  {
+    criterion: "Temps d'arrivée réel à Ghlin (7011)",
+    us: "25 à 30 minutes garanties 24h/7",
+    national: "2 à 3 heures (sous-traitants régionaux)",
+    handyman: "Plusieurs jours d'attente"
+  },
+  {
+    criterion: "Équipement d'hydrocurage haute pression 200 bars",
+    us: "Embarqué dans chaque camionnette d'astreinte",
+    national: "En supplément hors de prix sur devis",
+    handyman: "Simple furet manuel inefficace"
+  },
+  {
+    criterion: "Spécialiste de l'eau dure locale (SWDE Ghlin)",
+    us: "Diagnostic dureté offert & pose adoucisseurs agréés",
+    national: "Incompétent sur les spécificités du calcaire montois",
+    handyman: "Aucune expertise de traitement d'eau"
+  },
+  {
+    criterion: "Devis préalable écrit sans engagement",
+    us: "Systématique et signé avant tout travail",
+    national: "Prix opaque au téléphone avec mauvaises surprises",
+    handyman: "Tarifs variables sans garantie"
+  },
+  {
+    criterion: "Agrément officiel CERGA & Région Wallonne",
+    us: "Chauffagiste certifié G1/G2 & attestation officielle",
+    national: "Rarement certifié en Wallonie",
+    handyman: "Aucun agrément légal"
+  },
+  {
+    criterion: "TVA 6 % pour les habitations de plus de 10 ans",
+    us: "Appliquée légalement sur devis et facture",
+    national: "Facturation standard 21 % ou TVA obscure",
+    handyman: "Travail non déclaré sans facture"
+  }
+];
+
+const faqs = [
+  {
+    q: "Quel est le délai réel pour un dépannage urgent à Ghlin ?",
+    a: "Grâce à notre proximité immédiate avec l'échangeur E19/E42 et la N552, nos techniciens arrivent chez vous à Ghlin en 25 à 30 minutes réelles, de jour comme de nuit."
+  },
+  {
+    q: "Quelle est la dureté de l'eau à Ghlin et faut-il un adoucisseur ?",
+    a: "L'eau distribuée par la SWDE à Ghlin affiche un titre hydrotimétrique de 34 à 37°fH (très dure). L'installation d'un adoucisseur d'eau est vivement conseillée pour protéger vos tuyauteries, sanitaires et électroménagers."
+  },
+  {
+    q: "Pouvez-vous déboucher une canalisation extérieure bouchée par des racines ?",
+    a: "Oui, nous disposons de têtes rotatives coupantes montées sur nos furets électriques et de buses coupe-racines haute pression (200 bars) pour libérer complètement la conduite sans devoir creuser votre jardin."
+  },
+  {
+    q: "Délivrez-vous l'attestation officielle wallonne pour l'entretien de chaudière ?",
+    a: "Oui, nos chauffagistes sont habilités G1/G2 par la Région Wallonne et labellisés CERGA. L'attestation de contrôle périodique légale vous est remise immédiatement après l'analyse électronique des fumées."
+  }
+];
+---
+
+<Layout
+  title="Plombier Ghlin 7011 | Dépannage Plomberie, Débouchage & Chaudière 24/7"
+  description="Plombier à Ghlin (7011). Dépannage d'urgence sous 30 min : fuite d'eau, débouchage canalisation, pose adoucisseur calcaire et entretien chaudière CERGA. Devis gratuit."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Plombier Chauffagiste Dépanneur à 7011 Ghlin</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Plombier à Ghlin (7011) : Urgence Plomberie en <span class="text-primary-container underline decoration-tertiary-container decoration-4">30 Minutes</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Canalisation extérieure bouchée, fuite sur tuyauterie, panne de boiler ou chaudière gaz en sécurité à Ghlin ? Nos artisans dépanneurs interviennent <strong>en 30 minutes 24h/24 et 7j/7</strong> avec du matériel professionnel adapté aux maisons individuelles.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Arrivée en 25 à 30 min à Ghlin</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">cleaning_services</span>
+              <span>Hydrocureuse 200 bars & caméra endoscopique</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Agréé CERGA & Wallonie (TVA 6%)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">receipt_long</span>
+              <span>Devis écrit transparent sans surprise</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20un%20problème%20de%20plomberie%20à%20Ghlin%20(7011)"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Urgence Ghlin</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Dépannage Plombier Ghlin" subtitle="Urgence 24/7 ou rendez-vous d'entretien à Ghlin 7011" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Local Service Area Details -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Secteurs Desservis</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Zones d'intervention à Ghlin (Code Postal 7011)
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          De l'Hippodrome aux zones artisanales et aux quartiers résidentiels calmes, nous couvrons chaque rue de Ghlin.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {coveredAreas.map((area) => (
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">location_on</span>
+            <span class="text-xs md:text-sm font-semibold text-primary">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Directions from Major Landmarks -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Itinéraires Express</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Nos accès d'urgence pour arriver en 25 minutes à Ghlin
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Positionnés aux embranchements stratégiques de l'E19 et de la N552, nos dépanneurs évitent les ralentissements.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {drivingRoutes.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container text-[22px]">directions_car</span>
+                <span>{item.from}</span>
+              </h3>
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary-container font-extrabold text-xs">
+                {item.time}
+              </span>
+            </div>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{item.route}</p>
+            <p class="text-[11px] font-semibold text-secondary flex items-center gap-1.5 pt-1">
+              <span class="material-symbols-outlined text-[16px]">info</span>
+              <span>{item.note}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhood-Specific Plumbing Challenges -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Spécificités Locales</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Les problèmes de plomberie récurrents rencontrés à Ghlin
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Le profil pavillonnaire et la dureté extrême de l'eau à Ghlin demandent une expertise ciblée.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {localChallenges.map((ch) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">{ch.icon}</span>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="font-headline-sm text-base text-primary font-bold">{ch.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{ch.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Competitor Comparison Table -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Comparatif Transparent</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Plombier Mons Urgent vs Intermédiaires Web à Ghlin
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Ne vous laissez pas piéger par les plateformes de mise en relation basées à l'étranger.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-primary/10 shadow-sm bg-surface-container-lowest">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-surface-container-high text-primary border-b border-primary/10">
+              <th class="p-4 font-bold">Critères de choix</th>
+              <th class="p-4 font-extrabold text-primary-container bg-primary/5">Plombier Mons Urgent</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Plateformes web nationales</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Dépanneurs non agréés</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-primary/5">
+            {competitorComparison.map((row) => (
+              <tr class="hover:bg-surface-container-low/50 transition-colors">
+                <td class="p-4 font-bold text-primary">{row.criterion}</td>
+                <td class="p-4 font-bold text-primary-container bg-primary/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span>
+                    <span>{row.us}</span>
+                  </div>
+                </td>
+                <td class="p-4 text-on-surface-variant">{row.national}</td>
+                <td class="p-4 text-on-surface-variant">{row.handyman}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQs -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur nos services de plomberie à Ghlin
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Besoin d'un plombier en urgence à Ghlin (7011) ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Permanence téléphonique 24h/24 et 7j/7. Arrivée garantie en 30 minutes chez vous à Ghlin avec devis validé avant travaux.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Ghlin"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>WhatsApp Dépanneur Ghlin</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

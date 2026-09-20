@@ -1,0 +1,389 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const coveredAreas = [
+  "Grand-Place et centre piétonnier (Rue de la Chaussée, Grand-Rue)",
+  "Quartier du Beffroi & Parc du Château",
+  "Axe Gare de Mons & Place Léopold",
+  "Boulevards intérieurs (Dolez, Sainctelette, Initialis)",
+  "Quartier du Waux-Hall & Avenue Frère Orban",
+  "Quartier Bertaimont & Porte de France",
+  "Avenue Baudouin de Constantinople & Ursulines",
+  "Zonings tertiaires et campus universitaires (UMONS, UCLouvain FUCaM)"
+];
+
+const drivingRoutes = [
+  {
+    from: "Depuis la Gare de Mons (Place Léopold)",
+    route: "Prendre le Boulevard Charles Quint (R20) puis remonter par l'Avenue Frère Orban ou la Rue de la Halle vers le centre-ville.",
+    time: "5 à 8 minutes",
+    note: "Accès facilité avec nos utilitaires compacts équipés pour les rues pavées."
+  },
+  {
+    from: "Depuis l'Autoroute E19 / E42 (Sortie 24 Mons)",
+    route: "Suivre la N56 / Avenue du Tir vers le Boulevard Winston Churchill, puis rejoindre la petite ceinture montoise.",
+    time: "8 à 12 minutes",
+    note: "Axe direct évitant les goulets d'étranglement aux heures de pointe."
+  },
+  {
+    from: "Depuis les Grands Prés / Shopping & Initialis",
+    route: "Emprunter l'Avenue Thomas Edison, traverser le nouveau pont de la gare et rejoindre le Boulevard Gendebien.",
+    time: "6 à 10 minutes",
+    note: "Intervention express pour les commerces et habitations riveraines."
+  },
+  {
+    from: "Accès aux rues piétonnes & zone historique",
+    route: "Bornes escamotables franchies grâce à nos autorisations de dépannage d'urgence de la Ville de Mons.",
+    time: "Immédiat",
+    note: "Dépannage garanti au pied de votre immeuble même en zone piétonne."
+  }
+];
+
+const localChallenges = [
+  {
+    title: "Tuyauteries anciennes en plomb ou fonte",
+    icon: "history_edu",
+    desc: "De nombreux immeubles du centre historique datant du 19e et début 20e siècle possèdent encore des conduites d'évacuation en fonte fissurées ou des arrivées en plomb nécessitant un remplacement d'urgence en multicouche certifié."
+  },
+  {
+    title: "Entartrage accéléré par l'eau SWDE (35°fH)",
+    icon: "water_drop",
+    desc: "L'eau distribuée dans le centre de Mons est exceptionnellement dure. Les boilers électriques, mitigeurs thermostatiques et mécanismes de WC suspendus Geberit s'encrassent deux fois plus vite qu'ailleurs en Wallonie."
+  },
+  {
+    title: "Chasses d'eau encastrées et pertes d'eau silencieuses",
+    icon: "plumbing",
+    desc: "Dans les appartements et rénovations récentes, les fuites de mécanismes suspendus non visibles génèrent des pertes de plusieurs centaines de litres par jour. Nous réparons avec des pièces d'origine Geberit en stock immédiat."
+  },
+  {
+    title: "Faible pression d'eau dans les étages élevés",
+    icon: "speed",
+    desc: "La configuration des vieilles maisons montoises reconverties en kots d'étudiants ou appartements multiples engendre souvent des chutes de débit aux douches du 2e et 3e étage. Nous installons des surpresseurs et régulateurs adaptés."
+  }
+];
+
+const competitorComparison = [
+  {
+    criterion: "Siège et techniciens réellement basés à Mons",
+    us: "Oui (Rue de la Chaussée 42, 7000 Mons)",
+    national: "Non (Call center à Bruxelles ou Paris, sous-traitance aléatoire)",
+    handyman: "Variable (Pas d'atelier fixe, souvent injoignable)"
+  },
+  {
+    criterion: "Délai réel d'arrivée sur Mons Centre",
+    us: "25 à 35 minutes garanties 24h/7",
+    national: "2 à 4 heures (dépend des sous-traitants externes)",
+    handyman: "Le lendemain ou plusieurs jours"
+  },
+  {
+    criterion: "Devis écrit avant travaux & transparence prix",
+    us: "100% systématique et validé avant démontage",
+    national: "Flou au téléphone, surfacturations fréquentes",
+    handyman: "Prix 'à la louche' sans engagement écrit"
+  },
+  {
+    criterion: "Agréments belges officiels (CERGA / Wallonie)",
+    us: "Agréé Gaz CERGA & Habilité G1/G2 Wallonie",
+    national: "Non certifié (souvent sous-traitants non déclarés)",
+    handyman: "Rarement agréé, assurances non valides"
+  },
+  {
+    criterion: "TVA réduite à 6 % (logements > 10 ans)",
+    us: "Facture officielle éligible TVA 6 %",
+    national: "Application floue ou TVA 21 % systématique",
+    handyman: "Factures inexistantes sans recours fiscal"
+  },
+  {
+    criterion: "Équipement d'inspection haute précision",
+    us: "Caméra thermique FLIR, hydrocureuse 200 bars, gaz traceur",
+    national: "Outillage sommaire non spécialisé",
+    handyman: "Simple furet manuel et clé à molette"
+  },
+  {
+    criterion: "Disponibilité d'urgence réelle",
+    us: "24h/24, 7j/7, dimanches et jours fériés",
+    national: "Standard téléphonique qui renvoie vers un répondeur",
+    handyman: "Horaires de bureau uniquement"
+  }
+];
+
+const faqs = [
+  {
+    q: "Pouvez-vous intervenir dans les rues piétonnes du centre de Mons ?",
+    a: "Oui, nos camionnettes d'intervention disposent des autorisations nécessaires pour accéder aux zones piétonnes de Mons (Rue de la Chaussée, Grand-Rue, Marché-aux-Herbes) à toute heure pour les urgences avérées."
+  },
+  {
+    q: "Quel est le délai moyen pour une fuite d'eau à Mons 7000 ?",
+    a: "Étant basés à Mons même, notre artisan arrive généralement en 25 à 35 minutes à votre adresse intra-muros ou le long des boulevards."
+  },
+  {
+    q: "Intervenez-vous dans les résidences étudiantes et kots à Mons ?",
+    a: "Oui, nous dépannons quotidiennement les propriétaires, agences immobilières et étudiants pour des problèmes de WC bouchés, douches qui fuient ou coupures d'eau chaude."
+  },
+  {
+    q: "Proposez-vous un rapport pour mon assurance habitation ?",
+    a: "Absolument. En cas de dégât des eaux, nous établissons un rapport technique certifié avec photos et localisation de la fuite, utilisable pour votre déclaration auprès d'Ethias, AXA, AG Insurance, etc."
+  }
+];
+---
+
+<Layout
+  title="Plombier Mons Centre 7000 | Dépannage Urgence 24h/24 en 25 Min"
+  description="Plombier d'urgence à Mons Centre (7000). Dépannage fuite, débouchage WC, boiler et chaudière gaz. Arrivée en 25–35 min Grand-Place, Waux-Hall, Gare. Devis gratuit."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Artisan Plombier Basé à 7000 Mons Centre</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Plombier à Mons Centre (7000) : Dépannage en <span class="text-primary-container underline decoration-tertiary-container decoration-4">25 à 35 Min</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Une fuite d'eau, un WC bouché ou une panne de chaudière dans l'intra-muros ou près de la Grand-Place ? Notre atelier est situé à Mons : <strong>intervention immédiate 24h/24 et 7j/7</strong> au cœur de la cité du Doudou.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">near_me</span>
+              <span>Arrivée en 25-35 min à Mons Centre</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">badge</span>
+              <span>Agrément officiel CERGA & Région Wallonne</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">price_check</span>
+              <span>Devis écrit avant toute réparation</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">percent</span>
+              <span>TVA réduite à 6 % (logements > 10 ans)</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20un%20problème%20de%20plomberie%20à%20Mons%20Centre%20(7000)"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Urgence Mons</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Dépannage Mons Centre" subtitle="Intervention d'urgence ou devis gratuit à Mons 7000" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Local Service Area Details -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Zone d'Action Ultra-Locale</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Secteur de desserte à Mons Centre (Code Postal 7000)
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Nous couvrons l'ensemble des quartiers du centre historique et des boulevards périphériques sans aucun surcoût kilométrique.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {coveredAreas.map((area, idx) => (
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">location_on</span>
+            <span class="text-xs md:text-sm font-semibold text-primary">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Directions from Major Landmarks -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Itinéraires & Accès Rapide</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Comment nos plombiers arrivent en 25 minutes chez vous à Mons
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Grâce à une parfaite connaissance des axes de circulation de Mons, nos camions d'astreinte contournent les bouchons pour être sur place immédiatement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {drivingRoutes.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container text-[22px]">directions_car</span>
+                <span>{item.from}</span>
+              </h3>
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary-container font-extrabold text-xs">
+                {item.time}
+              </span>
+            </div>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{item.route}</p>
+            <p class="text-[11px] font-semibold text-secondary flex items-center gap-1.5 pt-1">
+              <span class="material-symbols-outlined text-[16px]">info</span>
+              <span>{item.note}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhood-Specific Plumbing Challenges -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Diagnostic Territorial</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Spécificités et pièges de la plomberie à Mons Centre
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          L'habitat montois présente des contraintes techniques particulières que nos techniciens chevronnés maîtrisent sur le bout des doigts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {localChallenges.map((ch) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">{ch.icon}</span>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="font-headline-sm text-base text-primary font-bold">{ch.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{ch.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Competitor Comparison Table -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Transparence Totale</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Pourquoi nous faire confiance plutôt qu'aux plateformes web à Mons ?
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Comparez notre service d'artisan local déclaré avec les centrales d'intermédiation et dépanneurs non certifiés.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-primary/10 shadow-sm bg-surface-container-lowest">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-surface-container-high text-primary border-b border-primary/10">
+              <th class="p-4 font-bold">Critères de choix</th>
+              <th class="p-4 font-extrabold text-primary-container bg-primary/5">Plombier Mons Urgent</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Plateformes web nationales</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Dépanneurs non agréés</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-primary/5">
+            {competitorComparison.map((row) => (
+              <tr class="hover:bg-surface-container-low/50 transition-colors">
+                <td class="p-4 font-bold text-primary">{row.criterion}</td>
+                <td class="p-4 font-bold text-primary-container bg-primary/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span>
+                    <span>{row.us}</span>
+                  </div>
+                </td>
+                <td class="p-4 text-on-surface-variant">{row.national}</td>
+                <td class="p-4 text-on-surface-variant">{row.handyman}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQs -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur le dépannage à Mons Centre
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Urgence plomberie à Mons Centre (7000) ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Nos techniciens d'astreinte sont déjà sur le secteur de Mons intra-muros. Arrivée en 25 à 35 minutes garantie.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Mons%20Centre"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>WhatsApp d'Urgence</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

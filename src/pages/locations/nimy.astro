@@ -1,0 +1,377 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const coveredAreas = [
+  "Nimy-Centre & Place communale",
+  "Port de Plaisance du Grand-Large & Marina",
+  "Maisières & Rue Grande",
+  "Abords du SHAPE (Quartier général de l'OTAN / NATO)",
+  "Chaussée de Bruxelles (N6) & N56",
+  "Quartier résidentiel du Bois Brûlé",
+  "Casteau & résidences d'expatriés militaires",
+  "Zone de transit E19/E42 Nimy-Maisières"
+];
+
+const drivingRoutes = [
+  {
+    from: "Depuis l'Échangeur E19 / E42 (Sortie 23 Nimy - Maisières)",
+    route: "Prendre directement la sortie vers la N56, accès direct au rond-point du Grand-Large et au cœur de Nimy.",
+    time: "2 à 4 minutes",
+    note: "Position ultra-stratégique pour un temps de réponse record."
+  },
+  {
+    from: "Depuis la Base OTAN / SHAPE (Maisières / Casteau)",
+    route: "Descendre en ligne droite la Chaussée de Bruxelles (N6) vers Maisières et Nimy.",
+    time: "5 à 7 minutes",
+    note: "Service d'urgence bilingue FR/EN pour les officiers et familles d'expatriés."
+  },
+  {
+    from: "Depuis le Port de Plaisance du Grand-Large",
+    route: "Rejoindre l'Avenue de la Sapinette ou la Rue de Nimy vers les résidences fluviales et pavillons.",
+    time: "3 à 5 minutes",
+    note: "Dépannage express sanitaires et adoucisseurs d'eau."
+  },
+  {
+    from: "Depuis Mons Centre (Porte du Parc / Nimy)",
+    route: "Traverser le passage à niveau et la Rue de Nimy en direction du nord.",
+    time: "5 à 8 minutes",
+    note: "Nos techniciens basés à Mons interviennent sans délai."
+  }
+];
+
+const localChallenges = [
+  {
+    title: "Service d'urgence bilingue (French / English for SHAPE)",
+    icon: "translate",
+    desc: "Avec la présence du Supreme Headquarters Allied Powers Europe (SHAPE) à Maisières, de nombreuses familles d'expatriés et militaires de l'OTAN recherchent des artisans capables d'expliquer les devis et factures en anglais."
+  },
+  {
+    title: "Sanitaires haut de gamme et bâtis Geberit encastrés",
+    icon: "wash",
+    desc: "Les villas récentes et appartements de standing autour du Grand-Large comportent des douches à l'italienne de précision, de la robinetterie encastrée Grohe/Hansgrohe et des mécanismes Geberit nécessitant des pièces d'origine."
+  },
+  {
+    title: "Entartrage massif de l'eau SWDE (36°fH)",
+    icon: "water_drop",
+    desc: "Le calcaire montois attaque particulièrement les échangeurs de chaudière gaz et les boilers thermodynamiques. L'installation d'un adoucisseur d'eau sans électricité ou volumétrique est la solution adoptée par la majorité des résidents."
+  },
+  {
+    title: "Attestation officielle wallonne pour baux locatifs",
+    icon: "receipt_long",
+    desc: "Pour les locataires du personnel militaire ou international, l'attestation de contrôle périodique de chaudière gaz CERGA conforme à la Région Wallonne est obligatoire lors de chaque état des lieux de sortie."
+  }
+];
+
+const competitorComparison = [
+  {
+    criterion: "Temps d'arrivée réel à Nimy & Maisières",
+    us: "20 à 30 minutes garanties 24h/7",
+    national: "2 à 4 heures (centrales d'appel)",
+    handyman: "Plusieurs jours d'attente"
+  },
+  {
+    criterion: "Support et communication bilingue (Français / Anglais)",
+    us: "Oui (Devis et explications claires en anglais pour résidents SHAPE)",
+    national: "Non (opérateurs francophones uniquement)",
+    handyman: "Non"
+  },
+  {
+    criterion: "Spécialiste équipements Geberit, Grohe & adoucisseurs",
+    us: "Pièces d'origine en stock permanent dans le véhicule",
+    national: "Pièces génériques bas de gamme",
+    handyman: "Bricolage inadapté aux marques de prestige"
+  },
+  {
+    criterion: "Agrément officiel CERGA & Wallonie (G1/G2)",
+    us: "Techniciens certifiés habilités avec attestation officielle",
+    national: "Sous-traitants sans certification locale",
+    handyman: "Non agréé"
+  },
+  {
+    criterion: "TVA 6 % pour les habitations de plus de 10 ans",
+    us: "Facturation officielle conforme aux lois belges",
+    national: "Facturations opaques ou TVA 21 %",
+    handyman: "Aucune facture"
+  }
+];
+
+const faqs = [
+  {
+    q: "Do you provide emergency plumbing service in English for SHAPE personnel in Maisières?",
+    a: "Yes! Our plumbers frequently assist NATO / SHAPE families and expatriates living in Maisières, Nimy, and Casteau. We can communicate clearly in English, provide detailed written invoices, and ensure compliance with Belgian rental regulations."
+  },
+  {
+    q: "Combien de temps faut-il pour intervenir au Grand-Large ou à Maisières ?",
+    a: "Étant situés à quelques minutes de la sortie 23 de l'E19, nos camionnettes d'astreinte arrivent chez vous à Nimy ou Maisières en 20 à 25 minutes réelles."
+  },
+  {
+    q: "Fournissez-vous l'attestation officielle d'entretien de chaudière gaz requise par le propriétaire ?",
+    a: "Oui, nous sommes agréés CERGA et habilités G1/G2 en Région Wallonne. Nous réalisons le contrôle périodique légal, l'analyse électronique des fumées et vous remettons l'attestation officielle de conformité indispensable pour votre bail."
+  },
+  {
+    q: "Installez-vous des adoucisseurs d'eau anti-calcaire à Nimy ?",
+    a: "Oui, nous posons des adoucisseurs volumétriques ultra-économiques et des modèles écologiques sans électricité (BWT, Durlem) adaptés à la dureté extrême de l'eau de la SWDE (36°fH)."
+  }
+];
+---
+
+<Layout
+  title="Plombier Nimy & Maisières 7020 | Dépannage SHAPE, Grand-Large & 24/7"
+  description="Plombier à Nimy & Maisières (7020). Service bilingue FR/EN pour résidents SHAPE & Grand-Large. Dépannage fuite, WC Geberit, adoucisseur calcaire et chaudière CERGA."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Plombier Dépanneur 7020 Nimy • Maisières • SHAPE (Bilingual FR/EN)</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Plombier à Nimy & Maisières (7020) : Urgence en <span class="text-primary-container underline decoration-tertiary-container decoration-4">25 Minutes</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Intervention rapide pour les résidences du <strong>Grand-Large, de Nimy et du personnel SHAPE / OTAN à Maisières</strong>. Fuites d'eau, sanitaires Geberit, pose d'adoucisseurs et entretien de chaudières gaz CERGA.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Arrivée en 20 à 25 min (E19 Sortie 23)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">translate</span>
+              <span>Bilingual English / French assistance for SHAPE</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Agréé CERGA & Région Wallonne (TVA 6%)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">shield</span>
+              <span>Pièces certifiées Geberit, Grohe & Durlem</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Nimy%20ou%20Maisières%20(7020)"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Urgence Nimy</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Dépannage Nimy & Maisières" subtitle="Intervention d'urgence 24/7 ou devis gratuit à Nimy 7020" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Local Service Area Details -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Secteur Nord-Mons</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Zones d'intervention à Nimy, Maisières et abords SHAPE (7020)
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          De la marina du Grand-Large aux quartiers résidentiels calmes de Maisières et Casteau.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {coveredAreas.map((area) => (
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">location_on</span>
+            <span class="text-xs md:text-sm font-semibold text-primary">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Directions from Major Landmarks -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Itinéraires Clés</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Comment nous intervenons en 20 minutes à Nimy et Maisières
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Accès immédiat via la sortie 23 de l'E19 et la Chaussée de Bruxelles (N6).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {drivingRoutes.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container text-[22px]">directions_car</span>
+                <span>{item.from}</span>
+              </h3>
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary-container font-extrabold text-xs">
+                {item.time}
+              </span>
+            </div>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{item.route}</p>
+            <p class="text-[11px] font-semibold text-secondary flex items-center gap-1.5 pt-1">
+              <span class="material-symbols-outlined text-[16px]">info</span>
+              <span>{item.note}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhood-Specific Plumbing Challenges -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Exigences Techniques</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Plomberie de standing et contraintes locales à Nimy
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Des équipements sanitaires de marques réputées face à une eau très calcaire.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {localChallenges.map((ch) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">{ch.icon}</span>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="font-headline-sm text-base text-primary font-bold">{ch.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{ch.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Competitor Comparison Table -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Service Garanti</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Pourquoi les résidents de Nimy et du SHAPE nous choisissent
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Un artisanat d'excellence certifié, transparent et parfaitement bilingue.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-primary/10 shadow-sm bg-surface-container-lowest">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-surface-container-high text-primary border-b border-primary/10">
+              <th class="p-4 font-bold">Critères de choix</th>
+              <th class="p-4 font-extrabold text-primary-container bg-primary/5">Plombier Mons Urgent</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Plateformes web nationales</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Dépanneurs non agréés</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-primary/5">
+            {competitorComparison.map((row) => (
+              <tr class="hover:bg-surface-container-low/50 transition-colors">
+                <td class="p-4 font-bold text-primary">{row.criterion}</td>
+                <td class="p-4 font-bold text-primary-container bg-primary/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span>
+                    <span>{row.us}</span>
+                  </div>
+                </td>
+                <td class="p-4 text-on-surface-variant">{row.national}</td>
+                <td class="p-4 text-on-surface-variant">{row.handyman}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQs -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur nos services à Nimy & Maisières
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Urgence plomberie à Nimy ou Maisières (7020) ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Service bilingue FR/EN d'urgence 24h/24 et 7j/7. Arrivée garantie en 20 à 25 minutes avec devis clair préalable.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Nimy%20ou%20Maisières"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>WhatsApp Dépanneur Nimy</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

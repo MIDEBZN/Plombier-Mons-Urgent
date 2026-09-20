@@ -1,0 +1,383 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const coveredAreas = [
+  "Frameries-Centre & Grand-Place",
+  "La Bouverie & Cité des Écoliers",
+  "Eugies & Place communale",
+  "Abords du Parc d'Aventures Scientifiques Spark (ex-Pass)",
+  "Noirchain & Sars-la-Bruyère",
+  "Chaussée de Frameries (N544)",
+  "Axe vers Colfontaine, Boussu et Quaregnon",
+  "Cités minières rénovées et zones résidentielles pavillonnaires"
+];
+
+const drivingRoutes = [
+  {
+    from: "Depuis le R5 (Sortie 2 Frameries)",
+    route: "Prendre la N544 Chaussée de Frameries directement vers le centre et les axes commerçants.",
+    time: "4 à 6 minutes",
+    note: "Axe ultra-rapide reliant notre base logistique montoise au cœur du 7080."
+  },
+  {
+    from: "Depuis le Parc Spark / Pass (Rue de Mons)",
+    route: "Descendre la Rue de Mons en direction de la Grand-Place de Frameries.",
+    time: "3 à 5 minutes",
+    note: "Accès instantané aux cités et rues résidentielles du nord de la commune."
+  },
+  {
+    from: "Depuis La Bouverie & Eugies",
+    route: "Emprunter la Rue Sainte-Philomène ou la Rue Ferrer pour rallier le centre en quelques minutes.",
+    time: "4 à 6 minutes",
+    note: "Nos artisans dépanneurs interviennent sur tout le plateau borain."
+  },
+  {
+    from: "Depuis Mons Sud (Boulevard Dolez)",
+    route: "Rejoindre la N544 via Cuesmes pour une ligne droite de moins de 7 kilomètres.",
+    time: "8 à 10 minutes",
+    note: "Arrivée garantie en moins de 30 minutes de jour comme de nuit."
+  }
+];
+
+const localChallenges = [
+  {
+    title: "Mouvements de terrain minier & tuyaux déboîtés",
+    icon: "terrain",
+    desc: "Le sous-sol du bassin borain à Frameries et La Bouverie a connu de légers tassements avec les décennies. Les canalisations d'évacuation en grès ou fonte se fissurent, créant des ruptures de pente et des blocages récurrents."
+  },
+  {
+    title: "Inspection caméra HD pour diagnostiquer sans creuser",
+    icon: "videocam",
+    desc: "Plutôt que de démolir les allées ou les dalles de béton, nous introduisons notre caméra endoscopique pour localiser l'écrasement ou le déboîtement exact et limiter les frais de terrassement."
+  },
+  {
+    title: "Chaudières gaz murales & attestation légale Wallonie",
+    icon: "mode_heat",
+    desc: "La majorité des foyers framerisois utilise le gaz naturel pour se chauffer. Nos techniciens certifiés CERGA réalisent l'entretien triennal réglementaire obligatoire avec attestation légale officielle."
+  },
+  {
+    title: "Eau exceptionnellement dure SWDE (35 à 37°fH)",
+    icon: "water_drop",
+    desc: "À Frameries, le tartre colmate rapidement les résistances des chauffe-eau électriques et réduit le débit d'eau chaude. Nous assurons le détartrage d'urgence et la pose d'adoucisseurs économiques."
+  }
+];
+
+const competitorComparison = [
+  {
+    criterion: "Temps d'arrivée réel à Frameries (7080)",
+    us: "25 à 35 minutes garanties 24h/7",
+    national: "2 à 4 heures via call centers distants",
+    handyman: "Plusieurs jours d'attente"
+  },
+  {
+    criterion: "Hydrocureuse 200 bars pour canalisations et égouts",
+    us: "Équipement haute pression présent dans nos véhicules",
+    national: "Facturé avec supplément imprévu",
+    handyman: "Simple furet manuel inefficace"
+  },
+  {
+    criterion: "Agrément officiel CERGA & Région Wallonne (G1/G2)",
+    us: "Attestation officielle wallonne remise sur place",
+    national: "Rarement certifié en Wallonie",
+    handyman: "Non agréé"
+  },
+  {
+    criterion: "Devis transparent préalable écrit",
+    us: "100% garanti et signé avant démontage",
+    national: "Tarifs flous et devis surprises",
+    handyman: "Devis oral sans recours"
+  },
+  {
+    criterion: "TVA réduite à 6 % (habitations > 10 ans)",
+    us: "Directement appliquée sur devis et facture",
+    national: "TVA 21 % courante",
+    handyman: "Aucune facture officielle"
+  },
+  {
+    criterion: "Disponibilité 24h/24 dans le Borinage",
+    us: "Intervention nocturne, week-ends et fériés réels",
+    national: "Standard automatique fermé la nuit",
+    handyman: "Uniquement du lundi au vendredi"
+  }
+];
+
+const faqs = [
+  {
+    q: "Quel est le délai moyen d'intervention pour une urgence à Frameries ?",
+    a: "Nos camionnettes d'astreinte étant basées à Mons et mobiles sur le R5, nous arrivons généralement en 25 à 35 minutes à votre domicile à Frameries, La Bouverie ou Eugies."
+  },
+  {
+    q: "Mon évier et mes toilettes glougloutent à La Bouverie, qu'est-ce que cela signifie ?",
+    a: "Ce phénomène indique un appel d'air anormal causé par un début de bouchon dans la colonne d'évacuation principale ou un défaut de ventilation d'égout. Une intervention au furet électrique ou à l'hydrocureuse permet de libérer le conduit avant le refoulement."
+  },
+  {
+    q: "Délivrez-vous l'attestation légale pour l'entretien de chaudière à Frameries ?",
+    a: "Oui, nos techniciens sont agréés CERGA et habilités G1/G2 en Région Wallonne. L'attestation de contrôle périodique obligatoire pour votre assurance et votre bailleur vous est délivrée immédiatement."
+  },
+  {
+    q: "Proposez-vous un diagnostic de fuite sans casse pour mon assurance ?",
+    a: "Tout à fait. Grâce à notre caméra thermique et nos appareils acoustiques, nous localisons la fuite avec une précision millimétrique sous carrelage ou chape, et établissons le rapport technique requis par votre assureur belge."
+  }
+];
+---
+
+<Layout
+  title="Plombier Frameries 7080 | Dépannage Débouchage, Fuite & Chaudière 24/7"
+  description="Plombier à Frameries (7080) & Borinage. Dépannage d'urgence sous 30 min : fuite d'eau, débouchage canalisation, entretien chaudière CERGA et boiler. Devis gratuit."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Plombier Dépanneur 7080 Frameries • La Bouverie • Eugies</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Plombier à Frameries (7080) : Dépannage Express en <span class="text-primary-container underline decoration-tertiary-container decoration-4">30 Minutes</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Canalisation bouchée, fuite sur tuyau cuivre, panne d'eau chaude ou chaudière gaz à l'arrêt à Frameries et dans le Borinage ? Nos équipes qualifiées interviennent <strong>en 25 à 35 minutes 24h/24 et 7j/7</strong> avec outillage professionnel et devis validé avant travaux.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Arrivée en 25 à 35 min à Frameries & Borinage</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">plumbing</span>
+              <span>Hydrocurage 200 bars & caméra endoscopique</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Agréé CERGA & Région Wallonne (TVA 6%)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">price_check</span>
+              <span>Devis écrit préalable au centime près</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Frameries%20(7080)"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Urgence Frameries</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Dépannage Frameries" subtitle="Urgence 24/7 ou devis gratuit à Frameries 7080" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Local Service Area Details -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Périmètre Borain</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Zones d'intervention à Frameries et communes voisines (7080)
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          De Frameries-Centre à La Bouverie, Eugies et Noirchain, nous couvrons chaque rue sans supplément de déplacement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {coveredAreas.map((area) => (
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">location_on</span>
+            <span class="text-xs md:text-sm font-semibold text-primary">{area}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Directions from Major Landmarks -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Accès & Mobilité</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Nos itinéraires pour arriver en 25 à 35 minutes à Frameries
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Grâce à la proximité immédiate du R5 et de la N544, nos dépanneurs se déploient immédiatement chez vous.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {drivingRoutes.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container text-[22px]">directions_car</span>
+                <span>{item.from}</span>
+              </h3>
+              <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary-container font-extrabold text-xs">
+                {item.time}
+              </span>
+            </div>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{item.route}</p>
+            <p class="text-[11px] font-semibold text-secondary flex items-center gap-1.5 pt-1">
+              <span class="material-symbols-outlined text-[16px]">info</span>
+              <span>{item.note}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhood-Specific Plumbing Challenges -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Diagnostic du Sol</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Spécificités sanitaires et du sous-sol à Frameries
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Le passé minier et la dureté de l'eau nécessitent un matériel d'inspection et de curage spécifique.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {localChallenges.map((ch) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">{ch.icon}</span>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="font-headline-sm text-base text-primary font-bold">{ch.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">{ch.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Competitor Comparison Table -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Transparence & Qualité</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Plombier Mons Urgent vs Autres Prestataires à Frameries
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Comparez les garanties d'un artisan local certifié par rapport aux plateformes anonymes du web.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-primary/10 shadow-sm bg-surface-container-lowest">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <thead>
+            <tr class="bg-surface-container-high text-primary border-b border-primary/10">
+              <th class="p-4 font-bold">Critères de choix</th>
+              <th class="p-4 font-extrabold text-primary-container bg-primary/5">Plombier Mons Urgent</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Plateformes web nationales</th>
+              <th class="p-4 font-semibold text-on-surface-variant">Dépanneurs non agréés</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-primary/5">
+            {competitorComparison.map((row) => (
+              <tr class="hover:bg-surface-container-low/50 transition-colors">
+                <td class="p-4 font-bold text-primary">{row.criterion}</td>
+                <td class="p-4 font-bold text-primary-container bg-primary/5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">check_circle</span>
+                    <span>{row.us}</span>
+                  </div>
+                </td>
+                <td class="p-4 text-on-surface-variant">{row.national}</td>
+                <td class="p-4 text-on-surface-variant">{row.handyman}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local FAQs -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur le dépannage de plomberie à Frameries
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Urgence plomberie à Frameries (7080) ou dans le Borinage ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Intervention express en 25 à 35 minutes. Artisans certifiés CERGA & Wallonie disponibles 24h/24 et 7j/7.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20urgence%20plomberie%20à%20Frameries"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>WhatsApp Dépanneur Frameries</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

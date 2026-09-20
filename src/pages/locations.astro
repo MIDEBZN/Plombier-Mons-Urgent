@@ -6,6 +6,7 @@ const locationsList = [
   {
     postal: '7000',
     city: 'Mons Centre',
+    url: '/locations/mons',
     delay: '25 à 35 min',
     coverage: 'Grand-Place, Beffroi, Waux-Hall, Avenue Frère Orban, Boulevard Dolez, Gare de Mons',
     desc: 'Intervention d\'urgence dans le centre historique de Mons et ses immeubles classés ou récents. Remplacement de canalisations anciennes, dépannage de chauffe-eau et débouchage WC sans nuisance.',
@@ -14,6 +15,7 @@ const locationsList = [
   {
     postal: '7011',
     city: 'Ghlin',
+    url: '/locations/ghlin',
     delay: '30 min',
     coverage: 'Chaussée de Ghlin, Hippodrome de Wallonie, zone artisanale et résidentielle',
     desc: 'Permanence rapide pour les résidences pavillonnaires et entreprises à Ghlin. Dépannage fuites d\'eau, entretien annuel de chaudières gaz CERGA et pose d\'adoucisseurs d\'eau.',
@@ -22,6 +24,7 @@ const locationsList = [
   {
     postal: '7012',
     city: 'Jemappes & Flénu',
+    url: '/locations/jemappes',
     delay: '30 min',
     coverage: 'Avenue Maréchal Foch, zone commerciale Cora, abords du canal et cité ouvrière',
     desc: 'Intervention d\'hydrocurage pour canalisations bouchées, sterputs extérieurs et dépannage urgent de plomberie sanitaire à Jemappes et Flénu.',
@@ -30,6 +33,7 @@ const locationsList = [
   {
     postal: '7033',
     city: 'Cuesmes',
+    url: '/locations/cuesmes',
     delay: '30 min',
     coverage: 'Maison Van Gogh, Mont Héribus, zone basse de Cuesmes et axes de liaison',
     desc: 'Le relief de Cuesmes entraîne des refoulements d\'égouts fréquents lors de fortes pluies. Nous intervenons avec notre caméra d\'inspection et installons des clapets anti-retour pour protéger les caves.',
@@ -38,14 +42,25 @@ const locationsList = [
   {
     postal: '7020',
     city: 'Nimy & Maisières',
-    delay: '35 min',
-    coverage: 'Grand-Large, SHAPE, route de Bruxelles, zones résidentielles calmes',
+    url: '/locations/nimy',
+    delay: '25 à 30 min',
+    coverage: 'Grand-Large, SHAPE / OTAN, route de Bruxelles, zones résidentielles calmes',
     desc: 'Dépannage plomberie bilingue (français / anglais pour expatriés et personnel SHAPE). Remplacement robinetterie haut de gamme, dépannage chauffe-eau et détartrage.',
-    specialty: 'Interventions soignées résidences haut de gamme et conformité européenne'
+    specialty: 'Interventions soignées résidences haut de gamme et service bilingue FR/EN'
+  },
+  {
+    postal: '7080',
+    city: 'Frameries & le Borinage',
+    url: '/locations/frameries',
+    delay: '25 à 35 min',
+    coverage: 'Frameries, La Bouverie, Eugies, Noirchain, Sars-la-Bruyère, Colfontaine',
+    desc: 'Couverture complète du plateau borain pour les urgences plomberie, mouvements de terrain minier, débouchages d\'égouts et pannes de chauffage gaz CERGA.',
+    specialty: 'Dépannage urgent 24h/7 dans tout le Borinage avec devis clair avant travaux'
   },
   {
     postal: '7021',
     city: 'Havré & Saint-Symphorien',
+    url: null,
     delay: '35 min',
     coverage: 'Château d\'Havré, Chaussée du Roeulx, village de Saint-Symphorien',
     desc: 'Détection de fuite non destructive, remplacement de colonnes de décharge et travaux de rénovation de salle de bain clé en main.',
@@ -54,25 +69,18 @@ const locationsList = [
   {
     postal: '7022',
     city: 'Hyon, Mesvin & Spiennes',
+    url: null,
     delay: '35 min',
     coverage: 'Chaussée de Hyon, vallée de la Trouille, sites néolithiques de Spiennes, Harmignies',
     desc: 'Eau particulièrement dure sur ce secteur calcaire. Nous assurons la maintenance des chauffe-eau et la pose d\'adoucisseurs d\'eau pour éliminer le tartre incrusté.',
     specialty: 'Détartrage boiler électrique et traitement de l\'eau calcaire'
-  },
-  {
-    postal: '7080 - 7390',
-    city: 'Frameries & le Borinage',
-    delay: '35 à 45 min',
-    coverage: 'Frameries, Quaregnon, Saint-Ghislain, Boussu, Dour, Colfontaine',
-    desc: 'Couverture complète de l\'ensemble du bassin borain pour les urgences plomberie, débouchages d\'égouts et pannes de chauffage chez les particuliers et commerçants.',
-    specialty: 'Dépannage urgent 24h/7 dans tout le Borinage avec devis clair avant travaux'
   }
 ];
 ---
 
 <Layout
   title="Zones d'Intervention Plomberie Mons & Borinage | Dépannage 30 Min"
-  description="Consultez nos zones de dépannage plomberie rapide à Mons : 7000 Mons, 7011 Ghlin, 7012 Jemappes, 7033 Cuesmes, 7022 Hyon, 7080 Frameries et Borinage."
+  description="Consultez nos zones de dépannage plomberie rapide à Mons : 7000 Mons, 7011 Ghlin, 7012 Jemappes, 7033 Cuesmes, 7020 Nimy, 7080 Frameries et Borinage."
 >
   <!-- Page Header -->
   <section class="w-full bg-primary text-white py-12 md:py-16">
@@ -82,7 +90,7 @@ const locationsList = [
         Plombier à Mons et dans tout le Borinage
       </h1>
       <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
-        Nos techniciens d'astreinte sont basés localement à Mons pour intervenir en 30 à 45 minutes réelles dans votre quartier ou commune.
+        Nos techniciens d'astreinte sont basés localement à Mons pour intervenir en 25 à 35 minutes réelles dans votre commune.
       </p>
     </div>
   </section>
@@ -134,15 +142,23 @@ const locationsList = [
               </div>
             </div>
 
-            <div class="pt-6 mt-4 border-t border-primary/5 flex items-center justify-between">
+            <div class="pt-6 mt-4 border-t border-primary/5 flex flex-wrap items-center justify-between gap-3">
+              {loc.url ? (
+                <a
+                  href={loc.url}
+                  class="px-4 py-2.5 rounded-lg bg-surface-container-high text-primary font-bold text-xs hover:bg-primary-container hover:text-white transition-all flex items-center gap-1.5 border border-primary/10"
+                >
+                  <span>Découvrir {loc.city}</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+              ) : null}
               <a
                 href="tel:+3265794020"
                 class="px-4 py-2.5 rounded-lg bg-primary-container text-white font-bold text-xs shadow hover:bg-forest-dark transition-all flex items-center gap-1.5"
               >
                 <span class="material-symbols-outlined text-[16px] text-tertiary-fixed">call</span>
-                <span>Dépannage à {loc.city}</span>
+                <span>Urgence 065 / 79 40 20</span>
               </a>
-              <span class="text-xs text-secondary font-medium">Dispo 24h/24 & 7j/7</span>
             </div>
           </div>
         ))}
@@ -157,7 +173,7 @@ const locationsList = [
         Votre commune n'est pas dans la liste ci-dessus ?
       </h2>
       <p class="text-sm text-on-primary-container leading-relaxed">
-        Nous intervenons également dans toutes les communes du Hainaut limitrophes (Soignies, Binche, Quévy, Erquelinnes, Hensies). Appelez notre permanence pour connaître le délai exact de notre véhicule le plus proche.
+        Nous intervenons également dans toutes les communes du Hainaut limitrophes (Soignies, Binche, Quévy, Erquelinnes, Hensies, Boussu, Saint-Ghislain). Appelez notre permanence pour connaître le délai exact de notre véhicule le plus proche.
       </p>
       <div class="pt-2">
         <a
