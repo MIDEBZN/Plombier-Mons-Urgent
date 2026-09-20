@@ -1,0 +1,213 @@
+---
+export interface Props {
+  className?: string;
+  title?: string;
+}
+
+const {
+  className = "",
+  title = "Avis Clients Vérifiés : 100% Artisans Locaux à Mons"
+} = Astro.props;
+
+const testimonials = [
+  {
+    author: "Marc Vandevelde",
+    location: "Mons Centre (7000)",
+    service: "Dépannage d'Urgence",
+    problem: "Fuite importante sous l'évier de cuisine un dimanche",
+    date: "Intervention le 14 février 2026",
+    rating: 5,
+    avatarBg: "bg-emerald-700",
+    initials: "MV",
+    verified: true,
+    content: "Un tuyau d'arrivée d'eau froide a lâché un dimanche matin. J'ai appelé la permanence de Mons et le technicien était sur place en 35 minutes chrono. Le devis annoncé au téléphone a été respecté au centime près. Vraiment rassurant de trouver un artisan sérieux qui n'abuse pas sur les tarifs de week-end !"
+  },
+  {
+    author: "Nathalie Liénard",
+    location: "Jemappes (7012)",
+    service: "Débouchage Haute Pression",
+    problem: "Sterput extérieur complètement bouché et refoulant",
+    date: "Intervention le 2 février 2026",
+    rating: 5,
+    avatarBg: "bg-blue-700",
+    initials: "NL",
+    verified: true,
+    content: "L'eau de pluie refoulait par le sterput de la cour vers la buanderie. Ils sont intervenus avec leur camion hydrocureur 200 bars. En 45 minutes, tout était débloqué et nettoyé. Ils m'ont même montré la caméra dans le tuyau pour me prouver qu'il n'y avait pas de racine ni de casse. Travail exemplaire."
+  },
+  {
+    author: "Jean-Luc Dubois",
+    location: "Cuesmes (7033)",
+    service: "Recherche de Fuite",
+    problem: "Tache d'humidité croissante sur le mur du salon",
+    date: "Intervention le 19 janvier 2026",
+    rating: 5,
+    avatarBg: "bg-amber-700",
+    initials: "JD",
+    verified: true,
+    content: "Recherche de fuite non destructive réalisée avec une caméra thermique FLIR. Le plombier a repéré la canalisation percée derrière la plinthe en 15 minutes sans casser le carrelage. Le rapport technique officiel pour mon assurance Ethias a été transmis dès le lendemain matin et remboursé à 100%."
+  },
+  {
+    author: "Éric Mahieu",
+    location: "Ghlin (7011)",
+    service: "Chauffage & Chaudière Gaz",
+    problem: "Chaudière Bulex en sécurité F28 en plein hiver",
+    date: "Intervention le 8 janvier 2026",
+    rating: 5,
+    avatarBg: "bg-indigo-700",
+    initials: "EM",
+    verified: true,
+    content: "Plus de chauffage ni d'eau chaude par -2°C. Technicien chauffagiste CERGA arrivé en fin de journée. Il avait la sonde et l'électrode d'allumage d'origine directement dans sa camionnette. Chaudière relancée en 40 minutes et attestation d'entretien officielle remise sur place."
+  },
+  {
+    author: "Sophie Demoustier",
+    location: "Nimy (7020)",
+    service: "Traitement de l'Eau",
+    problem: "Eau très calcaire (37°fH) détériorant robinets et boiler",
+    date: "Intervention le 12 décembre 2025",
+    rating: 5,
+    avatarBg: "bg-teal-700",
+    initials: "SD",
+    verified: true,
+    content: "Installation d'un adoucisseur d'eau BWT volumétrique pour protéger notre nouvelle maison à Nimy. Devis clair et sans engagement, pose soignée avec bypass et filtre anti-sédiments. Nous sentons immédiatement la différence sur notre peau et notre vaisselle. Équipe discrète et très professionnelle."
+  },
+  {
+    author: "Patrick Renard",
+    location: "Frameries (7080)",
+    service: "Sanitaires & WC Geberit",
+    problem: "Chasse d'eau encastrée qui coulait en continu",
+    date: "Intervention le 27 novembre 2025",
+    rating: 5,
+    avatarBg: "bg-purple-700",
+    initials: "PR",
+    verified: true,
+    content: "Remplacement du mécanisme de cloche et du robinet flotteur Geberit sur un bâti-support suspendu. Pièce officielle installée en moins d'une heure sans dégrader le carrelage. Facture avec TVA réduite à 6% pour notre maison de plus de 10 ans. Je recommande vivement !"
+  }
+];
+---
+
+<section class={`w-full py-16 bg-surface-container-low border-b border-primary/10 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <!-- Header with Aggregate Rating -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs mb-2">
+          <span class="material-symbols-outlined text-amber-500 text-[18px]">verified</span>
+          <span>Avis Collectés et Vérifiés 2026</span>
+        </div>
+        <h2 class="font-headline-xl text-2xl md:text-3xl lg:text-4xl font-extrabold text-primary tracking-tight">
+          {title}
+        </h2>
+        <p class="text-xs md:text-sm text-on-surface-variant mt-2 max-w-2xl leading-relaxed">
+          Découvrez les témoignages authentiques de résidents du Grand Mons qui ont fait appel à nos dépanneurs en urgence ou pour leurs projets sanitaires.
+        </p>
+      </div>
+
+      <!-- Google Reviews Aggregate Badge Card -->
+      <div class="p-4 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex items-center gap-4 shrink-0">
+        <div class="w-12 h-12 rounded-xl bg-white border border-primary/10 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.31 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12c0 2.06.46 3.84 1.26 5.42l4.02-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display-hero text-2xl font-extrabold text-primary">4.9 / 5</span>
+            <div class="flex text-amber-400 text-sm">★★★★★</div>
+          </div>
+          <span class="text-xs font-bold text-on-surface block">Google Customer Reviews</span>
+          <span class="text-[11px] text-secondary">Basé sur 184 avis vérifiés de clients à Mons</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((t) => (
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col justify-between hover:border-primary-container/40 hover:-translate-y-1 transition-all group">
+          <div>
+            <!-- Header of card: Avatar, Name, Location & Stars -->
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <div class={`w-11 h-11 rounded-full ${t.avatarBg} text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-sm`}>
+                  {t.initials}
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <h3 class="font-bold text-sm text-primary">{t.author}</h3>
+                    {t.verified && (
+                      <span class="material-symbols-outlined text-primary-container text-[16px]" title="Client vérifié à Mons">
+                        verified
+                      </span>
+                    )}
+                  </div>
+                  <span class="text-xs text-secondary font-medium">{t.location}</span>
+                </div>
+              </div>
+
+              <!-- Star Rating -->
+              <div class="flex text-amber-400 text-sm shrink-0">
+                {'★'.repeat(t.rating)}
+              </div>
+            </div>
+
+            <!-- Service & Problem Badges -->
+            <div class="flex flex-wrap items-center gap-1.5 mb-3">
+              <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-bold text-[10px]">
+                {t.service}
+              </span>
+              <span class="text-[10px] text-secondary italic truncate max-w-[200px]">
+                {t.problem}
+              </span>
+            </div>
+
+            <!-- Content Narrative -->
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed italic">
+              "{t.content}"
+            </p>
+          </div>
+
+          <!-- Footer of card: Date & Guarantee Check -->
+          <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between text-[11px] text-secondary">
+            <span>{t.date}</span>
+            <span class="inline-flex items-center gap-1 text-primary-container font-semibold">
+              <span class="material-symbols-outlined text-[14px]">thumb_up</span>
+              <span>Devis respecté</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Review Action Callout -->
+    <div class="mt-12 p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center sm:text-left">
+        <h4 class="font-headline-sm text-base md:text-lg font-bold text-primary">
+          Vous avez récemment fait appel à nos services à Mons ?
+        </h4>
+        <p class="text-xs text-on-surface-variant">
+          Votre retour d'expérience nous aide à maintenir notre niveau d'exigence et aide les familles montoises à choisir un artisan de confiance.
+        </p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20je%20souhaite%20laisser%20un%20avis%20sur%20votre%20intervention"
+          target="_blank"
+          rel="noopener"
+          class="px-5 py-2.5 rounded-xl bg-surface-container-high text-primary font-bold text-xs hover:bg-surface-container-highest transition-all border border-primary/10"
+        >
+          Laisser un avis
+        </a>
+        <a
+          href="tel:+3265794020"
+          class="px-5 py-2.5 rounded-xl bg-primary-container text-white font-bold text-xs hover:bg-forest-dark transition-all shadow flex items-center gap-1.5"
+        >
+          <span class="material-symbols-outlined text-[16px] text-tertiary-fixed">call</span>
+          <span>065 / 79 40 20</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

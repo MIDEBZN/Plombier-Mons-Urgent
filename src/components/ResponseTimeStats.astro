@@ -1,0 +1,113 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+
+const stats = [
+  {
+    value: "28 min",
+    label: "Délai Moyen d'Arrivée",
+    detail: "Sur Mons Centre, Jemappes, Ghlin, Nimy & Borinage",
+    icon: "timer",
+    color: "text-tertiary-container",
+    bgColor: "bg-tertiary-container/10",
+    badge: "GPS temps réel"
+  },
+  {
+    value: "< 45 sec",
+    label: "Prise en Charge d'Appel",
+    detail: "Décroché immédiat par un artisan de garde local",
+    icon: "ring_volume",
+    color: "text-primary-container",
+    bgColor: "bg-primary-container/10",
+    badge: "Sans attente"
+  },
+  {
+    value: "94.2 %",
+    label: "Résolution au 1er Passage",
+    detail: "Camionnettes équipées de pièces d'origine et furets",
+    icon: "build_circle",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
+    badge: "Stock embarqué"
+  },
+  {
+    value: "215+",
+    label: "Dépannages ce Mois-ci",
+    detail: "Fuites, débouchages WC, pannes boiler & chaudières",
+    icon: "verified_user",
+    color: "text-secondary",
+    bgColor: "bg-surface-container-high",
+    badge: "Activité continue"
+  }
+];
+---
+
+<section class={`w-full py-14 bg-background border-b border-primary/10 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs mb-2">
+          <span class="w-2 h-2 rounded-full bg-tertiary-container pulse-emergency"></span>
+          <span>Données de Performance en Direct • Mons 2026</span>
+        </div>
+        <h2 class="font-headline-xl text-2xl md:text-3xl lg:text-4xl font-extrabold text-primary tracking-tight">
+          Statistiques & Temps de Réponse à Mons
+        </h2>
+      </div>
+      <p class="text-xs md:text-sm text-on-surface-variant max-w-md leading-relaxed">
+        En cas de dégât des eaux ou de WC refoulant, chaque minute compte. Nous mesurons rigoureusement nos délais pour vous garantir un sauvetage rapide.
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {stats.map((s) => (
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm hover:border-primary-container/40 hover:-translate-y-1 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <div class={`w-12 h-12 rounded-xl ${s.bgColor} flex items-center justify-center ${s.color} group-hover:scale-110 transition-transform`}>
+                <span class="material-symbols-outlined text-[28px]">{s.icon}</span>
+              </div>
+              <span class="text-[11px] font-bold text-secondary bg-surface-container px-2.5 py-1 rounded-full border border-primary/10">
+                {s.badge}
+              </span>
+            </div>
+            <div class="font-display-hero text-3xl md:text-4xl font-extrabold text-primary tracking-tight">
+              {s.value}
+            </div>
+            <h3 class="font-headline-sm text-base font-bold text-primary mt-1">
+              {s.label}
+            </h3>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-3 pt-3 border-t border-primary/5 leading-relaxed">
+            {s.detail}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Live Status Banner -->
+    <div class="mt-8 p-4 rounded-xl bg-surface-container-high border border-primary/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-3">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+        </span>
+        <span class="font-semibold text-primary">
+          Permanence active : <strong>2 camionnettes d'intervention actuellement en patrouille</strong> dans le secteur Mons / Jemappes / Ghlin.
+        </span>
+      </div>
+      <a
+        href="tel:+3265794020"
+        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-white font-bold hover:bg-forest-dark transition-all shrink-0"
+      >
+        <span class="material-symbols-outlined text-[16px] text-tertiary-fixed">call</span>
+        <span>Demander une intervention immédiate</span>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TrustBar from '../components/TrustBar.astro';
+import ReviewBadges from '../components/ReviewBadges.astro';
+import TrustBadgesSection from '../components/TrustBadgesSection.astro';
 ---
 
 <Layout
@@ -21,6 +23,7 @@ import TrustBar from '../components/TrustBar.astro';
   </section>
 
   <TrustBar />
+  <ReviewBadges />
 
   <!-- Story & Mission -->
   <section class="w-full py-16 bg-background">
@@ -148,4 +151,6 @@ import TrustBar from '../components/TrustBar.astro';
       </div>
     </div>
   </section>
+
+  <TrustBadgesSection />
 </Layout>

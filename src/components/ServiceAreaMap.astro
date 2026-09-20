@@ -1,0 +1,270 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+
+const zones = [
+  {
+    name: "7000 Mons Centre",
+    delay: "25–30 min",
+    badge: "Priorité Urgence",
+    slug: "/locations/mons",
+    landmarks: "Grand-Place, Beffroi, Waux-Hall, Gare de Mons",
+    status: "1 artisan en patrouille"
+  },
+  {
+    name: "7011 Ghlin",
+    delay: "30 min",
+    badge: "Zone Résidentielle",
+    slug: "/locations/ghlin",
+    landmarks: "Chaussée de Ghlin, Hippodrome, Z.I.",
+    status: "Disponible immédiatement"
+  },
+  {
+    name: "7012 Jemappes & Flénu",
+    delay: "30 min",
+    badge: "Débouchage & Égouts",
+    slug: "/locations/jemappes",
+    landmarks: "Avenue Foch, Zone Cora, Canal",
+    status: "Camionnette hydrocureuse active"
+  },
+  {
+    name: "7033 Cuesmes",
+    delay: "30 min",
+    badge: "Protection Inondation",
+    slug: "/locations/cuesmes",
+    landmarks: "Mont Héribus, Maison Van Gogh",
+    status: "Disponible immédiatement"
+  },
+  {
+    name: "7020 Nimy & Maisières",
+    delay: "25–30 min",
+    badge: "Service SHAPE / Bilingue",
+    slug: "/locations/nimy",
+    landmarks: "Grand-Large, Base OTAN, R50",
+    status: "1 artisan en patrouille"
+  },
+  {
+    name: "7080 Frameries & Borinage",
+    delay: "30–35 min",
+    badge: "Couverture Borinage",
+    slug: "/locations/frameries",
+    landmarks: "La Bouverie, Eugies, Spark / Pass",
+    status: "Disponible immédiatement"
+  }
+];
+---
+
+<section class={`w-full py-16 bg-surface-container-low border-b border-primary/10 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs mb-2">
+        <span class="material-symbols-outlined text-primary-container text-[18px]">map</span>
+        <span>Cartographie d'Intervention Rapide</span>
+      </div>
+      <h2 class="font-headline-xl text-2xl md:text-3xl lg:text-4xl font-extrabold text-primary tracking-tight">
+        Carte de Déploiement : Grand Mons & Borinage
+      </h2>
+      <p class="text-xs md:text-sm text-on-surface-variant mt-2 max-w-2xl mx-auto leading-relaxed">
+        Nos véhicules d'intervention sont pré-positionnés près des grands axes de liaison (Ring R5, autoroutes E19/E42, N50 et N6) pour intervenir chez vous en moins de 30 à 45 minutes réelles.
+      </p>
+    </div>
+
+    <!-- Map & Zones Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Left: Interactive Vector Map Visual -->
+      <div class="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 rounded-2xl border border-primary/10 shadow-sm relative overflow-hidden">
+        <!-- SVG Vector Map Diagram -->
+        <div class="relative w-full aspect-[4/3] bg-surface-container-low rounded-xl border border-primary/10 overflow-hidden flex items-center justify-center p-4">
+          <!-- Background Grid Pattern -->
+          <svg class="absolute inset-0 w-full h-full opacity-30 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2D5A27" stroke-width="0.5" stroke-dasharray="2 4" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#map-grid)" />
+          </svg>
+
+          <!-- Highway Lines -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- E19 / E42 Motorway -->
+            <path d="M 50 150 Q 250 200 550 120" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round" />
+            <path d="M 50 150 Q 250 200 550 120" stroke="#94A3B8" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" />
+            <text x="500" y="105" fill="#64748B" font-size="11" font-weight="bold">Autoroute E19 / E42</text>
+
+            <!-- Ring de Mons R5 -->
+            <ellipse cx="300" cy="230" rx="140" ry="110" stroke="#CBD5E1" stroke-width="6" fill="none" stroke-dasharray="6 4" />
+            <text x="350" y="360" fill="#64748B" font-size="10" font-weight="bold">Ring R5 de Mons</text>
+
+            <!-- Route N6 / N50 -->
+            <path d="M 300 40 L 300 410" stroke="#E2E8F0" stroke-width="4" stroke-linecap="round" />
+          </svg>
+
+          <!-- Zone Nodes On Map -->
+          <!-- 1. Mons Centre (Center) -->
+          <a
+            href="/locations/mons"
+            class="absolute top-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-20 group flex flex-col items-center"
+          >
+            <div class="relative flex items-center justify-center">
+              <span class="animate-ping absolute inline-flex h-12 w-12 rounded-full bg-tertiary-container opacity-40"></span>
+              <div class="w-9 h-9 rounded-full bg-tertiary-container text-white shadow-lg flex items-center justify-center group-hover:scale-125 transition-transform border-2 border-white">
+                <span class="material-symbols-outlined text-[18px]">home_pin</span>
+              </div>
+            </div>
+            <span class="mt-1 px-2.5 py-0.5 rounded-full bg-white text-primary font-bold text-xs shadow border border-primary/20 whitespace-nowrap group-hover:bg-primary-container group-hover:text-white transition-colors">
+              7000 Mons Centre • 25 min
+            </span>
+          </a>
+
+          <!-- 2. Nimy & Maisières (Top Right) -->
+          <a
+            href="/locations/nimy"
+            class="absolute top-[18%] left-[64%] -translate-x-1/2 -translate-y-1/2 z-10 group flex flex-col items-center"
+          >
+            <div class="w-7 h-7 rounded-full bg-primary-container text-white shadow flex items-center justify-center group-hover:scale-125 transition-transform border-2 border-white">
+              <span class="material-symbols-outlined text-[14px]">navigation</span>
+            </div>
+            <span class="mt-1 px-2 py-0.5 rounded-full bg-white text-on-surface font-semibold text-[10px] shadow border border-primary/10 whitespace-nowrap group-hover:bg-primary-container group-hover:text-white transition-colors">
+              7020 Nimy (25 min)
+            </span>
+          </a>
+
+          <!-- 3. Ghlin (Top Left) -->
+          <a
+            href="/locations/ghlin"
+            class="absolute top-[22%] left-[30%] -translate-x-1/2 -translate-y-1/2 z-10 group flex flex-col items-center"
+          >
+            <div class="w-7 h-7 rounded-full bg-primary-container text-white shadow flex items-center justify-center group-hover:scale-125 transition-transform border-2 border-white">
+              <span class="material-symbols-outlined text-[14px]">navigation</span>
+            </div>
+            <span class="mt-1 px-2 py-0.5 rounded-full bg-white text-on-surface font-semibold text-[10px] shadow border border-primary/10 whitespace-nowrap group-hover:bg-primary-container group-hover:text-white transition-colors">
+              7011 Ghlin (30 min)
+            </span>
+          </a>
+
+          <!-- 4. Jemappes & Flénu (Middle Left) -->
+          <a
+            href="/locations/jemappes"
+            class="absolute top-[52%] left-[18%] -translate-x-1/2 -translate-y-1/2 z-10 group flex flex-col items-center"
+          >
+            <div class="w-7 h-7 rounded-full bg-primary-container text-white shadow flex items-center justify-center group-hover:scale-125 transition-transform border-2 border-white">
+              <span class="material-symbols-outlined text-[14px]">navigation</span>
+            </div>
+            <span class="mt-1 px-2 py-0.5 rounded-full bg-white text-on-surface font-semibold text-[10px] shadow border border-primary/10 whitespace-nowrap group-hover:bg-primary-container group-hover:text-white transition-colors">
+              7012 Jemappes (30 min)
+            </span>
+          </a>
+
+          <!-- 5. Cuesmes (Bottom Middle) -->
+          <a
+            href="/locations/cuesmes"
+            class="absolute top-[72%] left-[45%] -translate-x-1/2 -translate-y-1/2 z-10 group flex flex-col items-center"
+          >
+            <div class="w-7 h-7 rounded-full bg-primary-container text-white shadow flex items-center justify-center group-hover:scale-125 transition-transform border-2 border-white">
+              <span class="material-symbols-outlined text-[14px]">navigation</span>
+            </div>
+            <span class="mt-1 px-2 py-0.5 rounded-full bg-white text-on-surface font-semibold text-[10px] shadow border border-primary/10 whitespace-nowrap group-hover:bg-primary-container group-hover:text-white transition-colors">
+              7033 Cuesmes (30 min)
+            </span>
+          </a>
+
+          <!-- 6. Frameries & Borinage (Bottom Left) -->
+          <a
+            href="/locations/frameries"
+            class="absolute top-[78%] left-[22%] -translate-x-1/2 -translate-y-1/2 z-10 group flex flex-col items-center"
+          >
+            <div class="w-7 h-7 rounded-full bg-primary-container text-white shadow flex items-center justify-center group-hover:scale-125 transition-transform border-2 border-white">
+              <span class="material-symbols-outlined text-[14px]">navigation</span>
+            </div>
+            <span class="mt-1 px-2 py-0.5 rounded-full bg-white text-on-surface font-semibold text-[10px] shadow border border-primary/10 whitespace-nowrap group-hover:bg-primary-container group-hover:text-white transition-colors">
+              7080 Frameries (35 min)
+            </span>
+          </a>
+
+          <!-- 7. Havré (Middle Right) -->
+          <div class="absolute top-[45%] left-[82%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center opacity-80">
+            <div class="w-6 h-6 rounded-full bg-secondary text-white shadow flex items-center justify-center border-2 border-white">
+              <span class="material-symbols-outlined text-[12px]">location_on</span>
+            </div>
+            <span class="mt-1 px-1.5 py-0.5 rounded bg-white text-secondary font-medium text-[9px] shadow whitespace-nowrap">
+              7021 Havré (35 min)
+            </span>
+          </div>
+
+          <!-- Bottom Map Legend -->
+          <div class="absolute bottom-2 left-3 z-20 flex items-center gap-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-primary/10 text-[11px]">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+              <span class="font-bold text-primary">QG Mons</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+              <span class="text-on-surface-variant">Dépanneurs mobiles</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-secondary mt-3 text-center">
+          💡 Cliquez sur une commune pour afficher les détails du secteur, les repères routiers et les tarifs d'urgence.
+        </p>
+      </div>
+
+      <!-- Right: Detailed Commune Quick-Access Cards -->
+      <div class="lg:col-span-5 space-y-3">
+        <h3 class="font-headline-sm text-base font-bold text-primary mb-1">
+          Délais réels par secteur montois :
+        </h3>
+
+        <div class="space-y-2.5">
+          {zones.map((z) => (
+            <a
+              href={z.slug}
+              class="block p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm hover:border-primary-container/40 hover:bg-surface-container-low transition-all group"
+            >
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary-container text-[18px] group-hover:translate-x-0.5 transition-transform">
+                    near_me
+                  </span>
+                  <h4 class="font-bold text-sm text-primary group-hover:text-primary-container transition-colors">
+                    {z.name}
+                  </h4>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded">
+                  <span class="w-1.5 h-1.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+                  <span>{z.delay}</span>
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-on-surface-variant mt-1.5 pl-6">
+                <span class="truncate">Repères : {z.landmarks}</span>
+                <span class="font-semibold text-primary shrink-0 ml-2 group-hover:underline">
+                  Voir commune →
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Callout CTA -->
+        <div class="p-4 rounded-xl bg-primary-container text-white flex items-center justify-between gap-3 mt-4">
+          <div>
+            <span class="text-xs text-primary-fixed uppercase font-bold tracking-wider block">Autre commune du Hainaut ?</span>
+            <span class="text-xs text-white/90">Nous couvrons également Soignies, Saint-Ghislain, Boussu & Binche.</span>
+          </div>
+          <a
+            href="tel:+3265794020"
+            class="px-3.5 py-2 rounded-lg bg-white text-primary font-bold text-xs hover:bg-surface-container transition-all shrink-0 flex items-center gap-1"
+          >
+            <span class="material-symbols-outlined text-[16px] text-primary-container">call</span>
+            <span>065 79 40 20</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

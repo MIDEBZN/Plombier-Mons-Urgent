@@ -3,6 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import TrustBar from '../components/TrustBar.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+import ReviewBadges from '../components/ReviewBadges.astro';
+import ResponseTimeStats from '../components/ResponseTimeStats.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import TrustBadgesSection from '../components/TrustBadgesSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
 
 const services = [
   {
@@ -177,6 +182,9 @@ const reviews = [
   <!-- 2. TRUST & CREDENTIALS BAR -->
   <TrustBar />
 
+  <!-- 2b. REVIEW BADGES -->
+  <ReviewBadges />
+
   <!-- 3. COMMON PROBLEMS SOLVER STRIP -->
   <section class="w-full py-16 bg-surface-container-low">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
@@ -209,6 +217,9 @@ const reviews = [
       </div>
     </div>
   </section>
+
+  <!-- 3b. RESPONSE TIME STATS -->
+  <ResponseTimeStats />
 
   <!-- 4. COMPREHENSIVE SERVICES GRID (6 Silos) -->
   <section class="w-full py-16 bg-background">
@@ -420,117 +431,11 @@ const reviews = [
     </div>
   </section>
 
-  <!-- 8. REVIEWS SECTION -->
-  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
-    <div class="max-w-7xl mx-auto px-4 md:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-        <div>
-          <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Témoignages Réels</span>
-          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
-            Ce que disent nos clients dans le Grand Mons
-          </h2>
-        </div>
-        <div class="flex items-center gap-2 text-sm font-bold text-primary">
-          <div class="flex text-tertiary-container">
-            {'★★★★★'}
-          </div>
-          <span>4.9 / 5 sur Google (+180 avis)</span>
-        </div>
-      </div>
+  <!-- 8. REVIEWS & TESTIMONIALS SECTION -->
+  <TestimonialsSection />
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {reviews.map((rev) => (
-          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between text-tertiary-container mb-3 text-sm">
-                <span>{'★'.repeat(rev.rating)}</span>
-                <span class="text-xs text-secondary font-normal">{rev.date}</span>
-              </div>
-              <p class="text-sm text-on-surface leading-relaxed italic">"{rev.comment}"</p>
-            </div>
-            <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between text-xs">
-              <span class="font-bold text-primary">{rev.author}</span>
-              <span class="text-secondary font-medium">{rev.location}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. LOCAL COVERAGE SECTION -->
-  <section class="w-full py-16 bg-background">
-    <div class="max-w-7xl mx-auto px-4 md:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-6 space-y-4">
-          <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Proximité Immédiate</span>
-          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold">
-            Déploiement Rapide dans tout le 7000 Mons et le Borinage
-          </h2>
-          <p class="text-sm text-on-surface-variant leading-relaxed">
-            Nos camionnettes d'intervention sont pré-positionnées à proximité des grands axes (Ring de Mons, E19, E42, Chaussée de Ghlin) pour garantir un temps d'accès record, y compris aux heures de pointe.
-          </p>
-          <div class="grid grid-cols-2 gap-3 pt-2 text-xs md:text-sm">
-            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-[18px]">location_on</span>
-              <span>7000 Mons Centre</span>
-            </div>
-            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-[18px]">location_on</span>
-              <span>7011 Ghlin</span>
-            </div>
-            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-[18px]">location_on</span>
-              <span>7012 Jemappes / Flénu</span>
-            </div>
-            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-[18px]">location_on</span>
-              <span>7033 Cuesmes</span>
-            </div>
-            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-[18px]">location_on</span>
-              <span>7022 Hyon / Mesvin</span>
-            </div>
-            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-[18px]">location_on</span>
-              <span>7080 Frameries</span>
-            </div>
-          </div>
-          <div class="pt-4">
-            <a href="/locations" class="inline-flex items-center gap-2 text-sm font-bold text-primary-container hover:underline">
-              <span>Consulter la carte complète et les temps d'intervention</span>
-              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-6 p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm text-center">
-          <div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center mx-auto mb-4">
-            <span class="material-symbols-outlined text-[32px]">map</span>
-          </div>
-          <h3 class="font-headline-sm text-xl text-primary font-bold">Un plombier est actuellement de garde à Mons</h3>
-          <p class="text-sm text-on-surface-variant mt-2 max-w-md mx-auto">
-            Besoin d'une intervention dans l'heure ? Appelez notre permanence pour bloquer le créneau de notre dépanneur en route.
-          </p>
-          <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="tel:+3265794020"
-              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-sm shadow hover:bg-forest-dark transition-all flex items-center justify-center gap-2"
-            >
-              <span class="material-symbols-outlined text-[18px] text-tertiary-fixed">call</span>
-              <span>065 / 79 40 20</span>
-            </a>
-            <a
-              href="/contact"
-              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-surface-container text-primary font-bold text-sm hover:bg-surface-container-high transition-all"
-            >
-              Prendre rendez-vous
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 9. SERVICE AREA MAP & DISPATCH -->
+  <ServiceAreaMap />
 
   <!-- 10. FAQ SECTION -->
   <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
@@ -545,6 +450,9 @@ const reviews = [
       <FAQAccordion />
     </div>
   </section>
+
+  <!-- 10b. TRUST BADGES SECTION -->
+  <TrustBadgesSection />
 
   <!-- 11. FINAL HIGH-CONVERSION CTA BANNER -->
   <section class="w-full bg-primary text-white py-16">

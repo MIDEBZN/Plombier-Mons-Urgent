@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TrustBar from '../components/TrustBar.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import ResponseTimeStats from '../components/ResponseTimeStats.astro';
 
 const locationsList = [
   {
@@ -165,6 +167,12 @@ const locationsList = [
       </div>
     </div>
   </section>
+
+  <!-- Service Area Interactive Map -->
+  <ServiceAreaMap />
+
+  <!-- Response Time Metrics & Stats -->
+  <ResponseTimeStats />
 
   <!-- Reassurance CTA -->
   <section class="w-full bg-primary-container text-white py-14">

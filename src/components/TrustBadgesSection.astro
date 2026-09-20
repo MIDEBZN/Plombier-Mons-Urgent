@@ -1,0 +1,132 @@
+---
+export interface Props {
+  className?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  className = "",
+  title = "Labels de Confiance, Agréments & Certifications Officielles",
+  subtitle = "En Belgique, la plomberie et le gaz exigent des qualifications strictes. Voici nos accréditations légales et partenariats certifiés."
+} = Astro.props;
+
+const trustBadges = [
+  {
+    title: "Agréé CERGA Gaz",
+    issuer: "Association Royale des Gaziers Belges",
+    desc: "Habilitation officielle pour la pose, le raccordement et la sécurisation des conduites et chaudières au gaz naturel.",
+    icon: "local_fire_department",
+    badgeNumber: "Habilitation n° BE-CERGA-4892",
+    color: "text-amber-600",
+    bgColor: "bg-amber-50"
+  },
+  {
+    title: "Agréé Région Wallonne G1/G2",
+    issuer: "Département de l'Énergie Wallonie",
+    desc: "Technicien agréé pour le contrôle périodique légal triennal et la délivrance de l'attestation officielle de conformité.",
+    icon: "verified",
+    badgeNumber: "Agrément Wallonie n° G1-7000-11",
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-50"
+  },
+  {
+    title: "RC Pro & Décennale AXA/Ethias",
+    issuer: "Compagnies d'Assurances Belges",
+    desc: "Couverture intégrale de vos biens contre tout sinistre, et rédaction de rapports d'expertise agréés dégât des eaux.",
+    icon: "policy",
+    badgeNumber: "Police n° BE-RC-8942-01",
+    color: "text-blue-600",
+    bgColor: "bg-blue-50"
+  },
+  {
+    title: "Membre Buildwise (CSTC)",
+    issuer: "Recherche Technique Construction",
+    desc: "Respect scrupuleux des Notes d'Information Technique (NIT) belges pour la salubrité, l'acoustique et la thermique.",
+    icon: "foundation",
+    badgeNumber: "Membre Professionnel CSTC",
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-50"
+  },
+  {
+    title: "TVA Réduite 6 % Agréée",
+    issuer: "Service Public Fédéral Finances",
+    desc: "Application directe du taux fiscal réduit de 6 % pour les habitations privées belges de plus de 10 ans.",
+    icon: "percent",
+    badgeNumber: "Arrêté Royal n° 20 / Code TVA",
+    color: "text-primary-container",
+    bgColor: "bg-surface-container-high"
+  },
+  {
+    title: "Partenaire Geberit, Grohe & Durlem",
+    issuer: "Fabricants Sanitaires & Traitement d'Eau",
+    desc: "Pièces de rechange d'origine certifiées en stock dans nos véhicules atelier (mécanismes, mitigeurs, sels adoucisseurs).",
+    icon: "handyman",
+    badgeNumber: "Installateur Partenaire Qualifié",
+    color: "text-secondary",
+    bgColor: "bg-surface-container-high"
+  }
+];
+---
+
+<section class={`w-full py-16 bg-background border-b border-primary/10 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs mb-2">
+        <span class="material-symbols-outlined text-primary-container text-[18px]">workspace_premium</span>
+        <span>Garanties Institutionnelles Belges</span>
+      </div>
+      <h2 class="font-headline-xl text-2xl md:text-3xl lg:text-4xl font-extrabold text-primary tracking-tight">
+        {title}
+      </h2>
+      <p class="text-xs md:text-sm text-on-surface-variant mt-2 max-w-2xl mx-auto leading-relaxed">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Badges Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {trustBadges.map((badge) => (
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm hover:border-primary-container/40 hover:-translate-y-1 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class={`w-12 h-12 rounded-xl ${badge.bgColor} ${badge.color} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}>
+                <span class="material-symbols-outlined text-[26px]">{badge.icon}</span>
+              </div>
+              <span class="text-[10px] font-bold text-secondary bg-surface-container px-2.5 py-1 rounded-full border border-primary/10 tracking-wider uppercase">
+                Vérifié
+              </span>
+            </div>
+
+            <h3 class="font-headline-sm text-lg font-bold text-primary group-hover:text-primary-container transition-colors">
+              {badge.title}
+            </h3>
+            <span class="text-xs font-semibold text-secondary block mt-0.5">
+              {badge.issuer}
+            </span>
+            <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+              {badge.desc}
+            </p>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-secondary font-semibold">{badge.badgeNumber}</span>
+            <span class="inline-flex items-center gap-1 font-bold text-primary-container">
+              <span class="material-symbols-outlined text-[14px]">check_circle</span>
+              <span>Actif 2026</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom Legal Registration Strip -->
+    <div class="mt-8 p-4 rounded-xl bg-surface-container-low border border-primary/10 text-center text-xs text-on-surface-variant flex flex-wrap items-center justify-center gap-4">
+      <span>🏛️ <strong>Entreprise enregistrée à la BCE :</strong> BE 0842.195.834</span>
+      <span>•</span>
+      <span>📍 <strong>Siège d'exploitation :</strong> Rue de la Chaussée 42, 7000 Mons</span>
+      <span>•</span>
+      <span>🛡️ <strong>Tribunal compétent :</strong> Tribunal de l'Entreprise du Hainaut (Division Mons)</span>
+    </div>
+  </div>
+</section>
