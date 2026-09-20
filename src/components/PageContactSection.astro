@@ -1,0 +1,83 @@
+---
+import QuoteForm from './QuoteForm.astro';
+---
+
+<section class="w-full py-16 bg-background border-t border-primary/10">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- Left Side Direct Contacts & Value -->
+      <div class="lg:col-span-6 space-y-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs mb-2">
+            <span class="w-2 h-2 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Permanence Mons 24h/24 & 7j/7</span>
+          </div>
+          <h2 class="font-headline-xl text-2xl md:text-3xl lg:text-4xl text-primary font-extrabold tracking-tight">
+            Besoin d'une Intervention ou d'un Devis à Mons ?
+          </h2>
+          <p class="text-sm md:text-base text-on-surface-variant mt-2 leading-relaxed">
+            Remplissez notre formulaire sécurisé ci-contre ou joignez directement notre dépanneur d'astreinte. Un artisan vous recontacte en <strong>moins de 15 minutes</strong>.
+          </p>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <a
+            href="tel:+3265794020"
+            class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-primary/10 hover:border-primary-container shadow-sm transition-all group"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary-container text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <span class="material-symbols-outlined text-[24px]">call</span>
+            </div>
+            <div>
+              <span class="text-xs text-secondary font-bold uppercase tracking-wider block">Appel Direct Urgence Mons</span>
+              <span class="text-lg md:text-xl font-extrabold text-primary group-hover:text-primary-container">065 / 79 40 20</span>
+              <p class="text-xs text-on-surface-variant">Arrivée en 30 à 45 minutes sur place</p>
+            </div>
+          </a>
+
+          <a
+            href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20besoin%20d'un%20dépannage%20plomberie%20à%20Mons"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-primary/10 hover:border-[#25D366] shadow-sm transition-all group"
+          >
+            <div class="w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.126-.519-1.829-.757-3.003-2.612-3.094-2.734-.09-.122-.745-.992-.745-1.892 0-.9.467-1.344.633-1.527.167-.183.366-.228.489-.228.122 0 .245.002.352.007.113.005.263-.042.412.316.155.373.53 1.296.577 1.391.047.095.078.207.016.331-.063.125-.094.202-.187.311-.093.11-.197.246-.281.331-.094.095-.192.198-.083.385.109.188.486.802 1.042 1.298.718.641 1.324.841 1.512.934.188.093.298.078.409-.047.11-.125.474-.551.6-.74.126-.188.252-.157.423-.094s1.087.513 1.275.607c.188.094.313.141.36.22.047.078.047.453-.097.858z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs text-[#075E54] font-bold uppercase tracking-wider block">Diagnostic WhatsApp 24/7</span>
+              <span class="text-lg md:text-xl font-extrabold text-primary group-hover:text-[#075E54]">0470 / 55 20 20</span>
+              <p class="text-xs text-on-surface-variant">Envoyez la photo de votre panne pour devis immédiat</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 text-xs text-on-surface-variant pt-2">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-container text-[18px]">verified</span>
+            <span>Agréé CERGA & Wallonie G1/G2</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-container text-[18px]">policy</span>
+            <span>RC Pro Ethias / AXA</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-container text-[18px]">percent</span>
+            <span>TVA réduite à 6 %</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-container text-[18px]">timer</span>
+            <span>Sur place en 30-45 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side Interactive Form -->
+      <div class="lg:col-span-6 w-full">
+        <QuoteForm title="Formulaire d'Intervention Rapide" subtitle="Recevez une réponse par email ou téléphone en 15 min" />
+      </div>
+    </div>
+  </div>
+</section>

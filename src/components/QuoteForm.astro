@@ -19,11 +19,20 @@ const {
     <p class="font-body-sm text-sm text-on-surface-variant mt-1">{subtitle}</p>
   </div>
 
-  <form id="quote-lead-form" class="space-y-3.5">
+  <form
+    action="https://formsubmit.co/midebzn@gmail.com"
+    method="POST"
+    class="quote-lead-form space-y-3.5"
+  >
+    <!-- FormSubmit Configuration Fields -->
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_subject" value="🚨 Nouvelle Demande d'Intervention - Plombier Mons Urgent" />
+    <input type="hidden" name="_template" value="table" />
+
     <div>
       <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Nom et Prénom *</label>
       <input
-        name="name"
+        name="nom"
         class="w-full h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
         placeholder="ex. Michel Dubois"
         required
@@ -35,7 +44,7 @@ const {
       <div>
         <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Téléphone direct *</label>
         <input
-          name="phone"
+          name="telephone"
           class="w-full h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
           placeholder="04XX XX XX XX"
           required
@@ -45,18 +54,18 @@ const {
       <div>
         <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Code Postal *</label>
         <select
-          name="postalCode"
+          name="code_postal"
           class="w-full h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
         >
-          <option value="7000">7000 Mons Centre</option>
-          <option value="7011">7011 Ghlin</option>
-          <option value="7012">7012 Jemappes / Flénu</option>
-          <option value="7020">7020 Nimy / Maisières</option>
-          <option value="7021">7021 Havré / St-Symphorien</option>
-          <option value="7022">7022 Hyon / Mesvin / Cuesmes</option>
-          <option value="7033">7033 Cuesmes</option>
-          <option value="7080">7080 Frameries (Borinage)</option>
-          <option value="autre">Autre commune Hainaut</option>
+          <option value="7000 Mons Centre">7000 Mons Centre</option>
+          <option value="7011 Ghlin">7011 Ghlin</option>
+          <option value="7012 Jemappes / Flénu">7012 Jemappes / Flénu</option>
+          <option value="7020 Nimy / Maisières">7020 Nimy / Maisières</option>
+          <option value="7021 Havré / St-Symphorien">7021 Havré / St-Symphorien</option>
+          <option value="7022 Hyon / Mesvin / Cuesmes">7022 Hyon / Mesvin / Cuesmes</option>
+          <option value="7033 Cuesmes">7033 Cuesmes</option>
+          <option value="7080 Frameries (Borinage)">7080 Frameries (Borinage)</option>
+          <option value="Autre commune Hainaut">Autre commune Hainaut</option>
         </select>
       </div>
     </div>
@@ -65,29 +74,30 @@ const {
       <div>
         <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Type de panne *</label>
         <select
-          name="service"
+          name="type_panne"
           class="w-full h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
         >
-          <option value="fuite">Fuite d'eau urgente</option>
-          <option value="wc">WC ou toilette bouchée</option>
-          <option value="canalisation">Canalisation / Égout bouché</option>
-          <option value="sterput">Sterput refoulant / Odeur</option>
-          <option value="boiler">Panne eau chaude / Boiler</option>
-          <option value="chaudiere">Chaudière gaz en panne</option>
-          <option value="adoucisseur">Adoucisseur / Calcaire</option>
-          <option value="autre">Autre problème plomberie</option>
+          <option value="Fuite d'eau urgente">Fuite d'eau urgente</option>
+          <option value="WC ou toilette bouchée">WC ou toilette bouchée</option>
+          <option value="Canalisation / Égout bouché">Canalisation / Égout bouché</option>
+          <option value="Sterput refoulant / Odeur">Sterput refoulant / Odeur</option>
+          <option value="Panne eau chaude / Boiler">Panne eau chaude / Boiler</option>
+          <option value="Chaudière gaz en panne">Chaudière gaz en panne</option>
+          <option value="Adoucisseur / Calcaire">Adoucisseur / Calcaire</option>
+          <option value="Rénovation salle de bain / Sanitaires">Rénovation salle de bain / Sanitaires</option>
+          <option value="Autre problème plomberie">Autre problème plomberie</option>
         </select>
       </div>
       <div>
         <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Délai d'intervention *</label>
         <select
-          name="timing"
+          name="delai_souhaite"
           class="w-full h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
         >
-          <option value="asap">🚨 Urgence immédiate (en 30-45 min)</option>
-          <option value="today">Aujourd'hui dans la journée</option>
-          <option value="tomorrow">Demain</option>
-          <option value="schedule">Rendez-vous à planifier</option>
+          <option value="Urgence immédiate (30-45 min)">🚨 Urgence immédiate (en 30-45 min)</option>
+          <option value="Aujourd'hui dans la journée">Aujourd'hui dans la journée</option>
+          <option value="Demain">Demain</option>
+          <option value="Rendez-vous à planifier">Rendez-vous à planifier</option>
         </select>
       </div>
     </div>
@@ -95,7 +105,7 @@ const {
     <div>
       <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Description du problème (optionnel)</label>
       <textarea
-        name="details"
+        name="message_details"
         class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors resize-none"
         placeholder="Précisez votre problème (ex. tuyau qui coule sous le lavabo, eau qui monte dans les toilettes)..."
         rows="2"
@@ -103,15 +113,15 @@ const {
     </div>
 
     <button
-      class="w-full py-3.5 px-6 rounded-lg bg-primary-container text-white font-label-lg text-base font-bold hover:bg-forest-dark shadow transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 cursor-pointer"
+      class="submit-btn w-full py-3.5 px-6 rounded-lg bg-primary-container text-white font-label-lg text-base font-bold hover:bg-forest-dark shadow transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 cursor-pointer"
       type="submit"
     >
       <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">send</span>
       <span>Envoyer la demande d'intervention</span>
     </button>
 
-    <div id="form-feedback" class="hidden p-3 rounded-lg bg-surface-container text-primary text-xs font-semibold text-center">
-      ✅ Demande bien reçue. Un technicien montois vous recontacte dans les 15 minutes.
+    <div class="form-feedback hidden p-3.5 rounded-lg bg-surface-container text-primary text-xs font-semibold text-center border border-primary-container/20">
+      ✅ Demande bien transmise à notre équipe. Un technicien de garde vous rappelle dans les 15 minutes.
     </div>
 
     <p class="font-body-sm text-[12px] leading-tight text-on-surface-variant text-center pt-1">
@@ -121,17 +131,62 @@ const {
 </div>
 
 <script>
-  const form = document.getElementById('quote-lead-form') as HTMLFormElement;
-  const feedback = document.getElementById('form-feedback');
+  // Robust FormSubmit handler supporting multiple forms per page with AJAX and native fallback
+  document.querySelectorAll('form.quote-lead-form').forEach((formEl) => {
+    const form = formEl as HTMLFormElement;
+    const feedback = form.querySelector('.form-feedback') as HTMLElement;
+    const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
 
-  if (form && feedback) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      feedback.classList.remove('hidden');
-      form.reset();
-      setTimeout(() => {
-        feedback.classList.add('hidden');
-      }, 7000);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span>
+          <span>Envoi en cours...</span>
+        `;
+      }
+
+      const formData = new FormData(form);
+      const data: Record<string, any> = {};
+      formData.forEach((val, key) => {
+        data[key] = val;
+      });
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/midebzn@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          if (feedback) feedback.classList.remove('hidden');
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `
+              <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">check_circle</span>
+              <span>Demande envoyée !</span>
+            `;
+            setTimeout(() => {
+              submitBtn.innerHTML = `
+                <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">send</span>
+                <span>Envoyer la demande d'intervention</span>
+              `;
+            }, 5000);
+          }
+        } else {
+          // Fallback to standard post submission if AJAX returns non-200
+          form.submit();
+        }
+      } catch (err) {
+        // Fallback to native submission if fetch throws
+        form.submit();
+      }
     });
-  }
+  });
 </script>

@@ -1,7 +1,9 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import StickyMobileBar from '../components/StickyMobileBar.astro';
+import StickyCallButtons from '../components/StickyCallButtons.astro';
+import WhatsAppChatWidget from '../components/WhatsAppChatWidget.astro';
+import PageContactSection from '../components/PageContactSection.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
 import GuaranteesTrustSection from '../components/GuaranteesTrustSection.astro';
 import '../styles/global.css';
@@ -17,6 +19,8 @@ const {
   description = "Plombier local certifié à Mons (7000) et dans le Borinage. Dépannage en 30 minutes 24h/24 : fuites d'eau, débouchage WC/sterput, boiler, chaudière agréé CERGA. Devis gratuit avant travaux.",
   canonicalUrl = Astro.url.href
 } = Astro.props;
+
+const isContactPage = Astro.url.pathname === '/contact' || Astro.url.pathname === '/contact/';
 ---
 
 <!DOCTYPE html>
@@ -63,9 +67,11 @@ const {
     <Header />
     <main class="flex-grow pt-28 md:pt-32 pb-20 md:pb-0">
       <slot />
+      {!isContactPage && <PageContactSection />}
       <GuaranteesTrustSection />
     </main>
     <Footer />
-    <StickyMobileBar />
+    <StickyCallButtons />
+    <WhatsAppChatWidget />
   </body>
 </html>

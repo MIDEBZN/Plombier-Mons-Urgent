@@ -1,0 +1,49 @@
+---
+const phoneDisplay = "065 / 79 40 20";
+const phoneTel = "+3265794020";
+const emergencyGsm = "+32470552020";
+---
+
+<!-- 1. Mobile Bottom Sticky Bar -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-primary/15 shadow-[0_-4px_16px_rgba(0,0,0,0.12)] px-3 py-2.5">
+  <div class="grid grid-cols-2 gap-2.5 max-w-md mx-auto">
+    <!-- WhatsApp Quick Diagnostic -->
+    <a
+      href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Mons"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#075E54] font-bold text-xs shadow-sm active:scale-95 transition-all"
+    >
+      <svg class="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.073-2.126-.519-1.829-.757-3.003-2.612-3.094-2.734-.09-.122-.745-.992-.745-1.892 0-.9.467-1.344.633-1.527.167-.183.366-.228.489-.228.122 0 .245.002.352.007.113.005.263-.042.412.316.155.373.53 1.296.577 1.391.047.095.078.207.016.331-.063.125-.094.202-.187.311-.093.11-.197.246-.281.331-.094.095-.192.198-.083.385.109.188.486.802 1.042 1.298.718.641 1.324.841 1.512.934.188.093.298.078.409-.047.11-.125.474-.551.6-.74.126-.188.252-.157.423-.094s1.087.513 1.275.607c.188.094.313.141.36.22.047.078.047.453-.097.858z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- Direct Emergency Call -->
+    <a
+      href={`tel:${phoneTel}`}
+      class="flex items-center justify-center gap-2 py-3 px-2 rounded-xl bg-tertiary-container text-white font-bold text-xs shadow-md active:scale-95 transition-all animate-pulse"
+    >
+      <span class="material-symbols-outlined text-[20px]">call</span>
+      <span>Appeler 065 / 79 40 20</span>
+    </a>
+  </div>
+</div>
+
+<!-- 2. Desktop Sticky Floating Click-to-Call Button (Bottom Left) -->
+<div class="hidden md:flex fixed bottom-6 left-6 z-40 items-center">
+  <a
+    href={`tel:${phoneTel}`}
+    class="group flex items-center gap-3 py-3 px-5 rounded-full bg-tertiary-container text-white font-extrabold text-sm shadow-xl hover:bg-tertiary transition-all hover:scale-105 active:scale-95 border-2 border-white/20"
+    aria-label="Appeler la permanence plomberie d'urgence à Mons"
+  >
+    <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:rotate-12 transition-transform">
+      <span class="material-symbols-outlined text-[20px] pulse-emergency">call</span>
+    </div>
+    <div class="flex flex-col text-left">
+      <span class="text-[10px] text-white/90 uppercase tracking-widest leading-none font-bold">Urgence 24h/24 • Mons</span>
+      <span class="text-sm font-extrabold leading-tight tracking-tight">{phoneDisplay}</span>
+    </div>
+  </a>
+</div>
