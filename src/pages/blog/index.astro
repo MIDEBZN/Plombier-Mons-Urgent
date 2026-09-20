@@ -1,0 +1,251 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import ReviewBadges from '../../components/ReviewBadges.astro';
+import ResponseTimeStats from '../../components/ResponseTimeStats.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { blogArticles } from '../../data/articles';
+
+const categories = [
+  "Tous",
+  "Tarifs & Devis",
+  "Urgence 24/7",
+  "Débouchage & Fuites",
+  "Chauffage & Gaz",
+  "Conseils Pratiques",
+];
+
+const categoryColors: Record<string, string> = {
+  "Tarifs & Devis": "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
+  "Urgence 24/7": "bg-red-500/10 text-red-700 border-red-500/20",
+  "Conseils Pratiques": "bg-blue-500/10 text-blue-700 border-blue-500/20",
+  "Débouchage & Fuites": "bg-amber-500/10 text-amber-700 border-amber-500/20",
+  "Chauffage & Gaz": "bg-purple-500/10 text-purple-700 border-purple-500/20",
+};
+---
+
+<Layout
+  title="Guides & Conseils Plomberie Mons : Tarifs, Urgences & Dépannage"
+  description="Consultez nos 30 guides d'experts en plomberie à Mons (7000) et Borinage. Tarifs horaires, astuces fuites, débouchage, chaudière. Dépannage au 065 79 40 20."
+  canonicalUrl="https://plombier-mons-urgent.be/blog"
+>
+  <!-- Hero Section -->
+  <header class="w-full bg-primary text-white py-14 md:py-20 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur text-surface-dim text-xs font-bold uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-primary-container pulse-emergency"></span>
+        <span>Le Hub Expert Plomberie • Grand Mons & Borinage</span>
+      </div>
+
+      <h1 class="font-display-hero text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+        Conseils, Tarifs & Guides Plomberie à Mons
+      </h1>
+
+      <p class="text-sm md:text-lg text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        30 articles complets rédigés par nos artisans locaux pour comprendre vos devis, résoudre vos pannes d'urgence et entretenir vos installations sanitaires.
+      </p>
+
+      <!-- Immediate CTA -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm">
+        <a
+          href="tel:065794020"
+          class="px-5 py-3 rounded-xl bg-primary-container text-white font-bold shadow-lg hover:bg-primary-container/90 transition-all active:scale-95 flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-base">call</span>
+          <span>Urgence 24/7 : 065 / 79 40 20</span>
+        </a>
+        <a
+          href="#articles-list"
+          class="px-5 py-3 rounded-xl bg-white/10 text-white font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-base">menu_book</span>
+          <span>Explorer les 30 Guides</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Decorative background glow -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+  </header>
+
+  <TrustBar />
+
+  <!-- Articles Filter and Grid Section -->
+  <section id="articles-list" class="w-full py-12 md:py-16 bg-background">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-8">
+      
+      <!-- Filter and Count Header -->
+      <div class="space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-on-surface">
+              Tous nos articles ({blogArticles.length})
+            </h2>
+            <p class="text-xs md:text-sm text-on-surface-variant">
+              Guides pratiques, explications de devis et astuces de sécurité pour propriétaires et locataires montois.
+            </p>
+          </div>
+
+          <!-- Quick Search Box -->
+          <div class="relative w-full md:w-72">
+            <input
+              type="text"
+              id="article-search"
+              placeholder="Rechercher un sujet, panne..."
+              class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low border border-primary/20 text-xs md:text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container"
+            />
+            <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-lg">search</span>
+          </div>
+        </div>
+
+        <!-- Filter Category Chips -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="category-filters">
+          {categories.map((cat, i) => (
+            <button
+              type="button"
+              data-category={cat}
+              class={`category-btn px-4 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all ${
+                i === 0
+                  ? "bg-primary text-white shadow-sm"
+                  : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-primary"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="articles-grid">
+        {blogArticles.map((article) => {
+          const catClass = categoryColors[article.category] || "bg-primary/10 text-primary border-primary/20";
+          return (
+            <article
+              data-category={article.category}
+              data-title={article.title.toLowerCase()}
+              data-desc={article.metaDescription.toLowerCase()}
+              class="article-card flex flex-col justify-between p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all group"
+            >
+              <div class="space-y-3">
+                <div class="flex items-center justify-between gap-2">
+                  <span class={`px-2.5 py-0.5 rounded-md text-[11px] font-bold border ${catClass}`}>
+                    {article.category}
+                  </span>
+                  <span class="text-[11px] text-on-surface-variant">⏱️ {article.readTime}</span>
+                </div>
+
+                <h3 class="font-headline-sm text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">
+                  <a href={`/blog/${article.slug}`} class="focus:outline-none">
+                    {article.h1}
+                  </a>
+                </h3>
+
+                <p class="text-xs md:text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                  {article.quickAnswer}
+                </p>
+              </div>
+
+              <div class="pt-4 mt-4 border-t border-primary/10 flex items-center justify-between">
+                <span class="text-[11px] text-on-surface-variant/80">📅 {article.date}</span>
+                <a
+                  href={`/blog/${article.slug}`}
+                  class="inline-flex items-center gap-1 text-xs font-bold text-primary group-hover:text-primary-container transition-colors"
+                >
+                  <span>Lire le guide</span>
+                  <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <div id="no-results" class="hidden text-center py-12 space-y-3">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant">search_off</span>
+        <p class="text-sm font-bold text-on-surface">Aucun article ne correspond à votre recherche.</p>
+        <p class="text-xs text-on-surface-variant">Contactez-nous directement pour toute question plomberie au 065 / 79 40 20.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Response Performance Stats -->
+  <section class="max-w-6xl mx-auto px-4 md:px-8 py-8">
+    <ResponseTimeStats />
+  </section>
+
+  <!-- Interactive Quote Form -->
+  <section class="max-w-4xl mx-auto px-4 md:px-8 py-10">
+    <QuoteForm
+      title="Besoin d'un Dépannage ou d'un Devis à Mons ?"
+      subtitle="Nos dépanneurs qualifiés interviennent en 30 minutes 24h/24"
+    />
+  </section>
+
+  <!-- Review Badges Ribbon -->
+  <ReviewBadges />
+</Layout>
+
+<script>
+  // Client-side interactive filtering and search
+  const searchInput = document.getElementById('article-search') as HTMLInputElement | null;
+  const categoryBtns = document.querySelectorAll<HTMLButtonElement>('.category-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.article-card');
+  const noResults = document.getElementById('no-results');
+
+  let activeCategory = 'Tous';
+  let searchQuery = '';
+
+  function filterCards() {
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const cardCat = card.getAttribute('data-category') || '';
+      const cardTitle = card.getAttribute('data-title') || '';
+      const cardDesc = card.getAttribute('data-desc') || '';
+
+      const matchCat = activeCategory === 'Tous' || cardCat === activeCategory;
+      const matchSearch =
+        searchQuery === '' ||
+        cardTitle.includes(searchQuery) ||
+        cardDesc.includes(searchQuery);
+
+      if (matchCat && matchSearch) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      filterCards();
+    });
+  }
+
+  categoryBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach((b) => {
+        b.classList.remove('bg-primary', 'text-white', 'shadow-sm');
+        b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      btn.classList.add('bg-primary', 'text-white', 'shadow-sm');
+
+      activeCategory = btn.getAttribute('data-category') || 'Tous';
+      filterCards();
+    });
+  });
+</script>
