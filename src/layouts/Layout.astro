@@ -12,13 +12,25 @@ export interface Props {
   title?: string;
   description?: string;
   canonicalUrl?: string;
+  serviceData?: {
+    name: string;
+    description: string;
+    serviceType: string;
+    priceStartingAt?: string;
+  };
 }
 
 const {
   title = "Plombier Mons Urgent | Dépannage 24/7 & Débouchage en 30 Min",
   description = "Plombier local certifié à Mons (7000) et dans le Borinage. Dépannage en 30 minutes 24h/24 : fuites d'eau, débouchage WC/sterput, boiler, chaudière agréé CERGA. Devis gratuit avant travaux.",
-  canonicalUrl = Astro.url.href
+  canonicalUrl,
+  serviceData
 } = Astro.props;
+
+const siteUrl = "https://www.plombiermonsurgent.be";
+const rawPath = Astro.url.pathname || "/";
+const cleanPath = rawPath === "/" ? "/" : rawPath.replace(/\/+$/, "");
+const effectiveCanonical = canonicalUrl ? (canonicalUrl === `${siteUrl}/` ? `${siteUrl}/` : canonicalUrl.replace(/\/+$/, "")) : (cleanPath === "/" ? `${siteUrl}/` : `${siteUrl}${cleanPath}`);
 
 const isContactPage = Astro.url.pathname === '/contact' || Astro.url.pathname === '/contact/';
 ---
@@ -31,7 +43,7 @@ const isContactPage = Astro.url.pathname === '/contact' || Astro.url.pathname ==
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={effectiveCanonical} />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- Open Graph / Facebook -->
@@ -40,7 +52,7 @@ const isContactPage = Astro.url.pathname === '/contact' || Astro.url.pathname ==
     <meta property="og:site_name" content="Plombier Mons Urgent" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:url" content={effectiveCanonical} />
     <meta property="og:image" content="https://www.plombiermonsurgent.be/images/og-image.webp" />
     <meta property="og:image:secure_url" content="https://www.plombiermonsurgent.be/images/og-image.webp" />
     <meta property="og:image:type" content="image/webp" />
@@ -129,7 +141,7 @@ const isContactPage = Astro.url.pathname === '/contact' || Astro.url.pathname ==
     </style>
 
     <!-- Structured Data Schema.org -->
-    <SchemaOrg pageTitle={title} pageDescription={description} pageUrl={canonicalUrl} />
+    <SchemaOrg pageTitle={title} pageDescription={description} pageUrl={effectiveCanonical} serviceData={serviceData} />
   </head>
   <body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen">
     <Header />

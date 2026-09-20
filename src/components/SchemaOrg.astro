@@ -1,18 +1,89 @@
 ---
 export interface Props {
-  pageType?: 'website' | 'service' | 'local';
+  pageType?: 'website' | 'service' | 'local' | 'article';
   pageTitle?: string;
   pageDescription?: string;
   pageUrl?: string;
+  serviceData?: {
+    name: string;
+    description: string;
+    serviceType: string;
+    priceStartingAt?: string;
+  };
 }
 
 const {
+  pageType = 'website',
   pageTitle = "Plombier Mons Urgent | Dépannage 24/7 & Débouchage en 30 Min",
   pageDescription = "Plombier certifié à Mons et dans le Borinage. Dépannage plomberie d'urgence 24h/24, fuites d'eau, débouchage sterput/WC, boiler, chaudière gaz CERGA. Arrivée en 30 min.",
-  pageUrl = "https://www.plombiermonsurgent.be"
+  pageUrl = "https://www.plombiermonsurgent.be/",
+  serviceData
 } = Astro.props;
 
-const schemaData = {
+// Ensure clean URL without trailing slash except root
+const cleanUrl = pageUrl === 'https://www.plombiermonsurgent.be' || pageUrl === 'https://www.plombiermonsurgent.be/' 
+  ? 'https://www.plombiermonsurgent.be/' 
+  : pageUrl.replace(/\/+$/, '');
+
+// Generate dynamic breadcrumb items
+const urlObj = new URL(cleanUrl);
+const pathSegments = urlObj.pathname.split('/').filter(Boolean);
+
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Accueil",
+    "item": "https://www.plombiermonsurgent.be/"
+  }
+];
+
+if (pathSegments.length === 1) {
+  const segmentNames: Record<string, string> = {
+    'services': 'Services de Plomberie',
+    'locations': "Zones d'Intervention",
+    'blog': 'Guides & Conseils',
+    'about': 'À Propos',
+    'contact': 'Contact & Urgence'
+  };
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    "position": 2,
+    "name": segmentNames[pathSegments[0]] || pageTitle,
+    "item": cleanUrl
+  });
+} else if (pathSegments.length >= 2) {
+  const sectionParents: Record<string, { name: string; url: string }> = {
+    'services': { name: 'Services de Plomberie', url: 'https://www.plombiermonsurgent.be/services' },
+    'locations': { name: "Zones d'Intervention", url: 'https://www.plombiermonsurgent.be/locations' },
+    'blog': { name: 'Guides & Conseils', url: 'https://www.plombiermonsurgent.be/blog' }
+  };
+
+  const parent = sectionParents[pathSegments[0]];
+  if (parent) {
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      "position": 2,
+      "name": parent.name,
+      "item": parent.url
+    });
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      "position": 3,
+      "name": pageTitle,
+      "item": cleanUrl
+    });
+  } else {
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      "position": 2,
+      "name": pageTitle,
+      "item": cleanUrl
+    });
+  }
+}
+
+const schemaData: Record<string, any> = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -20,25 +91,26 @@ const schemaData = {
       "@id": "https://www.plombiermonsurgent.be/#plumber",
       "name": "Plombier Mons Urgent",
       "legalName": "Plombier Mons Urgent SRL",
-      "alternateName": "SOS Plombier Mons",
+      "alternateName": "SOS Plombier Mons & Borinage",
       "foundingDate": "2011",
       "award": "Artisan Agréé CERGA & Habilité Région Wallonne G1/G2",
       "url": "https://www.plombiermonsurgent.be",
       "telephone": "+3265794020",
       "emergencyTelephone": "+32470552020",
       "email": "contact@plombiermonsurgent.be",
-      "image": "https://www.plombiermonsurgent.be/logo.png",
+      "image": "https://www.plombiermonsurgent.be/images/og-image.webp",
+      "logo": "https://www.plombiermonsurgent.be/logo.png",
       "priceRange": "€€",
       "vatID": "BE 0842.195.834",
       "taxID": "BE 0842.195.834",
       "knowsAbout": [
-        "Dépannage plomberie d'urgence",
-        "Recherche de fuite d'eau non destructive",
-        "Débouchage haute pression 200 bars",
+        "Dépannage plomberie d'urgence 24h/24",
+        "Recherche de fuite d'eau non destructive thermique et acoustique",
+        "Débouchage haute pression 200 bars canalisations et égouts",
         "Entretien chaudière gaz agréé CERGA",
-        "Attestation périodique Wallonie G1/G2",
-        "Adoucisseur d'eau anti-calcaire",
-        "Rénovation sanitaire Geberit et Grohe"
+        "Attestation périodique officielle Région Wallonne G1/G2",
+        "Adoucisseur d'eau anti-calcaire Durlem et BWT",
+        "Rénovation sanitaire Geberit, Grohe et Hansgrohe"
       ],
       "paymentAccepted": ["Cash", "Bancontact", "Visa", "Mastercard", "Payconiq"],
       "currenciesAccepted": "EUR",
@@ -56,6 +128,24 @@ const schemaData = {
         "longitude": 3.9567
       },
       "hasMap": "https://maps.google.com/?q=Plombier+Mons+Urgent",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+3265794020",
+          "contactType": "customer service",
+          "areaServed": "BE",
+          "availableLanguage": ["French", "Dutch", "English"],
+          "hoursAvailable": "Mo-Su 00:00-23:59"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+32470552020",
+          "contactType": "emergency",
+          "contactOption": "TollFree",
+          "areaServed": "BE",
+          "availableLanguage": ["French", "English"]
+        }
+      ],
       "areaServed": [
         { "@type": "AdministrativeArea", "name": "Mons (7000)" },
         { "@type": "AdministrativeArea", "name": "Ghlin (7011)" },
@@ -87,56 +177,161 @@ const schemaData = {
         "bestRating": "5",
         "worstRating": "1"
       },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Marc Vandevelde" },
+          "datePublished": "2026-02-14",
+          "reviewBody": "Fuite sous évier un dimanche matin. Un plombier de chez Plombier Mons Urgent est arrivé en 35 minutes chrono. Devis annoncé au départ respecté au centime près. Vraiment rassurant de voir un artisan sérieux qui n'abuse pas sur les prix.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Nathalie Liénard" },
+          "datePublished": "2026-02-02",
+          "reviewBody": "Sterput extérieur totalement bouché avec l'eau qui remontait vers la buanderie. Ils ont passé la caméra et débloqué avec leur camion haute pression en 45 min. Travail impeccable, propre et efficace.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Jean-Luc Dubois" },
+          "datePublished": "2026-01-19",
+          "reviewBody": "Recherche de fuite dans le mur du salon. Équipé d'une caméra thermique, le technicien a trouvé la fuite exacte en 15 minutes sans casser. Le rapport pour mon assurance Ethias a été accepté sans discussion.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        }
+      ],
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.plombiermonsurgent.be/contact",
+          "inLanguage": "fr-BE",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "Dépannage Plomberie Immédiat"
+        }
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Prestations de Plomberie et Dépannage Mons",
+        "name": "Catalogue Complet des Prestations de Plomberie Mons & Borinage",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Dépannage plomberie d'urgence 24h/24 à Mons",
-              "description": "Intervention immédiate en 30 à 45 minutes pour fuite d'eau, canalisation éclatée ou panne d'eau chaude à Mons et environs."
+              "@id": "https://www.plombiermonsurgent.be/services/depannage-urgence#service",
+              "name": "Dépannage Plomberie d'Urgence 24h/24 à Mons",
+              "description": "Intervention immédiate en 30 à 45 minutes pour canalisation rompue, fuite d'eau majeure, inondation ou panne d'eau sanitaire.",
+              "provider": { "@id": "https://www.plombiermonsurgent.be/#plumber" },
+              "serviceType": "Emergency Plumbing",
+              "areaServed": { "@type": "AdministrativeArea", "name": "Mons et Borinage" }
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "EUR",
+              "description": "À partir de 85€ HTVA avec devis gratuit préalable"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Débouchage haute pression de canalisations, WC et sterputs à Mons",
-              "description": "Débouchage mécanique au furet électrique et hydrocurage haute pression pour égout bouché, évier et sanitaires."
+              "@id": "https://www.plombiermonsurgent.be/services/debouchage#service",
+              "name": "Débouchage Haute Pression & Curage Égouts à Mons",
+              "description": "Débouchage mécanique au furet électrique et hydrocureuse 200 bars pour égout, WC, évier, sterput et inspection par caméra HD.",
+              "provider": { "@id": "https://www.plombiermonsurgent.be/#plumber" },
+              "serviceType": "Drain Cleaning & Hydrojetting",
+              "areaServed": { "@type": "AdministrativeArea", "name": "Mons et Borinage" }
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "EUR",
+              "description": "À partir de 95€ HTVA matériel inclus"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Détection de fuite non destructive avec rapport assurance",
-              "description": "Recherche de fuite thermique et acoustique sans démolition, dossier technique officiel pour assurance dégât des eaux en Belgique."
+              "@id": "https://www.plombiermonsurgent.be/services/detection-fuites#service",
+              "name": "Recherche de Fuite d'Eau Non Destructive avec Rapport Assurance",
+              "description": "Détection acoustique, gaz traceur et caméra thermique FLIR sans aucune casse, avec dossier technique conforme aux assurances belges.",
+              "provider": { "@id": "https://www.plombiermonsurgent.be/#plumber" },
+              "serviceType": "Water Leak Detection",
+              "areaServed": { "@type": "AdministrativeArea", "name": "Mons et Borinage" }
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "EUR",
+              "description": "100% remboursable assurance habitation dégât des eaux"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Dépannage et détartrage de boiler / chauffe-eau",
-              "description": "Maintenance, remplacement de résistance stéatite, groupe de sécurité et détartrage contre l'eau calcaire de la SWDE à Mons."
+              "@id": "https://www.plombiermonsurgent.be/services/chauffage-chaudieres#service",
+              "name": "Chauffagiste Gaz Agréé CERGA & Entretien Chaudière / Boiler",
+              "description": "Dépannage d'urgence chaudière, détartrage de boiler et entretien périodique légal en Région Wallonne avec attestation de conformité G1/G2.",
+              "provider": { "@id": "https://www.plombiermonsurgent.be/#plumber" },
+              "serviceType": "Heating & Boiler Services",
+              "areaServed": { "@type": "AdministrativeArea", "name": "Mons et Borinage" }
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "EUR",
+              "description": "Entretien légal avec attestation officielle Wallonie"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Installation d'adoucisseur d'eau anti-calcaire",
-              "description": "Pose d'adoucisseurs sans électricité et volumétriques pour protéger votre maison de la dureté de l'eau à Mons."
+              "@id": "https://www.plombiermonsurgent.be/services/installations-sanitaires#service",
+              "name": "Installations & Rénovations Sanitaires Clé en Main",
+              "description": "Rénovation de salle de bain, installation de WC suspendu Geberit, douches à l'italienne, lavabos et robinetterie de marque Grohe.",
+              "provider": { "@id": "https://www.plombiermonsurgent.be/#plumber" },
+              "serviceType": "Bathroom & Sanitary Installation",
+              "areaServed": { "@type": "AdministrativeArea", "name": "Mons et Borinage" }
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "EUR",
+              "description": "Devis gratuit et garantie décennale"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Chauffagiste agréé CERGA pour chaudière gaz",
-              "description": "Entretien obligatoire en Région Wallonne avec attestation de contrôle périodique et dépannage chaudière Vaillant, Bulex, Viessmann."
+              "@id": "https://www.plombiermonsurgent.be/services/traitement-eau#service",
+              "name": "Installation et Entretien d'Adoucisseurs d'Eau Anti-Calcaire",
+              "description": "Protection de plomberie contre l'eau très dure de Mons (35°F), pose d'adoucisseurs Durlem et BWT sans électricité et maintenance sel.",
+              "provider": { "@id": "https://www.plombiermonsurgent.be/#plumber" },
+              "serviceType": "Water Treatment & Softener",
+              "areaServed": { "@type": "AdministrativeArea", "name": "Mons et Borinage" }
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "EUR",
+              "description": "Diagnostic dureté de l'eau offert sur place"
             }
           }
         ]
@@ -154,17 +349,46 @@ const schemaData = {
     },
     {
       "@type": "WebPage",
-      "@id": `${pageUrl}#webpage`,
-      "url": pageUrl,
+      "@id": `${cleanUrl}#webpage`,
+      "url": cleanUrl,
       "name": pageTitle,
       "description": pageDescription,
       "isPartOf": {
         "@id": "https://www.plombiermonsurgent.be/#website"
       },
+      "about": {
+        "@id": "https://www.plombiermonsurgent.be/#plumber"
+      },
+      "breadcrumb": {
+        "@id": `${cleanUrl}#breadcrumb`
+      },
       "inLanguage": "fr-BE"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${cleanUrl}#breadcrumb`,
+      "itemListElement": breadcrumbItems
     }
   ]
 };
+
+// Add specific Service schema as mainEntity if serviceData is passed
+if (serviceData) {
+  schemaData["@graph"].push({
+    "@type": "Service",
+    "@id": `${cleanUrl}#service`,
+    "name": serviceData.name,
+    "description": serviceData.description,
+    "serviceType": serviceData.serviceType,
+    "provider": {
+      "@id": "https://www.plombiermonsurgent.be/#plumber"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Mons et Borinage"
+    }
+  });
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

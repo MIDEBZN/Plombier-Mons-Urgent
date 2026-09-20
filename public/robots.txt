@@ -1,4 +1,40 @@
+# Robots.txt for Plombier Mons Urgent (https://www.plombiermonsurgent.be)
+# Optimized for fast indexation, Core Web Vitals, and rich image indexing
+
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /*.webp$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.jpg$
+Allow: /*.jpeg$
 
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Canonical XML Sitemap
 Sitemap: https://www.plombiermonsurgent.be/sitemap.xml
+
+# Preferred Host
+Host: https://www.plombiermonsurgent.be
