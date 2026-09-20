@@ -6,54 +6,55 @@ import FAQAccordion from '../components/FAQAccordion.astro';
 
 const services = [
   {
-    icon: 'water_damage',
+    icon: 'e911_emergency',
     tag: 'Urgence 24/7',
-    title: 'Recherche de Fuite d\'Eau Non Destructive',
-    desc: 'Localisation acoustique et caméra thermique FLIR sans casser vos murs. Rapport technique complet fourni pour votre assurance habitation.',
-    link: '/services#fuite',
-    badge: '100% Remboursé Assurance'
+    title: "Dépannage d'Urgence Plomberie 24h/24",
+    desc: "Intervention en 30 à 45 minutes pour tuyau percé, inondation, coupure d'eau et mise en sécurité immédiate de votre logement.",
+    link: '/services/depannage-urgence',
+    badge: 'Sur Place en 30 min'
   },
   {
     icon: 'plumbing',
     tag: 'Haute Pression',
-    title: 'Débouchage Canalisations, WC & Sterputs',
-    desc: 'Intervention d\'urgence furet électrique et hydrocureuse 200 bars. Égouts, toilettes, sterputs extérieurs et éviers bouchés à Mons.',
-    link: '/services#debouchage',
-    badge: 'Arrivée en 30 min'
+    title: 'Débouchage Canalisations, WC & Égouts',
+    desc: "Intervention d'urgence furet électrique et hydrocureuse 200 bars. Égouts, toilettes, sterputs extérieurs et vidange fosse septique.",
+    link: '/services/debouchage',
+    badge: 'Caméra HD Incluse'
   },
   {
-    icon: 'heat',
-    tag: 'Eau Chaude',
-    title: 'Dépannage Boiler & Chauffe-Eau',
-    desc: 'Panne d\'eau chaude, résistance entartrée ou groupe de sécurité qui fuit. Réparation et détartrage express toutes marques (Bulex, Ariston, Atlantic).',
-    link: '/services#boiler',
-    badge: 'Spécialiste Eau Calcaire'
+    icon: 'water_damage',
+    tag: 'Non Destructif',
+    title: "Recherche de Fuite d'Eau Non Destructive",
+    desc: 'Localisation acoustique et caméra thermique FLIR sans casser vos murs. Rapport technique complet fourni pour votre assurance habitation.',
+    link: '/services/detection-fuites',
+    badge: '100% Remboursé Assurance'
   },
   {
     icon: 'mode_heat',
     tag: 'Agréé Gaz',
-    title: 'Chauffagiste & Entretien Chaudière CERGA',
-    desc: 'Dépannage chaudière gaz et entretien périodique obligatoire en Wallonie avec délivrance de l\'attestation officielle de conformité.',
-    link: '/services#chauffage',
-    badge: 'Habilité Wallonie'
-  },
-  {
-    icon: 'water_bottle',
-    tag: 'Traitement Eau',
-    title: 'Adoucisseurs d\'Eau Anti-Calcaire',
-    desc: 'L\'eau de la SWDE à Mons est très dure (35°F). Protégez vos tuyauteries, sanitaires et boilers avec nos adoucisseurs nouvelle génération.',
-    link: '/services#adoucisseur',
-    badge: 'Économies d\'Énergie'
+    title: 'Chauffagiste & Chaudière Gaz CERGA',
+    desc: "Dépannage chaudière gaz, dépannage boiler et entretien périodique obligatoire en Wallonie avec délivrance de l'attestation légale.",
+    link: '/services/chauffage-chaudieres',
+    badge: 'Habilité Wallonie G1/G2'
   },
   {
     icon: 'wash',
-    tag: 'Sanitaire',
-    title: 'Robinetterie, Chasse Geberit & Sanitaires',
-    desc: 'Remplacement de mitigeurs Grohe/Hansgrohe, mécanisme de chasse suspendue Geberit, WC broyeur et rénovation plomberie salle de bain.',
-    link: '/services#sanitaire',
-    badge: 'Matériaux Certifiés'
+    tag: 'Sanitaire & SDB',
+    title: 'Installations Sanitaires & Rénovation Salle de Bain',
+    desc: 'Rénovation complète, pose de WC suspendus Geberit, douches à l\'italienne et robinetterie Grohe/Hansgrohe. TVA 6%.',
+    link: '/services/installations-sanitaires',
+    badge: 'Garantie Décennale'
+  },
+  {
+    icon: 'water_bottle',
+    tag: 'Anti-Calcaire',
+    title: 'Traitement de l\'Eau & Adoucisseurs',
+    desc: "L'eau SWDE à Mons est très dure (35°F). Protégez vos tuyauteries, sanitaires et boilers avec nos adoucisseurs volumétriques ou sans électricité.",
+    link: '/services/traitement-eau',
+    badge: 'Économies d\'Énergie'
   }
 ];
+
 
 const problems = [
   { name: 'Fuite d\'eau sur tuyau ou sous carrelage', icon: 'water_drop', solution: 'Détection sans casse & colmatage immédiat' },

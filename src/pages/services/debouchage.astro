@@ -1,0 +1,356 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const includedItems = [
+  { title: "Débouchage mécanique au furet électrique Rems", desc: "Pour WC, toilettes suspendues et éviers sans aucun risque de rayer ou fêler la porcelaine sanitaire." },
+  { title: "Hydrocurage haute pression 200 bars", desc: "Buses rotatives et furet hydraulique pour pulvériser les amas de calcaire, graisses, lingettes et boues compactes." },
+  { title: "Débouchage spécifique de sterput de cour", desc: "Traitement spécialisé du sterput belge et des siphons de sol extérieurs souvent encombrés par les feuilles et sables." },
+  { title: "Inspection vidéo par caméra endoscopique HD", desc: "Passage de tête vidéo étanche avec mesure de distance pour localiser racines, affaissements ou contre-pentes." },
+  { title: "Vidange et pompage de fosse septique", desc: "Pompage des boues, curage des parois, nettoyage du filtre décolloïdeur et remise en eau avec bactéries d'activation." },
+  { title: "Curage détartrant préventif", desc: "Décapage complet des parois internes pour restituer le diamètre d'origine de la tuyauterie et éviter les récidives." },
+  { title: "Test d'écoulement sous gros débit", desc: "Vérification minutieuse de l'évacuation avec colorant traceur ou grand volume d'eau pour valider le résultat." },
+  { title: "Garantie anti-récidive sur l'intervention", desc: "Conseils d'entretien personnalisés et garantie d'écoulement parfait sur toutes nos interventions." }
+];
+
+const commonProblems = [
+  { title: "WC bouché ou eau qui remonte au bord", icon: "toilet", desc: "Toilettes obstruées par excès de papier, lingettes non biodégradables ou objets tombés par accident." },
+  { title: "Évier de cuisine qui glougloute et refoule", icon: "sink", desc: "Accumulation lente de savon, de graisses de cuisson et de restes alimentaires formant un bouchon solide." },
+  { title: "Sterput extérieur ou siphon de cave inondé", icon: "filter_drama", desc: "Eau de pluie et eaux usées qui refoulent par le sterput lors des averses dans les points bas de Mons." },
+  { title: "Odeurs d'égout insupportables dans la maison", icon: "masks", desc: "Défaut d'étanchéité, siphon désamorcé ou bouchon partiel fermentant dans les colonnes de décharge." },
+  { title: "Fosse septique pleine ou colmatée", icon: "sanitizer", desc: "Trop-plein, écoulements impossibles vers le réseau d'égouttage et odeurs suffocantes autour de la fosse." },
+  { title: "Racines d'arbres dans la canalisation enterrée", icon: "yard", desc: "Infiltration de radicelles à travers les joints de vieux tuyaux en grès, bloquant totalement le passage." }
+];
+
+const faqs = [
+  {
+    q: "Quel est le prix d'un débouchage de canalisation ou de WC à Mons ?",
+    a: "Nos forfaits de débouchage débutent à partir de 95 € HTVA pour une intervention mécanique classique. Pour un curage haute pression ou une inspection caméra, un devis clair et fixe vous est présenté et validé avant d'engager le travail."
+  },
+  {
+    q: "Utilisez-vous des produits chimiques déboucheurs à l'acide ?",
+    a: "Non, absolument jamais. Les produits chimiques à base d'acide sulfurique ou de soude vendus en grande surface détériorent vos tuyauteries (notamment le PVC ancien et le plomb), dégagent des vapeurs toxiques et aggravent souvent le bouchon. Nous n'utilisons que des techniques mécaniques et hydrodynamiques (eau sous pression)."
+  },
+  {
+    q: "En combien de temps pouvez-vous intervenir pour un WC bouché à Mons ?",
+    a: "Notre camion d'intervention est basé à Mons et intervient en moyenne dans les 30 à 45 minutes pour les urgences sanitaires. Notre permanence téléphonique est accessible 24h/24."
+  },
+  {
+    q: "Pourquoi mon sterput refoule-t-il quand il pleut ?",
+    a: "Dans plusieurs quartiers de Mons et du Borinage (notamment à Cuesmes ou Jemappes), le réseau d'égouts est fortement sollicité lors de pluies orageuses. Si votre canalisation est partiellement obstruée ou si votre raccordement manque d'un clapet anti-retour, les eaux refluent par le sterput. Un curage haute pression et la pose d'un clapet résolvent définitivement ce problème."
+  },
+  {
+    q: "La vidange de fosse septique comprend-elle le nettoyage ?",
+    a: "Oui, notre prestation comprend le pompage intégral des boues liquides et épaisses, le lavage haute pression des parois et du fond, ainsi que le contrôle du bon écoulement des entrées et sorties."
+  }
+];
+---
+
+<Layout
+  title="Débouchage Canalisation Mons | WC, Égout, Sterput & Fosse 24/7"
+  description="Débouchage urgent de canalisation, WC, évier, sterput et égout à Mons. Curage haute pression 200 bars, inspection caméra et vidange de fosse septique. Arrivée en 30 min."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Débouchage Express & Hydrocurage 200 Bars à Mons</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Débouchage de Canalisations, WC, Égouts & Sterputs à Mons
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Écoulement bloqué, odeurs nauséabondes ou refoulement d'eaux usées ? Nos véhicules hydrocureurs interviennent <strong>24h/24 et 7j/7</strong> dans tout le Grand Mons pour rétablir vos canalisations sans produit chimique corrosif.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">water</span>
+              <span>Hydrocurage haute pression 200 bars</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">videocam</span>
+              <span>Inspection vidéo caméra endoscopique HD</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Dépannage d'urgence sur place en 30 min</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">cleaning_services</span>
+              <span>Vidange et curage de fosse septique</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20canalisation%20ou%20un%20WC%20bouché%20à%20Mons"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>Photo / Devis WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="SOS Débouchage Mons" subtitle="Intervention d'urgence au furet pro ou hydrocureur" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- What's Included -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Prestations Détaillées</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Ce qui est inclus dans notre service de débouchage à Mons
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          De la petite évacuation d'évier jusqu'au curage intégral du collecteur d'égout communal.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {includedItems.map((item, idx) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-xs mb-3">
+                0{idx + 1}
+              </div>
+              <h3 class="font-headline-sm text-base text-primary font-bold">{item.title}</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Obstructions Fréquentes</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Les problèmes de canalisation que nous débloquons à Mons
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {commonProblems.map((prob) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm card-hover-effect">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-[28px]">{prob.icon}</span>
+            </div>
+            <h3 class="font-headline-sm text-base text-primary font-bold">{prob.title}</h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">{prob.desc}</p>
+            <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between">
+              <a href="tel:+3265794020" class="text-xs font-bold text-primary-container hover:underline flex items-center gap-1">
+                <span>Déboucher maintenant</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Méthode Professionnelle</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Notre processus de débouchage en 4 étapes
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">01</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">1</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Diagnostic de la Panne</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Identification du type de bouchon et du point d'accès optimal (regard, sterput ou siphon).
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">02</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">2</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Désobstruction Ciblée</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Passage du furet rotatif ou projection d'eau à 200 bars pour désintégrer le bouchon sans abîmer les joints.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">03</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">3</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Inspection Caméra Vidéo</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Vérification de l'état structurel des parois intérieures pour s'assurer qu'aucune cassure n'est présente.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">04</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">4</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Rinçage & Garantie</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Rinçage grand débit, assainissement désodorisant et délivrance de notre garantie d'écoulement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area & Emergency Availability Details -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Camions Équipés à Mons</span>
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold">
+            Débouchage d'urgence dans toutes les communes montoises
+          </h2>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Nos hydrocureurs compacts accèdent facilement aux ruelles pavées du centre historique de Mons comme aux propriétés du Borinage avec de longues allées privées.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs md:text-sm">
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7000 Mons Centre</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7011 Ghlin</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7012 Jemappes / Flénu</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7033 Cuesmes</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7022 Hyon / Mesvin</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7080 Frameries & Borinage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 p-8 rounded-2xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
+          <div class="w-14 h-14 rounded-full bg-primary-container text-white flex items-center justify-center mx-auto mb-2">
+            <span class="material-symbols-outlined text-[30px]">plumbing</span>
+          </div>
+          <h3 class="font-headline-sm text-xl text-primary font-bold">Un camion d'hydrocurage est disponible maintenant</h3>
+          <p class="text-xs md:text-sm text-on-surface-variant max-w-md mx-auto">
+            Toilette qui déborde ou évacuation bloquée ? Évitez le dégât des eaux en réservant notre intervention immédiate.
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="tel:+3265794020"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-sm shadow hover:bg-forest-dark transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">call</span>
+              <span>Ligne Débouchage : 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20un%20WC%20ou%20une%20canalisation%20bouchée"
+              target="_blank"
+              rel="noopener"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary border border-primary/20 font-bold text-sm hover:bg-white transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-primary-container">chat</span>
+              <span>Photo WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur le débouchage à Mons
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final High-Conversion CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Une canalisation, un WC ou un sterput bouché à Mons ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Intervention furet pro et hydrocurage haute pression 24h/24 et 7j/7. Devis forfaitaire validé avant travaux.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20un%20problème%20de%20débouchage%20à%20Mons"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>Photo / Devis WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

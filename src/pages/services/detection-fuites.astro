@@ -1,0 +1,356 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const includedItems = [
+  { title: "Inspection par caméra thermique infrarouge FLIR", desc: "Visualisation des variations thermiques millimétriques à travers cloisons, sols chauffants, chapes et plafonds." },
+  { title: "Localisation électro-acoustique par ultrasons", desc: "Écoute amplifiée du bruit de fuite sous pression dans les tuyaux encastrés sous chape ou carrelage." },
+  { title: "Injection de gaz traceur (Azote-Hydrogène)", desc: "Méthode infaillible pour localiser les micro-fuites sur canalisations enterrées sous dalle ou dans le jardin." },
+  { title: "Mesure d'humidité par sonde micro-ondes", desc: "Cartographie de la saturation en eau des matériaux de construction pour déterminer le foyer du sinistre." },
+  { title: "Traçage électromagnétique des réseaux", desc: "Cartographie du parcours exact des tuyauteries métalliques et synthétiques sous sol avant toute réparation." },
+  { title: "Rapport d'expertise officiel pour assurance", desc: "Dossier technique complet avec clichés thermiques, relevés hygrométriques et devis conforme aux compagnies belges." },
+  { title: "Réparation ciblée sans démolition inutile", desc: "Ouverture minimale et chirurgicale au niveau de la fuite, colmatage ou remplacement de tronçon." },
+  { title: "Test d'étanchéité final sous manomètre", desc: "Contrôle de stabilité de pression pour attester de la disparition totale de toute fuite sur le réseau." }
+];
+
+const commonProblems = [
+  { title: "Compteur d'eau qui tourne en permanence", icon: "speed", desc: "Le petit voyant du compteur d'eau continue de tourner alors que tous les robinets sont fermés." },
+  { title: "Facture d'eau SWDE qui double ou triple", icon: "receipt_long", desc: "Courrier d'alerte de surconsommation anormale de la société des eaux (SWDE) sans fuite apparente." },
+  { title: "Taches d'humidité, salpêtre et moisissures", icon: "water_drop", desc: "Auréoles jaunâtres au plafond, peinture qui cloque ou plinthes qui noircissent le long des cloisons." },
+  { title: "Parquet qui gondole ou carrelage chaud", icon: "floor", desc: "Infiltration sournoise sous la chape ou fuite sur la boucle de chauffage au sol." },
+  { title: "Perte de pression constante sur la chaudière", icon: "device_thermostat", desc: "Obligation de rajouter de l'eau dans le circuit de chauffage tous les deux jours." },
+  { title: "Infiltration d'eau chez le voisin du dessous", icon: "apartment", desc: "Gouttelettes ou taches apparaissant chez le copropriétaire inférieur provenant de votre salle de bain." }
+];
+
+const faqs = [
+  {
+    q: "La recherche de fuite est-elle remboursée par mon assurance habitation en Belgique ?",
+    a: "Oui, dans l'immense majorité des contrats d'assurance habitation (garantie Dégât des Eaux) en Belgique (Ethias, AXA, AG Insurance, Belfius, Baloise, DKV, etc.), les frais de détection de fuite non destructive sont pris en charge. Nous vous fournissons sous 24h le rapport technique officiel requis par votre assureur."
+  },
+  {
+    q: "Allez-vous casser mon carrelage ou mes murs pendant la recherche ?",
+    a: "Non. Le principe même de la détection non destructive est de trouver la fuite à 100 % de l'extérieur grâce à la caméra thermique, aux ultrasons et au gaz traceur. Si une réparation nécessite d'accéder au tuyau, l'ouverture est millimétrique et circonscrite au point exact de la fuite."
+  },
+  {
+    q: "Que faire dès que je soupçonne une fuite d'eau invisible ?",
+    a: "Fermez tous les robinets et vérifiez si le compteur d'eau tourne. Prenez une photo du compteur à 2 heures d'intervalle sans consommer d'eau. Si le chiffre a changé, contactez immédiatement notre permanence pour bloquer un passage de technicien."
+  },
+  {
+    q: "Quel est le délai pour obtenir le rapport technique d'expertise ?",
+    a: "Le rapport d'expertise complet (comprenant les photographies thermiques, les explications techniques et le devis de remise en état) vous est envoyé par e-mail dans les 24 heures suivant l'intervention pour transmission immédiate à votre courtier d'assurance."
+  },
+  {
+    q: "Pouvez-vous réparer la fuite immédiatement après l'avoir trouvée ?",
+    a: "Oui ! Nos techniciens disposent dans leur véhicule des raccords nécessaires (cuivre, multicouche, PER, polyéthylène). Dès la fuite localisée et le devis de réparation validé, nous intervenons immédiatement pour stopper l'écoulement."
+  }
+];
+---
+
+<Layout
+  title="Recherche de Fuite d'Eau Non Destructive Mons | Prise en Charge Assurance"
+  description="Détection de fuite d'eau sans casse à Mons : caméra thermique FLIR, gaz traceur et ultrasons. Rapport technique agréé assurances belges sous 24h. Arrivée en 30 min."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Détection Sans Démolition • Agréé Compagnies d'Assurance</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Recherche de Fuite d'Eau Non Destructive à Mons : <span class="text-primary-container underline decoration-tertiary-container decoration-4">Zéro Casse</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Localisation centimétrique de vos fuites d'eau invisibles par <strong>caméra thermique FLIR, gaz traceur et écoute acoustique</strong>. Rapport d'expertise officiel fourni pour remboursement intégral par votre assurance habitation.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified_user</span>
+              <span>100% Remboursé par votre assurance habitation</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">videocam</span>
+              <span>Caméra thermique infrarouge haute définition</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">description</span>
+              <span>Rapport technique officiel délivré sous 24h</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Intervention d'urgence en 30 à 45 minutes</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20je%20suspecte%20une%20fuite%20d'eau%20à%20Mons"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>WhatsApp Détection Fuite</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Détection de Fuite d'Eau" subtitle="Localisation sans casse et dossier assurance en 24h" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- What's Included -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Technologie Sans Casse</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Notre équipement de détection de fuite à Mons
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Nous combinons 4 technologies complémentaires pour garantir un résultat infaillible sans démolition prématurée.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {includedItems.map((item, idx) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-xs mb-3">
+                0{idx + 1}
+              </div>
+              <h3 class="font-headline-sm text-base text-primary font-bold">{item.title}</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Signes d'Alerte</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Quand faut-il demander une recherche de fuite ?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {commonProblems.map((prob) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm card-hover-effect">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-[28px]">{prob.icon}</span>
+            </div>
+            <h3 class="font-headline-sm text-base text-primary font-bold">{prob.title}</h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">{prob.desc}</p>
+            <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between">
+              <a href="tel:+3265794020" class="text-xs font-bold text-primary-container hover:underline flex items-center gap-1">
+                <span>Localiser la fuite</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Protocole Assureur</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Déroulement de la recherche de fuite et prise en charge
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">01</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">1</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Investigation Non Destructive</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Passage des caméras thermiques et détecteurs acoustiques pour délimiter la zone exacte sans aucun dégât.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">02</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">2</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Localisation au Centimètre</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Confirmation du point de rupture de tuyau par corrélation acoustique ou test au gaz traceur.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">03</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">3</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Réparation Ciblée Immédiate</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Mise à nu locale du tuyau et réparation étanche immédiate avec validation sous pression.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">04</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">4</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Dossier d'Assurance Remis</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Envoi sous 24h du rapport avec photos thermiques pour remboursement complet de la prestation par votre assureur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area & Emergency Availability Details -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Intervention Rapide Mons</span>
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold">
+            Détection de fuite dans tout le Grand Mons et le Borinage
+          </h2>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Nos équipements d'inspection thermique et acoustique sont prêts à bord de nos véhicules pour intervenir immédiatement à Mons-Centre, Jemappes, Cuesmes, Ghlin, Hyon et Frameries.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs md:text-sm">
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7000 Mons Centre</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7011 Ghlin</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7012 Jemappes / Flénu</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7033 Cuesmes</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7022 Hyon / Mesvin</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7080 Frameries & Borinage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 p-8 rounded-2xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
+          <div class="w-14 h-14 rounded-full bg-primary-container text-white flex items-center justify-center mx-auto mb-2">
+            <span class="material-symbols-outlined text-[30px]">water_damage</span>
+          </div>
+          <h3 class="font-headline-sm text-xl text-primary font-bold">Infiltration d'eau active ?</h3>
+          <p class="text-xs md:text-sm text-on-surface-variant max-w-md mx-auto">
+            Chaque heure compte pour limiter les dégradations de maçonnerie. Demandez un passage immédiat de notre technicien thermicien.
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="tel:+3265794020"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-sm shadow hover:bg-forest-dark transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">call</span>
+              <span>Ligne Directe : 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20fuite%20d'eau%20à%20localiser"
+              target="_blank"
+              rel="noopener"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary border border-primary/20 font-bold text-sm hover:bg-white transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-primary-container">chat</span>
+              <span>Photo WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur la recherche de fuite à Mons
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final High-Conversion CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Une fuite d'eau suspectée dans votre logement à Mons ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Détection thermique de haute précision sans démolition. Rapport officiel sous 24h pour remboursement intégral par votre assurance habitation.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20besoin%20d'une%20recherche%20de%20fuite%20à%20Mons"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>Photo / Devis WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

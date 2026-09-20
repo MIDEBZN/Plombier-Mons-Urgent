@@ -1,0 +1,354 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const includedItems = [
+  { title: "Déplacement ultra-rapide à Mons (30–45 min)", desc: "Technicien d'astreinte pré-positionné avec véhicule tout équipé, prêt à intervenir jour et nuit." },
+  { title: "Mise en sécurité immédiate de l'installation", desc: "Coupure ciblée de la vanne, vidange du réseau et isolation de la fuite pour stopper tout dégât des eaux." },
+  { title: "Diagnostic technique complet sans démolition", desc: "Contrôle de pression, examen visuel et acoustique pour identifier l'origine exacte du sinistre." },
+  { title: "Devis clair et transparent avant travaux", desc: "Évaluation du montant forfaitaire immédiate : vous validez et signez avant toute réparation." },
+  { title: "Réparation durable avec pièces certifiées", desc: "Raccords cuivre, PER, multicouche, joints haute pression et vannes d'arrêt conformes aux normes belges." },
+  { title: "Test d'étanchéité et mise en eau contrôlée", desc: "Contrôle rigoureux sous pression pour s'assurer de l'absence totale de fuite résiduelle." },
+  { title: "Nettoyage soigné du chantier", desc: "Zone d'intervention nettoyée, épongée et débarrassée des déchets avant notre départ." },
+  { title: "Facture détaillée et attestation d'assurance", desc: "Document complet conforme aux exigences des compagnies d'assurance habitation belges (Ethias, AXA, AG)." }
+];
+
+const commonProblems = [
+  { title: "Canalisation ou tuyau d'eau percé", icon: "water_damage", desc: "Fuite soudaine sous pression suite à gel, vétusté ou corrosion. Eau qui coule abondamment." },
+  { title: "WC bouché avec débordement imminent", icon: "toilet", desc: "Toilettes complètement obstruées menaçant d'inonder la pièce ou les voisins du dessous." },
+  { title: "Robinet ou vanne d'arrêt cassée", icon: "water_drop", desc: "Poignée bloquée, cassée ou filetage défaillant empêchant de fermer l'eau." },
+  { title: "Panne brutale de chauffe-eau / boiler", icon: "heat", desc: "Groupe de sécurité qui crache de l'eau en continu ou court-circuit faisant disjoncter le tableau." },
+  { title: "Refoulement d'eaux usées et sterput", icon: "filter_drama", desc: "Eaux usées qui remontent dans la douche, la baignoire ou par le siphon de cour." },
+  { title: "Chaudière gaz en sécurité / panne en hiver", icon: "mode_heat", desc: "Arrêt complet du chauffage et de l'eau chaude sanitaire par temps de gel." }
+];
+
+const faqs = [
+  {
+    q: "Quel est votre délai d'intervention réel pour une urgence à Mons ?",
+    a: "Nos artisans sont basés à Mons même. En moyenne, notre dépanneur arrive à votre domicile en 30 à 45 minutes réelles, qu'il s'agisse de Mons-Centre, Jemappes, Cuesmes ou Ghlin."
+  },
+  {
+    q: "Intervenez-vous la nuit, le week-end et les jours fériés ?",
+    a: "Oui, notre permanence d'urgence est active 24h/24 et 7j/7, 365 jours par an. Un technicien de garde est toujours mobilisable immédiatement en appelant notre numéro direct."
+  },
+  {
+    q: "Combien coûte un dépannage d'urgence et appliquez-vous des suppléments cachés ?",
+    a: "Aucun supplément caché. Nous appliquons un forfait clair (déplacement + 1ère heure de main-d'œuvre). Si des pièces doivent être remplacées, le prix vous est annoncé et validé avant la réparation."
+  },
+  {
+    q: "Puis-je bénéficier du taux de TVA réduit à 6 % ?",
+    a: "Oui, si votre logement a plus de 10 ans et sert d'habitation privée, vous bénéficiez légalement du taux de TVA belge de 6 % sur la main-d'œuvre et les pièces."
+  },
+  {
+    q: "Que dois-je faire en attendant l'arrivée de votre plombier ?",
+    a: "Coupez immédiatement la vanne d'arrêt générale d'eau (souvent près du compteur dans la cave ou le garage), coupez l'électricité du boiler s'il y a fuite à proximité, et prenez des photos du sinistre pour votre assurance."
+  }
+];
+---
+
+<Layout
+  title="Dépannage Plomberie d'Urgence Mons 24h/24 | Arrivée en 30 Min"
+  description="Dépannage plomberie d'urgence 24/7 à Mons et Borinage : fuite d'eau, tuyau percé, inondation, WC bouché. Artisan agréé sur place en 30-45 min. Devis clair avant travaux."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Service d'Urgence Plomberie 24h/24 • 7j/7 à Mons</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Dépannage Plomberie d'Urgence à Mons : Sur Place en <span class="text-primary-container underline decoration-tertiary-container decoration-4">30 à 45 Min</span>
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Une fuite d'eau critique, un tuyau éclaté ou une inondation ? Nos techniciens d'astreinte interviennent immédiatement dans tout le Grand Mons et le Borinage, de jour comme de nuit.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Arrivée garantie en 30–45 min</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">price_check</span>
+              <span>Devis écrit avant toute réparation</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Artisan local agréé (BCE BE 0842.195.834)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">percent</span>
+              <span>TVA réduite à 6 % (logements &gt; 10 ans)</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Mons"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>Photo / Devis WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="SOS Dépannage d'Urgence" subtitle="Rappel immédiat en moins de 15 min par un artisan de garde" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- What's Included -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Prestation Complète</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Ce qui est inclus dans notre dépannage d'urgence à Mons
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Un protocole rigoureux pour colmater le sinistre, sécuriser votre logement et vous protéger financièrement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {includedItems.map((item, idx) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-xs mb-3">
+                0{idx + 1}
+              </div>
+              <h3 class="font-headline-sm text-base text-primary font-bold">{item.title}</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Symptômes Traités</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Les pannes d'urgence que nous résolvons quotidiennement
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {commonProblems.map((prob) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm card-hover-effect">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-[28px]">{prob.icon}</span>
+            </div>
+            <h3 class="font-headline-sm text-base text-primary font-bold">{prob.title}</h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">{prob.desc}</p>
+            <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between">
+              <a href="tel:+3265794020" class="text-xs font-bold text-primary-container hover:underline flex items-center gap-1">
+                <span>Intervenir d'urgence</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Intervention Express</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Notre processus de dépannage étape par étape
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">01</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">1</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Appel & Triage d'Urgence</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Écoute immédiate, conseils de mise en sécurité (fermeture de vanne) et départ immédiat du camion d'astreinte.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">02</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">2</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Diagnostic sur Place</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Arrivée en 30–45 min. Localisation précise du problème avec matériel de détection professionnel.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">03</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">3</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Devis Forfaitaire Signé</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Prix fixé par écrit avant de commencer. Aucune mauvaise surprise ni surfacturation au démontage.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">04</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">4</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Réparation & Garantie 2 Ans</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Colmatage, remplacement de composants, remise en eau sous contrôle et nettoyage complet du lieu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area & Emergency Availability Details -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Disponibilité Permanente</span>
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold">
+            Dépannage d'urgence 24h/24 dans tout le Grand Mons
+          </h2>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Contrairement aux réseaux parisiens ou bruxellois qui sous-traitent avec des délais de plus de 1h30, notre base logistique est située à Mons même. Nos techniciens partent immédiatement avec un stock de raccords et de pièces certifiées.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs md:text-sm">
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7000 Mons Centre (25-35 min)</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7011 Ghlin (30 min)</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7012 Jemappes / Flénu (30 min)</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7033 Cuesmes (30 min)</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7022 Hyon / Mesvin (35 min)</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7080 Frameries & Borinage (35 min)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 p-8 rounded-2xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
+          <div class="w-14 h-14 rounded-full bg-tertiary-container text-white flex items-center justify-center mx-auto mb-2">
+            <span class="material-symbols-outlined text-[30px]">bolt</span>
+          </div>
+          <h3 class="font-headline-sm text-xl text-primary font-bold">Un dépanneur d'astreinte est actuellement en ligne</h3>
+          <p class="text-xs md:text-sm text-on-surface-variant max-w-md mx-auto">
+            Fuite sous carrelage, inondation ou sanitaires inutilisables ? Bloquez l'arrivée de notre technicien d'urgence dès maintenant.
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="tel:+3265794020"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-sm shadow hover:bg-forest-dark transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">call</span>
+              <span>Ligne Urgence : 065 / 79 40 20</span>
+            </a>
+            <a
+              href="tel:+32470552020"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-tertiary-container text-white font-bold text-sm shadow hover:bg-tertiary transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px]">e911_emergency</span>
+              <span>GSM Direct 0470 / 55 20 20</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur le dépannage d'urgence à Mons
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final High-Conversion CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Besoin d'un dépanneur plomberie d'urgence à Mons ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Permanence téléphonique 24h/24 et 7j/7. Arrivée sur place en 30 à 45 minutes dans tout le Grand Mons. Devis clair validé avant travaux.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Mons"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>Photo / Devis WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

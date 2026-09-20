@@ -1,0 +1,356 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const includedItems = [
+  { title: "Entretien obligatoire chaudière gaz en Wallonie", desc: "Nettoyage brûleur, échangeur, contrôle de pression du vase, analyse électronique des fumées et attestation légale officielle." },
+  { title: "Dépannage d'urgence chaudière 24h/24", desc: "Diagnostic immédiat de panne, codes erreurs (F28, F22, F75...), mise en sécurité et remplacement de pièces défaillantes." },
+  { title: "Installation de chaudière gaz à condensation", desc: "Remplacement chaudière avec régulation modulante, raccordement ventouse ou cheminée tubée, labellisé CERGA." },
+  { title: "Dépannage & détartrage de boiler / chauffe-eau", desc: "Remplacement de résistance stéatite, thermostat, groupe de sécurité et élimination du calcaire incrusté de la SWDE." },
+  { title: "Pose de boiler thermodynamique haute efficacité", desc: "Installation de chauffe-eau thermodynamique classe A+ permettant jusqu'à 70 % d'économie d'électricité." },
+  { title: "Désembouage hydrodynamique du circuit radiateurs", desc: "Nettoyage des boues magnétiques pour supprimer les zones froides sur les radiateurs et baisser la consommation." },
+  { title: "Remplacement de vannes et têtes thermostatiques", desc: "Installation de têtes thermostatiques intelligentes ou mécaniques pour un confort thermique pièce par pièce." },
+  { title: "Mise en conformité gaz naturel et attestation CERGA", desc: "Vérification d'étanchéité de la tuyauterie gaz avant ouverture de compteur par le gestionnaire ORES." }
+];
+
+const commonProblems = [
+  { title: "Chaudière en sécurité / codes d'erreur", icon: "error", desc: "La chaudière s'arrête brutalement avec un voyant rouge clignotant, sans redémarrage possible." },
+  { title: "Radiateurs froids en bas ou tièdes", icon: "device_thermostat", desc: "Boues accumulées au fond du radiateur empêchant la bonne circulation de l'eau de chauffage." },
+  { title: "Plus d'eau chaude au robinet ou à la douche", icon: "heat", desc: "Échangeur à plaques entartré, vanne 3 voies bloquée ou résistance de boiler hors d'usage." },
+  { title: "Pression de chaudière qui tombe à zéro", icon: "speed", desc: "Vase d'expansion dégonflé ou percé, ou micro-fuite sur le circuit de tuyauterie encastré." },
+  { title: "Bruits de claquement dans les canalisations", icon: "volume_up", desc: "Présence d'air dans le réseau de chauffage, circulateur fatigué ou débit mal équilibré." },
+  { title: "Groupe de sécurité boiler qui coule en continu", icon: "water_drop", desc: "Surpression sur le réseau d'eau ou clapet anti-retour entartré par l'eau calcaire de Mons." }
+];
+
+const faqs = [
+  {
+    q: "Quelle est la réglementation sur l'entretien des chaudières gaz en Wallonie ?",
+    a: "En Région Wallonne, l'entretien des chaudières au gaz naturel est légalement obligatoire tous les 3 ans pour les puissances inférieures ou égales à 100 kW (tous les ans pour le mazout). Notre technicien agréé vous délivre l'attestation officielle de contrôle périodique exigée par la loi et votre assurance."
+  },
+  {
+    q: "Quelles marques de chaudières dépannez-vous à Mons ?",
+    a: "Nous intervenons sur l'ensemble des marques majeures installées en Belgique : Vaillant, Bulex (Saunier Duval), Viessmann, Junkers Bosch, ACV, Remeha, De Dietrich, Weishaupt et Chaffoteaux. Nous disposons d'un stock de pièces d'origine courantes dans nos véhicules."
+  },
+  {
+    q: "Quel est le prix d'un entretien de chaudière gaz à Mons ?",
+    a: "Nos forfaits d'entretien de chaudière gaz débutent à partir de 135 € HTVA, incluant le nettoyage complet, l'analyse électronique des gaz brûlés et la délivrance de l'attestation officielle wallonne. TVA 6 % applicable si votre logement a plus de 10 ans."
+  },
+  {
+    q: "Que faire si ma chaudière perd régulièrement de la pression ?",
+    a: "Une perte de pression indique soit un vase d'expansion défaillant (membrane percée), soit une soupape de sécurité 3 bars fuyarde, soit une fuite sur vos tuyaux de chauffage. Évitez de rajouter de l'eau quotidiennement (cela injecte du calcaire) et demandez un diagnostic rapide."
+  },
+  {
+    q: "Pourquoi mon boiler électrique fait-il disjoncter le compteur ?",
+    a: "C'est le symptôme typique d'une résistance blindée rongée par le calcaire montois et entrée en contact avec l'eau, provoquant une fuite de courant vers la terre. Nous remplaçons la résistance défaillante et détartrons la cuve le jour même."
+  }
+];
+---
+
+<Layout
+  title="Chauffagiste Mons Agréé CERGA | Chaudière, Entretien Gaz & Boiler 24/7"
+  description="Chauffagiste certifié CERGA à Mons. Dépannage urgent chaudière gaz (Vaillant, Bulex, Viessmann), entretien périodique légal Wallonie, boiler et radiateurs."
+>
+  <!-- Hero Section -->
+  <section class="relative w-full bg-background overflow-hidden py-10 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 md:space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high text-primary font-bold text-xs md:text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency"></span>
+            <span>Chauffagiste Agréé CERGA & Région Wallonne (G1/G2)</span>
+          </div>
+
+          <h1 class="font-display-hero text-3xl sm:text-4xl lg:text-5xl text-primary font-extrabold tracking-tight leading-tight">
+            Chauffagiste à Mons : Chaudières Gaz, Boilers & Radiateurs
+          </h1>
+
+          <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Panne de chauffage en plein hiver ou plus d'eau chaude sanitaire ? Nos techniciens habilités interviennent d'urgence pour le <strong>dépannage, l'entretien légal et l'installation</strong> de vos équipements de chauffage à Mons.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">verified</span>
+              <span>Installateur Agréé CERGA & Habilité G1/G2</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">receipt_long</span>
+              <span>Attestation officielle de contrôle périodique Wallonie</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">build</span>
+              <span>Dépannage toutes marques (Vaillant, Bulex, Viessmann)</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm font-semibold text-on-surface">
+              <span class="material-symbols-outlined text-primary-container text-[22px]">timer</span>
+              <span>Dépannage d'urgence sous 30 à 45 minutes</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a
+              href="tel:+3265794020"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-base hover:bg-forest-dark shadow-md transition-all hover:-translate-y-0.5"
+            >
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">call</span>
+              <span>Appeler le 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20un%20problème%20de%20chaudière%20ou%20boiler%20à%20Mons"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface-container-high text-primary font-bold text-base hover:bg-surface-container-highest transition-all border border-primary/10"
+            >
+              <span class="material-symbols-outlined text-[22px] text-primary-container">chat</span>
+              <span>Photo Code Erreur WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 w-full">
+          <QuoteForm title="Chauffage & Chaudière" subtitle="Dépannage urgent ou rendez-vous d'entretien annuel" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- What's Included -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Prestations Thermiques</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Nos services de chauffage et production d'eau chaude à Mons
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          De l'entretien réglementaire annuel jusqu'au remplacement complet de chaudière et de chauffe-eau.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {includedItems.map((item, idx) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-xs mb-3">
+                0{idx + 1}
+              </div>
+              <h3 class="font-headline-sm text-base text-primary font-bold">{item.title}</h3>
+              <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Pannes Fréquentes</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Les pannes de chauffage et de chaudière que nous réparons
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {commonProblems.map((prob) => (
+          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm card-hover-effect">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high text-primary-container flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-[28px]">{prob.icon}</span>
+            </div>
+            <h3 class="font-headline-sm text-base text-primary font-bold">{prob.title}</h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">{prob.desc}</p>
+            <div class="pt-4 mt-4 border-t border-primary/5 flex items-center justify-between">
+              <a href="tel:+3265794020" class="text-xs font-bold text-primary-container hover:underline flex items-center gap-1">
+                <span>Dépanner ma chaudière</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="w-full py-16 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Méthode Certifiée</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Déroulement d'un dépannage ou entretien chaudière
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">01</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">1</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Diagnostic & Sécurité Gaz</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Contrôle d'absence de fuite de gaz, lecture des codes défauts sur la carte électronique et vérification des pressions.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">02</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">2</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Devis Pièces & Main d'Œuvre</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Présentation du coût exact de la réparation. Validation préalable sans aucune obligation.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">03</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">3</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Remplacement Pièce d'Origine</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Montage de pièces certifiées constructeur (électrode, ventilateur, circulateur, capteur de pression).
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm relative overflow-hidden">
+          <span class="text-6xl font-extrabold text-primary/5 absolute top-2 right-4">04</span>
+          <div class="w-10 h-10 rounded-lg bg-primary-container text-white flex items-center justify-center font-bold text-base mb-4">4</div>
+          <h3 class="font-headline-sm text-base text-primary font-bold">Attestation Officielle</h3>
+          <p class="text-xs text-on-surface-variant mt-2 leading-relaxed">
+            Analyse des fumées, remise de l'attestation légale de contrôle périodique et garantie 2 ans.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area & Emergency Availability Details -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Techniciens Agréés Mons</span>
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold">
+            Dépannage chauffage dans tout le Grand Mons et le Borinage
+          </h2>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Nos chauffagistes qualifiés interviennent en permanence à Mons-Centre, Jemappes, Ghlin, Cuesmes, Hyon et Frameries pour relancer votre chaudière ou votre chauffe-eau.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs md:text-sm">
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7000 Mons Centre</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7011 Ghlin</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7012 Jemappes / Flénu</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7033 Cuesmes</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7022 Hyon / Mesvin</span>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-high text-primary font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">near_me</span>
+              <span>7080 Frameries & Borinage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 p-8 rounded-2xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
+          <div class="w-14 h-14 rounded-full bg-primary-container text-white flex items-center justify-center mx-auto mb-2">
+            <span class="material-symbols-outlined text-[30px]">mode_heat</span>
+          </div>
+          <h3 class="font-headline-sm text-xl text-primary font-bold">Chaudière en panne ou sans eau chaude ?</h3>
+          <p class="text-xs md:text-sm text-on-surface-variant max-w-md mx-auto">
+            Contactez notre chauffagiste d'astreinte pour une remise en marche rapide et sécurisée de votre installation gaz.
+          </p>
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="tel:+3265794020"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-primary-container text-white font-bold text-sm shadow hover:bg-forest-dark transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">call</span>
+              <span>Ligne Chauffage : 065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20ma%20chaudière%20est%20en%20panne"
+              target="_blank"
+              rel="noopener"
+              class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary border border-primary/20 font-bold text-sm hover:bg-white transition-all flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[20px] text-primary-container">chat</span>
+              <span>Photo WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="w-full py-16 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-8">
+      <div class="text-center">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Questions / Réponses</span>
+        <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+          Questions fréquentes sur le chauffage et les chaudières à Mons
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+            <h3 class="font-headline-sm text-base text-primary font-bold flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[20px]">help_outline</span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final High-Conversion CTA -->
+  <section class="w-full bg-primary text-white py-16">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center space-y-6">
+      <h2 class="font-display-hero text-3xl md:text-4xl text-white font-extrabold tracking-tight">
+        Besoin d'un chauffagiste agréé CERGA à Mons ?
+      </h2>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Intervention d'urgence 24h/24, entretien légal triennal Wallonie et installation de chaudières à condensation. Devis clair et sans surprise.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="tel:+3265794020"
+          class="px-8 py-4 rounded-xl bg-tertiary-container text-white font-bold text-lg shadow-lg hover:bg-tertiary transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px]">call</span>
+          <span>Appeler le 065 / 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20besoin%20d'un%20chauffagiste%20à%20Mons"
+          target="_blank"
+          rel="noopener"
+          class="px-8 py-4 rounded-xl bg-white text-primary font-bold text-lg shadow-lg hover:bg-surface-container transition-all flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[24px] text-primary-container">chat</span>
+          <span>Photo / Devis WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
