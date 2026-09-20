@@ -16,7 +16,8 @@ const services = [
     title: "Dépannage d'Urgence Plomberie 24h/24",
     desc: "Intervention en 30 à 45 minutes pour tuyau percé, inondation, coupure d'eau et mise en sécurité immédiate de votre logement.",
     link: '/services/depannage-urgence',
-    badge: 'Sur Place en 30 min'
+    badge: 'Sur Place en 30 min',
+    image: '/images/depannage-urgence-mons.webp'
   },
   {
     icon: 'plumbing',
@@ -24,7 +25,8 @@ const services = [
     title: 'Débouchage Canalisations, WC & Égouts',
     desc: "Intervention d'urgence furet électrique et hydrocureuse 200 bars. Égouts, toilettes, sterputs extérieurs et vidange fosse septique.",
     link: '/services/debouchage',
-    badge: 'Caméra HD Incluse'
+    badge: 'Caméra HD Incluse',
+    image: '/images/debouchage-haute-pression.webp'
   },
   {
     icon: 'water_damage',
@@ -32,7 +34,8 @@ const services = [
     title: "Recherche de Fuite d'Eau Non Destructive",
     desc: 'Localisation acoustique et caméra thermique FLIR sans casser vos murs. Rapport technique complet fourni pour votre assurance habitation.',
     link: '/services/detection-fuites',
-    badge: '100% Remboursé Assurance'
+    badge: '100% Remboursé Assurance',
+    image: '/images/detection-fuites-mons.webp'
   },
   {
     icon: 'mode_heat',
@@ -40,7 +43,8 @@ const services = [
     title: 'Chauffagiste & Chaudière Gaz CERGA',
     desc: "Dépannage chaudière gaz, dépannage boiler et entretien périodique obligatoire en Wallonie avec délivrance de l'attestation légale.",
     link: '/services/chauffage-chaudieres',
-    badge: 'Habilité Wallonie G1/G2'
+    badge: 'Habilité Wallonie G1/G2',
+    image: '/images/chauffage-chaudiere-cerga.webp'
   },
   {
     icon: 'wash',
@@ -48,7 +52,8 @@ const services = [
     title: 'Installations Sanitaires & Rénovation Salle de Bain',
     desc: 'Rénovation complète, pose de WC suspendus Geberit, douches à l\'italienne et robinetterie Grohe/Hansgrohe. TVA 6%.',
     link: '/services/installations-sanitaires',
-    badge: 'Garantie Décennale'
+    badge: 'Garantie Décennale',
+    image: '/images/installations-sanitaires-sdb.webp'
   },
   {
     icon: 'water_bottle',
@@ -56,7 +61,8 @@ const services = [
     title: 'Traitement de l\'Eau & Adoucisseurs',
     desc: "L'eau SWDE à Mons est très dure (35°F). Protégez vos tuyauteries, sanitaires et boilers avec nos adoucisseurs volumétriques ou sans électricité.",
     link: '/services/traitement-eau',
-    badge: 'Économies d\'Énergie'
+    badge: 'Économies d\'Énergie',
+    image: '/images/traitement-eau-adoucisseur.webp'
   }
 ];
 
@@ -168,8 +174,32 @@ const reviews = [
           </div>
         </div>
 
-        <!-- Hero Right Form Card -->
-        <div class="lg:col-span-5 w-full">
+        <!-- Hero Right Column: Visual + Form -->
+        <div class="lg:col-span-5 w-full space-y-5">
+          <!-- Above-The-Fold Eager WebP Image (Priority High, Preloaded in Head) -->
+          <div class="relative w-full rounded-2xl overflow-hidden shadow-md border border-primary/10 aspect-[16/10] bg-primary">
+            <picture>
+              <source srcset="/images/hero-plombier-mons.webp" type="image/webp" />
+              <img
+                src="/images/hero-plombier-mons.webp"
+                alt="Plombier Mons Urgent 24/7 - Dépannage en 30 minutes"
+                width="800"
+                height="500"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+            </picture>
+            <div class="absolute bottom-2.5 left-2.5 right-2.5 px-3 py-2 rounded-xl bg-primary/85 backdrop-blur text-white flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="font-bold">Patrouille active Grand Mons</span>
+              </div>
+              <span class="text-tertiary-fixed font-bold">Arrivée 30 min</span>
+            </div>
+          </div>
+
           <QuoteForm
             title="Dépannage Plomberie Immédiat"
             subtitle="Rappel express en moins de 15 minutes par un artisan montois"
@@ -186,7 +216,7 @@ const reviews = [
   <ReviewBadges />
 
   <!-- 3. COMMON PROBLEMS SOLVER STRIP -->
-  <section class="w-full py-16 bg-surface-container-low">
+  <section class="w-full py-16 bg-surface-container-low cv-auto">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="text-xs uppercase tracking-widest font-extrabold text-primary-container">Dépannage d'Urgence Immédiat</span>
@@ -222,7 +252,7 @@ const reviews = [
   <ResponseTimeStats />
 
   <!-- 4. COMPREHENSIVE SERVICES GRID (6 Silos) -->
-  <section class="w-full py-16 bg-background">
+  <section class="w-full py-16 bg-background cv-auto">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
@@ -239,9 +269,25 @@ const reviews = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((svc) => (
-          <div class="p-6 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm card-hover-effect flex flex-col justify-between">
+          <div class="p-5 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm card-hover-effect flex flex-col justify-between group">
             <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
+              <!-- Service WebP Image with Native Lazy Loading -->
+              <div class="overflow-hidden rounded-xl mb-4 aspect-[16/10] bg-surface-container-high border border-primary/5">
+                <picture>
+                  <source srcset={svc.image} type="image/webp" />
+                  <img
+                    src={svc.image}
+                    alt={svc.title}
+                    width="600"
+                    height="375"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </picture>
+              </div>
+
+              <div class="flex items-center justify-between gap-2 mb-3">
                 <span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs">
                   {svc.tag}
                 </span>
@@ -249,13 +295,11 @@ const reviews = [
                   {svc.badge}
                 </span>
               </div>
-              <div class="w-12 h-12 rounded-xl bg-primary-container text-white flex items-center justify-center mb-4">
-                <span class="material-symbols-outlined text-[28px]">{svc.icon}</span>
-              </div>
-              <h3 class="font-headline-sm text-lg text-primary font-bold leading-snug">{svc.title}</h3>
-              <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">{svc.desc}</p>
+
+              <h3 class="font-headline-sm text-base md:text-lg text-primary font-bold leading-snug">{svc.title}</h3>
+              <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">{svc.desc}</p>
             </div>
-            <div class="pt-6 mt-4 border-t border-primary/5 flex items-center justify-between">
+            <div class="pt-5 mt-4 border-t border-primary/5 flex items-center justify-between">
               <a href={svc.link} class="text-xs font-bold text-primary-container hover:underline flex items-center gap-1">
                 <span>En savoir plus</span>
                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>

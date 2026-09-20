@@ -46,6 +46,22 @@ import TrustBadgesSection from '../components/TrustBadgesSection.astro';
         </div>
       </div>
 
+      <!-- Workshop and Van WebP Visual with Lazy Loading -->
+      <div class="overflow-hidden rounded-2xl shadow-md border border-primary/10 aspect-[16/8] bg-primary">
+        <picture>
+          <source srcset="/images/hero-plombier-mons.webp" type="image/webp" />
+          <img
+            src="/images/hero-plombier-mons.webp"
+            alt="Équipe d'artisans et camionnettes d'urgence Plombier Mons Urgent"
+            width="800"
+            height="400"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </picture>
+      </div>
+
       <!-- 4 Pillars of our Charter -->
       <div class="space-y-6">
         <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold text-center">

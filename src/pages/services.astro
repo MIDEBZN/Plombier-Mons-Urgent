@@ -10,6 +10,7 @@ const servicesList = [
     title: "Dépannage de Plomberie d'Urgence 24h/24",
     badge: 'Arrivée en 30-45 min • 7j/7',
     subtitle: "Intervention d'urgence immédiate à Mons et dans tout le Borinage",
+    image: '/images/depannage-urgence-mons.webp',
     content: [
       "Canalisation éclatée, inondation sous évier, fuite de gaz ou coupure brutale d'eau chaude ? Notre service d'astreinte d'urgence est opérationnel jour et nuit, week-ends et jours fériés pour sécuriser votre logement.",
       "Nos artisans arrivent équipés de matériel de colmatage rapide, caméras d'inspection et raccords cuivre/multicouche pour stopper l'hémorragie d'eau immédiatement et vous éviter de lourds dégâts des eaux."
@@ -29,6 +30,7 @@ const servicesList = [
     title: 'Débouchage de Canalisations, WC, Éviers & Égouts',
     badge: 'Haute Pression 200 Bars & Caméra',
     subtitle: 'Débouchage mécanique, hydrocurage haute pression et vidange de fosse septique à Mons',
+    image: '/images/debouchage-haute-pression.webp',
     content: [
       "Un WC qui déborde, un évier qui refoule ou un sterput extérieur encombré par les boues et racines ? Nous disposons de véhicules hydrocureurs haute pression (200 bars) et de buses rotatives spécialement conçues pour débloquer immédiatement sans endommager vos conduites en grès, PVC ou fonte.",
       "Pour les obstructions complexes ou récurrentes, notre caméra d'inspection endoscopique HD permet de visualiser en direct l'intérieur de la canalisation, de localiser l'affaissement ou la fissure exacte et d'établir un diagnostic certifié."
@@ -48,6 +50,7 @@ const servicesList = [
     title: "Recherche de Fuite d'Eau Non Destructive",
     badge: '100% Pris en Charge Assurance',
     subtitle: 'Localisation précise au millimètre sans démolir vos cloisons ni carrelages',
+    image: '/images/detection-fuites-mons.webp',
     content: [
       "Une facture d'eau anormalement élevée, une tache d'humidité sur un mur ou une odeur de moisi ? Ne commencez pas par casser les murs. Grâce à nos caméras thermiques infrarouges de pointe (FLIR), à nos détecteurs acoustiques à ultrasons et au gaz traceur azote-hydrogène, nous détectons la micro-fuite exacte à travers les dalles, chapes et cloisons.",
       "En Belgique, les frais de recherche de fuite non destructive sont pris en charge par votre assurance habitation (Ethias, AXA, AG Insurance, Belfius, etc.). Nous vous remettons sous 24h un rapport technique détaillé avec clichés thermiques utilisable pour votre dossier de sinistre."
@@ -67,6 +70,7 @@ const servicesList = [
     title: 'Chauffage & Chaudières Gaz Agréé CERGA',
     badge: 'Habilité Région Wallonne G1/G2',
     subtitle: 'Installation, entretien légal obligatoire et réparation urgente de chaudières',
+    image: '/images/chauffage-chaudiere-cerga.webp',
     content: [
       "Votre chaudière est en sécurité (code erreur F28, F22, F75, etc.) ou vos radiateurs restent froids en plein hiver ? Nos techniciens chauffagistes certifiés CERGA interviennent en urgence pour remettre votre chauffage en service.",
       "Nous réalisons également l'entretien légal obligatoire en Wallonie avec analyse des fumées de combustion et remise de l'attestation de contrôle périodique officielle exigée par la loi belge et votre propriétaire/assureur."
@@ -86,6 +90,7 @@ const servicesList = [
     title: 'Installations Sanitaires & Rénovation Salle de Bain',
     badge: 'Matériaux Certifiés • TVA 6%',
     subtitle: 'Rénovation complète, pose de WC Geberit, douches à l\'italienne et robinetterie',
+    image: '/images/installations-sanitaires-sdb.webp',
     content: [
       "Une chasse d'eau Geberit suspendue qui coule en continu peut vous faire perdre plus de 150 litres d'eau par jour ! Nous intervenons pour le remplacement rapide des joints, des mécanismes de cloche et des flotteurs Geberit d'origine.",
       "Nous réalisons également la pose de douches à l'italienne extra-plates, le remplacement de mitigeurs avec cartouches céramiques Grohe/Hansgrohe et la rénovation complète de vos pièces d'eau selon les normes belges."
@@ -105,6 +110,7 @@ const servicesList = [
     title: "Traitement de l'Eau & Adoucisseurs Anti-Calcaire",
     badge: 'Spécialiste Eau Calcaire SWDE',
     subtitle: 'Installation et entretien d\'adoucisseurs d\'eau pour neutraliser le calcaire montois',
+    image: '/images/traitement-eau-adoucisseur.webp',
     content: [
       "Avec une dureté de l'eau mesurée entre 32 et 38 degrés français (°fH) par la SWDE à Mons, le calcaire s'accumule rapidement dans votre plomberie, bouche vos robinets, dégrade votre peau et fait bondir vos factures d'énergie.",
       "Nous installons des adoucisseurs d'eau écologiques et intelligents (volumétriques ou sans électricité) des plus grandes marques (BWT, Durlem belge, Minimax). Vous protégez durablement votre chaudière, vos sanitaires et vos appareils électroménagers."
@@ -183,12 +189,28 @@ const servicesList = [
               </div>
             </div>
 
-            <!-- Action Box -->
-            <div class="lg:col-span-4 p-6 rounded-xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
-              <span class="text-xs font-bold uppercase tracking-wider text-primary">Besoin d'une intervention ?</span>
-              <p class="text-xs text-on-surface-variant leading-snug">
-                Un artisan spécialisé peut intervenir chez vous à Mons dans les 30 à 45 prochaines minutes.
-              </p>
+            <!-- Action Box & WebP Visual -->
+            <div class="lg:col-span-4 space-y-4">
+              <div class="overflow-hidden rounded-xl aspect-[16/10] bg-surface-container-high border border-primary/10 shadow-sm">
+                <picture>
+                  <source srcset={svc.image} type="image/webp" />
+                  <img
+                    src={svc.image}
+                    alt={svc.title}
+                    width="600"
+                    height="375"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </picture>
+              </div>
+
+              <div class="p-6 rounded-xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-primary">Besoin d'une intervention ?</span>
+                <p class="text-xs text-on-surface-variant leading-snug">
+                  Un artisan spécialisé peut intervenir chez vous à Mons dans les 30 à 45 prochaines minutes.
+                </p>
               <div class="space-y-2 pt-2">
                 <a
                   href={svc.url}
@@ -218,7 +240,8 @@ const servicesList = [
             </div>
           </div>
         </div>
-      ))}
+      </div>
+    ))}
     </div>
   </section>
 

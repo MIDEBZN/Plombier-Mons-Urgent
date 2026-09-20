@@ -37,9 +37,18 @@ const navItems = [
     <div class="h-20 max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 shrink-0 group">
-        <div class="w-11 h-11 rounded-lg bg-primary-container flex items-center justify-center text-white shadow-sm group-hover:bg-primary transition-colors">
-          <span class="material-symbols-outlined text-[26px]">plumbing</span>
-        </div>
+        <picture class="shrink-0">
+          <source srcset="/images/logo.webp" type="image/webp" />
+          <img
+            src="/logo.png"
+            alt="Logo Plombier Mons Urgent"
+            width="44"
+            height="44"
+            class="w-11 h-11 rounded-lg bg-primary-container shadow-sm group-hover:scale-105 transition-transform"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
         <div class="flex flex-col">
           <span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">PLOMBIER MONS</span>
           <span class="font-label-sm text-[10px] text-secondary tracking-wider uppercase font-semibold">Artisan Agréé • Urgence 24h/7</span>
