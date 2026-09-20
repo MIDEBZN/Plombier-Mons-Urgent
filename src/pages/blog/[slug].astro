@@ -44,19 +44,19 @@ const articleSchema = {
   "dateModified": "2026-09-21",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://plombier-mons-urgent.be/blog/${article.slug}`
+    "@id": `https://www.plombiermonsurgent.be/blog/${article.slug}`
   },
   "author": {
     "@type": "Organization",
     "name": "Plombier Mons Urgent",
-    "url": "https://plombier-mons-urgent.be"
+    "url": "https://www.plombiermonsurgent.be"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Plombier Mons Urgent",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://plombier-mons-urgent.be/logo.png"
+      "url": "https://www.plombiermonsurgent.be/logo.png"
     }
   }
 };
@@ -79,7 +79,7 @@ const faqSchema = {
 <Layout
   title={article.title}
   description={article.metaDescription}
-  canonicalUrl={`https://plombier-mons-urgent.be/blog/${article.slug}`}
+  canonicalUrl={`https://www.plombiermonsurgent.be/blog/${article.slug}`}
 >
   <!-- SEO Structured Data for Article & FAQs -->
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />

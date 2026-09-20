@@ -9,7 +9,7 @@ export interface Props {
 const {
   pageTitle = "Plombier Mons Urgent | Dépannage 24/7 & Débouchage en 30 Min",
   pageDescription = "Plombier certifié à Mons et dans le Borinage. Dépannage plomberie d'urgence 24h/24, fuites d'eau, débouchage sterput/WC, boiler, chaudière gaz CERGA. Arrivée en 30 min.",
-  pageUrl = "https://plombier-mons-urgent.be"
+  pageUrl = "https://www.plombiermonsurgent.be"
 } = Astro.props;
 
 const schemaData = {
@@ -17,17 +17,17 @@ const schemaData = {
   "@graph": [
     {
       "@type": ["Plumber", "LocalBusiness"],
-      "@id": "https://plombier-mons-urgent.be/#plumber",
+      "@id": "https://www.plombiermonsurgent.be/#plumber",
       "name": "Plombier Mons Urgent",
       "legalName": "Plombier Mons Urgent SRL",
       "alternateName": "SOS Plombier Mons",
       "foundingDate": "2011",
       "award": "Artisan Agréé CERGA & Habilité Région Wallonne G1/G2",
-      "url": "https://plombier-mons-urgent.be",
+      "url": "https://www.plombiermonsurgent.be",
       "telephone": "+3265794020",
       "emergencyTelephone": "+32470552020",
-      "email": "contact@plombier-mons-urgent.be",
-      "image": "https://plombier-mons-urgent.be/logo.png",
+      "email": "contact@plombiermonsurgent.be",
+      "image": "https://www.plombiermonsurgent.be/logo.png",
       "priceRange": "€€",
       "vatID": "BE 0842.195.834",
       "taxID": "BE 0842.195.834",
@@ -55,7 +55,7 @@ const schemaData = {
         "latitude": 50.4542,
         "longitude": 3.9567
       },
-      "hasMap": "https://www.google.com/maps?cid=plombier-mons-urgent",
+      "hasMap": "https://maps.google.com/?q=Plombier+Mons+Urgent",
       "areaServed": [
         { "@type": "AdministrativeArea", "name": "Mons (7000)" },
         { "@type": "AdministrativeArea", "name": "Ghlin (7011)" },
@@ -144,11 +144,11 @@ const schemaData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://plombier-mons-urgent.be/#website",
-      "url": "https://plombier-mons-urgent.be",
+      "@id": "https://www.plombiermonsurgent.be/#website",
+      "url": "https://www.plombiermonsurgent.be",
       "name": "Plombier Mons Urgent",
       "publisher": {
-        "@id": "https://plombier-mons-urgent.be/#plumber"
+        "@id": "https://www.plombiermonsurgent.be/#plumber"
       },
       "inLanguage": "fr-BE"
     },
@@ -159,7 +159,7 @@ const schemaData = {
       "name": pageTitle,
       "description": pageDescription,
       "isPartOf": {
-        "@id": "https://plombier-mons-urgent.be/#website"
+        "@id": "https://www.plombiermonsurgent.be/#website"
       },
       "inLanguage": "fr-BE"
     }
