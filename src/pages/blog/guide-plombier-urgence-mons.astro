@@ -1,0 +1,418 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import ReviewBadges from '../../components/ReviewBadges.astro';
+import ResponseTimeStats from '../../components/ResponseTimeStats.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+
+const publishDate = "2026-02-20";
+const updateDate = "2026-09-21";
+---
+
+<Layout
+  title="Plombier d'Urgence à Mons : Tarifs & Dépannage 24/7"
+  description="Urgence plomberie à Mons ? Dépannage 24/7 en 30 min : fuite, WC, débouchage. Devis gratuit sans arnaque. Appelez le 065 79 40 20 !"
+  canonicalUrl="https://plombier-mons-urgent.be/blog/guide-plombier-urgence-mons"
+>
+  <!-- Article Hero Header -->
+  <header class="w-full bg-primary text-white py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 text-center space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container/20 text-tertiary-fixed text-xs font-bold uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-tertiary-container pulse-emergency"></span>
+        <span>Guide Complet Propriétaires & Locataires • Mons 2026</span>
+      </div>
+
+      <h1 class="font-display-hero text-3xl sm:text-4xl md:text-5xl text-white font-extrabold tracking-tight leading-tight">
+        Plombier d'Urgence à Mons : Tarifs, Délais & Conseils pour Éviter les Arnaques
+      </h1>
+
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Une canalisation percée, des toilettes bouchées ou plus d'eau chaude ? Retrouvez les tarifs réels, les bons réflexes immédiats et comment contacter un artisan certifié à Mons sans mauvaise surprise.
+      </p>
+
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-surface-dim">
+        <span>📅 Mis à jour le 21 septembre 2026</span>
+        <span>•</span>
+        <span>⏱️ Temps de lecture : 10 min</span>
+        <span>•</span>
+        <span>✍️ Rédigé par l'équipe technique Plombier Mons Urgent</span>
+      </div>
+    </div>
+  </header>
+
+  <TrustBar />
+
+  <!-- Main Article Body -->
+  <article class="w-full py-12 md:py-16 bg-background">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <!-- Quick Answer Box (AI Search Engine / Featured Snippet Hook) -->
+      <div class="p-6 md:p-8 rounded-2xl bg-surface-container-high border-2 border-primary-container/20 shadow-sm mb-10 space-y-3">
+        <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider">
+          <span class="material-symbols-outlined text-primary-container text-[22px]">bolt</span>
+          <span>En Bref : Urgence Plomberie à Mons</span>
+        </div>
+        <p class="text-sm md:text-base text-on-surface font-medium leading-relaxed">
+          Pour une intervention immédiate avec un <strong>plombier d'urgence à Mons</strong>, composez le <strong>065 / 79 40 20</strong> ou le GSM d'astreinte <strong>0470 / 55 20 20</strong>. Un dépanneur montois certifié arrive chez vous en <strong>30 à 45 minutes</strong> (7000 Mons, Jemappes, Ghlin, Cuesmes, Nimy, Frameries). Le tarif moyen en journée débute à <strong>75 € HTVA</strong> pour le déplacement et la première heure, avec devis écrit obligatoire validé avant travaux.
+        </p>
+      </div>
+
+      <!-- Article Content Structure -->
+      <div class="prose prose-slate max-w-none text-on-surface-variant space-y-8 leading-relaxed">
+        
+        <!-- Section 1 -->
+        <section class="space-y-4">
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold tracking-tight">
+            1. Combien coûte un plombier d'urgence à Mons ? (Tarif horaire et forfaits réels)
+          </h2>
+
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 text-sm text-on-surface">
+            <strong>Réponse rapide (AEO / Voix) :</strong> Le tarif horaire d’un plombier à Mons oscille entre 50 € et 85 € HTVA en journée ouvrée. Pour une urgence de nuit, le samedi ou le dimanche, une majoration légale de 50 % à 100 % s’applique. Les artisans sérieux proposent des forfaits transparents (déplacement inclus) avec devis préalable.
+          </div>
+
+          <p class="text-sm md:text-base">
+            Le coût d’une intervention de plomberie dépend de trois facteurs principaux en Belgique : l’heure de la demande (journée ouvrée vs nuit et week-end), la nature de la panne (simple joint à remplacer vs débouchage haute pression 200 bars) et les pièces sanitaires à remplacer.
+          </p>
+
+          <p class="text-sm md:text-base">
+            Pour vous éviter toute mauvaise surprise, voici la grille tarifaire indicative constatée auprès des artisans plombiers locaux déclarés dans le bassin montois en 2026 :
+          </p>
+
+          <!-- Pricing Table -->
+          <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse bg-surface-container-lowest rounded-xl border border-primary/10 shadow-sm text-xs md:text-sm">
+              <thead>
+                <tr class="bg-primary text-white">
+                  <th class="p-3.5 font-bold">Prestation de Plomberie</th>
+                  <th class="p-3.5 font-bold">Tarif Journée (Semaine)</th>
+                  <th class="p-3.5 font-bold">Urgence Nuit / Week-end</th>
+                  <th class="p-3.5 font-bold">Délai Garanti</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-primary/10 text-on-surface">
+                <tr class="hover:bg-surface-container-low">
+                  <td class="p-3 font-semibold">Déplacement + Diagnostic sur place (Mons intra-muros)</td>
+                  <td class="p-3">35 € à 45 €</td>
+                  <td class="p-3">55 € à 70 €</td>
+                  <td class="p-3 font-bold text-primary-container">30–45 min</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low">
+                  <td class="p-3 font-semibold">Tarif horaire main-d'œuvre qualifiée</td>
+                  <td class="p-3">50 € à 65 € / h</td>
+                  <td class="p-3">75 € à 95 € / h</td>
+                  <td class="p-3 font-bold text-primary-container">Sur devis</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low">
+                  <td class="p-3 font-semibold">Forfait Dépannage Fuite d'eau apparente (joint / vanne)</td>
+                  <td class="p-3">85 € à 130 €</td>
+                  <td class="p-3">130 € à 180 €</td>
+                  <td class="p-3 font-bold text-primary-container">30 min</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low">
+                  <td class="p-3 font-semibold">Débouchage WC / Évier au furet professionnel Rems</td>
+                  <td class="p-3">95 € à 145 €</td>
+                  <td class="p-3">145 € à 195 €</td>
+                  <td class="p-3 font-bold text-primary-container">30 min</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low">
+                  <td class="p-3 font-semibold">Débouchage haute pression sterput / égout (camionnette 200 bars)</td>
+                  <td class="p-3">160 € à 240 €</td>
+                  <td class="p-3">220 € à 310 €</td>
+                  <td class="p-3 font-bold text-primary-container">45 min</td>
+                </tr>
+                <tr class="hover:bg-surface-container-low">
+                  <td class="p-3 font-semibold">Recherche de fuite non destructive (Caméra FLIR + rapport assurance)</td>
+                  <td class="p-3">280 € à 380 €</td>
+                  <td class="p-3">Sur rendez-vous</td>
+                  <td class="p-3 font-bold text-primary-container">100% Remboursé*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-xs text-secondary italic">
+            * Bon à savoir : En Belgique, les frais de recherche de fuite d'eau par caméra thermique sont intégralement remboursés par votre assurance habitation (Ethias, AXA, AG Insurance, Belfius).
+          </p>
+
+          <!-- TVA 6% Notice -->
+          <div class="p-4 rounded-xl bg-surface-container border border-primary/10 text-xs md:text-sm text-primary flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container text-[24px] shrink-0">percent</span>
+            <p>
+              <strong>Bénéficiez du taux de TVA réduit à 6 % :</strong> Si votre logement à Mons a plus de 10 ans d’ancienneté, les travaux de réparation et de remplacement de plomberie bénéficient automatiquement du taux de TVA belge de 6 % au lieu de 21 %. L'attestation fiscale est complétée directement avec votre artisan sur place.
+            </p>
+          </div>
+        </section>
+
+        <!-- CTA Box 1 -->
+        <div class="my-8 p-6 rounded-2xl bg-primary text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+          <div class="space-y-1 text-center sm:text-left">
+            <h3 class="font-headline-sm text-lg font-bold text-white">Une fuite d'eau ou un WC bouché en ce moment ?</h3>
+            <p class="text-xs text-surface-dim">Un artisan montois est d'astreinte et peut intervenir dans les 30 à 45 minutes.</p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <a
+              href="tel:+3265794020"
+              class="px-5 py-3 rounded-xl bg-tertiary-container text-white font-bold text-xs shadow hover:bg-tertiary transition-all flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-[18px]">call</span>
+              <span>065 / 79 40 20</span>
+            </a>
+            <a
+              href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Mons"
+              target="_blank"
+              rel="noopener"
+              class="px-4 py-3 rounded-xl bg-white text-primary font-bold text-xs hover:bg-surface-container transition-all"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <section class="space-y-4">
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold tracking-tight">
+            2. Que faire en cas de fuite d’eau à Mons avant l’arrivée du plombier ?
+          </h2>
+
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 text-sm text-on-surface">
+            <strong>Protocole d'urgence immédiat (AEO) :</strong> En cas de fuite à Mons, fermez immédiatement la vanne générale située près du compteur d'eau (SWDE). Coupez l'alimentation électrique si l'eau s'approche des prises. Ouvrez vos robinets pour purger la pression, épongez l'excédent et photographiez les dégâts pour votre dossier d'assurance.
+          </div>
+
+          <p class="text-sm md:text-base">
+            Lorsque l'eau s'écoule rapidement d'un tuyau éclaté ou sous une dalle, chaque minute gagnée préserve vos parquets, plafonds et cloisons en plâtre. Voici la checklist exacte à exécuter :
+          </p>
+
+          <ol class="space-y-3 list-decimal list-inside text-sm md:text-base pl-2">
+            <li>
+              <strong>Coupez l'arrivée d'eau générale sans attendre :</strong> À Mons, le compteur d'eau SWDE est le plus souvent situé dans la cave, au garage ou dans un regard extérieur. Tournez la vanne d'un quart de tour dans le sens des aiguilles d'une montre.
+            </li>
+            <li>
+              <strong>Sécurisez les circuits électriques :</strong> Si la fuite s'est infiltrée dans un plafond ou coule le long d'un mur comportant des prises de courant, coupez immédiatement le disjoncteur différentiel correspondant sur votre tableau électrique pour écarter tout risque d'électrocution.
+            </li>
+            <li>
+              <strong>Ouvrez les robinets du bas pour vidanger :</strong> Après fermeture de la vanne générale, ouvrez le robinet le plus bas de l'habitation (au rez-de-chaussée ou sous-sol) pour évacuer l'eau restante sous pression dans les canalisations.
+            </li>
+            <li>
+              <strong>Prenez des photos et vidéos nettes du sinistre :</strong> Avant d'éponger l'eau, documentez la hauteur de l'inondation, la zone de suintement et les biens endommagés. Ces éléments constituent la base probante exigée par les compagnies d'assurance (Ethias, AXA, AG).
+            </li>
+            <li>
+              <strong>N'utilisez pas de déboucheur chimique en cas d'engorgement :</strong> Si vos toilettes ou votre évier débordent, évitez formellement l'acide sulfurique ou la soude caustique. Ces produits n'éliminent pas les bouchons profonds, font fondre les tuyaux en PVC et risquent de brûler gravement le dépanneur qui interviendra au furet mécanique.
+            </li>
+          </ol>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="space-y-4">
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold tracking-tight">
+            3. Dépannage plomberie 24h/24 à Mons : Quels quartiers et communes sont couverts ?
+          </h2>
+
+          <p class="text-sm md:text-base">
+            Tous les plombiers n’assurent pas une véritable astreinte 24h/24 et 7j/7. Beaucoup renvoient vers des répondeurs automatiques le soir après 18h ou le dimanche. Chez <a href="/" class="text-primary-container font-bold hover:underline">Plombier Mons Urgent</a>, un technicien d'astreinte est véhiculé et disponible en continu pour intervenir sur site en <strong>25 à 45 minutes</strong>.
+          </p>
+
+          <p class="text-sm md:text-base">
+            Nos camionnettes d'intervention sillonnent l'ensemble des communes du Grand Mons et du Borinage :
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4 text-xs md:text-sm">
+            <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10">
+              <span class="font-bold text-primary block">7000 Mons Centre (25–30 min)</span>
+              <span class="text-on-surface-variant">Grand-Place, Beffroi, Waux-Hall, Boulevard Dolez, Gare de Mons. Spécialiste canalisations anciennes et ruelles étroites.</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10">
+              <span class="font-bold text-primary block"><a href="/locations/jemappes" class="hover:underline text-primary-container">7012 Jemappes & Flénu (30 min)</a></span>
+              <span class="text-on-surface-variant">Avenue Foch, zone commerciale Cora, canal. Débouchage express de sterputs de cour et égouts refoulants.</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10">
+              <span class="font-bold text-primary block"><a href="/locations/ghlin" class="hover:underline text-primary-container">7011 Ghlin (30 min)</a></span>
+              <span class="text-on-surface-variant">Chaussée de Ghlin, Hippodrome, zoning industriel. Maintenance chaudière gaz CERGA et adoucisseurs d'eau.</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10">
+              <span class="font-bold text-primary block"><a href="/locations/cuesmes" class="hover:underline text-primary-container">7033 Cuesmes (30 min)</a></span>
+              <span class="text-on-surface-variant">Mont Héribus, Maison Van Gogh. Zone en dénivelé sujette aux reflux pluviaux : pose de clapets anti-retour.</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10">
+              <span class="font-bold text-primary block"><a href="/locations/nimy" class="hover:underline text-primary-container">7020 Nimy & Maisières (25–30 min)</a></span>
+              <span class="text-on-surface-variant">Grand-Large, SHAPE / base militaire OTAN. Service bilingue français/anglais pour résidents expatriés.</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-surface-container-lowest border border-primary/10">
+              <span class="font-bold text-primary block"><a href="/locations/frameries" class="hover:underline text-primary-container">7080 Frameries & Borinage (35 min)</a></span>
+              <span class="text-on-surface-variant">La Bouverie, Eugies, Noirchain. Gestion des tassements de terrain minier et tuyauteries cassées.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="space-y-4">
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold tracking-tight">
+            4. Comment choisir un plombier fiable à Mons et éviter les arnaques ?
+          </h2>
+
+          <div class="p-4 rounded-xl bg-surface-container-lowest border border-primary/10 text-sm text-on-surface">
+            <strong>Règle d'or anti-arnaque (AEO) :</strong> Vérifiez systématiquement le numéro d'entreprise BCE de l'artisan, exigez un devis écrit chiffré avant tout démontage, et refusez tout paiement intégral en espèces sans facture. Les arnaques proviennent souvent de centrales d'appel virtuelles qui surfacturent le matériel jusqu'à 10 fois son prix réel.
+          </div>
+
+          <p class="text-sm md:text-base">
+            Le secteur du dépannage d'urgence à domicile est malheureusement la cible d'intermédiaires peu scrupuleux qui créent de faux sites locaux pour sous-traiter à des personnes non qualifiées. Pour protéger vos finances et vos installations, vérifiez ces 5 critères essentiels :
+          </p>
+
+          <ul class="space-y-3 text-sm md:text-base">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-container text-[22px] shrink-0">verified</span>
+              <span><strong>Un numéro BCE belge officiel :</strong> Une entreprise sérieuse affiche clairement son numéro d'immatriculation (BCE BE 0842.195.834 pour Plombier Mons Urgent) vérifiable sur le site officiel de la Banque-Carrefour des Entreprises.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-container text-[22px] shrink-0">verified</span>
+              <span><strong>L'agrément CERGA et Wallonie G1/G2 :</strong> Si votre panne concerne une chaudière gaz, un chauffe-eau ou une conduite de gaz, le professionnel DOIT posséder l'habilitation CERGA et le certificat de technicien combustibles gazeux de la Région Wallonne. Sans cela, votre assurance rejettera tout dédommagement en cas d'accident.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-container text-[22px] shrink-0">verified</span>
+              <span><strong>Une assurance Responsabilité Civile Professionnelle :</strong> En cas de dégât collatéral lors des travaux, l'assurance de l'artisan (Ethias, AXA) prend en charge la totalité des réparations.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-container text-[22px] shrink-0">verified</span>
+              <span><strong>La signature d'un devis préalable :</strong> Même en pleine nuit, l'artisan doit établir un état des lieux chiffré et vous faire signer l'ordre de réparation AVANT de commencer les travaux.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-container text-[22px] shrink-0">verified</span>
+              <span><strong>Le respect du matériel d'origine :</strong> Méfiez-vous des faux dépanneurs qui prétendent que votre mécanisme WC Geberit ou votre mitigeur Grohe est « irréparable » pour vous facturer une installation complète à 1 200 €. 95 % des mécanismes Geberit se réparent en remplaçant simplement le joint ou la cloche.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="space-y-4">
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold tracking-tight">
+            5. Fuite d’eau, canalisation bouchée ou panne de chaudière : quand faire appel à un pro ?
+          </h2>
+
+          <p class="text-sm md:text-base">
+            Certains petits tracas domestiques peuvent être résolus avec du bon sens, mais d'autres nécessitent obligatoirement l'outillage spécialisé d'un artisan plombier :
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-emerald-200 space-y-2">
+              <div class="flex items-center gap-2 text-emerald-700 font-bold text-sm">
+                <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                <span>Ce que vous pouvez faire vous-même :</span>
+              </div>
+              <ul class="text-xs md:text-sm text-on-surface-variant space-y-1.5 list-disc list-inside">
+                <li>Nettoyer le siphon d'un évier démontable à la main.</li>
+                <li>Remplacer un joint torique de flexible de douche standard.</li>
+                <li>Purger l'air de vos radiateurs à l'aide d'une clé de purge.</li>
+                <li>Rajouter de l'eau dans votre circuit de chaudière pour atteindre 1.5 bar.</li>
+              </ul>
+            </div>
+
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-tertiary-container/30 space-y-2">
+              <div class="flex items-center gap-2 text-tertiary-container font-bold text-sm">
+                <span class="material-symbols-outlined text-[20px]">warning</span>
+                <span>Quand appeler un plombier en urgence :</span>
+              </div>
+              <ul class="text-xs md:text-sm text-on-surface-variant space-y-1.5 list-disc list-inside">
+                <li><a href="/services/detection-fuites" class="text-primary-container font-semibold hover:underline">Fuite encastrée sous dalle ou dans une cloison</a> (risque structurel).</li>
+                <li><a href="/services/debouchage" class="text-primary-container font-semibold hover:underline">Refoulement d'eaux usées ou sterput bloqué</a> (hydrocurage 200 bars).</li>
+                <li>Odeur suspecte de gaz ou chaudière en sécurité persistante (CERGA).</li>
+                <li>Boiler qui surchauffe ou coule abondamment par la soupape.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Specific Local Water Issues in Mons -->
+        <section class="space-y-4">
+          <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold tracking-tight">
+            6. Pourquoi l’eau calcaire de Mons (SWDE) endommage-t-elle vos canalisations ?
+          </h2>
+
+          <p class="text-sm md:text-base">
+            À Mons et dans l'ensemble du Hainaut, l'eau distribuée par la Société Wallonne des Eaux (SWDE) provient de nappes phréatiques calcaires. Sa dureté oscille entre <strong>32 et 38 degrés français (°fH)</strong>, ce qui la classe parmi les eaux les plus dures de Belgique.
+          </p>
+
+          <p class="text-sm md:text-base">
+            Ce calcaire s'incruste dans la résistance de votre boiler, réduit de 40 % le débit de vos mitigeurs et bouche les échangeurs à plaques de chaudière en moins de 3 ans. Pour pérenniser vos équipements, nos artisans installent des <a href="/services/traitement-eau" class="text-primary-container font-bold hover:underline">adoucisseurs d'eau écologiques à Mons</a>, permettant d'économiser jusqu'à 650 € par an sur votre consommation d'énergie et vos produits ménagers.
+          </p>
+        </section>
+
+        <!-- FAQ Section (Formatted for Featured Snippets / Voice Search) -->
+        <section class="space-y-6 pt-6 border-t border-primary/10">
+          <div class="text-center max-w-2xl mx-auto">
+            <span class="text-xs font-bold uppercase tracking-wider text-primary-container">Questions Fréquentes</span>
+            <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold mt-1">
+              FAQ : Dépannage Plomberie d'Urgence à Mons
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+              <h3 class="font-headline-sm text-base md:text-lg font-bold text-primary">
+                Quel est le délai d’intervention d’un plombier d’urgence à Mons ?
+              </h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+                Le délai moyen d'intervention à Mons est de <strong>25 à 45 minutes</strong>. Les techniciens de garde de Plombier Mons Urgent partent directement de Mons intra-muros et se déploient via les axes Ring R5 et autoroutes E19/E42 pour rejoindre rapidement les communes périphériques comme Jemappes, Ghlin, Cuesmes ou Frameries.
+              </p>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+              <h3 class="font-headline-sm text-base md:text-lg font-bold text-primary">
+                Existe-t-il un plombier à Mons disponible le dimanche et les jours fériés ?
+              </h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+                Oui. Plombier Mons Urgent maintient un service d'astreinte opérationnel <strong>24h/24, 7j/7, dimanches et jours fériés inclus</strong>. En composant le 065 / 79 40 20, vous parlez directement à un technicien de garde local qui valide votre devis avant tout déplacement.
+              </p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+              <h3 class="font-headline-sm text-base md:text-lg font-bold text-primary">
+                Les dégâts des eaux sont-ils remboursés par l'assurance habitation en Belgique ?
+              </h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+                Oui. En Belgique, l'assurance incendie / dégât des eaux (Ethias, AXA, AG Insurance) prend en charge les frais de recherche de fuite non destructive et les réparations des dommages collatéraux. Nos plombiers vous fournissent un <strong>rapport technique d'expertise officiel sous 24h</strong> pour votre dossier de remboursement.
+              </p>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+              <h3 class="font-headline-sm text-base md:text-lg font-bold text-primary">
+                Comment savoir si j’ai besoin d’un plombier ou d’un chauffagiste ?
+              </h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+                Le plombier gère l'alimentation en eau potable, les évacuations d'eaux usées et les appareils sanitaires (WC, éviers, douches). Le chauffagiste intervient sur la production de chaleur (chaudière gaz, boiler, radiateurs). Chez Plombier Mons Urgent, nos techniciens possèdent la <strong>double qualification plombier-chauffagiste agréé CERGA</strong>.
+              </p>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="p-5 rounded-xl bg-surface-container-lowest border border-primary/10 shadow-sm space-y-2">
+              <h3 class="font-headline-sm text-base md:text-lg font-bold text-primary">
+                Comment demander un devis gratuit pour des travaux de plomberie à Mons ?
+              </h3>
+              <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+                Vous pouvez soumettre votre demande en ligne via notre <a href="/contact" class="text-primary-container font-bold hover:underline">formulaire de contact sécurisé</a> ou envoyer la photo de votre panne sur notre <strong>WhatsApp au 0470 / 55 20 20</strong>. Un artisan vous répond en moins de 15 minutes avec un pré-diagnostic chiffré sans engagement.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Live Performance & Response Stats Component -->
+      <div class="mt-14">
+        <ResponseTimeStats />
+      </div>
+
+      <!-- Final Interactive Lead Form -->
+      <div class="mt-12">
+        <QuoteForm
+          title="Demander une Intervention d'Urgence ou un Devis à Mons"
+          subtitle="Rappel immédiat en moins de 15 minutes par notre artisan de garde"
+        />
+      </div>
+    </div>
+  </article>
+
+  <!-- Review Badges Ribbon -->
+  <ReviewBadges />
+</Layout>
