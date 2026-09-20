@@ -1,0 +1,138 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { name: 'Accueil', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Zones d\'intervention', path: '/locations' },
+  { name: 'À Propos', path: '/about' },
+  { name: 'Contact', path: '/contact' }
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+  <!-- 1. Top Utility Notification Bar -->
+  <div class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-1.5 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-xs md:text-sm truncate">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-tertiary-container pulse-emergency shrink-0"></span>
+        <span class="font-semibold text-white truncate">Dépannage d'urgence 24/7 disponible à Mons et Borinage</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-6 text-xs md:text-sm">
+        <div class="flex items-center gap-1.5 text-primary-fixed">
+          <span class="material-symbols-outlined text-[18px]">near_me</span>
+          <span>Arrivée sur place en 30–45 min</span>
+        </div>
+        <a href="tel:+3265794020" class="flex items-center gap-1 font-bold text-white hover:text-primary-fixed transition-colors">
+          <span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+          <span>065 / 79 40 20</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Main Navigation Bar -->
+  <nav class="w-full bg-surface-container-lowest border-b border-primary/10">
+    <div class="h-20 max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-lg bg-primary-container flex items-center justify-center text-white shadow-sm group-hover:bg-primary transition-colors">
+          <span class="material-symbols-outlined text-[26px]">plumbing</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold">PLOMBIER MONS</span>
+          <span class="font-label-sm text-[10px] text-secondary tracking-wider uppercase font-semibold">Artisan Agréé • Urgence 24h/7</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Items -->
+      <div class="hidden lg:flex items-center gap-7">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path));
+          return (
+            <a
+              href={item.path}
+              class={`text-sm font-semibold transition-colors hover:text-primary-container ${
+                isActive
+                  ? 'text-primary-container font-bold border-b-2 border-primary-container pb-1'
+                  : 'text-on-surface-variant'
+              }`}
+            >
+              {item.name}
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Action Callout & Emergency CTA -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex flex-col items-end text-right">
+          <span class="font-label-sm text-[11px] text-secondary uppercase font-bold tracking-wider">Permanence Mons</span>
+          <a href="tel:+3265794020" class="font-headline-sm text-lg text-primary font-bold hover:text-primary-container transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[18px] text-primary-container">call</span>
+            <span>065 79 40 20</span>
+          </a>
+        </div>
+
+        <a
+          href="tel:+32470552020"
+          class="inline-flex items-center justify-center gap-2 px-4 py-2.5 md:px-5 md:py-3 rounded-lg bg-primary-container text-white font-label-md md:font-label-lg font-bold hover:bg-forest-dark shadow transition-all hover:-translate-y-0.5"
+        >
+          <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">e911_emergency</span>
+          <span class="hidden sm:inline">SOS Urgence</span>
+          <span class="sm:hidden">Urgence</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="lg:hidden p-2 rounded-lg text-primary hover:bg-surface-container transition-colors"
+          aria-label="Ouvrir le menu"
+        >
+          <span class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-surface-container-lowest border-t border-primary/10 px-4 py-4 space-y-3">
+      {navItems.map((item) => (
+        <a
+          href={item.path}
+          class="block py-2.5 px-3 rounded-md text-base font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container"
+        >
+          {item.name}
+        </a>
+      ))}
+      <div class="pt-3 border-t border-primary/10 flex flex-col gap-2">
+        <a
+          href="tel:+3265794020"
+          class="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-surface-container text-primary font-bold"
+        >
+          <span class="material-symbols-outlined text-[20px]">call</span>
+          <span>Appeler le 065 79 40 20</span>
+        </a>
+        <a
+          href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20une%20urgence%20plomberie%20à%20Mons"
+          target="_blank"
+          rel="noopener"
+          class="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-primary-container text-white font-bold"
+        >
+          <span class="material-symbols-outlined text-[20px]">chat</span>
+          <span>WhatsApp d'urgence (Diagnostic photo)</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

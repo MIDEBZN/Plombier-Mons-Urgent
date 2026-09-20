@@ -1,0 +1,17 @@
+{
+  "name": "plombier-mons-urgent",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^4.16.19",
+    "caniuse-lite": "^1.0.30001810",
+    "tailwindcss": "^3.4.19"
+  }
+}

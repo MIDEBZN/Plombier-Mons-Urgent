@@ -1,0 +1,159 @@
+---
+export interface Props {
+  pageType?: 'website' | 'service' | 'local';
+  pageTitle?: string;
+  pageDescription?: string;
+  pageUrl?: string;
+}
+
+const {
+  pageTitle = "Plombier Mons Urgent | Dépannage 24/7 & Débouchage en 30 Min",
+  pageDescription = "Plombier certifié à Mons et dans le Borinage. Dépannage plomberie d'urgence 24h/24, fuites d'eau, débouchage sterput/WC, boiler, chaudière gaz CERGA. Arrivée en 30 min.",
+  pageUrl = "https://plombier-mons-urgent.be"
+} = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Plumber", "LocalBusiness"],
+      "@id": "https://plombier-mons-urgent.be/#plumber",
+      "name": "Plombier Mons Urgent",
+      "legalName": "Plombier Mons Urgent SRL",
+      "alternateName": "SOS Plombier Mons",
+      "url": "https://plombier-mons-urgent.be",
+      "telephone": "+3265794020",
+      "emergencyTelephone": "+32470552020",
+      "email": "contact@plombier-mons-urgent.be",
+      "image": "https://plombier-mons-urgent.be/logo.png",
+      "priceRange": "€€",
+      "vatID": "BE 0842.195.834",
+      "taxID": "BE 0842.195.834",
+      "paymentAccepted": ["Cash", "Bancontact", "Visa", "Mastercard", "Payconiq"],
+      "currenciesAccepted": "EUR",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rue de la Chaussée 42",
+        "addressLocality": "Mons",
+        "postalCode": "7000",
+        "addressRegion": "Hainaut",
+        "addressCountry": "BE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.4542,
+        "longitude": 3.9567
+      },
+      "hasMap": "https://www.google.com/maps?cid=plombier-mons-urgent",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Mons (7000)" },
+        { "@type": "AdministrativeArea", "name": "Ghlin (7011)" },
+        { "@type": "AdministrativeArea", "name": "Jemappes (7012)" },
+        { "@type": "AdministrativeArea", "name": "Flénu (7012)" },
+        { "@type": "AdministrativeArea", "name": "Nimy (7020)" },
+        { "@type": "AdministrativeArea", "name": "Maisières (7020)" },
+        { "@type": "AdministrativeArea", "name": "Havré (7021)" },
+        { "@type": "AdministrativeArea", "name": "Hyon (7022)" },
+        { "@type": "AdministrativeArea", "name": "Cuesmes (7033)" },
+        { "@type": "AdministrativeArea", "name": "Frameries (7080)" },
+        { "@type": "AdministrativeArea", "name": "Quaregnon (7390)" },
+        { "@type": "AdministrativeArea", "name": "Saint-Ghislain (7330)" },
+        { "@type": "AdministrativeArea", "name": "Boussu (7300)" },
+        { "@type": "AdministrativeArea", "name": "Jurbise (7050)" }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "184",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Prestations de Plomberie et Dépannage Mons",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dépannage plomberie d'urgence 24h/24 à Mons",
+              "description": "Intervention immédiate en 30 à 45 minutes pour fuite d'eau, canalisation éclatée ou panne d'eau chaude à Mons et environs."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Débouchage haute pression de canalisations, WC et sterputs à Mons",
+              "description": "Débouchage mécanique au furet électrique et hydrocurage haute pression pour égout bouché, évier et sanitaires."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Détection de fuite non destructive avec rapport assurance",
+              "description": "Recherche de fuite thermique et acoustique sans démolition, dossier technique officiel pour assurance dégât des eaux en Belgique."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dépannage et détartrage de boiler / chauffe-eau",
+              "description": "Maintenance, remplacement de résistance stéatite, groupe de sécurité et détartrage contre l'eau calcaire de la SWDE à Mons."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Installation d'adoucisseur d'eau anti-calcaire",
+              "description": "Pose d'adoucisseurs sans électricité et volumétriques pour protéger votre maison de la dureté de l'eau à Mons."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Chauffagiste agréé CERGA pour chaudière gaz",
+              "description": "Entretien obligatoire en Région Wallonne avec attestation de contrôle périodique et dépannage chaudière Vaillant, Bulex, Viessmann."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://plombier-mons-urgent.be/#website",
+      "url": "https://plombier-mons-urgent.be",
+      "name": "Plombier Mons Urgent",
+      "publisher": {
+        "@id": "https://plombier-mons-urgent.be/#plumber"
+      },
+      "inLanguage": "fr-BE"
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      "url": pageUrl,
+      "name": pageTitle,
+      "description": pageDescription,
+      "isPartOf": {
+        "@id": "https://plombier-mons-urgent.be/#website"
+      },
+      "inLanguage": "fr-BE"
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

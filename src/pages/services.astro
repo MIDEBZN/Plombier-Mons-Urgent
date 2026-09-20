@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TrustBar from '../components/TrustBar.astro';
+
+const servicesList = [
+  {
+    id: 'debouchage',
+    icon: 'plumbing',
+    title: 'Débouchage de Canalisations, WC, Éviers & Sterputs',
+    badge: 'Urgence 24h/7 & Caméra',
+    subtitle: 'Débouchage mécanique au furet électrique et hydrocurage haute pression à Mons',
+    content: [
+      'Un WC qui déborde, un évier qui refoule ou un sterput extérieur encombré par les boues et racines ? Nous disposons de véhicules d\'hydrocurage équipés d\'une pompe haute pression (200 bars) et de buses rotatives spécialement conçues pour débloquer immédiatement sans endommager vos conduites en grès, PVC ou fonte.',
+      'Pour les obstructions complexes ou récurrentes, notre inspection par caméra endoscopique HD permet de visualiser en direct l\'intérieur de la canalisation, de localiser l\'affaissement ou la fissure exacte et d\'établir un diagnostic certifié.'
+    ],
+    highlights: [
+      'Débouchage WC, toilettes suspendues et broyeurs sans casse',
+      'Débouchage de sterput extérieur et évacuation cour/jardin (spécificité belge)',
+      'Curage préventif et élimination radicale des bouchons de graisse et calcaire',
+      'Inspection vidéo avec enregistrement vidéo et rapport technique'
+    ],
+    pricing: 'Forfait débouchage express à partir de 95 € HTVA'
+  },
+  {
+    id: 'fuite',
+    icon: 'water_damage',
+    title: 'Recherche de Fuite d\'Eau Non Destructive',
+    badge: '100% Pris en Charge Assurance',
+    subtitle: 'Localisation précise au millimètre sans démolir vos cloisons ni carrelages',
+    content: [
+      'Une facture d\'eau anormalement élevée, une tache d\'humidité sur un mur ou une odeur de moisi ? Ne commencez pas par casser les murs. Grâce à nos caméras thermiques infrarouges de pointe (FLIR), à nos détecteurs acoustiques à ultrasons et au gaz traceur azote-hydrogène, nous détectons la micro-fuite exacte à travers les dalles, chapes et cloisons.',
+      'En Belgique, les frais de recherche de fuite non destructive sont quasi systématiquement remboursés par votre assurance habitation (Ethias, AXA, AG Insurance, Belfius, etc.). Nous vous remettons sous 24h un rapport technique détaillé avec clichés thermiques utilisable pour votre dossier de sinistre.'
+    ],
+    highlights: [
+      'Caméra thermique haute sensibilité et hygromètre de surface',
+      'Détection électro-acoustique pour tuyaux encastrés sous chape',
+      'Rapport officiel d\'expertise pour indemnisation par votre compagnie d\'assurance',
+      'Réparation immédiate du tuyau défectueux (cuivre, plomb, PER, multicouche)'
+    ],
+    pricing: 'Prise en charge directe par l\'assurance dégât des eaux'
+  },
+  {
+    id: 'boiler',
+    icon: 'heat',
+    title: 'Dépannage & Détartrage Boiler / Chauffe-Eau',
+    badge: 'Spécialiste Eau Dure SWDE',
+    subtitle: 'Dépannage en panne d\'eau chaude et détartrage de cuve à Mons',
+    content: [
+      'Plus d\'eau chaude sanitaire sous la douche ? Un boiler électrique qui fait disjoncter le compteur ? Un groupe de sécurité qui coule sans arrêt ? À Mons et dans le Borinage, la forte teneur en calcaire de l\'eau distribuée par la SWDE étouffe rapidement les résistances blindées et stéatites.',
+      'Nous assurons le remplacement rapide de résistances, de thermostats, de groupes de sécurité et de réducteurs de pression, ainsi que le détartrage complet de votre réservoir pour redonner un rendement optimal à votre équipement.'
+    ],
+    highlights: [
+      'Dépannage le jour même pour retrouver l\'eau chaude',
+      'Détartrage chimique et mécanique des cuves entartrées',
+      'Remplacement de groupe de sécurité et vase d\'expansion sanitaire',
+      'Installation de boilers thermodynamiques ou électriques (Bulex, Ariston, Atlantic)'
+    ],
+    pricing: 'Détartrage et révision boiler dès 120 € HTVA'
+  },
+  {
+    id: 'chauffage',
+    icon: 'mode_heat',
+    title: 'Chauffagiste Agréé CERGA & Chaudière Gaz',
+    badge: 'Habilité Région Wallonne G1/G2',
+    subtitle: 'Dépannage d\'urgence de chaudière et entretien périodique obligatoire',
+    content: [
+      'Votre chaudière est en sécurité (code erreur F28, F22, F75, etc.) ou vos radiateurs restent froids en plein hiver ? Nos techniciens chauffagistes certifiés CERGA interviennent en urgence pour remettre votre chauffage en service.',
+      'Nous réalisons également l\'entretien légal obligatoire en Wallonie avec analyse des fumées de combustion et remise de l\'attestation de contrôle périodique officielle exigée par la loi belge et votre propriétaire/assureur.'
+    ],
+    highlights: [
+      'Dépannage toutes marques belges : Vaillant, Bulex, Viessmann, Junkers Bosch, ACV',
+      'Entretien réglementaire triennal gaz en Wallonie avec attestation officielle',
+      'Remplacement de circulateurs, vannes 3 voies, vases d\'expansion et thermostats',
+      'Installation et mise en conformité de tuyauteries gaz naturel'
+    ],
+    pricing: 'Entretien chaudière gaz avec attestation légale dès 135 € HTVA'
+  },
+  {
+    id: 'adoucisseur',
+    icon: 'water_bottle',
+    title: 'Adoucisseurs d\'Eau & Traitement Anti-Calcaire',
+    badge: 'Protège votre Maison du Calcaire',
+    subtitle: 'Solution définitive contre l\'eau dure de la région montoise',
+    content: [
+      'Avec une dureté de l\'eau mesurée entre 32 et 38 degrés français (°F) par la SWDE à Mons, le tartre s\'accumule rapidement dans votre plomberie, bouche vos mousseurs, dégrade votre peau et fait bondir votre facture énergétique.',
+      'Nous installons des adoucisseurs d\'eau compacts et écologiques (volumétriques ou sans électricité) de grandes marques reconnues (BWT, Durlem, Minimax). Vous protégez durablement vos installations sanitaires et électroménagers.'
+    ],
+    highlights: [
+      'Analyse gratuite de la dureté de l\'eau de votre habitation à Mons',
+      'Adoucisseurs d\'eau volumétriques haute efficacité et faible consommation de sel',
+      'Contrat d\'entretien annuel et livraison de sel régénérant purifié',
+      'Économies d\'énergie prouvées sur le chauffage de l\'eau'
+    ],
+    pricing: 'Installation complète avec bypass et mise en service sur devis'
+  },
+  {
+    id: 'sanitaire',
+    icon: 'wash',
+    title: 'Dépannage Robinetterie, Chasse Geberit & Sanitaires',
+    badge: 'Matériaux Certifiés Belges',
+    subtitle: 'Réparation de fuites de chasse d\'eau et installation d\'équipements sanitaires',
+    content: [
+      'Une chasse d\'eau Geberit suspendue qui coule en continu peut vous faire perdre plus de 150 litres d\'eau par jour ! Nous intervenons pour le remplacement des joints, des mécanismes de cloche et des flotteurs Geberit d\'origine.',
+      'Nous remplaçons également les robinets mitigeurs défectueux, éviers, lavabos, colonnes de douche et assurons la rénovation complète de plomberie de salle de bain avec conformité aux normes belges.'
+    ],
+    highlights: [
+      'Spécialiste mécanismes encastrés Geberit et Grohe',
+      'Remplacement de mitigeurs avec cartouches céramiques haute longévité',
+      'Rénovation plomberie cuisine et salle de bain clé en main',
+      'Pose de WC suspendu, bacs de douche extra-plats et baignoires'
+    ],
+    pricing: 'Intervention réparation sanitaire dès 85 € HTVA'
+  }
+];
+---
+
+<Layout
+  title="Services de Plomberie à Mons | Débouchage, Fuite, Boiler & Chauffage"
+  description="Découvrez l'ensemble de nos services de plomberie à Mons : débouchage haute pression, recherche de fuite sans casse, boiler, chaudière gaz CERGA et adoucisseurs."
+>
+  <!-- Page Header -->
+  <section class="w-full bg-primary text-white py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 text-center space-y-4">
+      <span class="text-xs uppercase tracking-widest font-extrabold text-tertiary-fixed">Expertise & Artisanat Local</span>
+      <h1 class="font-display-hero text-3xl md:text-5xl text-white font-extrabold tracking-tight">
+        Nos Services de Plomberie à Mons & Borinage
+      </h1>
+      <p class="text-sm md:text-base text-surface-dim max-w-2xl mx-auto leading-relaxed">
+        Intervention d'urgence en 30 à 45 minutes et travaux d'installation réalisés par des artisans certifiés, transparents et déclarés en Belgique.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Detailed Services Section -->
+  <section class="w-full py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 space-y-16">
+      {servicesList.map((svc, index) => (
+        <div id={svc.id} class="p-6 md:p-10 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm scroll-mt-28">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-8 space-y-4">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-bold text-xs">
+                  {svc.badge}
+                </span>
+                <span class="text-xs font-semibold text-secondary">
+                  {svc.pricing}
+                </span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-lg bg-primary-container text-white flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[26px]">{svc.icon}</span>
+                </div>
+                <h2 class="font-headline-xl text-2xl md:text-3xl text-primary font-extrabold">
+                  {svc.title}
+                </h2>
+              </div>
+              <p class="text-sm font-semibold text-primary-container">{svc.subtitle}</p>
+
+              <div class="space-y-3 text-sm text-on-surface-variant leading-relaxed">
+                {svc.content.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+
+              <div class="pt-2">
+                <h3 class="font-headline-sm text-sm font-bold text-primary mb-3">Prestations incluses :</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {svc.highlights.map((h) => (
+                    <div class="flex items-start gap-2 text-xs md:text-sm text-on-surface">
+                      <span class="material-symbols-outlined text-primary-container text-[18px] shrink-0">check_circle</span>
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Box -->
+            <div class="lg:col-span-4 p-6 rounded-xl bg-surface-container-high border border-primary/10 space-y-4 text-center">
+              <span class="text-xs font-bold uppercase tracking-wider text-primary">Besoin d'une intervention ?</span>
+              <p class="text-xs text-on-surface-variant leading-snug">
+                Un technicien spécialisé peut être chez vous à Mons dans les 30 à 45 prochaines minutes.
+              </p>
+              <div class="space-y-2 pt-2">
+                <a
+                  href="tel:+3265794020"
+                  class="w-full py-3 px-4 rounded-lg bg-primary-container text-white font-bold text-sm shadow hover:bg-forest-dark transition-all flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-[18px] text-tertiary-fixed">call</span>
+                  <span>Appeler 065 / 79 40 20</span>
+                </a>
+                <a
+                  href="https://wa.me/32470552020?text=Bonjour,%20j'ai%20besoin%20d'une%20intervention%20plomberie"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-full py-3 px-4 rounded-lg bg-surface-container-lowest text-primary border border-primary/20 font-bold text-sm hover:bg-white transition-all flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-[18px] text-primary-container">chat</span>
+                  <span>Photo / Devis WhatsApp</span>
+                </a>
+              </div>
+              <p class="text-[11px] text-secondary">Devis gratuit et validé avant travaux</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Belgian VAT 6% Notice -->
+  <section class="w-full py-12 bg-surface-container-low border-t border-primary/10">
+    <div class="max-w-4xl mx-auto px-4 md:px-8">
+      <div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-primary/10 shadow-sm flex flex-col md:flex-row items-center gap-6">
+        <div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[32px]">percent</span>
+        </div>
+        <div class="space-y-2 text-center md:text-left">
+          <h3 class="font-headline-sm text-lg md:text-xl text-primary font-bold">
+            Bénéficiez du taux de TVA réduit à 6 % sur vos réparations et installations
+          </h3>
+          <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+            Conformément à la législation fiscale belge, tous les travaux de plomberie et de rénovation réalisés dans une habitation de plus de 10 ans bénéficient d'un taux réduit de TVA à 6 % (au lieu de 21 %). L'économie est directement répercutée sur votre facture.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

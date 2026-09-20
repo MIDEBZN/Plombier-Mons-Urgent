@@ -1,0 +1,137 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = "Demander une intervention rapide",
+  subtitle = "Rappel immédiat en moins de 15 minutes à Mons et environs"
+} = Astro.props;
+---
+
+<div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-md border border-primary/10">
+  <div class="mb-5">
+    <div class="flex items-center justify-between">
+      <h3 class="font-headline-md text-xl md:text-2xl text-primary font-bold">{title}</h3>
+      <span class="material-symbols-outlined text-primary-container text-[28px]">assignment</span>
+    </div>
+    <p class="font-body-sm text-sm text-on-surface-variant mt-1">{subtitle}</p>
+  </div>
+
+  <form id="quote-lead-form" class="space-y-3.5">
+    <div>
+      <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Nom et Prénom *</label>
+      <input
+        name="name"
+        class="w-full h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
+        placeholder="ex. Michel Dubois"
+        required
+        type="text"
+      />
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Téléphone direct *</label>
+        <input
+          name="phone"
+          class="w-full h-11 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
+          placeholder="04XX XX XX XX"
+          required
+          type="tel"
+        />
+      </div>
+      <div>
+        <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Code Postal *</label>
+        <select
+          name="postalCode"
+          class="w-full h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
+        >
+          <option value="7000">7000 Mons Centre</option>
+          <option value="7011">7011 Ghlin</option>
+          <option value="7012">7012 Jemappes / Flénu</option>
+          <option value="7020">7020 Nimy / Maisières</option>
+          <option value="7021">7021 Havré / St-Symphorien</option>
+          <option value="7022">7022 Hyon / Mesvin / Cuesmes</option>
+          <option value="7033">7033 Cuesmes</option>
+          <option value="7080">7080 Frameries (Borinage)</option>
+          <option value="autre">Autre commune Hainaut</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Type de panne *</label>
+        <select
+          name="service"
+          class="w-full h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
+        >
+          <option value="fuite">Fuite d'eau urgente</option>
+          <option value="wc">WC ou toilette bouchée</option>
+          <option value="canalisation">Canalisation / Égout bouché</option>
+          <option value="sterput">Sterput refoulant / Odeur</option>
+          <option value="boiler">Panne eau chaude / Boiler</option>
+          <option value="chaudiere">Chaudière gaz en panne</option>
+          <option value="adoucisseur">Adoucisseur / Calcaire</option>
+          <option value="autre">Autre problème plomberie</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Délai d'intervention *</label>
+        <select
+          name="timing"
+          class="w-full h-11 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors"
+        >
+          <option value="asap">🚨 Urgence immédiate (en 30-45 min)</option>
+          <option value="today">Aujourd'hui dans la journée</option>
+          <option value="tomorrow">Demain</option>
+          <option value="schedule">Rendez-vous à planifier</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-label-sm text-xs text-on-surface-variant uppercase font-bold mb-1">Description du problème (optionnel)</label>
+      <textarea
+        name="details"
+        class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-sm border border-primary/20 focus:border-primary-container focus:bg-surface-container-low focus:outline-none transition-colors resize-none"
+        placeholder="Précisez votre problème (ex. tuyau qui coule sous le lavabo, eau qui monte dans les toilettes)..."
+        rows="2"
+      ></textarea>
+    </div>
+
+    <button
+      class="w-full py-3.5 px-6 rounded-lg bg-primary-container text-white font-label-lg text-base font-bold hover:bg-forest-dark shadow transition-all flex items-center justify-center gap-2 hover:-translate-y-0.5 cursor-pointer"
+      type="submit"
+    >
+      <span class="material-symbols-outlined text-[20px] text-tertiary-fixed">send</span>
+      <span>Envoyer la demande d'intervention</span>
+    </button>
+
+    <div id="form-feedback" class="hidden p-3 rounded-lg bg-surface-container text-primary text-xs font-semibold text-center">
+      ✅ Demande bien reçue. Un technicien montois vous recontacte dans les 15 minutes.
+    </div>
+
+    <p class="font-body-sm text-[12px] leading-tight text-on-surface-variant text-center pt-1">
+      🔒 Vos données restent confidentielles et servent uniquement à organiser votre dépannage à Mons.
+    </p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('quote-lead-form') as HTMLFormElement;
+  const feedback = document.getElementById('form-feedback');
+
+  if (form && feedback) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      feedback.classList.remove('hidden');
+      form.reset();
+      setTimeout(() => {
+        feedback.classList.add('hidden');
+      }, 7000);
+    });
+  }
+</script>

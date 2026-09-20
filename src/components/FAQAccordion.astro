@@ -1,0 +1,67 @@
+---
+const faqs = [
+  {
+    q: "Quel est votre délai réel d'intervention pour une urgence à Mons ?",
+    a: "Étant physiquement basés à Mons, nos techniciens d'astreinte arrivent chez vous en 30 à 45 minutes en moyenne (contrairement aux plateformes bruxelloises qui annoncent des délais impossibles ou plus de 1h30). Nous disposons de véhicules équipés prêts à intervenir 24h/24 et 7j/7."
+  },
+  {
+    q: "Comment sont établis vos tarifs ? Y a-t-il des frais imprévus ?",
+    a: "Zéro mauvaise surprise : aucun travail n'est commencé sans votre accord préalable sur un devis clair. Nous appliquons une grille tarifaire forfaitaire transparente (forfait déplacement Mons + 1ère heure de main-d'œuvre). Si des pièces doivent être remplacées, le coût vous est annoncé avant toute pose."
+  },
+  {
+    q: "Puis-je bénéficier de la TVA réduite à 6 % pour mes travaux de plomberie ?",
+    a: "Oui ! En Belgique, si votre logement (maison ou appartement) a plus de 10 ans et est utilisé à titre d'habitation privée, vous bénéficiez légalement du taux de TVA réduit à 6 % au lieu de 21 % sur la main-d'œuvre et les fournitures."
+  },
+  {
+    q: "La recherche de fuite d'eau est-elle prise en charge par mon assurance incendie ?",
+    a: "Dans la grande majorité des cas, oui. Les contrats d'assurance habitation belges (Ethias, AXA, AG Insurance, Belfius, etc.) couvrent les frais de détection de fuite d'eau sans casse. Nous vous remettons sous 24h un rapport technique détaillé avec clichés thermiques utilisable par votre expert d'assurance."
+  },
+  {
+    q: "L'eau est-elle très calcaire à Mons et pourquoi installer un adoucisseur ?",
+    a: "L'eau distribuée par la SWDE à Mons et dans le Borinage a une dureté élevée comprise entre 32°F et 38°F (eau très dure). Sans protection, le calcaire obstrue les tuyaux et détruit les résistances de boiler en moins de 3 ans. Un adoucisseur protège l'ensemble de vos appareils électroménagers et réduit votre consommation d'énergie."
+  },
+  {
+    q: "Quelles communes couvrez-vous dans le Grand Mons et le Borinage ?",
+    a: "Nous couvrons l'ensemble des 19 communes et sections montoises : 7000 Mons-Centre, 7011 Ghlin, 7012 Jemappes et Flénu, 7020 Nimy et Maisières, 7021 Havré et Saint-Symphorien, 7022 Hyon, Mesvin et Harmignies, 7033 Cuesmes, ainsi que les communes voisines du Borinage (Frameries, Quaregnon, Saint-Ghislain, Boussu, Dour, Jurbise)."
+  }
+];
+---
+
+<div class="space-y-4 max-w-4xl mx-auto">
+  {faqs.map((faq, index) => (
+    <div class="rounded-xl border border-primary/10 bg-surface-container-lowest overflow-hidden shadow-sm">
+      <button
+        type="button"
+        class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between gap-4 font-headline-sm text-base md:text-lg text-primary font-bold hover:text-primary-container transition-colors"
+        data-index={index}
+      >
+        <span>{faq.q}</span>
+        <span class="faq-icon material-symbols-outlined text-primary-container shrink-0 transition-transform duration-200">
+          expand_more
+        </span>
+      </button>
+      <div class="faq-content hidden px-6 pb-5 pt-1 text-sm md:text-base text-on-surface-variant border-t border-primary/5 leading-relaxed">
+        {faq.a}
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  const toggles = document.querySelectorAll('.faq-toggle');
+  toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.nextElementSibling;
+      const icon = toggle.querySelector('.faq-icon');
+      if (content && icon) {
+        const isHidden = content.classList.contains('hidden');
+        content.classList.toggle('hidden');
+        if (isHidden) {
+          icon.textContent = 'expand_less';
+        } else {
+          icon.textContent = 'expand_more';
+        }
+      }
+    });
+  });
+</script>

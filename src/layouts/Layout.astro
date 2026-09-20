@@ -1,0 +1,69 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyMobileBar from '../components/StickyMobileBar.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = "Plombier Mons Urgent | Dépannage 24/7 & Débouchage en 30 Min",
+  description = "Plombier local certifié à Mons (7000) et dans le Borinage. Dépannage en 30 minutes 24h/24 : fuites d'eau, débouchage WC/sterput, boiler, chaudière agréé CERGA. Devis gratuit avant travaux.",
+  canonicalUrl = Astro.url.href
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr-BE" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_BE" />
+    <meta property="og:site_name" content="Plombier Mons Urgent" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://plombier-mons-urgent.be/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Local Geo Meta Tags for Mons (Hainaut, Belgium) -->
+    <meta name="geo.region" content="BE-WHT" />
+    <meta name="geo.placename" content="Mons" />
+    <meta name="geo.position" content="50.4542;3.9567" />
+    <meta name="ICBM" content="50.4542, 3.9567" />
+
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data Schema.org -->
+    <SchemaOrg pageTitle={title} pageDescription={description} pageUrl={canonicalUrl} />
+  </head>
+  <body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-grow pt-28 md:pt-32 pb-20 md:pb-0">
+      <slot />
+    </main>
+    <Footer />
+    <StickyMobileBar />
+  </body>
+</html>
