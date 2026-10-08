@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  title="Détection de Fuite d'Eau Non-Destructive à Mons | Caméra Thermique & Gaz Traceur"
+  description="Recherche et détection de fuite d'eau sans démolition à Mons et Borinage. Caméra thermique infrarouge, gaz traceur et acoustique. Rapport agréé assurances. 065 70 03 87."
+  canonicalPath="/services/detection-fuites"
+  currentPage="services"
+>
+  <!-- Hero Section -->
+  <section class="section" style="background: radial-gradient(circle at 85% 15%, rgba(0, 128, 128, 0.08) 0%, transparent 60%), #FFFFFF; padding-top: 3rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--color-navy-muted);">
+        <a href="/" style="color: var(--color-teal); text-decoration: none;">Accueil</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <a href="/services" style="color: var(--color-teal); text-decoration: none;">Services</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <span style="color: var(--color-navy); font-weight: 600;">Détection de Fuites</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div style="max-width: 850px;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="badge badge-primary">
+              <span class="material-symbols-outlined" style="font-size: 15px;">search_check</span>
+              100% Non-Destructif (Zéro Casse Inutile)
+            </span>
+            <span class="badge badge-teal">
+              <span class="material-symbols-outlined" style="font-size: 15px;">verified</span>
+              Rapport Pris en Charge par les Assurances
+            </span>
+          </div>
+
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.15; margin-bottom: 1.25rem;">
+            Détection de Fuite d'Eau Sans Démolition à Mons
+          </h1>
+
+          <p style="font-size: 1.15rem; color: var(--color-navy-muted); line-height: 1.6; margin-bottom: 2rem;">
+            Votre compteur d'eau continue de tourner à l'arrêt ? Une auréole d'humidité s'étend sur votre plafond ou votre carrelage reste tiède ? Grâce à la thermographie infrarouge, à l'écoute acoustique et au gaz traceur, nous localisons la fuite invisible au centimètre près sans démolir vos cloisons.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="tel:065700387" class="btn btn-alert" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">
+              <span class="material-symbols-outlined">call</span>
+              Contacter un Expert : 065 70 03 87
+            </a>
+            <a href="#devis-section" class="btn btn-outline" style="font-size: 1.05rem;">
+              <span class="material-symbols-outlined">description</span>
+              Demander une recherche de fuite
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Bar -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 1.5rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">Précision au cm</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Localisation exacte sans casse aveugle</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); font-family: var(--font-headline);">4 Technologies</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Thermique, acoustique, gaz et humidimètre</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">100% Remboursable</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Frais de recherche couverts par votre assurance</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-alert); font-family: var(--font-headline);">24h/24 & 7j/7</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Intervention express sur le Grand Mons</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Méthodologie Scientifique</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ce qui est inclus dans notre prestation de recherche de fuite</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Nos spécialistes utilisent un arsenal de diagnostic non-destructif complet pour cerner le problème sans causer le moindre dégât collatéral.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">thermostat</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Caméra Thermique Infrarouge (FLIR)</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Visualisation immédiate des écarts thermiques sous chape, parquet ou plancher chauffant.</li>
+            <li>Cartographie précise des canalisations d'eau chaude sanitaire et de chauffage encastrées.</li>
+            <li>Repérage instantané de l'épanchement d'eau chaude dissimulé dans la maçonnerie.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">air</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Gaz Traceur & Électro-Acoustique</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Injection d'un mélange inoffensif d'azote et d'hydrogène (gaz H2 inerte) dans les conduites isolées.</li>
+            <li>Détection par sonde renifleuse ultra-sensible capable de capter la moindre molécule s'échappant de la fissure.</li>
+            <li>Microphone de sol haute fidélité pour écouter les vibrations provoquées par la fuite sous terre ou sous carrelage.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">picture_as_pdf</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Rapport d'Expertise & Réparation Ciblée</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Rapport technique officiel détaillé avec thermogrammes couleur et photos des points de fuite.</li>
+            <li>Document normé pour prise en charge directe par votre assureur habitation en Belgique.</li>
+            <li>Proposition d'intervention immédiate par nos plombiers pour réparer la fuite sur une ouverture minimale (un seul carreau).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Symptômes Alarmants</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Les signaux d'une fuite encastrée ou invisible</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Beaucoup de fuites restent invisibles pendant des mois et causent des dommages structurels colossaux avant d'être remarquées :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Compteur SWDE qui tourne tous robinets fermés</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Le petit voyant ou la roue crantée de votre compteur d'eau continue de tourner lentement alors qu'aucun appareil n'est en marche dans la maison.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Indice : Fuite sur l'alimentation principale ou le circuit après compteur.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Auréole d'humidité et peinture qui cloque</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Une tache jaune ou marron grandit sur le plafond, ou les plinthes se décollent avec apparition de moisissures blanches au bas des murs.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Indice : Évacuation d'étage fendue ou tuyau sanitaire encastré poreux.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Baisse permanente de pression de la chaudière</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Vous devez rajouter de l'eau dans le circuit de chauffage tous les deux jours car le manomètre retombe systématiquement sous 1 bar.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Indice : Micro-fuite sur un raccord enterré ou boucle de chauffage au sol.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Facture d'eau qui explose de plusieurs centaines d'euros</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Votre décompte annuel de la SWDE fait état d'une consommation anormale de plusieurs centaines de mètres cubes d'eau non consommés.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Indice : Fuite enterrée entre le compteur et la maison ou chasse d'eau invisible.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Zone anormalement chaude sur le carrelage</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            En marchant pieds nus, vous constatez qu'une partie précise du sol de votre cuisine ou couloir est chaude sans explication apparente.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Indice : Rupture de conduite d'eau chaude sanitaire dissimulée sous chape.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Infiltration d'eau dans la cave par les fondations</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            L'eau suinte à travers le mur de cave montois lors des fortes pluies ou de manière continue, mettant en péril les réserves et l'installation électrique.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Indice : Conduite d'évacuation extérieure fracturée saturant le sol adjacent.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 3rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Protocole d'Investigation</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Notre démarche de recherche de fuite en 5 étapes</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Une procédure rigoureuse et cartographiée pour éviter toute dégradation inutile de votre maison :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">01</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Contrôle Pression & Réseau</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Test d'étanchéité sous pression par manomètre pour identifier formellement quel réseau fuit (eau froide, eau chaude ou chauffage).
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">02</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Thermographie Infrarouge</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Balayage thermique des murs, plafonds et dalles de sol pour cerner le fuseau d'humidité et les zones de déperdition d'eau.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">03</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Acoustique ou Gaz Traceur</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Si la fuite est profondément enterrée, injection de gaz inerte ou écoute par corrélateur pour cibler la coordonnée spatiale exacte.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">04</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Marquage Précis au Sol</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Repérage millimétré du point de rupture. L'artisan n'aura qu'à retirer un seul carreau ou une petite découpe de plâtre pour réparer.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">05</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Dossier Assurance Remis</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Remise de l'attestation et du rapport officiel requis par l'expert d'assurance pour la prise en charge financière des frais.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section" style="background: var(--color-navy); color: white;">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <span class="badge" style="background: rgba(0, 128, 128, 0.3); color: #4DD0E1; margin-bottom: 0.75rem;">Avantages Plombier Mons Urgent</span>
+        <h2 style="font-size: 2.2rem; color: white; margin-bottom: 1rem;">Pourquoi exiger notre matériel de détection spécialisé</h2>
+        <p style="color: #CBD5E1; font-size: 1rem;">
+          Casser au hasard un mur ou un carrelage italien coûte des milliers d'euros de réfection inutile. Nous trouvons la fuite avant d'ouvrir.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">home_repair_service</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Préservation de Votre Habitat</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Vos parquets, carrelages et faïences murales sont préservés. Nous ne réalisons que la micro-ouverture strictement indispensable à la soudure ou au raccord.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">receipt</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Agrément Dégât des Eaux Assurances</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Nos rapports de recherche de fuite sont rédigés selon les normes requises par l'ensemble des assureurs en Belgique, assurant votre remboursement intégral.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">handyman</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Détection et Réparation Immédiate</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Contrairement aux simples bureaux d'expertise qui se contentent de trouver et s'en vont, nous sommes des plombiers capables de réparer sur le champ.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Availability & Service Area -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Disponibilité Détection</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Intervention urgente en cas de fuite active</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Si votre plafond coule ou que la fuite s'intensifie d'heure en heure, nos experts en recherche de fuite sont mobilisables 24h/24 et 7j/7.
+          </p>
+
+          <div class="card" style="margin-bottom: 1.5rem; background: white;">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+              <span class="material-symbols-outlined" style="color: var(--color-alert); font-size: 28px;">alarm_on</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Déplacement d'urgence 20 à 30 min</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Sécurisation du circuit d'eau et pose de traceur immédiat.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="material-symbols-outlined" style="color: var(--color-teal); font-size: 28px;">contact_page</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Dossier d'assurance sous 24 heures</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Rapport complet avec thermographies envoyé par email.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:065700387" class="btn btn-alert" style="width: 100%; justify-content: center;">
+            <span class="material-symbols-outlined">call</span>
+            Urgence Détection : 065 70 03 87
+          </a>
+        </div>
+
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Rayon d'Intervention</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Où nous intervenons à Mons et alentours</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Nous intervenons sur les habitations privées, immeubles de rapport, syndics et entreprises :
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.875rem;">
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Grand Mons (7000-7034) :</strong>
+              <span style="color: var(--color-navy-muted);">Mons Centre, Nimy, Ghlin, Cuesmes, Hyon, Jemappes, Maisières, Casteau, Havré, Obourg, Saint-Denis.</span>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Borinage :</strong>
+              <span style="color: var(--color-navy-muted);">Frameries, Quaregnon, Saint-Ghislain, Boussu, Colfontaine, Hornu, Dour, Hensies, Honnelles.</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--color-navy-muted); background: rgba(0, 128, 128, 0.08); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--color-teal);">SHAPE NATO Community :</strong> English-speaking certified leak detection specialists available. Official bilingual reports prepared for your insurance claim.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Questions Fréquentes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Foire aux questions : Détection de fuites</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Retrouvez les réponses clés sur la prise en charge de votre recherche de fuite par les assurances et notre méthodologie.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 900px;">
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            La recherche de fuite est-elle remboursée par l'assurance habitation ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, dans la très grande majorité des contrats d'assurance incendie et dégâts des eaux en Belgique, la clause de recherche de fuite non-destructive est remboursée à 100%. Notre rapport technique détaillé avec clichés infrarouges constitue la pièce justificative acceptée par toutes les compagnies.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Allez-vous casser mon sol ou mon carrelage pour chercher la fuite ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Non. L'ensemble de la recherche s'effectue sans aucune démolition à travers la caméra thermique, le gaz traceur et les micros acoustiques. Une fois l'emplacement localisé au centimètre près, seule une micro-ouverture ciblée d'un seul carreau sera pratiquée pour réparer le conduit.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Combien de temps dure une recherche de fuite complète ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            En moyenne, un diagnostic complet d'une habitation prend entre 1h et 2h30 selon la surface du bâtiment et la complexité des réseaux encastrés (présence de plancher chauffant, collecteurs multiples).
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Comment prouver une surconsommation à la SWDE ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            La Société Wallonne des Eaux (SWDE) prévoit des exonérations ou dégrèvements partiels de redevance en cas de fuite cachée réparée par un professionnel. Notre facture et notre attestation de réparation certifiée vous permettent de monter ce dossier de dégrèvement.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Pouvez-vous réparer la fuite dans la foulée de la détection ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, nos camionnettes embarquent tout l'outillage de plomberie (raccords, tuyaux, cuivre, multicouche, sertisseuses). Si vous le souhaitez, nos artisans réparent la fuite dès sa localisation pour stopper le sinistre sans attendre.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Form / Contact Section -->
+  <section class="section" id="devis-section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Demande d'Expertise</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Réservez votre détection de fuite non-destructive</h2>
+          <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Ne laissez pas l'eau fragiliser les fondations de votre habitation. Contactez nos experts pour une détection sous 24h ou en urgence immédiate.
+          </p>
+
+          <div class="card" style="background: white; border-left: 4px solid var(--color-teal);">
+            <div style="font-weight: 700; margin-bottom: 0.25rem;">Besoin d'un devis préalable pour votre assureur ?</div>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin-bottom: 0.75rem;">
+              Nous vous établissons un devis formel pro-forma sous 1 heure pour transmission à votre compagnie d'assurance.
+            </p>
+            <a href="tel:065700387" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+              <span class="material-symbols-outlined">call</span>
+              Contacter le 065 70 03 87
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

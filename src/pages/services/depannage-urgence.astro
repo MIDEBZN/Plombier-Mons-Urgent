@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  title="Dépannage Plomberie d'Urgence 24/7 à Mons (20-30 min) | Plombier Mons Urgent"
+  description="Dépannage plomberie d'urgence 24h/24 et 7j/7 à Mons et Borinage. Arrivée garantie en 20 à 30 minutes. Fuites d'eau majeures, tuyauterie rompue, panne totale. 065 70 03 87."
+  canonicalPath="/services/depannage-urgence"
+  currentPage="services"
+>
+  <!-- Hero Section -->
+  <section class="section" style="background: radial-gradient(circle at 85% 15%, rgba(224, 90, 71, 0.08) 0%, transparent 60%), #FFFFFF; padding-top: 3rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--color-navy-muted);">
+        <a href="/" style="color: var(--color-teal); text-decoration: none;">Accueil</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <a href="/services" style="color: var(--color-teal); text-decoration: none;">Services</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <span style="color: var(--color-navy); font-weight: 600;">Dépannage d'Urgence</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div style="max-width: 850px;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="badge badge-alert">
+              <span class="material-symbols-outlined" style="font-size: 15px;">emergency</span>
+              Intervention d'Urgence 24h/24 & 7j/7
+            </span>
+            <span class="badge badge-primary">
+              <span class="material-symbols-outlined" style="font-size: 15px;">timer</span>
+              Sur place en 20 a 30 minutes
+            </span>
+          </div>
+
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.15; margin-bottom: 1.25rem;">
+            Dépannage Plomberie d'Urgence à Mons et dans le Borinage
+          </h1>
+
+          <p style="font-size: 1.15rem; color: var(--color-navy-muted); line-height: 1.6; margin-bottom: 2rem;">
+            Une fuite d'eau torrentielle, une canalisation principale fendue par le gel ou un refoulement sanitaire incontrôlable ? Nos techniciens d'astreinte interviennent de jour comme de nuit, week-ends et jours fériés, avec des camionnettes-ateliers entièrement équipées pour stopper les dégâts immédiatement.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="tel:065700387" class="btn btn-alert" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">
+              <span class="material-symbols-outlined">call</span>
+              Appel d'Urgence Immédiat : 065 70 03 87
+            </a>
+            <a href="#devis-section" class="btn btn-outline" style="font-size: 1.05rem;">
+              <span class="material-symbols-outlined">description</span>
+              Demander un devis direct
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Bar -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 1.5rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-alert); font-family: var(--font-headline);">20 a 30 min</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Délai moyen d'arrivée sur Mons</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">24h/24 - 7j/7</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Permanence technique ininterrompue</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); font-family: var(--font-headline);">100% Devis Avant Travaux</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Zéro surprise à la facturation</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); font-family: var(--font-headline);">Agréé Assurances</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Dossier dégât des eaux conforme</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Prestations Incluses</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ce qui est inclus dans notre dépannage d'urgence</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Nos interventions d'urgence ne se limitent pas à un colmatage temporaire. Nous apportons une solution durable et sécurisée dès notre première visite.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">water_drop</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Colmatage immédiat et sécurisation</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Fermeture et isolation ciblée du circuit sinistré pour rétablir l'eau sur le reste du bâtiment.</li>
+            <li>Remplacement immédiat des sections cuivre, PER, multicouche ou plomb endommagées.</li>
+            <li>Pose de manchons haute pression et raccords sertis certifiés DVGW et Belgaqua.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">plumbing</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Stock complet dans le véhicule-atelier</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Vannes d'arrêt 1/4 de tour, clapets anti-retour et réducteurs de pression montois.</li>
+            <li>Groupes de sécurité pour boilers 7 bars et soupapes de surpression chaudière 3 bars.</li>
+            <li>Siphons, joints toriques, flotteurs Geberit et mécanismes de chasse d'eau complets.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">assignment</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Rapport d'expertise pour assurance</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Attestation circonstanciée de dégât des eaux transmise sous 24h ouvrées.</li>
+            <li>Photos haute résolution avant et après réparation avec relevé de pressions.</li>
+            <li>Facture détaillée conforme aux barèmes des compagnies d'assurance belges (AXA, AG, Belfius).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Situations d'Urgence Fréquentes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Les problèmes de plomberie traités en priorité</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          À Mons et dans les communes minières du Borinage, la dureté élevée de l'eau et l'ancienneté du bâti causent des pannes brutales. Voici nos cas d'intervention les plus réguliers :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Rupture de tuyau et inondation active</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Tuyau en cuivre percé par la corrosion ou raccord plastique expulsé sous l'effet d'un coup de bélier. Des litres d'eau s'écoulent chaque minute à travers le plancher ou le plafond.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Action : Arrivée prioritaire et colmatage en moins de 30 min.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Groupe de sécurité boiler qui crache en continu</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Le calcaire très agressif de Mons bloque la membrane du groupe 7 bars en position ouverte ou la cuve du chauffe-eau se fissure, menaçant la cave ou la buanderie.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Action : Remplacement du groupe et sécurisation électrique.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">WC ou sterput qui déborde au rez-de-chaussée</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Refoulement immédiat d'eaux usées nauséabondes par les toilettes ou le sterput de cave lors de fortes averses ou suite à un bouchon massif dans la colonne d'évacuation.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Action : Désobstruction mécanique rapide et désinfection.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Robinet d'arrêt général bloqué ou cassé</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Lors d'une tentative de coupure de l'eau, le volant du compteur SWDE se casse net entre vos mains et l'eau continue d'alimenter la fuite sans possibilité d'arrêt local.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Action : Gel de tuyauterie sous azote et pose d'une vanne 1/4 tour neuve.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Chute de pression totale sur la chaudière</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Votre chaudière Bulex ou Vaillant s'arrête net avec le code F22 ou F75 en plein hiver, sans eau chaude ni chauffage dans l'habitation.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Action : Diagnostic fuite circuit, remise en pression et réarmement.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Tuyauterie extérieure gelée ou éclatée</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            À la sortie de l'hiver, le dégel révèle une fissure béante sur le robinet de jardin ou les conduites d'arrivée non isolées dans le garage.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Action : Purge, découpe et soudure d'une ligne hors gel avec purgeur.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 3rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Protocole d'Intervention</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Notre processus de prise en charge en 5 étapes</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Chaque minute compte. Voici exactement comment se déroule votre dépannage à partir du moment où vous nous contactez :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="position: relative;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">01</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Appel & Télé-Diagnostic</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Un technicien décroche en moins de 10 secondes. Nous vous guidons vocalement pour fermer la vanne d'arrêt appropriée et couper le compteur.
+          </p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">02</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Départ Camionnette Atelier</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Le véhicule d'astreinte le plus proche de votre code postal (7000, 7012, 7080, etc.) est immédiatement déployé par GPS.
+          </p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">03</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Diagnostic & Devis Fixe</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Dès l'arrivée, nous inspectons les dégâts. Un devis écrit clair et chiffré vous est remis avant d'ouvrir la boîte à outils.
+          </p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">04</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Réparation & Tests Pression</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Remplacement des pièces défectueuses et mise en pression du réseau sanitaire à 6 bars pour certifier l'étanchéité absolue.
+          </p>
+        </div>
+
+        <div class="card" style="position: relative;">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">05</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Attestation Assurance</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Remise de la facture avec TVA applicable (6% ou 21%) et de l'attestation requise par votre compagnie d'assurance habitation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section" style="background: var(--color-navy); color: white;">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <span class="badge" style="background: rgba(0, 128, 128, 0.3); color: #4DD0E1; margin-bottom: 0.75rem;">Pourquoi Plombier Mons Urgent ?</span>
+        <h2 style="font-size: 2.2rem; color: white; margin-bottom: 1rem;">Pourquoi faire confiance à notre équipe locale</h2>
+        <p style="color: #CBD5E1; font-size: 1rem;">
+          Contrairement aux centrales d'appels bruxelloises qui vous font miroiter une présence locale, nous sommes physiquement basés à Mons.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">speed</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Arrivée en 20 à 30 minutes réelles</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Nos camionnettes ne viennent pas de Bruxelles ou de Charleroi à 60 km d'ici. Nous partons de Mons-centre et des axes immédiats du R5 et de l'E19.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">verified</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Artisans Agréés CERGA & Wallonie</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Techniciens certifiés habilités à intervenir sur colonnes gaz et réseaux de chauffage, garantissant la conformité légale et la sécurité de votre foyer.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">receipt_long</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Tarifs Annoncés et Fixes</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Pas de majoration dissimulée ou de mauvaise surprise. Le coût de l'intervention vous est communiqué en toute transparence avant chaque action.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Availability & Service Area -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Disponibilité d'Astreinte</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Permanence Urgence 24 Heures sur 24</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Une fuite ne prévient pas. C'est pourquoi notre permanence téléphonique et nos équipes d'intervention tournent sans interruption, 365 jours par an.
+          </p>
+
+          <div class="card" style="margin-bottom: 1.5rem; background: white;">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+              <span class="material-symbols-outlined" style="color: var(--color-alert); font-size: 28px;">nightlight</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Service de nuit (20h00 - 08h00)</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Equipe d'astreinte mobile dédiée aux fuites d'eau majeures et inondations.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="material-symbols-outlined" style="color: var(--color-teal); font-size: 28px;">event_available</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Week-ends et jours fériés</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Intervention samedi, dimanche et jours de fête sans aucun délai d'attente.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:065700387" class="btn btn-alert" style="width: 100%; justify-content: center;">
+            <span class="material-symbols-outlined">call</span>
+            Ligne directe 24/7 : 065 70 03 87
+          </a>
+        </div>
+
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Zone d'Intervention Rapide</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Secteurs desservis en 20 à 30 min</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Nos camionnettes quadrillent l'ensemble du Grand Mons et du Borinage pour intervenir au plus vite :
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.875rem;">
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Grand Mons :</strong>
+              <span style="color: var(--color-navy-muted);">7000 Mons-centre, Nimy, Ghlin, Cuesmes, Hyon, Jemappes, Flénu, Maisières, Casteau, Havré, Obourg, Saint-Symphorien.</span>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Borinage :</strong>
+              <span style="color: var(--color-navy-muted);">Frameries, Quaregnon, Saint-Ghislain, Boussu, Colfontaine, Wasmes, Hornu, Dour, Hensies, Quiévrain.</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--color-navy-muted); background: rgba(0, 128, 128, 0.08); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--color-teal);">Personnel SHAPE / NATO à Maisières & Casteau :</strong> Nos équipes techniques parlent anglais couramment et rédigent des devis et factures adaptés à vos assurances internationales.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Questions Fréquentes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Foire aux questions : Dépannage d'urgence</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Retrouvez les réponses à vos interrogations sur les délais, les prix et la prise en charge de votre urgence de plomberie.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 900px;">
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Quel est le délai réel pour qu'un plombier arrive chez moi à Mons ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Grâce à nos techniciens postés directement à Mons et à l'accès rapide via le R5 et l'E19, nous arrivons en 20 à 30 minutes réelles à Mons-centre, Nimy, Cuesmes, Ghlin et Jemappes, et sous 35 minutes maximum dans le reste du Borinage.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Combien coûte un dépannage de plomberie d'urgence ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Nos tarifs démarrent à partir de 85 EUR pour un diagnostic et colmatage d'urgence standard en journée. Avant d'engager toute réparation lourde, un devis clair et définitif vous est soumis sur place. Aucune surprise sur votre facture.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Que dois-je faire immédiatement en attendant le technicien ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Coupez sans délai le robinet d'arrêt général situé près de votre compteur d'eau (souvent en cave ou sous l'évier). Si l'eau touche des câblages ou des prises, coupez le disjoncteur général sur votre tableau électrique. Prenez également des photos pour votre assurance.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            L'intervention est-elle couverte par mon assurance incendie ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, les contrats d'assurance habitation belges couvrent généralement les dégâts causés par les eaux ainsi que la recherche de fuite. Nous vous délivrons une facture détaillée avec mention des causes pour faciliter votre remboursement intégral.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Bénéficie-t-on du taux de TVA réduit à 6% ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, si votre logement privé a plus de 10 ans d'ancienneté, la TVA appliquée sur la main-d'oeuvre et les pièces est réduite à 6% au lieu de 21%, conformément à la législation fiscale belge.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Form / Contact Section -->
+  <section class="section" id="devis-section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Formulaire Rapide</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Demandez votre intervention ou devis en ligne</h2>
+          <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Remplissez notre formulaire pour une prise en charge rapide. En cas d'urgence avec dégât des eaux en cours, préférez toujours l'appel direct au <strong>065 70 03 87</strong>.
+          </p>
+
+          <div class="card" style="background: white; border-left: 4px solid var(--color-teal);">
+            <div style="font-weight: 700; margin-bottom: 0.25rem;">Assistance WhatsApp Photos :</div>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin-bottom: 0.75rem;">
+              Envoyez-nous directement la photo de votre fuite sur WhatsApp au <strong>+32 65 70 03 87</strong> pour une évaluation immédiate par notre chef d'équipe.
+            </p>
+            <a href="https://wa.me/3265700387" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+              <span class="material-symbols-outlined">chat</span>
+              Envoyer une photo par WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

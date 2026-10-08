@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  title="Adoucisseur d'Eau & Filtration à Mons | Traitement Anti-Calcaire Garanti"
+  description="Installation et entretien d'adoucisseurs d'eau à Mons et Borinage. Protégez votre plomberie et votre boiler contre l'eau très dure du Hainaut. 065 70 03 87."
+  canonicalPath="/services/traitement-eau"
+  currentPage="services"
+>
+  <!-- Hero Section -->
+  <section class="section" style="background: radial-gradient(circle at 85% 15%, rgba(0, 128, 128, 0.08) 0%, transparent 60%), #FFFFFF; padding-top: 3rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--color-navy-muted);">
+        <a href="/" style="color: var(--color-teal); text-decoration: none;">Accueil</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <a href="/services" style="color: var(--color-teal); text-decoration: none;">Services</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <span style="color: var(--color-navy); font-weight: 600;">Traitement de l'Eau</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div style="max-width: 850px;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="badge badge-primary">
+              <span class="material-symbols-outlined" style="font-size: 15px;">water_drop</span>
+              Spécialiste Anti-Calcaire Hainaut & Borinage
+            </span>
+            <span class="badge badge-teal">
+              <span class="material-symbols-outlined" style="font-size: 15px;">verified</span>
+              Matériel Certifié Belgaqua & WRAS
+            </span>
+          </div>
+
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.15; margin-bottom: 1.25rem;">
+            Adoucisseurs d'Eau & Systèmes de Filtration à Mons
+          </h1>
+
+          <p style="font-size: 1.15rem; color: var(--color-navy-muted); line-height: 1.6; margin-bottom: 2rem;">
+            L'eau distribuée dans la région montoise est parmi les plus calcaires de Belgique (plus de 35 degrés français de dureté). Elle asphyxie vos boilers, use vos machines prématurément et assèche votre peau. Nous installons des adoucisseurs volumétriques ultra-économiques et des filtres haute pureté pour une eau douce et soyeuse au quotidien.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="tel:065700387" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">
+              <span class="material-symbols-outlined">call</span>
+              Conseil & Devis Adoucisseur : 065 70 03 87
+            </a>
+            <a href="#devis-section" class="btn btn-outline" style="font-size: 1.05rem;">
+              <span class="material-symbols-outlined">analytics</span>
+              Test de dureté gratuit à domicile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Bar -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 1.5rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-alert); font-family: var(--font-headline);">35° à 42°fH</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Dureté moyenne de l'eau à Mons</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">-650 EUR / An</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Économies énergie et électroménager</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); font-family: var(--font-headline);">10 Ans</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Garantie sur la cuve et les résines</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">Zéro Électricité</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Modèles cinétiques hydrauliques dispo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Package Tout Inclus</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ce qui est inclus dans notre installation d'adoucisseur</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Nos installations sont réalisées dans les règles de l'art sanitaire belge pour une eau potable protégée et une longévité maximale :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">filter_alt</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Filtration Amont Anti-Sédiments</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Pose d'un préfiltre auto-nettoyant ou à cartouche lavable 20 microns (BWT / Honeywell).</li>
+            <li>Protection contre le sable, la rouille et les débris arrachés au réseau public SWDE.</li>
+            <li>Manomètre de contrôle de pression pour surveiller l'encrassement du filtre.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">auto_mode</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Adoucisseur Volumétrique Haute Technologie</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Résine échangeuse d'ions monosphère de qualité alimentaire certifiée NSF et Belgaqua.</li>
+            <li>Régénération intelligente en fonction de vos mètres cubes réels consommés pour économiser l'eau et le sel.</li>
+            <li>Clapet de sécurité anti-débordement et bac à sel compact avec couvercle étanche.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">fact_check</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Raccordements Sécurité & Mise en Service</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Bypass de dérivation en laiton chromé pour isoler l'appareil sans couper l'eau générale.</li>
+            <li>Raccordement au siphon d'évacuation avec garde d'air disconnectrice anti-refoulement Belgaqua.</li>
+            <li>Mesure du titre hydrotimétrique (TH), réglage précis de la dureté résiduelle (entre 7° et 10°fH) et premier sac de sel offert.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Conséquences du Calcaire à Mons</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Les dégâts provoqués par l'eau dure sur votre maison</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Sans traitement, l'eau calcaire de la vallée de la Haine engendre des coûts de réparation et une surconsommation masquée considérables :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Résistances de boilers et chaudières grillées</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Le calcaire forme un manchon isolant autour du thermoplongeur. Pour chauffer la même quantité d'eau, la résistance surchauffe et claque prématurément.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Conséquence : Jusqu'à +30% de consommation électrique et panne de boiler en 4 ans.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Parois de douche et robinets encrassés de blanc</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Des traces blanchâtres impossibles à éliminer sans frotter avec des produits corrosifs qui finissent par attaquer le chrome et la céramique.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Conséquence : Dépense continue en anticalcaire chimique et usure des joints de robinet.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Peau qui gratte, démangeaisons et cheveux ternes</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Les cristaux de calcaire microscopiques irritent l'épiderme, aggravent l'eczéma et assèchent les cheveux des petits comme des grands.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Conséquence : Inconfort quotidien et surconsommation de crèmes hydratantes.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Lave-linge et lave-vaisselle qui tombent en panne</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Les pompes de vidange, durites et électrovannes s'encrassent de dépôts pierreux, obligeant à doser double dose de lessive pour laver correctement.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Conséquence : Durée de vie des machines divisée par deux et linge rêche au toucher.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Canalisations encrassées et perte de pression</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            La section interne des tuyaux d'eau chaude rétrécit d'année en année sous l'accumulation des couches de tartre, réduisant le débit aux étages.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Conséquence : Perte de débit et nécessité de détartrages mécaniques onéreux.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-alert);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Mécanismes de chasse d'eau bloqués</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Le calcaire se dépose sur le joint d'étanchéité du flotteur de WC, laissant fuiter des milliers de litres d'eau propre en toute discrétion.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-alert);">Conséquence : Facture d'eau qui grimpe de 200 à 400 EUR par an par chasse fuyante.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 3rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Processus d'Installation</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Notre installation d'adoucisseur en 5 étapes</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Une intervention propre et méthodique réalisée en une demi-journée à votre domicile :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">01</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Analyse TH & Calibrage</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Mesure chimique de la dureté exacte de votre eau au robinet et dimensionnement du volume de résine selon le nombre d'habitants.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">02</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Pose du Filtre Sédiments</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Installation du porte-filtre 20 microns sur l'arrivée d'eau principale juste après le compteur SWDE.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">03</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Raccordement & By-Pass</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Création du réseau de contournement en cuivre ou multicouche et connexion étanche de la vanne de commande.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">04</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Évacuation Disconnectée</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Raccordement au réseau d'égout avec garde d'air réglementaire Belgaqua pour exclure tout risque sanitaire d'aspiration d'eaux usées.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">05</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Réglage & Formation</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Contrôle du TH résiduel à 8°fH, remplissage du bac à sel et démonstration simple du fonctionnement de l'appareil.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section" style="background: var(--color-navy); color: white;">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <span class="badge" style="background: rgba(0, 128, 128, 0.3); color: #4DD0E1; margin-bottom: 0.75rem;">Pourquoi Plombier Mons Urgent ?</span>
+        <h2 style="font-size: 2.2rem; color: white; margin-bottom: 1rem;">Pourquoi confier votre traitement d'eau à nos spécialistes</h2>
+        <p style="color: #CBD5E1; font-size: 1rem;">
+          Nous installons des adoucisseurs fiables sans vous enfermer dans des contrats d'entretien captifs exorbitants.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">eco</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Faible Consommation d'Eau et de Sel</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Nos appareils volumétriques modernes ne régénèrent que la résine réellement saturée, consommant jusqu'à 50% de sel et d'eau en moins que les anciens modèles à minuterie.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">verified</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Conformité Belgaqua Obligatoire</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Pose d'un disconnecteur anti-pollution certifié Belgaqua empêchant tout retour de sel vers le réseau de distribution d'eau potable.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">support_agent</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Entretien Annuel & Fourniture de Sel Local</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Nos techniciens contrôlent la désinfection de la résine, la dureté de l'eau et vous livrent vos sacs de sel certifié EN 973 Type A directement en cave.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Availability & Service Area -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Dépannage Adoucisseur</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Dépannage rapide d'adoucisseur en panne</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Votre adoucisseur fuit par le trop-plein, consomme trop de sel ou reste bloqué en régénération continue ? Nous intervenons sans délai pour le remettre en service.
+          </p>
+
+          <div class="card" style="margin-bottom: 1.5rem; background: white;">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+              <span class="material-symbols-outlined" style="color: var(--color-alert); font-size: 28px;">water_lux</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Déblocage vanne & fuite d'eau</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Intervention d'urgence sur toutes marques (BWT, Durlem, EcoWater, Bayard, Fleck, Autotrol).</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="material-symbols-outlined" style="color: var(--color-teal); font-size: 28px;">science</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Analyse et test d'eau à domicile</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Test gratuit de calcaire réalisé directement à votre évier par notre technicien.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:065700387" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <span class="material-symbols-outlined">call</span>
+            Ligne Adoucisseur : 065 70 03 87
+          </a>
+        </div>
+
+        <div>
+          <span class="badge badge-teal" style="margin-bottom: 0.75rem;">Zone d'Intervention</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Installation et entretien dans tout le Grand Mons</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Nos techniciens spécialisés en traitement de l'eau couvrent l'intégralité du territoire :
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.875rem;">
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Grand Mons (7000-7034) :</strong>
+              <span style="color: var(--color-navy-muted);">Mons centre, Nimy, Ghlin, Jemappes, Cuesmes, Hyon, Maisières, Casteau, Havré, Obourg, Saint-Symphorien.</span>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Borinage :</strong>
+              <span style="color: var(--color-navy-muted);">Frameries, Quaregnon, Saint-Ghislain, Boussu, Colfontaine, Hornu, Dour, Hensies, Honnelles.</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--color-navy-muted); background: rgba(0, 128, 128, 0.08); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--color-teal);">Dureté extrême à Mons :</strong> Selon les captages de la SWDE, certaines zones comme Jemappes ou Cuesmes dépassent régulièrement 40°fH. Un adoucisseur permet d'amortir son coût en moins de 3 ans par les économies d'énergie générées.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Questions Fréquentes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Foire aux questions : Traitement de l'eau & Calcaire</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Retrouvez nos réponses pour tout comprendre sur l'adoucissement et la potabilité de votre eau.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 900px;">
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            L'eau adoucie reste-t-elle potable et bonne à boire ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, absolument. Un adoucisseur ne retire que les ions calcium et magnésium en excès pour les échanger contre du sodium. L'eau adoucie reste parfaitement conforme aux normes de potabilité de l'Organisation Mondiale de la Santé (OMS) et de la Région Wallonne. Nous réglons toujours la dureté résiduelle entre 7° et 10°fH pour conserver les minéraux essentiels.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Combien coûte un sac de sel et quelle est la consommation annuelle ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Pour un foyer de 4 personnes dans la région de Mons, la consommation moyenne est de 3 à 4 sacs de sel de 25 kg par an, soit un coût annuel dérisoire d'environ 35 à 50 EUR de sel seulement.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Quel est le prix pour faire installer un adoucisseur d'eau à Mons ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Nos installations complètes d'adoucisseurs haute performance démarrent à partir de 1 290 EUR HTVA (TVA 6% applicable pour les logements de plus de 10 ans), incluant l'appareil compact, le préfiltre sédiments, le bypass en laiton, la mise en service et la garantie 10 ans.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Quelle est la durée de vie moyenne d'un adoucisseur d'eau ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Un appareil de qualité installé dans les règles avec un entretien annuel régulier (désinfection de la résine et contrôle de la vanne) fonctionne parfaitement pendant 15 à 20 ans.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Peut-on installer un adoucisseur sans électricité ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, nous proposons des modèles cinétiques hydrauliques fonctionnant exclusivement grâce à l'énergie de passage de l'eau, sans aucune prise électrique nécessaire. C'est la solution idéale pour les caves ou garages dépourvus d'alimentation électrique à proximité immédiate du compteur d'eau.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Form / Contact Section -->
+  <section class="section" id="devis-section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Devis & Test d'Eau</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Demandez votre diagnostic calcaire gratuit</h2>
+          <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Un technicien réalise un test chimique précis de votre eau à votre domicile et vous propose la solution de traitement adaptée à votre budget et à la taille de votre foyer.
+          </p>
+
+          <div class="card" style="background: white; border-left: 4px solid var(--color-teal);">
+            <div style="font-weight: 700; margin-bottom: 0.25rem;">Installation en 1/2 journée :</div>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin-bottom: 0.75rem;">
+              Chantier rapide sans coupure prolongée d'eau. Profitez dès le jour même des bienfaits d'une eau adoucie pour toute la maison.
+            </p>
+            <a href="tel:065700387" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+              <span class="material-symbols-outlined">call</span>
+              Prendre rendez-vous au 065 70 03 87
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

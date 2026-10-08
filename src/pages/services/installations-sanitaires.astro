@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  title="Installations Sanitaires & Salles de Bain à Mons | WC Suspendus & Douches Italiennes"
+  description="Rénovation complète de salle de bain et pose sanitaire à Mons et Borinage. Installation WC suspendus Geberit, douches à l'italienne, robinetterie. Devis gratuit au 065 70 03 87."
+  canonicalPath="/services/installations-sanitaires"
+  currentPage="services"
+>
+  <!-- Hero Section -->
+  <section class="section" style="background: radial-gradient(circle at 85% 15%, rgba(0, 128, 128, 0.08) 0%, transparent 60%), #FFFFFF; padding-top: 3rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--color-navy-muted);">
+        <a href="/" style="color: var(--color-teal); text-decoration: none;">Accueil</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <a href="/services" style="color: var(--color-teal); text-decoration: none;">Services</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <span style="color: var(--color-navy); font-weight: 600;">Installations Sanitaires</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div style="max-width: 850px;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="badge badge-primary">
+              <span class="material-symbols-outlined" style="font-size: 15px;">bathtub</span>
+              Rénovation Salle de Bain Clé en Main
+            </span>
+            <span class="badge badge-teal">
+              <span class="material-symbols-outlined" style="font-size: 15px;">verified</span>
+              Partenaire Certifié Geberit & Grohe
+            </span>
+          </div>
+
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.15; margin-bottom: 1.25rem;">
+            Installations Sanitaires & Rénovation de Salle de Bain à Mons
+          </h1>
+
+          <p style="font-size: 1.15rem; color: var(--color-navy-muted); line-height: 1.6; margin-bottom: 2rem;">
+            Vous rêvez d'une douche à l'italienne moderne, d'un WC suspendu design ou d'une remise à neuf complète de votre salle d'eau ? Nos artisans plombiers conçoivent et installent vos équipements sanitaires sur mesure avec des matériaux nobles, une étanchéité certifiée et une finition irréprochable.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="tel:065700387" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">
+              <span class="material-symbols-outlined">call</span>
+              Parler à un Spécialiste : 065 70 03 87
+            </a>
+            <a href="#devis-section" class="btn btn-outline" style="font-size: 1.05rem;">
+              <span class="material-symbols-outlined">design_services</span>
+              Demander une étude & devis gratuit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Bar -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 1.5rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">10 Ans</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Garantie décennale sur nos poses</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); font-family: var(--font-headline);">100% Clé en Main</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Plomberie, carrelage, meubles & étanchéité</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">TVA Réduite 6%</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Éligible habitations de plus de 10 ans</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-alert); font-family: var(--font-headline);">Dépannage 24/7</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Remplacement d'urgence robinets & WC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Prestations Sanitaires Haut de Gamme</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ce qui est inclus dans nos installations sanitaires</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Nous maîtrisons l'intégralité de la chaîne d'aménagement sanitaire pour vous offrir un espace d'eau esthétique, fonctionnel et parfaitement étanche.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">shower</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Douches à l'Italienne & Baignoires</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Création de receveurs de plain-pied extra-plats ou à carreler avec étanchéité continue sous carrelage Schlüter-Kerdi.</li>
+            <li>Caniveaux de douche design en inox brossé avec débit d'évacuation haute capacité (Geberit CleanLine).</li>
+            <li>Installation de baignoires îlots, balnéo ou remplacement d'anciennes baignoires par de grandes douches sécurisées.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">wc</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">WC Suspendus & Sanitaires Écologiques</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Pose de bâtis-supports Geberit Duofix avec isolation phonique renforcée et coffrage sur mesure.</li>
+            <li>Cuvettes suspendues sans bride (Rimfree) facilitant l'entretien hygiénique et abattants freinés déclipsables.</li>
+            <li>Plaques de déclenchement double touche économique (3L/6L) en verre, inox ou finition mat anti-traces.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">water_drop</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Meubles Vasques & Robinetterie Haute Finition</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Ensembles simples et doubles vasques suspendus avec tiroirs amortis et miroirs rétro-éclairés LED antibuée.</li>
+            <li>Mitigeurs thermostatiques Grohe, Hansgrohe ou Cristina avec cartouche céramique résistante au calcaire montois.</li>
+            <li>Alimentations en tubes multicouche sertis et bondes automatiques clic-clac sans fuite.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-teal" style="margin-bottom: 0.75rem;">Problématiques Sanitaires Courantes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Les désagréments sanitaires que nous éliminons</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Vos équipements sanitaires actuels sont fatigués, inconfortables ou fuient de façon chronique ? Voici nos interventions les plus fréquentes :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Baignoire glissante difficile d'accès</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Enjamber un rebord de baignoire haut de 55 cm devient inconfortable ou risqué pour les personnes âgées ou à mobilité réduite.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Remplacement en 48h par une douche italienne sécurisée avec receveur antidérapant PN24.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Fuite continue dans le bâti-support du WC suspendu</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            L'eau coule sans arrêt dans la cuvette ou s'infiltre discrètement derrière le carrelage du bâti mural.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Changement du joint cloche Geberit et du robinet flotteur par la trappe d'accès sans casser.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Joints silicone noircis et infiltration sous la douche</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Les joints moisis laissent passer l'eau de projection dans les cloisons en plaques de plâtre, causant cloquage et moisissure à l'étage du dessous.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Dépose complète, traitement fongicide et pose de joints silicone sanitaires haute élasticité.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Pression d'eau très faible au pommeau de douche</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Un filet d'eau famélique sort du mitigeur, rendant le rinçage des cheveux interminable.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Détartrage complet des filtres amont, remplacement cartouche et contrôle du réducteur de pression.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Robinet d'évier qui branle ou fuit à la base</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Le mitigeur bouge dès qu'on l'actionne et de l'eau s'infiltre dans le meuble sous évier, pourrissant le panneau de bois aggloméré.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Remplacement par un robinet laiton massif fixé par bride renforcée en inox.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Évacuation lente et glouglous dans les canalisations</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Quand vous videz le lavabo, le siphon de la douche gargouille et dégage des remontées d'air désagréables.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Installation d'un aérateur à membrane (clapet équilibreur de pression) pour ventiler le réseau.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 3rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Méthodologie de Chantier</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Notre démarche de rénovation en 5 étapes</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          De la première visite technique jusqu'à la livraison des clés, nous gérons votre projet avec rigueur et propreté :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">01</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Visite & Étude Personnalisée</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Prise des mesures au laser, analyse des arrivées d'eau et évacuations existantes, choix des matériaux et appareils sanitaires.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">02</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Démolition & Protection</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Protection des couloirs et escaliers, dépose des anciens équipements sanitaires et évacuation des gravats en centre de tri agréé.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">03</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Tuyauterie & Étanchéité SPEC</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Pose des canalisations multicouche encastrées, bâti Geberit et application de la membrane d'étanchéité liquide sous carrelage.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">04</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Pose Sanitaires & Meubles</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Installation minutieuse de la cuvette, du receveur, de la paroi vitrée sécurit, des meubles vasques et de la robinetterie Grohe.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">05</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Mise en Eau & Réception</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Test d'étanchéité sous pression de 6 bars, vérification des débits d'évacuation, nettoyage complet et remise de la garantie décennale.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section" style="background: var(--color-navy); color: white;">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <span class="badge" style="background: rgba(0, 128, 128, 0.3); color: #4DD0E1; margin-bottom: 0.75rem;">Savoir-Faire Artisanal</span>
+        <h2 style="font-size: 2.2rem; color: white; margin-bottom: 1rem;">Pourquoi confier vos travaux sanitaires à notre équipe</h2>
+        <p style="color: #CBD5E1; font-size: 1rem;">
+          Un seul interlocuteur pour toute la durée des travaux : pas de sous-traitance opaque ni de retards de coordination.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">shield</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Garantie Décennale et Assurance AXA</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Toutes nos réalisations d'étanchéité et de plomberie encastrée sont couvertes par notre responsabilité civile et notre garantie décennale belge.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">brand_family</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Grandes Marques Certifiées Belgaqua</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Nous n'installons pas de copies importées bas de gamme. Nous travaillons exclusivement avec Geberit, Grohe, Hansgrohe, Villeroy & Boch et Ideal Standard.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">clean_hands</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Respect des Délais & Propreté Absolue</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Chantier nettoyé chaque soir, bâches de protection épaisses posées dès l'entrée et respect strict du planning convenu lors de la signature.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Availability & Service Area -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Urgences Sanitaires</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Remplacement d'urgence de sanitaires défaillants</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Un WC fêlé ou un robinet cassé qui projette de l'eau nécessite un remplacement immédiat. Nous intervenons 24/7 sur appel d'urgence.
+          </p>
+
+          <div class="card" style="margin-bottom: 1.5rem; background: white;">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+              <span class="material-symbols-outlined" style="color: var(--color-alert); font-size: 28px;">sync_saved_locally</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Pose WC d'urgence en 1 heure</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Cuvette standard en stock pour rétablir immédiatement le confort de vos sanitaires.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="material-symbols-outlined" style="color: var(--color-teal); font-size: 28px;">design_services</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Projets de rénovation sur mesure</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Devis détaillé gratuit sous 48 heures ouvrées après la visite sur place.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:065700387" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <span class="material-symbols-outlined">call</span>
+            Ligne Sanitaire : 065 70 03 87
+          </a>
+        </div>
+
+        <div>
+          <span class="badge badge-teal" style="margin-bottom: 0.75rem;">Territoire d'Action</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Où nous installons vos salles de bain</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Déplacement gratuit pour devis sur tout le Grand Mons et l'arrondissement du Borinage :
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.875rem;">
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Grand Mons :</strong>
+              <span style="color: var(--color-navy-muted);">Mons, Hyon, Cuesmes, Nimy, Ghlin, Maisières, Casteau, Jemappes, Flénu, Havré, Obourg, Saint-Symphorien.</span>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Borinage :</strong>
+              <span style="color: var(--color-navy-muted);">Frameries, Quaregnon, Saint-Ghislain, Boussu, Colfontaine, Hornu, Dour, Hensies, Quiévrain.</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--color-navy-muted); background: rgba(0, 128, 128, 0.08); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--color-teal);">Aménagement PMR et Aînés :</strong> Nous réalisons des salles de bain adaptées aux personnes à mobilité réduite conformes aux normes d'accessibilité wallonnes (sièges rabattables, barres de maintien, seuils zéro).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Questions Fréquentes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Foire aux questions : Installations sanitaires</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Budget, durée des travaux et choix des équipements pour votre future salle de bain.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 900px;">
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Combien de temps durent les travaux de rénovation d'une salle de bain ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Pour le remplacement simple d'une baignoire par une douche à l'italienne ou la pose d'un WC suspendu, les travaux prennent généralement 1 à 2 jours ouvrés. Pour une rénovation complète de A à Z (démolition, réseaux, carrelage, meubles et sanitaires), comptez entre 5 et 8 jours ouvrés en continu.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Est-il possible d'installer un WC suspendu sur une cloison en plaques de plâtre ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, grâce aux bâtis-supports autoportants renforcés Geberit Duofix ou Grohe Rapid SL ancrés directement dans la dalle en béton du plancher. Ils supportent sans fléchir une charge statique certifiée de plus de 400 kg.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Quel est le prix pour remplacer une baignoire par une douche italienne à Mons ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Le coût démarre à partir de 2 400 EUR HTVA selon la taille du receveur, le type de colonne de douche thermostatique et les panneaux d'habillage mural choisis. Un devis personnalisé vous est remis gratuitement après visite sur place.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Puis-je fournir mon propre carrelage ou mes meubles vasques ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, nous pouvons assurer la pose soignée de vos propres fournitures. Nous recommandons toutefois de faire valider les dimensions et raccords au préalable par nos techniciens afin de vérifier la compatibilité des évacuations.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Comment garantissez-vous l'étanchéité sous les carrelages de douche ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Nous mettons en oeuvre le système professionnel allemand Schlüter-Systems (nattes étanches Kerdi et bandes d'étanchéité d'angles thermo-collées) ainsi qu'une résine liquide hydrofuge. Cette barrière continue protège vos murs et plafonds contre toute infiltration pendant des décennies.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Form / Contact Section -->
+  <section class="section" id="devis-section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Projet Sanitaire</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Concrétisez votre projet de salle de bain</h2>
+          <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Partagez-nous vos envies, plans ou photos de votre salle de bain actuelle. Nous nous déplaçons chez vous à Mons pour établir une proposition chiffrée gratuite.
+          </p>
+
+          <div class="card" style="background: white; border-left: 4px solid var(--color-teal);">
+            <div style="font-weight: 700; margin-bottom: 0.25rem;">Devis & Visite Gratuits à Domicile :</div>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin-bottom: 0.75rem;">
+              Sans aucun engagement, un artisan plombier qualifié vient prendre les mesures et vous conseiller sur les meilleures options d'aménagement.
+            </p>
+            <a href="tel:065700387" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+              <span class="material-symbols-outlined">call</span>
+              Fixer un rendez-vous au 065 70 03 87
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  title="Chauffage & Chaudières à Mons | Dépannage Bulex, Vaillant & Entretien Agréé PEB"
+  description="Chauffagiste agréé CERGA à Mons et Borinage. Installation, entretien annuel PEB et dépannage urgent de chaudières gaz/mazout, boilers et radiateurs. 065 70 03 87."
+  canonicalPath="/services/chauffage-chaudieres"
+  currentPage="services"
+>
+  <!-- Hero Section -->
+  <section class="section" style="background: radial-gradient(circle at 85% 15%, rgba(0, 128, 128, 0.08) 0%, transparent 60%), #FFFFFF; padding-top: 3rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--color-navy-muted);">
+        <a href="/" style="color: var(--color-teal); text-decoration: none;">Accueil</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <a href="/services" style="color: var(--color-teal); text-decoration: none;">Services</a>
+        <span style="margin: 0 0.5rem; color: var(--color-border);">/</span>
+        <span style="color: var(--color-navy); font-weight: 600;">Chauffage & Chaudières</span>
+      </nav>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+        <div style="max-width: 850px;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+            <span class="badge badge-primary">
+              <span class="material-symbols-outlined" style="font-size: 15px;">verified</span>
+              Technicien Chauffagiste Agréé CERGA & PEB Wallonie
+            </span>
+            <span class="badge badge-alert">
+              <span class="material-symbols-outlined" style="font-size: 15px;">mode_heat</span>
+              Dépannage Chaudière en Panne 24h/24 & 7j/7
+            </span>
+          </div>
+
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.15; margin-bottom: 1.25rem;">
+            Chauffage, Chaudières & Boilers à Mons et dans le Borinage
+          </h1>
+
+          <p style="font-size: 1.15rem; color: var(--color-navy-muted); line-height: 1.6; margin-bottom: 2rem;">
+            Chaudière en sécurité en plein hiver, manque de pression d'eau chaude ou besoin de votre attestation légale d'entretien périodique ? Nos chauffagistes certifiés interviennent en urgence ou sur rendez-vous sur toutes marques : Bulex, Vaillant, Viessmann, Buderus, Junkers et ACV.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="tel:065700387" class="btn btn-alert" style="font-size: 1.1rem; padding: 0.9rem 1.8rem;">
+              <span class="material-symbols-outlined">call</span>
+              Urgence Chauffage : 065 70 03 87
+            </a>
+            <a href="#devis-section" class="btn btn-outline" style="font-size: 1.05rem;">
+              <span class="material-symbols-outlined">calendar_month</span>
+              Réserver un entretien annuel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Bar -->
+  <section style="background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 1.5rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">CERGA Gaz</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Habilitation officielle sécurité gaz</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); font-family: var(--font-headline);">Attestation PEB</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Certificat conforme Région Wallonne</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-alert); font-family: var(--font-headline);">20 a 30 min</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Dépannage d'astreinte hivernale</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline);">Pièces d'Origine</div>
+          <div style="font-size: 0.85rem; color: var(--color-navy-muted); font-weight: 600;">Stock pièces constructeurs certifiés</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Nos Prestations Chauffage</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Ce qui est inclus dans nos interventions chauffagiste</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          De la maintenance préventive imposée par la loi wallonne jusqu'au remplacement complet de chaudière à condensation à haut rendement :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">assignment_turned_in</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Entretien Annuel Légal PEB (Gaz & Mazout)</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Nettoyage complet du corps de chauffe, du brûleur et de l'extracteur de fumées.</li>
+            <li>Contrôle de combustion électronique avec analyseur de CO/CO2 et calcul du rendement énergétique.</li>
+            <li>Délivrance immédiate de l'attestation de contrôle périodique officielle exigée par votre assurance et la Région Wallonne.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">build_circle</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Dépannage & Réparation Express 24/7</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Diagnostic rapide des codes défauts (Bulex F28, F22, F75, Vaillant F.22, F.28, Viessmann F4, etc.).</li>
+            <li>Remplacement de pièces d'usure courantes : vase d'expansion, circulateur, thermocouple, vanne 3 voies, pressostat.</li>
+            <li>Remise en route immédiate du chauffage et de la production d'eau chaude sanitaire.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(0, 128, 128, 0.1); color: var(--color-teal); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined">radiator</span>
+            </div>
+            <h3 style="font-size: 1.15rem; margin: 0;">Radiateurs, Désembouage & Boilers</h3>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--color-navy-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>Désembouage hydrodynamique du circuit de radiateurs pour supprimer les bruits et les zones froides.</li>
+            <li>Remplacement de vannes thermostatiques grippées (Danfoss, Comap, Heimeier).</li>
+            <li>Détartrage complet de boiler et échangeur à plaques étouffés par le calcaire agressif du Hainaut.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Problems We Solve -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Dysfonctionnements Courants</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Les pannes de chaudière et chauffage que nous résolvons</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Le calcaire très dur de Mons couplé aux cycles intensifs d'hiver provoque des pannes bien spécifiques :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Chaudière Bulex ou Vaillant en sécurité (Code Erreur)</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Le voyant clignote en rouge, la chaudière tente de s'allumer sans succès et se met en arrêt d'urgence. Plus d'eau chaude ni de chaleur.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Test ionisation, nettoyage électrode d'allumage ou changement bloc gaz.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Pression de chauffage à zéro ou soupape qui crache</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            L'aiguille du manomètre chute à 0,3 bar. Dès que vous remplissez à 1,5 bar, la chaudière monte à 3 bars lors de la chauffe et crache de l'eau par terre.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Remplacement du vase d'expansion percé et de la soupape 3 bars.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Radiateurs brûlants en haut mais glacés en bas</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Malgré la chaudière tournant à plein régime, les pièces restent fraîches et la consommation de gaz s'envole de manière anormale.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Désembouage de l'installation et injection d'inhibiteur de corrosion Sentinel.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Eau chaude sanitaire tiède ou douche écossaise</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            L'eau passe sans cesse du très chaud au froid glacial pendant la douche. L'échangeur thermique est totalement entartré par les minéraux de l'eau de Mons.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Détartrage chimique doux sous pompe de recirculation ou remplacement de l'échangeur.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Bruit de claquement ou bouillonnement dans la chaudière</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Des bruits métalliques sourds ou des bruits de bouilloire retentissent dès que le brûleur s'enclenche, signe d'un manque d'irrigation ou de surchauffe locale.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Dégommage ou changement du circulateur et purge complète d'air.</span>
+        </div>
+
+        <div class="card" style="border-left: 3px solid var(--color-teal);">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Vanne thermostatique bloquée ou qui fuit</h3>
+          <p style="font-size: 0.9rem; color: var(--color-navy-muted); margin-bottom: 0.5rem;">
+            Impossible de réguler la température d'une chambre : le radiateur reste constamment ouvert ou fermé malgré les réglages du bouton.
+          </p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-teal);">Solution : Remplacement de la tête thermostatique et dégrippage du pointeau sans vider l'installation.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Process -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 3rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Méthode Chauffagiste</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Notre déroulement d'entretien et dépannage</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Un protocole technique strict garantissant la sécurité incendie et l'efficacité thermique :
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">01</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Contrôle Sécurité Amont</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Test d'étanchéité du raccordement gaz, vérification de l'arrivée d'air frais et de l'évacuation des fumées de cheminée.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">02</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Démontage & Nettoyage</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Brossage du brûleur, ramonage de la chambre de combustion et décalaminage des électrodes d'allumage.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">03</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Mesure des Fumées</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Analyse électronique des gaz d'échappement : teneur en CO, NOx, température de fumée et rendement de combustion.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">04</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Réglages & Optimisation</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Calibrage de la courbe de chauffe, réglage de pression du circuit et purge des radiateurs du logement.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.5rem;">05</div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem;">Attestation Officielle</h3>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0; line-height: 1.5;">
+            Émission immédiate du certificat légal d'entretien périodique PEB Wallonie avec numéro d'habilitation du technicien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section" style="background: var(--color-navy); color: white;">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <span class="badge" style="background: rgba(0, 128, 128, 0.3); color: #4DD0E1; margin-bottom: 0.75rem;">Sécurité & Conformité Légale</span>
+        <h2 style="font-size: 2.2rem; color: white; margin-bottom: 1rem;">Pourquoi confier votre chaudière à nos artisans</h2>
+        <p style="color: #CBD5E1; font-size: 1rem;">
+          Le gaz et le monoxyde de carbone ne tolèrent aucun amateurisme. Tous nos techniciens sont formés et certifiés par la Région Wallonne.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">security</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Habilitation Gaz CERGA Officielle</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Garantie absolue d'une installation étanche et conforme aux normes NBN D 51-003. Nous pouvons certifier et ouvrir vos compteurs de gaz ORES.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">inventory_2</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Stock Pièces Bulex & Vaillant dans le Véhicule</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Pas besoin d'attendre 10 jours qu'une pièce arrive par coursier. Nos camionnettes disposent des circulateurs, sondes et vannes les plus répandues en Belgique.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="width: 48px; height: 48px; border-radius: 10px; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <span class="material-symbols-outlined">savings</span>
+          </div>
+          <h3 style="font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Jusqu'à 15% d'Économie sur la Facture de Gaz</h3>
+          <p style="color: #94A3B8; font-size: 0.9rem; margin: 0; line-height: 1.6;">
+            Une chaudière correctement décalaminée et réglée consomme nettement moins de combustible tout en prolongeant sa durée de vie de 5 à 8 ans.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Availability & Service Area -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-alert" style="margin-bottom: 0.75rem;">Permanence Hivernale 24/7</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Dépannage d'urgence chaudière sans interruption</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Rester sans chauffage avec des enfants ou en période de gel met en danger votre santé et vos canalisations. Nous intervenons 24/7.
+          </p>
+
+          <div class="card" style="margin-bottom: 1.5rem; background: white;">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+              <span class="material-symbols-outlined" style="color: var(--color-alert); font-size: 28px;">ac_unit</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Plan Grand Froid à Mons</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Véhicules d'astreinte renforcés pour pannes complètes de chauffage.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <span class="material-symbols-outlined" style="color: var(--color-teal); font-size: 28px;">handshake</span>
+              <div>
+                <strong style="color: var(--color-navy); display: block;">Solutions de chauffage d'appoint</strong>
+                <span style="font-size: 0.85rem; color: var(--color-navy-muted);">Mise à disposition de radiateurs électriques si une pièce rare nécessite une commande.</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:065700387" class="btn btn-alert" style="width: 100%; justify-content: center;">
+            <span class="material-symbols-outlined">call</span>
+            Urgence Chauffage : 065 70 03 87
+          </a>
+        </div>
+
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Secteurs Couverts</span>
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Chauffagiste dans tout le Grand Mons</h2>
+          <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Dépannage et entretien régulier de chaudières sur l'ensemble des communes :
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.875rem;">
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Grand Mons (7000) :</strong>
+              <span style="color: var(--color-navy-muted);">Mons Intra-muros, Ghlin, Jemappes, Cuesmes, Hyon, Nimy, Maisières, Casteau, Havré, Obourg, Spiennes, Nouvelles.</span>
+            </div>
+            <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+              <strong style="color: var(--color-teal); display: block; margin-bottom: 0.25rem;">Borinage :</strong>
+              <span style="color: var(--color-navy-muted);">Frameries, Quaregnon, Saint-Ghislain, Boussu, Colfontaine, Hornu, Dour, Hensies, Quiévrain.</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; font-size: 0.85rem; color: var(--color-navy-muted); background: rgba(0, 128, 128, 0.08); padding: 1rem; border-radius: 8px;">
+            <strong style="color: var(--color-teal);">Remplacement de Chaudière :</strong> Profitez des primes de la Région Wallonne pour le remplacement de votre ancienne chaudière par une chaudière gaz à condensation Bulex ou une pompe à chaleur.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 720px; margin-bottom: 2.5rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Questions Fréquentes</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Foire aux questions : Chauffage & Chaudières</h2>
+        <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6;">
+          Obligations légales, fréquence d'entretien et conseils sur le choix de votre équipement.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 900px;">
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            À quelle fréquence l'entretien d'une chaudière est-il obligatoire en Wallonie ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            En Région Wallonne, l'entretien d'une chaudière au gaz naturel est obligatoire tous les 2 ou 3 ans selon sa puissance (la plupart des fabricants et assureurs recommandent un contrôle annuel pour la garantie). Pour les chaudières au mazout, l'entretien est strictement annuel. Nous délivrons l'attestation PEB officielle après chaque passage.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Quel est le prix moyen d'un entretien périodique de chaudière gaz à Mons ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Nos forfaits d'entretien chaudière gaz démarrent à 135 EUR TTC (TVA 6% comprise pour les logements de plus de 10 ans), incluant le nettoyage, les contrôles de sécurité et l'attestation légale de conformité.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Que signifie le code F28 ou F22 sur ma chaudière Bulex / Vaillant ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Le code F22 indique un manque d'eau sévère (pression sous 0,8 bar). Vous pouvez réajuster la pression entre 1,2 et 1,5 bar à l'aide des vannes de remplissage. Le code F28 indique un défaut d'allumage ou d'alimentation en gaz. Si le redémarrage (reset) ne fonctionne pas, contactez notre technicien pour un contrôle du bloc gaz et de l'électrode.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Pourquoi le boiler produit-il de moins en moins d'eau chaude au fil du temps ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            La dureté élevée de l'eau à Mons dépose une épaisse couche de calcaire autour de la résistance ou dans le serpentin du ballon d'eau chaude. Une couche de tartre de seulement 3 mm entraîne jusqu'à 30% de consommation électrique ou gaz supplémentaire et réduit le volume d'eau chaude disponible. Un détartrage professionnel remet le chauffe-eau à neuf.
+          </p>
+        </details>
+
+        <details class="card" style="cursor: pointer;">
+          <summary style="font-weight: 700; font-size: 1.05rem; color: var(--color-navy);">
+            Installez-vous des thermostats connectés ?
+          </summary>
+          <p style="margin-top: 0.75rem; color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.6;">
+            Oui, nous installons et configurons les thermostats intelligents modulants (Bulex MiGo, Netatmo, Google Nest, Tado) compatibles avec votre chaudière pour piloter votre température pièce par pièce depuis votre smartphone.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Form / Contact Section -->
+  <section class="section" id="devis-section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: start;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Rendez-vous Chauffagiste</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Demandez votre entretien ou dépannage de chaudière</h2>
+          <p style="color: var(--color-navy-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Prenez rendez-vous dès aujourd'hui pour votre entretien annuel réglementaire ou signalez une panne totale pour une prise en charge d'urgence.
+          </p>
+
+          <div class="card" style="background: white; border-left: 4px solid var(--color-alert);">
+            <div style="font-weight: 700; margin-bottom: 0.25rem; color: var(--color-alert);">Odeur suspecte de gaz ?</div>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin-bottom: 0.75rem;">
+              Coupez immédiatement votre vanne de compteur gaz, ouvrez les fenêtres, ne touchez à aucun interrupteur et contactez-nous sans attendre.
+            </p>
+            <a href="tel:065700387" class="btn btn-alert" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+              <span class="material-symbols-outlined">call</span>
+              Permanence Gaz : 065 70 03 87
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
