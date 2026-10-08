@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileStickyBar from '../components/MobileStickyBar.astro';
+import GuaranteesBanner from '../components/GuaranteesBanner.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -67,7 +68,17 @@ const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
         "telephone": "+3265700387",
         "email": "contact@plombier-mons-urgent.be",
         "priceRange": "€€",
-        "description": "Artisan plombier et chauffagiste d'urgence à Mons et dans le Borinage. Dépannage 24h/24 et 7j/7 en 20 à 30 minutes : fuites d'eau, débouchage, chaudière et boiler.",
+        "foundingDate": "2009",
+        "taxID": "BE0657003874",
+        "knowsAbout": [
+          "Dépannage d'urgence 24/7 en 20 à 30 minutes",
+          "Agréé CERGA Gaz N° 09-34821",
+          "Attestation PEB Région Wallonne",
+          "Assurance AXA Belgium Police N° 730.294.108",
+          "Habilité Belgaqua eau potable",
+          "Garantie décennale"
+        ],
+        "description": "Artisan plombier et chauffagiste d'urgence à Mons et dans le Borinage depuis 2009. Agréé CERGA & PEB, assuré AXA Belgium. Dépannage 24h/24 et 7j/7 en 20 à 30 minutes.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Grand Place",
@@ -146,6 +157,7 @@ const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
     <main style="padding-top: 80px;">
       <slot />
     </main>
+    <GuaranteesBanner />
     <Footer />
     <MobileStickyBar />
   </body>
