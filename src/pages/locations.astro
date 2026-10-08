@@ -8,56 +8,72 @@ const zones = [
     code: "7000",
     delay: "15 à 20 min",
     details: "Grand'Place, quartier de la Gare Calatrava, Beffroi, Waux-Hall, Marché aux Herbes et boulevards d'enceinte.",
-    issues: "Canalisations anciennes en fonte et plomb, accès aux ruelles piétonnes, chasses d'eau encastrées et compteurs d'eau sous voûte."
+    issues: "Canalisations anciennes en fonte et plomb, accès aux ruelles piétonnes, chasses d'eau encastrées et compteurs d'eau sous voûte.",
+    href: "/"
   },
   {
     name: "Ghlin",
     code: "7011",
     delay: "15 à 20 min",
     details: "Centre de Ghlin, zone résidentielle de l'Hippodrome, zoning commercial et axes N56.",
-    issues: "Débouchage de sterputs de garage, raccordements pavillonnaires, détartrage de boilers entartrés."
+    issues: "Débouchage de sterputs de garage, raccordements pavillonnaires, détartrage de boilers entartrés.",
+    href: "/locations/ghlin"
   },
   {
     name: "Jemappes et Flénu",
     code: "7012",
-    delay: "20 min",
+    delay: "10 à 15 min",
     details: "Avenue Maréchal Foch, quartier de la gare de Jemappes, cités ouvrières borines et Flénu centre.",
-    issues: "Réseau d'égouttage ancien, refoulements lors de fortes pluies, remplacement de chauffe-eau gaz obsolètes."
+    issues: "Réseau d'égouttage ancien, refoulements lors de fortes pluies, remplacement de chauffe-eau gaz obsolètes.",
+    href: "/locations/jemappes"
   },
   {
     name: "Cuesmes",
     code: "7033",
-    delay: "15 à 20 min",
+    delay: "10 à 15 min",
     details: "Centre de Cuesmes, Mont Héribus, chaussée de Frameries et zones pavillonnaires.",
-    issues: "Problèmes de calcaire élevé sur chaudières, curage préventif des canalisations et fuites encastrées."
+    issues: "Problèmes de calcaire élevé sur chaudières, curage préventif des canalisations et fuites encastrées.",
+    href: "/locations/cuesmes"
   },
   {
-    name: "Nimy et Maisières (SHAPE)",
+    name: "Nimy",
     code: "7020",
-    delay: "20 min",
-    details: "Nimy centre, Maisières, base militaire du SHAPE / OTAN, axes N6 vers Soignies.",
-    issues: "Service bilingue français / anglais pour officiers et expatriés, rénovation de salles de bains et entretiens de chaudières."
+    delay: "10 à 15 min",
+    details: "Nimy centre, Rue des Viaducs, Grand Large, axes N6 vers Soignies.",
+    issues: "Nappe haute du canal du Centre, infiltrations en cave, entretien chaudière gaz et débouchage.",
+    href: "/locations/nimy"
   },
   {
-    name: "Havré",
-    code: "7021",
-    delay: "20 à 25 min",
-    details: "Quartier du Château, chaussée du Roeulx, bord de canal et zones d'habitations individuelles.",
-    issues: "Assainissement individuel, dépannage de pompes de relevage et réparation de tuyauteries extérieures."
-  },
-  {
-    name: "Hyon, Ciply et Mesvin",
-    code: "7022, 7024",
+    name: "Maisières & SHAPE (Casteau)",
+    code: "7020",
     delay: "15 à 20 min",
-    details: "Vallée de la Trouille, Hyon centre, Ciply, Mesvin et chaussée de Beaumont.",
-    issues: "Installations sanitaires modernes, filtration d'eau calcaire et dépannages prioritaires de chaudières gaz."
+    details: "Maisières village, base militaire du SHAPE / OTAN, villas de Casteau, N6.",
+    issues: "Service bilingue français / anglais pour officiers et expatriés, rénovation de salles de bains et entretiens de chaudières.",
+    href: "/locations/maisieres-casteau-shape"
   },
   {
-    name: "Frameries et Borinage",
-    code: "7080, 7390, 7300",
-    delay: "20 à 30 min",
-    details: "Frameries, Quaregnon, Boussu, Saint-Ghislain, Colfontaine et Dour.",
-    issues: "Densité d'habitation forte, refoulements de colonnes d'égouts, remplacement de robinetteries mitigeurs."
+    name: "Frameries",
+    code: "7080",
+    delay: "15 à 20 min",
+    details: "Frameries centre, Place d'Armes, Eugies, La Bouverie, Sars-la-Bruyère.",
+    issues: "Forte densité d'habitation, calcaire borin à 39°fH, refoulements de colonnes d'égouts, remplacement de boilers.",
+    href: "/locations/frameries"
+  },
+  {
+    name: "Quaregnon & Wasmuël",
+    code: "7390",
+    delay: "15 à 20 min",
+    details: "Grand'Place, Rue Jules Destrée, Wasmuël, axes N51 Route de Valenciennes.",
+    issues: "Affaissements miniers, contre-pentes d'égout, hydrocurage 350 bars et dépannage chaudières.",
+    href: "/locations/quaregnon"
+  },
+  {
+    name: "Saint-Ghislain & Boussu",
+    code: "7330, 7300",
+    delay: "15 à 20 min",
+    details: "Saint-Ghislain centre, Tertre, Hautrage, Sirault, Boussu et Grand-Hornu.",
+    issues: "Accès express E19 sortie 25, caves alluviales humides, pompes de relevage et adoucisseurs d'eau.",
+    href: "/locations/saint-ghislain"
   }
 ];
 ---
@@ -130,8 +146,14 @@ const zones = [
                 <p>{zone.issues}</p>
               </div>
             </div>
-            <div class="zone-footer">
-              <a href="tel:065700387" class="btn-primary w-full">
+            <div class="zone-footer" style="display: flex; flex-direction: column; gap: 0.5rem;">
+              {zone.href && (
+                <a href={zone.href} class="btn-outline w-full" style="justify-content: center; font-size: 0.85rem; padding: 0.6rem 1rem;">
+                  <span class="material-symbols-outlined">explore</span>
+                  <span>Guide & Itinéraires : {zone.name}</span>
+                </a>
+              )}
+              <a href="tel:065700387" class="btn-primary w-full" style="justify-content: center;">
                 <span class="material-symbols-outlined">call</span>
                 <span>Appeler pour {zone.name} (065 70 03 87)</span>
               </a>
