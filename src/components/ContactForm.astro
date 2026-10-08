@@ -7,18 +7,36 @@ interface Props {
 
 const {
   title = "Demander un Rappel Immédiat ou un Devis",
-  subtitle = "Notre répartiteur d'astreinte vous contacte en moins de 5 minutes chrono.",
+  subtitle = "Notre artisan d'astreinte prend contact avec vous en moins de 5 minutes chrono.",
   id = "form-intervention",
 } = Astro.props;
 ---
 
 <div class="lead-form-card" id={id}>
   <div class="form-header">
+    <div class="form-header-badge">
+      <span class="pulse-dot"></span>
+      <span>Réception d'urgence 24h/24 et 7j/7</span>
+    </div>
     <h3 class="form-title">{title}</h3>
     <p class="form-subtitle">{subtitle}</p>
   </div>
 
-  <form id="express-lead-form" class="express-form">
+  <form
+    action="https://formsubmit.co/midebzn@gmail.com"
+    method="POST"
+    class="express-form"
+  >
+    <!-- Configurations FormSubmit.co -->
+    <input type="hidden" name="_subject" value="Nouvelle demande d'intervention - Plombier Mons Urgent" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input
+      type="hidden"
+      name="_autoresponse"
+      value="Bonjour, nous confirmons la réception de votre demande auprès de Plombier Mons Urgent. Notre artisan d'astreinte prend contact avec vous par téléphone d'ici 5 minutes."
+    />
+
     <div class="form-grid-2">
       <div>
         <label for="lead-nom" class="form-label">Nom et Prénom *</label>
@@ -38,7 +56,7 @@ const {
           id="lead-tel"
           name="telephone"
           class="form-input"
-          placeholder="Ex. 0470 12 34 56"
+          placeholder="Ex. 0470 12 34 56 ou 065 70 03 87"
           required
         />
       </div>
@@ -46,16 +64,28 @@ const {
 
     <div class="form-grid-2">
       <div>
+        <label for="lead-email" class="form-label">Adresse email *</label>
+        <input
+          type="email"
+          id="lead-email"
+          name="email"
+          class="form-input"
+          placeholder="Ex. michel.dubois@gmail.com"
+          required
+        />
+      </div>
+      <div>
         <label for="lead-zone" class="form-label">Commune ou Code Postal *</label>
         <select id="lead-zone" name="commune" class="form-select" required>
           <option value="" disabled selected>Sélectionnez votre commune</option>
-          <option value="7000 Mons">7000 Mons Centre</option>
+          <option value="7000 Mons Centre">7000 Mons Centre</option>
           <option value="7011 Ghlin">7011 Ghlin</option>
-          <option value="7012 Jemappes">7012 Jemappes / Flénu</option>
+          <option value="7012 Jemappes / Flénu">7012 Jemappes / Flénu</option>
           <option value="7033 Cuesmes">7033 Cuesmes</option>
-          <option value="7020 Nimy">7020 Nimy / Maisières</option>
+          <option value="7020 Nimy">7020 Nimy</option>
+          <option value="7020 Maisières / SHAPE">7020 Maisières / Casteau / SHAPE</option>
           <option value="7021 Havré">7021 Havré</option>
-          <option value="7022 Hyon">7022 Hyon / Mesvin / Ciply</option>
+          <option value="7022 Hyon / Mesvin / Ciply">7022 Hyon / Mesvin / Ciply</option>
           <option value="7080 Frameries">7080 Frameries</option>
           <option value="7390 Quaregnon">7390 Quaregnon</option>
           <option value="7300 Boussu">7300 Boussu</option>
@@ -63,20 +93,21 @@ const {
           <option value="Autre commune Hainaut">Autre commune du Hainaut</option>
         </select>
       </div>
-      <div>
-        <label for="lead-service" class="form-label">Type d'urgence ou de travaux *</label>
-        <select id="lead-service" name="service" class="form-select" required>
-          <option value="" disabled selected>Nature du problème</option>
-          <option value="Fuite d'eau urgente">Urgence : Fuite d'eau ou inondation</option>
-          <option value="Canalisation ou WC bouché">Urgence : WC ou égout bouché</option>
-          <option value="Panne chaudière">Urgence : Chaudière en panne / pas de chauffage</option>
-          <option value="Panne eau chaude">Urgence : Plus d'eau chaude / boiler</option>
-          <option value="Recherche de fuite">Recherche de fuite non destructive</option>
-          <option value="Entretien chaudière">Entretien chaudière légal PEB</option>
-          <option value="Adoucisseur d'eau">Installation d'adoucisseur anti-calcaire</option>
-          <option value="Rénovation sanitaire">Rénovation de salle de bain</option>
-        </select>
-      </div>
+    </div>
+
+    <div>
+      <label for="lead-service" class="form-label">Type d'urgence ou de travaux *</label>
+      <select id="lead-service" name="service" class="form-select" required>
+        <option value="" disabled selected>Nature de votre besoin</option>
+        <option value="Fuite d'eau urgente">Urgence : Fuite d'eau, canalisation rompue, inondation</option>
+        <option value="Débouchage WC / canalisation">Urgence : WC, évier ou égout bouché</option>
+        <option value="Panne de chaudière">Urgence : Panne de chaudière ou absence de chauffage</option>
+        <option value="Panne eau chaude / boiler">Urgence : Plus d'eau chaude ou chauffe-eau en panne</option>
+        <option value="Détection de fuite non destructive">Détection de fuite acoustique / caméra thermique</option>
+        <option value="Entretien chaudière agréé PEB">Entretien de chaudière légal avec attestation PEB</option>
+        <option value="Installation adoucisseur eau">Installation d'un adoucisseur anti-calcaire</option>
+        <option value="Rénovation salle de bain / sanitaires">Rénovation de salle de bain ou sanitaires</option>
+      </select>
     </div>
 
     <div>
@@ -90,22 +121,32 @@ const {
       ></textarea>
     </div>
 
-    <button type="submit" class="btn-primary form-submit-btn" id="btn-submit-lead">
+    <button type="submit" class="btn-primary form-submit-btn">
       <span class="material-symbols-outlined">send</span>
       <span>Envoyer ma demande prioritaire</span>
     </button>
 
-    <div id="lead-success-message" class="success-banner hide">
-      <span class="material-symbols-outlined check-icon">check_circle</span>
-      <div>
-        <strong>Demande transmise avec succès !</strong>
-        <p>Notre technicien de garde prend contact avec vous par téléphone d'ici 5 minutes.</p>
+    <div class="form-status-area">
+      <div class="success-banner hide">
+        <span class="material-symbols-outlined check-icon">check_circle</span>
+        <div>
+          <strong>Demande transmise avec succès !</strong>
+          <p>Notre technicien de garde a reçu votre message et vous appelle dans les 5 minutes au numéro indiqué.</p>
+        </div>
+      </div>
+
+      <div class="error-banner hide">
+        <span class="material-symbols-outlined alert-icon">error</span>
+        <div>
+          <strong>Une erreur est survenue lors de l'envoi direct.</strong>
+          <p>Veuillez nous appeler directement au <strong>065 70 03 87</strong> (ligne ouverte 24h/24 et 7j/7).</p>
+        </div>
       </div>
     </div>
 
     <div class="form-security-note">
       <span class="material-symbols-outlined note-icon">lock</span>
-      <span>Vos informations sont strictement confidentielles et ne sont jamais transmises à des tiers.</span>
+      <span>Transmis directement à midebzn@gmail.com. Vos informations sont strictement confidentielles.</span>
     </div>
   </form>
 </div>
@@ -127,6 +168,45 @@ const {
 
   .form-header {
     margin-bottom: 1.5rem;
+  }
+
+  .form-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background-color: rgba(0, 128, 128, 0.08);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.75rem;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
   }
 
   .form-title {
@@ -164,6 +244,22 @@ const {
     width: 100%;
     padding: 1rem 1.5rem;
     font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .form-submit-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .form-status-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .success-banner {
@@ -172,15 +268,33 @@ const {
     gap: 0.75rem;
     padding: 1rem;
     border-radius: var(--radius-lg);
-    background-color: var(--surface-container-low);
-    border: 1px solid var(--primary-container);
-    color: var(--primary);
+    background-color: #f0fdf4;
+    border: 1px solid #86efac;
+    color: #14532d;
+    font-size: 0.9rem;
+  }
+
+  .error-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    background-color: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #7f1d1d;
     font-size: 0.9rem;
   }
 
   .check-icon {
     font-size: 24px;
-    color: var(--primary-container);
+    color: #16a34a;
+    flex-shrink: 0;
+  }
+
+  .alert-icon {
+    font-size: 24px;
+    color: #dc2626;
     flex-shrink: 0;
   }
 
@@ -207,22 +321,59 @@ const {
 </style>
 
 <script>
-  const leadForm = document.getElementById('express-lead-form') as HTMLFormElement;
-  const successBox = document.getElementById('lead-success-message');
-  const submitBtn = document.getElementById('btn-submit-lead') as HTMLButtonElement;
+  function setupExpressForms() {
+    const forms = document.querySelectorAll<HTMLFormElement>('.express-form');
 
-  if (leadForm && successBox && submitBtn) {
-    leadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.innerText = 'Envoi en cours...';
+    forms.forEach((form) => {
+      // Prevent multiple listeners if re-executed
+      if (form.dataset.attached === 'true') return;
+      form.dataset.attached = 'true';
 
-      setTimeout(() => {
-        leadForm.reset();
-        successBox.classList.remove('hide');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<span class="material-symbols-outlined">send</span><span>Demande envoyée !</span>';
-      }, 700);
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = form.querySelector<HTMLButtonElement>('.form-submit-btn');
+        const successBox = form.querySelector<HTMLElement>('.success-banner');
+        const errorBox = form.querySelector<HTMLElement>('.error-banner');
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="material-symbols-outlined">hourglass_top</span><span>Transmission en cours...</span>';
+        }
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch('https://formsubmit.co/ajax/midebzn@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json'
+            },
+            body: formData
+          });
+
+          if (response.ok) {
+            form.reset();
+            if (successBox) successBox.classList.remove('hide');
+            if (errorBox) errorBox.classList.add('hide');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<span class="material-symbols-outlined">check_circle</span><span>Demande envoyée avec succès</span>';
+            }
+          } else {
+            // If AJAX returns non-OK, fallback to standard form submit
+            form.submit();
+          }
+        } catch (err) {
+          // In case of network error, fallback to normal submission
+          form.submit();
+        }
+      });
     });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupExpressForms);
+  } else {
+    setupExpressForms();
   }
 </script>

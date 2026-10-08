@@ -1,0 +1,143 @@
+---
+// Desktop Sticky Click-to-call Button for Plombier Mons Urgent
+// Fixed floating element for immediate telephone access on desktop & tablet
+---
+
+<div class="desktop-sticky-call" aria-label="Bouton d'appel rapide urgence 24/7">
+  <a href="tel:065700387" class="sticky-call-card" title="Appeler le 065 70 03 87 sans attente">
+    <div class="call-icon-bubble">
+      <span class="material-symbols-outlined phone-icon">phone_in_talk</span>
+      <span class="pulse-ring"></span>
+    </div>
+    <div class="call-text-group">
+      <div class="call-top-row">
+        <span class="call-status-dot"></span>
+        <span class="call-badge-text">Urgence 24/7 • Technicien de garde</span>
+      </div>
+      <span class="call-phone-number">065 70 03 87</span>
+      <span class="call-subtext">Arrivée en 20 à 30 min • Devis gratuit</span>
+    </div>
+  </a>
+</div>
+
+<style>
+  .desktop-sticky-call {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 990;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-sticky-call {
+      display: block;
+    }
+  }
+
+  .sticky-call-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1.15rem 0.75rem 0.85rem;
+    background: linear-gradient(135deg, #10213A 0%, #173258 100%);
+    border: 1px solid rgba(0, 128, 128, 0.4);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(16, 33, 58, 0.28);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .sticky-call-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 128, 128, 0.35);
+    border-color: var(--primary);
+  }
+
+  .call-icon-bubble {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E05A47 0%, #C94230 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  .phone-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pulse-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid rgba(224, 90, 71, 0.6);
+    animation: ringPulse 2s infinite;
+  }
+
+  @keyframes ringPulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+
+  .call-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .call-top-row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .call-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #22c55e;
+  }
+
+  .call-badge-text {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #94a3b8;
+  }
+
+  .call-phone-number {
+    font-family: var(--font-manrope), sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+  }
+
+  .call-subtext {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.7rem;
+    color: #38bdf8;
+    margin-top: 0.1rem;
+  }
+</style>
