@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout
+  title="Contact & Urgence 24/7 | Plombier Mons Urgent | 065 70 03 87"
+  description="Contactez Plombier Mons Urgent 24h/24 et 7j/7. Intervention rapide en 20 à 30 minutes à Mons et dans tout le Borinage. Devis gratuit et sans engagement."
+>
+  <!-- Hero Section -->
+  <section class="section" style="background: radial-gradient(circle at 80% 20%, rgba(0, 128, 128, 0.08) 0%, transparent 60%), #FFFFFF; padding-top: 3.5rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <div style="max-width: 780px;">
+        <span class="badge badge-primary" style="margin-bottom: 1rem;">
+          <span class="material-symbols-outlined" style="font-size: 15px;">headset_mic</span>
+          Disponibilité 24h/24 et 7j/7 à Mons
+        </span>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15; margin-bottom: 1.25rem;">
+          Contactez votre plombier chauffagiste à Mons
+        </h1>
+        <p style="font-size: 1.125rem; color: var(--color-navy-muted); line-height: 1.6; margin-bottom: 0;">
+          Une fuite d'eau critique, un chauffe-eau Bulex en panne ou une canalisation bouchée ? Appelez notre permanence technique immédiate ou transmettez-nous votre demande par formulaire pour un devis clair et gratuit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid: Direct Channels & Form -->
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; align-items: start;">
+          
+          <!-- Left Column: Fast Response Boxes -->
+          <div>
+            <div style="margin-bottom: 2rem;">
+              <h2 style="font-size: 1.6rem; margin-bottom: 0.75rem;">Canaux d'intervention directe</h2>
+              <p style="color: var(--color-navy-muted); font-size: 0.95rem; line-height: 1.5;">
+                Pour les urgences vitales (dégât des eaux majeur, odeur suspecte, inondation), privilégiez systématiquement l'appel téléphonique ou WhatsApp pour un envoi immédiat de camionnette d'intervention.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem;">
+              <!-- Phone Card -->
+              <div class="card" style="border-left: 4px solid var(--color-alert); display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(224, 90, 71, 0.12); color: var(--color-alert); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span class="material-symbols-outlined" style="font-size: 26px;">phone_in_talk</span>
+                </div>
+                <div style="flex-grow: 1;">
+                  <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--color-alert); letter-spacing: 0.05em;">Ligne directe urgence 24/7</span>
+                  <div style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-headline); margin: 0.2rem 0;">
+                    <a href="tel:065700387" style="color: var(--color-navy);">065 70 03 87</a>
+                  </div>
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--color-navy-muted);">Intervention en 20 à 30 minutes sur Mons et Borinage.</p>
+                </div>
+              </div>
+
+              <!-- WhatsApp Card -->
+              <div class="card" style="border-left: 4px solid #25D366; display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(37, 211, 102, 0.12); color: #1E8E47; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span class="material-symbols-outlined" style="font-size: 26px;">chat</span>
+                </div>
+                <div style="flex-grow: 1;">
+                  <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: #1E8E47; letter-spacing: 0.05em;">WhatsApp Photos & Diagnostic</span>
+                  <div style="font-size: 1.2rem; font-weight: 800; font-family: var(--font-headline); margin: 0.2rem 0;">
+                    <a href="https://wa.me/3265700387" style="color: var(--color-navy);">+32 65 70 03 87</a>
+                  </div>
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--color-navy-muted);">Envoyez la photo de votre fuite ou code erreur chaudiere pour un pre-diagnostic immediat.</p>
+                </div>
+              </div>
+
+              <!-- Workshop & Depot Card -->
+              <div class="card" style="border-left: 4px solid var(--color-teal); display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(0, 128, 128, 0.12); color: var(--color-teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span class="material-symbols-outlined" style="font-size: 26px;">location_on</span>
+                </div>
+                <div style="flex-grow: 1;">
+                  <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--color-teal); letter-spacing: 0.05em;">Depot central et permanence</span>
+                  <div style="font-size: 1.05rem; font-weight: 700; margin: 0.2rem 0; color: var(--color-navy);">
+                    Grand'Place 24, 7000 Mons
+                  </div>
+                  <p style="margin: 0; font-size: 0.85rem; color: var(--color-navy-muted);">Base technique et vehicules d'astreinte stationnes a Mons intramuros.</p>
+                </div>
+              </div>
+
+              <!-- Hours & Area -->
+              <div class="card" style="background: var(--color-surface); border: 1px solid var(--color-border);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                  <span class="material-symbols-outlined" style="color: var(--color-navy); font-size: 22px;">schedule</span>
+                  <h3 style="font-size: 1rem; margin: 0;">Horaires d'ouverture</h3>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                  <li style="display: flex; justify-content: space-between;">
+                    <span style="color: var(--color-navy-muted);">Service Depannage d'Urgence :</span>
+                    <strong style="color: var(--color-teal);">24h/24, 7j/7 (Non-stop)</strong>
+                  </li>
+                  <li style="display: flex; justify-content: space-between;">
+                    <span style="color: var(--color-navy-muted);">Devis, Chantiers et Renovations :</span>
+                    <strong style="color: var(--color-navy);">Lun - Ven: 08h00 - 18h30</strong>
+                  </li>
+                  <li style="display: flex; justify-content: space-between;">
+                    <span style="color: var(--color-navy-muted);">Zone desservie :</span>
+                    <strong style="color: var(--color-navy);">Grand Mons et Borinage (rayon 25 km)</strong>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Pre-arrival Emergency Instructions -->
+            <div style="background: rgba(224, 90, 71, 0.06); border: 1px solid rgba(224, 90, 71, 0.2); border-radius: 12px; padding: 1.5rem;">
+              <h3 style="font-size: 1rem; color: var(--color-alert); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span class="material-symbols-outlined">health_and_safety</span>
+                Que faire en attendant notre arrivee ?
+              </h3>
+              <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.85rem; color: var(--color-navy-muted); line-height: 1.5; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><strong>Coupez l'arrivee d'eau generale :</strong> Situee generalement pres de votre compteur d'eau (souvent dans la cave ou sous l'evier).</li>
+                <li><strong>Coupez l'electricite :</strong> Si l'eau s'infiltre a proximite de prises ou du tableau electrique, disjonctez le secteur concerne.</li>
+                <li><strong>Eteignez la chaudiere :</strong> Si la fuite concerne le circuit de chauffage ou le groupe de securite du chauffe-eau.</li>
+                <li><strong>Prenez des photos :</strong> Conservez les traces de l'incident pour votre dossier de remboursement aupres de votre assurance habitation.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div>
+            <ContactForm />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map / Location Context -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 2.5rem;">
+        <h2 style="font-size: 2rem; margin-bottom: 0.75rem;">Rayon d'action et delais d'arrivee</h2>
+        <p style="color: var(--color-navy-muted);">
+          Grace a notre base situee a proximite immediate des grands axes montois (R5, E19/E42), nos techniciens atteignent votre domicile sans attente inutile.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.25rem;">
+            20 min
+          </div>
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">Centre-ville et Intramuros</div>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0;">Mons Centre, Nimy, Hyon, Cuesmes, Ghlin.</p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.25rem;">
+            25 min
+          </div>
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">Premiere Ceinture et Shape</div>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0;">Maisieres, Casteau, Havre, Saint-Symphorien, Obourg.</p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.25rem;">
+            30 min
+          </div>
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">Borinage et Vallee de la Haine</div>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0;">Frameries, Quaregnon, Saint-Ghislain, Boussu, Colfontaine.</p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--color-teal); font-family: var(--font-headline); margin-bottom: 0.25rem;">
+            0 EUR
+          </div>
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">Devis clair et transparent</div>
+          <p style="font-size: 0.85rem; color: var(--color-navy-muted); margin: 0;">Estimation sans surprise avant tout demarrage de travaux.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal & Fiscal Info -->
+  <section class="section">
+    <div class="container">
+      <div style="background: white; border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+          <div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Informations de facturation</h4>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); line-height: 1.5; margin: 0;">
+              Plombier Mons Urgent SPRL<br />
+              Numero BCE / TVA : BE 0657.003.874<br />
+              Agrement CERGA Gaz Wallonie : N° 09-34821<br />
+              Assurance responsabilite civile professionnelle AXA Belgium.
+            </p>
+          </div>
+          <div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Moyens de paiement acceptes</h4>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); line-height: 1.5; margin: 0;">
+              Paiement sur place par terminal Bancontact securise, application bancaire Payconiq / QR Code, ou virement instantane. Facture detaillee remise immediatement pour remboursement assurance incendie.
+            </p>
+          </div>
+          <div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem; color: var(--color-navy);">Taux de TVA Reduit</h4>
+            <p style="font-size: 0.85rem; color: var(--color-navy-muted); line-height: 1.5; margin: 0;">
+              Pour les logements prives de plus de 10 ans d'anciennete situes en Belgique, beneficiez du taux de TVA reduit a 6% sur la main-d'oeuvre et les fournitures au lieu du taux normal de 21%.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

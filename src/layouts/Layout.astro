@@ -1,0 +1,152 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileStickyBar from '../components/MobileStickyBar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  currentPage?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalPath = '',
+  currentPage = 'accueil',
+} = Astro.props;
+
+const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
+---
+
+<!DOCTYPE html>
+<html lang="fr-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_BE" />
+    <meta property="og:site_name" content="Plombier Mons Urgent" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <!-- LocalBusiness Schema JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Plumber",
+        "name": "Plombier Mons Urgent",
+        "legalName": "Plombier Mons Urgent SRL",
+        "url": "https://plombier-mons-urgent.be",
+        "telephone": "+3265700387",
+        "email": "contact@plombier-mons-urgent.be",
+        "priceRange": "€€",
+        "description": "Artisan plombier et chauffagiste d'urgence à Mons et dans le Borinage. Dépannage 24h/24 et 7j/7 en 20 à 30 minutes : fuites d'eau, débouchage, chaudière et boiler.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Grand Place",
+          "addressLocality": "Mons",
+          "postalCode": "7000",
+          "addressRegion": "Hainaut",
+          "addressCountry": "BE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "50.4542",
+          "longitude": "3.9567"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          }
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Mons", "postalCode": "7000" },
+          { "@type": "City", "name": "Ghlin", "postalCode": "7011" },
+          { "@type": "City", "name": "Jemappes", "postalCode": "7012" },
+          { "@type": "City", "name": "Flénu", "postalCode": "7012" },
+          { "@type": "City", "name": "Nimy", "postalCode": "7020" },
+          { "@type": "City", "name": "Maisières", "postalCode": "7020" },
+          { "@type": "City", "name": "Havré", "postalCode": "7021" },
+          { "@type": "City", "name": "Hyon", "postalCode": "7022" },
+          { "@type": "City", "name": "Cuesmes", "postalCode": "7033" },
+          { "@type": "City", "name": "Frameries", "postalCode": "7080" },
+          { "@type": "City", "name": "Quaregnon", "postalCode": "7390" },
+          { "@type": "City", "name": "Boussu", "postalCode": "7300" },
+          { "@type": "City", "name": "Saint-Ghislain", "postalCode": "7330" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services de plomberie et chauffage",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Dépannage d'urgence fuite d'eau"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Débouchage de canalisation et WC haute pression"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Entretien de chaudière agréé avec attestation PEB"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Dépannage et détartrage de boiler"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <Header currentPage={currentPage} />
+    <main style="padding-top: 80px;">
+      <slot />
+    </main>
+    <Footer />
+    <MobileStickyBar />
+  </body>
+</html>

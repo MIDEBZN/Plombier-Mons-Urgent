@@ -1,0 +1,546 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout
+  title="Services de Plomberie & Chauffage à Mons : Tarifs et Agréments | Plombier Mons Urgent"
+  description="Tous nos services de plomberie à Mons : dépannage fuite d'eau, débouchage canalisation, entretien chaudière agréé CERGA, boiler et adoucisseur. Tarifs clairs."
+  canonicalPath="/services"
+  currentPage="services"
+>
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="container text-center">
+      <div class="badge-tag mb-2">ARTISAN PLOMBIER & CHAUFFAGISTE AGRÉÉ</div>
+      <h1 class="page-title">Nos Prestations de Plomberie et Dépannage à Mons</h1>
+      <p class="page-subtitle">
+        Des solutions techniques durables pour les particuliers, commerçants et syndics du Grand Mons et du Borinage.
+      </p>
+    </div>
+  </section>
+
+  <!-- Detailed Service Blocks -->
+  <section class="section-py">
+    <div class="container service-blocks-container">
+      
+      <!-- Service 1: Débouchage -->
+      <div class="service-detail-card" id="debouchage">
+        <div class="detail-header">
+          <div class="detail-icon-box">
+            <span class="material-symbols-outlined">cleaning_services</span>
+          </div>
+          <div>
+            <span class="detail-tag">DÉPANNAGE EXPRESS 24/7</span>
+            <h2 class="detail-title">Débouchage de Canalisations, WC et Égouts</h2>
+          </div>
+        </div>
+        <p class="detail-desc">
+          Un évier qui refoule, une cuvette de WC bouchée ou un égout extérieur qui déborde ? Nous intervenons avec du matériel professionnel motorisé et un camion d'hydrocurage haute pression (300 bars) pour éliminer les bouchons organiques, lingettes, graisses et racines sans endommager vos conduits.
+        </p>
+        <div class="detail-grid">
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Débouchage WC et sanitaires</strong>
+              <p>Furet mécanique professionnel et pompe à dépression sans rayure sur la céramique.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Hydrocurage haute pression</strong>
+              <p>Nettoyage intégral des colonnes collectives, sterputs et canalisations d'égouttage.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Inspection par caméra HD</strong>
+              <p>Inspection vidéo jusqu'à 40 mètres pour diagnostiquer cassures, affaissements et contre-pentes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-cta">
+          <span class="price-indicator">À partir de 120 EUR TVAC (Déplacement et matériel inclus)</span>
+          <a href="tel:065700387" class="btn-primary">
+            <span class="material-symbols-outlined">call</span>
+            <span>Urgence Débouchage : 065 70 03 87</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2: Fuites & Détection -->
+      <div class="service-detail-card" id="fuites">
+        <div class="detail-header">
+          <div class="detail-icon-box">
+            <span class="material-symbols-outlined">water_damage</span>
+          </div>
+          <div>
+            <span class="detail-tag">SANS CASSE NI DÉMOLITION</span>
+            <h2 class="detail-title">Recherche et Réparation de Fuite d'Eau</h2>
+          </div>
+        </div>
+        <p class="detail-desc">
+          Une tache d'humidité au plafond, une hausse anormale de votre facture SWDE ou un compteur qui tourne tout seul vanne fermée ? Nous localisons avec précision l'origine exacte du sinistre dans les murs, sous les chapes ou en terre sans aucune démolition destructive.
+        </p>
+        <div class="detail-grid">
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Caméra thermique infrarouge</strong>
+              <p>Détection visuelle des différentiels de température sur les réseaux d'eau chaude et de chauffage.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Gaz traceur et électroacoustique</strong>
+              <p>Identification acoustique précise des micro-fuites sur tuyauteries cuivre, PER et multicouche.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Rapport certifié pour assurance</strong>
+              <p>Dossier technique complet avec photographies remis pour votre remboursement d'assurance habitation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-cta">
+          <span class="price-indicator">Prise en charge intégrale fréquente par votre assurance habitation</span>
+          <a href="tel:065700387" class="btn-primary">
+            <span class="material-symbols-outlined">call</span>
+            <span>SOS Fuite d'Eau : 065 70 03 87</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3: Chauffage & Chaudière -->
+      <div class="service-detail-card" id="chauffage">
+        <div class="detail-header">
+          <div class="detail-icon-box">
+            <span class="material-symbols-outlined">mode_heat</span>
+          </div>
+          <div>
+            <span class="detail-tag">AGRÉÉ CERGA GAZ ET MAZOUT</span>
+            <h2 class="detail-title">Dépannage et Entretien de Chaudière</h2>
+          </div>
+        </div>
+        <p class="detail-desc">
+          Nos techniciens chauffagistes certifiés interviennent sur toutes les marques de chaudières installées en Belgique (Bulex, Vaillant, Viessmann, Junkers, Bosch, Remeha). Nous effectuons le diagnostic des codes erreurs, le remplacement de circulateurs, vases d'expansion, brûleurs et vannes de sécurité.
+        </p>
+        <div class="detail-grid">
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Entretien légal avec attestation PEB</strong>
+              <p>Nettoyage complet, réglage de combustion et remise de l'attestation officielle obligatoire en Wallonie.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Dépannage d'urgence sous 1 heure</strong>
+              <p>Intervention prioritaire en cas de coupure de chauffage totale pendant la période hivernale.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Désembouage de radiateurs</strong>
+              <p>Purge chimique et rinçage haute pression pour retrouver un rendement thermique maximal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-cta">
+          <span class="price-indicator">Entretien chaudière gaz dès 130 EUR TVAC avec attestation</span>
+          <a href="tel:065700387" class="btn-primary">
+            <span class="material-symbols-outlined">call</span>
+            <span>Chauffagiste d'astreinte : 065 70 03 87</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 4: Chauffe-eau & Boiler -->
+      <div class="service-detail-card" id="boiler">
+        <div class="detail-header">
+          <div class="detail-icon-box">
+            <span class="material-symbols-outlined">water_heater</span>
+          </div>
+          <div>
+            <span class="detail-tag">EAU CHAUDE SANITAIRE</span>
+            <h2 class="detail-title">Dépannage, Détartrage et Remplacement de Boiler</h2>
+          </div>
+        </div>
+        <p class="detail-desc">
+          L'eau calcaire de Mons provoque une accumulation rapide de sédiments sur les résistances blindées et les thermostats, réduisant la capacité d'eau chaude et faisant exploser votre facture d'électricité. Nous assurons le détartrage mécanique approfondi ou le remplacement de votre appareil sous 24h.
+        </p>
+        <div class="detail-grid">
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Détartrage complet de cuve</strong>
+              <p>Vidange, extraction des blocs de calcaire, remplacement de l'anode magnésium protectrice.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Remplacement de groupe de sécurité</strong>
+              <p>Changement immédiat de soupape qui fuit en continu ou de réducteur de pression défaillant.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Installation neuve sous 24h</strong>
+              <p>Pose de boilers électriques ACI stéatite (Ariston, Atlantic, Bulex) ou thermodynamiques.</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-cta">
+          <span class="price-indicator">Remplacement standard posé en 24h chrono</span>
+          <a href="tel:065700387" class="btn-primary">
+            <span class="material-symbols-outlined">call</span>
+            <span>Conseil Boiler : 065 70 03 87</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 5: Adoucisseurs -->
+      <div class="service-detail-card" id="adoucisseur">
+        <div class="detail-header">
+          <div class="detail-icon-box">
+            <span class="material-symbols-outlined">filter_alt</span>
+          </div>
+          <div>
+            <span class="detail-tag">SPÉCIALITÉ CALCAIRE DU HAINAUT</span>
+            <h2 class="detail-title">Installation d'Adoucisseurs d'Eau Anti-Calcaire</h2>
+          </div>
+        </div>
+        <p class="detail-desc">
+          À Mons et dans les communes voisines (Ghlin, Cuesmes, Jemappes, Nimy), la dureté de l'eau dépasse régulièrement 30 à 35 degrés français. Un adoucisseur d'eau volumétrique protège durablement vos canalisations, robinetteries mitigeurs, lave-linge et chaudières tout en adoucissant votre peau.
+        </p>
+        <div class="detail-grid">
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Appareils volumétriques certifiés</strong>
+              <p>Régénération intelligente en fonction de votre consommation réelle d'eau, sans gaspillage de sel.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Protection complète du foyer</strong>
+              <p>Prolonge la durée de vie de vos appareils électroménagers et divise par deux les pannes de chaudière.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <span class="material-symbols-outlined f-icon">task_alt</span>
+            <div>
+              <strong>Contrat d'entretien annuel</strong>
+              <p>Nettoyage des résines, contrôle de dureté TH et livraison de sel compact de haute pureté.</p>
+            </div>
+          </div>
+        </div>
+        <div class="detail-cta">
+          <span class="price-indicator">Devis gratuit avec test de dureté de votre eau sur place</span>
+          <a href="/contact#form" class="btn-primary">
+            <span class="material-symbols-outlined">request_quote</span>
+            <span>Demander une étude d'adoucisseur</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Transparent Pricing Table -->
+  <section class="section-py bg-light">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">TRANSPARENCE TARIFAIRE</span>
+        <h2 class="section-title">Nos Tarifs Indicatifs à Mons et dans le Hainaut</h2>
+        <p class="section-desc">
+          Tous nos tarifs sont annoncés en euros TVAC. Aucun geste technique n'est exécuté sans un devis formel approuvé sur place.
+        </p>
+      </div>
+
+      <div class="pricing-table-card">
+        <div class="pricing-grid-table">
+          <div class="p-row p-head">
+            <span>Prestation de dépannage</span>
+            <span>Tarif indicatif</span>
+            <span>Ce qui est inclus</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Déplacement et première heure de diagnostic</span>
+            <span class="p-col-price">dès 85 EUR</span>
+            <span class="p-col-detail">Trajet dans le Grand Mons + inspection technique complète</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Débouchage express WC ou évier</span>
+            <span class="p-col-price">dès 120 EUR</span>
+            <span class="p-col-detail">Intervention au furet mécanique ou pompe haute pression</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Débouchage égout ou colonne au camion 300 bars</span>
+            <span class="p-col-price">dès 220 EUR</span>
+            <span class="p-col-detail">Hydrocurage hydrodynamique intégral sans produit toxique</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Recherche de fuite non destructive</span>
+            <span class="p-col-price">dès 180 EUR</span>
+            <span class="p-col-detail">Caméra thermique, gaz traceur + rapport écrit assurance</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Entretien annuel chaudière gaz + attestation PEB</span>
+            <span class="p-col-price">135 EUR</span>
+            <span class="p-col-detail">Attestation officielle délivrée sur place par technicien agréé</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Remplacement mécanisme chasse d'eau</span>
+            <span class="p-col-price">dès 95 EUR</span>
+            <span class="p-col-detail">Mécanisme standard ou bâti-support Geberit (hors pièces)</span>
+          </div>
+          <div class="p-row">
+            <span class="p-col-title">Taux de TVA réduit rénovation (logement > 10 ans)</span>
+            <span class="p-col-price">6%</span>
+            <span class="p-col-detail">Application immédiate sur présentation de l'attestation simplifiée</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline Contact Form Section -->
+  <section class="section-py">
+    <div class="container" style="max-width: 820px;">
+      <ContactForm
+        title="Besoin d'un Devis ou d'une Intervention Rapide ?"
+        subtitle="Indiquez votre adresse et votre problème : réponse garantie sous 5 minutes."
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--surface-container-low) 0%, var(--surface) 100%);
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid var(--outline-variant);
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--on-surface);
+    margin: 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .page-title {
+      font-size: 2.85rem;
+    }
+  }
+
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--on-surface-variant);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .service-blocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .service-detail-card {
+    background-color: var(--surface-container-lowest);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (max-width: 640px) {
+    .service-detail-card {
+      padding: 1.5rem;
+    }
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .detail-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-xl);
+    background-color: var(--surface-container-low);
+    color: var(--primary-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .detail-icon-box span {
+    font-size: 32px;
+  }
+
+  .detail-tag {
+    font-family: var(--font-inter);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-container);
+    letter-spacing: 0.05em;
+  }
+
+  .detail-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    letter-spacing: -0.015em;
+    margin-top: 0.2rem;
+  }
+
+  .detail-desc {
+    font-size: 1rem;
+    color: var(--on-surface-variant);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .detail-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature-box {
+    display: flex;
+    gap: 0.75rem;
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem;
+  }
+
+  .f-icon {
+    font-size: 22px;
+    color: var(--primary-container);
+    flex-shrink: 0;
+  }
+
+  .feature-box strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--on-surface);
+    margin-bottom: 0.25rem;
+  }
+
+  .feature-box p {
+    font-size: 0.85rem;
+    color: var(--on-surface-variant);
+    line-height: 1.5;
+  }
+
+  .detail-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    border-top: 1px solid var(--outline-variant);
+    padding-top: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .detail-cta {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .price-indicator {
+    font-family: var(--font-inter);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--secondary);
+  }
+
+  /* Pricing Table */
+  .pricing-table-card {
+    background-color: var(--surface-container-lowest);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .pricing-grid-table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.8fr;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--outline-variant);
+    align-items: center;
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 640px) {
+    .p-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+
+  .p-head {
+    background-color: var(--secondary);
+    color: #ffffff;
+    font-family: var(--font-inter);
+    font-weight: 700;
+    border-bottom: none;
+  }
+
+  .p-col-title {
+    font-weight: 700;
+    color: var(--on-surface);
+  }
+
+  .p-col-price {
+    font-family: var(--font-inter);
+    font-weight: 800;
+    color: var(--primary-container);
+  }
+
+  .p-col-detail {
+    color: var(--on-surface-variant);
+    font-size: 0.85rem;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+</style>

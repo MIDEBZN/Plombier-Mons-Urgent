@@ -1,0 +1,110 @@
+---
+---
+
+<div class="mobile-sticky-bar" aria-label="Actions rapides d'urgence">
+  <a href="tel:065700387" class="sticky-btn primary-action">
+    <span class="material-symbols-outlined icon">phone_in_talk</span>
+    <span class="btn-text">
+      <span class="sub">Urgence 24/7</span>
+      <span class="main">065 70 03 87</span>
+    </span>
+  </a>
+
+  <a href="https://wa.me/32470123456" class="sticky-btn whatsapp-action" target="_blank" rel="noopener noreferrer">
+    <span class="material-symbols-outlined icon">chat</span>
+    <span class="btn-text">
+      <span class="sub">Photo / Vidéo</span>
+      <span class="main">WhatsApp</span>
+    </span>
+  </a>
+
+  <a href="/contact#form" class="sticky-btn quote-action">
+    <span class="material-symbols-outlined icon">request_quote</span>
+    <span class="btn-text">
+      <span class="sub">Gratuit</span>
+      <span class="main">Devis</span>
+    </span>
+  </a>
+</div>
+
+<style>
+  .mobile-sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: grid;
+    grid-template-columns: 1.4fr 1.1fr 1fr;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--outline-variant);
+    box-shadow: 0 -4px 20px rgba(12, 29, 42, 0.12);
+  }
+
+  @media (min-width: 768px) {
+    .mobile-sticky-bar {
+      display: none;
+    }
+  }
+
+  .sticky-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.4rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  .sticky-btn:active {
+    transform: scale(0.96);
+  }
+
+  .primary-action {
+    background-color: var(--primary-container);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 128, 128, 0.3);
+  }
+
+  .whatsapp-action {
+    background-color: var(--surface-container-high);
+    color: var(--primary);
+    border: 1px solid rgba(0, 128, 128, 0.2);
+  }
+
+  .quote-action {
+    background-color: var(--secondary);
+    color: #ffffff;
+  }
+
+  .icon {
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+
+  .btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .sub {
+    font-family: var(--font-inter);
+    font-size: 0.62rem;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .main {
+    font-family: var(--font-manrope);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+</style>

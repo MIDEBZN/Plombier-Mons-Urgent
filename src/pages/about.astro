@@ -1,0 +1,352 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout
+  title="À Propos de Plombier Mons Urgent : Artisans Certifiés dans le Hainaut"
+  description="Découvrez l'histoire de Plombier Mons Urgent, entreprise locale de plomberie et chauffage agréée CERGA à Mons. Transparence, réactivité et savoir-faire artisanal."
+  canonicalPath="/about"
+  currentPage="about"
+>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container text-center">
+      <div class="badge-tag mb-2">ENTREPRISE LOCALE ENREGISTRÉE EN BELGIQUE</div>
+      <h1 class="page-title">Notre Engagement : Un Vrai Savoir-Faire Plombier à Mons</h1>
+      <p class="page-subtitle">
+        Fondée sur des valeurs de rigueur technique, de transparence des prix et de réactivité sans intermédiaire dans tout le Hainaut.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story & Vision -->
+  <section class="section-py">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <span class="section-tag">NOTRE HISTOIRE</span>
+          <h2 class="story-title">Des artisans de terrain au service des Montois</h2>
+          <p class="story-text">
+            Depuis plus de 15 ans, notre équipe intervient au quotidien dans les maisons et appartements du bassin montois. De la Grand'Place aux cités ouvrières de Jemappes, des résidences pavillonnaires de Ghlin aux demeures anciennes de Hyon, nous connaissons chaque particularité des installations de la région.
+          </p>
+          <p class="story-text">
+            Nous avons créé <strong>Plombier Mons Urgent</strong> pour offrir une alternative honnête et compétente face à la prolifération des plateformes de mise en relation impersonnelles qui surfacturent les dépannages en urgence et font appel à des sous-traitants venus de l'autre bout de la Belgique.
+          </p>
+          <p class="story-text">
+            Chez nous, votre interlocuteur téléphonique est le technicien qui planifie ou réalise votre dépannage. Nous vous garantissons un devis écrit et chiffré avant toute intervention, ainsi qu'une facture conforme pour votre compagnie d'assurance.
+          </p>
+        </div>
+
+        <div class="card certif-card">
+          <h3 class="certif-card-title">Nos Agréments & Garanties Officielles</h3>
+          <div class="certif-list">
+            <div class="certif-row">
+              <span class="material-symbols-outlined cert-icon">verified</span>
+              <div>
+                <strong>Agréation Gaz CERGA</strong>
+                <p>Habilitation officielle belge pour la pose, le dépannage et le contrôle des installations gaz.</p>
+              </div>
+            </div>
+
+            <div class="certif-row">
+              <span class="material-symbols-outlined cert-icon">workspace_premium</span>
+              <div>
+                <strong>Technicien Chauffage Agréé Région Wallonne</strong>
+                <p>Délivrance de l'attestation PEB légale pour chaudières gaz et mazout.</p>
+              </div>
+            </div>
+
+            <div class="certif-row">
+              <span class="material-symbols-outlined cert-icon">shield</span>
+              <div>
+                <strong>Responsabilité Civile Professionnelle</strong>
+                <p>Couverture intégrale auprès d'une compagnie d'assurance belge reconnue.</p>
+              </div>
+            </div>
+
+            <div class="certif-row">
+              <span class="material-symbols-outlined cert-icon">apartment</span>
+              <div>
+                <strong>Numéro d'Entreprise BCE vérifié</strong>
+                <p>Société enregistrée auprès de la Banque-Carrefour des Entreprises (TVA BE 0794.812.940).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment & Technology Section -->
+  <section class="section-py bg-light">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">ÉQUIPEMENT PROFESSIONNEL</span>
+        <h2 class="section-title">La Technologie au Service de la Précision</h2>
+        <p class="section-desc">
+          Nos véhicules d'intervention sont de véritables ateliers mobiles équipés des dernières technologies du secteur.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card eq-card">
+          <div class="eq-icon-box">
+            <span class="material-symbols-outlined">speed</span>
+          </div>
+          <h3 class="eq-title">Hydrocureuse Haute Pression 300 Bars</h3>
+          <p class="eq-desc">
+            Système embarqué sur camionnette permettant de déboucher et décaper les canalisations les plus obstruées (graisses cuites, racines, calcaire fossilisé) sans recourir à des acides dangereux pour les conduits.
+          </p>
+        </div>
+
+        <div class="card eq-card">
+          <div class="eq-icon-box">
+            <span class="material-symbols-outlined">videocam</span>
+          </div>
+          <h3 class="eq-title">Caméras d'Endoscopie Vidéo HD</h3>
+          <p class="eq-desc">
+            Têtes de caméras étanches auto-nivelantes avec compteur métrique pour inspecter l'intérieur des canalisations de 40 mm à 250 mm et repérer immédiatement la cause exacte du refoulement.
+          </p>
+        </div>
+
+        <div class="card eq-card">
+          <div class="eq-icon-box">
+            <span class="material-symbols-outlined">radar</span>
+          </div>
+          <h3 class="eq-title">Détection Thermique et Gaz Traceur</h3>
+          <p class="eq-desc">
+            Caméras thermiques infrarouges haute sensibilité et kits de gaz traceur hydrogène-azote pour identifier les fuites invisibles sous dallage ou dans les cloisons sans abîmer les revêtements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Core Values -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">VALEURS FONDAMENTALES</span>
+        <h2 class="section-title">Nos 4 Piliers de Confiance</h2>
+        <p class="section-desc">Ce que nous garantissons à chacun de nos clients montois.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card val-card">
+          <div class="val-num">01</div>
+          <h3 class="val-title">Arrivée en 20-30 min</h3>
+          <p class="val-desc">
+            Une vraie présence sur le terrain à Mons pour sécuriser les urgences sans attente anxiogène.
+          </p>
+        </div>
+
+        <div class="card val-card">
+          <div class="val-num">02</div>
+          <h3 class="val-title">Devis Avant Travaux</h3>
+          <p class="val-desc">
+            Un prix transparent et validé par écrit. Vous gardez la maîtrise totale de vos dépenses.
+          </p>
+        </div>
+
+        <div class="card val-card">
+          <div class="val-num">03</div>
+          <h3 class="val-title">Pièces de Qualité</h3>
+          <p class="val-desc">
+            Nous n'utilisons que des pièces certifiées Belgaqua et des marques leaders durables.
+          </p>
+        </div>
+
+        <div class="card val-card">
+          <div class="val-num">04</div>
+          <h3 class="val-title">Facture d'Assurance</h3>
+          <p class="val-desc">
+            Rapports photo et factures détaillées pour faciliter votre remboursement d'assurance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Lead Form Section -->
+  <section class="section-py bg-light">
+    <div class="container" style="max-width: 820px;">
+      <ContactForm
+        title="Une Question ou un Projet Sanitaire ?"
+        subtitle="Contactez notre équipe d'artisans montois pour un devis gratuit et personnalisé."
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(180deg, var(--surface-container-low) 0%, var(--surface) 100%);
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid var(--outline-variant);
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--on-surface);
+    margin: 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .page-title {
+      font-size: 2.85rem;
+    }
+  }
+
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--on-surface-variant);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .story-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+  }
+
+  .story-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    margin: 0.35rem 0 1.25rem;
+    letter-spacing: -0.015em;
+  }
+
+  .story-text {
+    font-size: 1rem;
+    color: var(--on-surface-variant);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .certif-card {
+    background-color: var(--surface-container-lowest);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .certif-card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--outline-variant);
+    padding-bottom: 0.75rem;
+  }
+
+  .certif-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .certif-row {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .cert-icon {
+    font-size: 24px;
+    color: var(--primary-container);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .certif-row strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--on-surface);
+    margin-bottom: 0.2rem;
+  }
+
+  .certif-row p {
+    font-size: 0.85rem;
+    color: var(--on-surface-variant);
+    line-height: 1.5;
+  }
+
+  /* Equipment */
+  .eq-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .eq-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-lg);
+    background-color: var(--surface-container-low);
+    color: var(--primary-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .eq-icon-box span {
+    font-size: 26px;
+  }
+
+  .eq-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--on-surface);
+  }
+
+  .eq-desc {
+    font-size: 0.9rem;
+    color: var(--on-surface-variant);
+    line-height: 1.6;
+  }
+
+  /* Values */
+  .val-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .val-num {
+    font-family: var(--font-inter);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--primary-container);
+    opacity: 0.4;
+  }
+
+  .val-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--on-surface);
+  }
+
+  .val-desc {
+    font-size: 0.88rem;
+    color: var(--on-surface-variant);
+    line-height: 1.55;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+</style>

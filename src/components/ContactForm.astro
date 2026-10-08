@@ -1,0 +1,228 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  id?: string;
+}
+
+const {
+  title = "Demander un Rappel Immédiat ou un Devis",
+  subtitle = "Notre répartiteur d'astreinte vous contacte en moins de 5 minutes chrono.",
+  id = "form-intervention",
+} = Astro.props;
+---
+
+<div class="lead-form-card" id={id}>
+  <div class="form-header">
+    <h3 class="form-title">{title}</h3>
+    <p class="form-subtitle">{subtitle}</p>
+  </div>
+
+  <form id="express-lead-form" class="express-form">
+    <div class="form-grid-2">
+      <div>
+        <label for="lead-nom" class="form-label">Nom et Prénom *</label>
+        <input
+          type="text"
+          id="lead-nom"
+          name="nom"
+          class="form-input"
+          placeholder="Ex. Michel Dubois"
+          required
+        />
+      </div>
+      <div>
+        <label for="lead-tel" class="form-label">Numéro de téléphone *</label>
+        <input
+          type="tel"
+          id="lead-tel"
+          name="telephone"
+          class="form-input"
+          placeholder="Ex. 0470 12 34 56"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-grid-2">
+      <div>
+        <label for="lead-zone" class="form-label">Commune ou Code Postal *</label>
+        <select id="lead-zone" name="commune" class="form-select" required>
+          <option value="" disabled selected>Sélectionnez votre commune</option>
+          <option value="7000 Mons">7000 Mons Centre</option>
+          <option value="7011 Ghlin">7011 Ghlin</option>
+          <option value="7012 Jemappes">7012 Jemappes / Flénu</option>
+          <option value="7033 Cuesmes">7033 Cuesmes</option>
+          <option value="7020 Nimy">7020 Nimy / Maisières</option>
+          <option value="7021 Havré">7021 Havré</option>
+          <option value="7022 Hyon">7022 Hyon / Mesvin / Ciply</option>
+          <option value="7080 Frameries">7080 Frameries</option>
+          <option value="7390 Quaregnon">7390 Quaregnon</option>
+          <option value="7300 Boussu">7300 Boussu</option>
+          <option value="7330 Saint-Ghislain">7330 Saint-Ghislain</option>
+          <option value="Autre commune Hainaut">Autre commune du Hainaut</option>
+        </select>
+      </div>
+      <div>
+        <label for="lead-service" class="form-label">Type d'urgence ou de travaux *</label>
+        <select id="lead-service" name="service" class="form-select" required>
+          <option value="" disabled selected>Nature du problème</option>
+          <option value="Fuite d'eau urgente">Urgence : Fuite d'eau ou inondation</option>
+          <option value="Canalisation ou WC bouché">Urgence : WC ou égout bouché</option>
+          <option value="Panne chaudière">Urgence : Chaudière en panne / pas de chauffage</option>
+          <option value="Panne eau chaude">Urgence : Plus d'eau chaude / boiler</option>
+          <option value="Recherche de fuite">Recherche de fuite non destructive</option>
+          <option value="Entretien chaudière">Entretien chaudière légal PEB</option>
+          <option value="Adoucisseur d'eau">Installation d'adoucisseur anti-calcaire</option>
+          <option value="Rénovation sanitaire">Rénovation de salle de bain</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="lead-details" class="form-label">Précisions utiles (optionnel)</label>
+      <textarea
+        id="lead-details"
+        name="details"
+        class="form-textarea"
+        rows="3"
+        placeholder="Précisez la situation (ex: fuite sous évier, compteur qui tourne, marque de chaudière...)"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary form-submit-btn" id="btn-submit-lead">
+      <span class="material-symbols-outlined">send</span>
+      <span>Envoyer ma demande prioritaire</span>
+    </button>
+
+    <div id="lead-success-message" class="success-banner hide">
+      <span class="material-symbols-outlined check-icon">check_circle</span>
+      <div>
+        <strong>Demande transmise avec succès !</strong>
+        <p>Notre technicien de garde prend contact avec vous par téléphone d'ici 5 minutes.</p>
+      </div>
+    </div>
+
+    <div class="form-security-note">
+      <span class="material-symbols-outlined note-icon">lock</span>
+      <span>Vos informations sont strictement confidentielles et ne sont jamais transmises à des tiers.</span>
+    </div>
+  </form>
+</div>
+
+<style>
+  .lead-form-card {
+    background-color: var(--surface-container-lowest);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-xl);
+  }
+
+  @media (max-width: 640px) {
+    .lead-form-card {
+      padding: 1.5rem;
+    }
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.9rem;
+    color: var(--on-surface-variant);
+  }
+
+  .express-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .form-grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .success-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--primary-container);
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+
+  .check-icon {
+    font-size: 24px;
+    color: var(--primary-container);
+    flex-shrink: 0;
+  }
+
+  .form-security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-family: var(--font-inter);
+    font-size: 0.78rem;
+    color: var(--on-surface-variant);
+    text-align: center;
+    padding-top: 0.25rem;
+  }
+
+  .note-icon {
+    font-size: 16px;
+    color: var(--outline);
+  }
+
+  .hide {
+    display: none !important;
+  }
+</style>
+
+<script>
+  const leadForm = document.getElementById('express-lead-form') as HTMLFormElement;
+  const successBox = document.getElementById('lead-success-message');
+  const submitBtn = document.getElementById('btn-submit-lead') as HTMLButtonElement;
+
+  if (leadForm && successBox && submitBtn) {
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Envoi en cours...';
+
+      setTimeout(() => {
+        leadForm.reset();
+        successBox.classList.remove('hide');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined">send</span><span>Demande envoyée !</span>';
+      }, 700);
+    });
+  }
+</script>
