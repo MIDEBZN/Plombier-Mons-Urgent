@@ -15,82 +15,85 @@ const navItems = [
 ---
 
 <header class="site-header">
-  <!-- Top Trust & Credentials Bar -->
-  <div class="top-trust-bar" style="background: var(--color-navy-dark, #0B1728); color: #94A3B8; font-size: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 0.35rem 0;">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-      <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
-        <span style="display: flex; align-items: center; gap: 0.35rem; color: #E2E8F0;">
-          <span class="material-symbols-outlined" style="font-size: 14px; color: var(--color-teal);">verified</span>
+  <!-- Top Trust & Credentials Bar (Desktop & Tablet) -->
+  <div class="top-trust-bar">
+    <div class="container top-trust-inner">
+      <div class="trust-left">
+        <span class="trust-badge">
+          <span class="material-symbols-outlined trust-icon">verified</span>
           <strong>15+ ans d'expérience</strong> (Fondé en 2009)
         </span>
-        <span style="display: flex; align-items: center; gap: 0.35rem; color: #CBD5E1;">
-          <span class="material-symbols-outlined" style="font-size: 14px; color: var(--color-teal);">workspace_premium</span>
+        <span class="trust-badge">
+          <span class="material-symbols-outlined trust-icon">workspace_premium</span>
           Agréé CERGA Gaz & PEB Wallonie
         </span>
-        <span style="display: flex; align-items: center; gap: 0.35rem; color: #CBD5E1;">
-          <span class="material-symbols-outlined" style="font-size: 14px; color: var(--color-teal);">shield</span>
+        <span class="trust-badge hide-tablet">
+          <span class="material-symbols-outlined trust-icon">shield</span>
           Assurance Décennale AXA Belgium
         </span>
       </div>
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <span style="display: flex; align-items: center; gap: 0.35rem; color: #FCA5A5;">
-          <span class="material-symbols-outlined" style="font-size: 14px; color: var(--color-alert);">timer</span>
+      <div class="trust-right">
+        <span class="trust-badge urgent-highlight">
+          <span class="material-symbols-outlined trust-icon alert-icon">timer</span>
           Arrivée garantie en 20 à 30 min
         </span>
-        <span style="color: #64748B;">|</span>
-        <span style="color: #E2E8F0; font-weight: 600;">Devis 100% ferme avant travaux</span>
+        <span class="trust-divider">|</span>
+        <span class="trust-quote">Devis 100% ferme avant travaux</span>
       </div>
     </div>
   </div>
 
-  <div class="container header-container">
-    <!-- Brand Logo -->
-    <a href="/" class="brand-link" aria-label="Plombier Mons Urgent - Accueil">
-      <div class="brand-icon">
-        <span class="material-symbols-outlined icon-display">plumbing</span>
-      </div>
-      <div class="brand-text">
-        <span class="brand-name">PLOMBIER MONS URGENT</span>
-        <span class="brand-sub">Artisan Dépannage 24/7 Hainaut</span>
-      </div>
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav" aria-label="Navigation principale">
-      {navItems.map((item) => (
-        <a
-          href={item.href}
-          class:list={['nav-link', { 'active': currentPage === item.id }]}
-        >
-          {item.label}
-        </a>
-      ))}
-    </nav>
-
-    <!-- Header Actions -->
-    <div class="header-actions">
-      <!-- Live Status Pill (Desktop) -->
-      <div class="status-pill">
-        <span class="pulse-dot teal"></span>
-        <span class="status-text">Disponible • Arrivée en 20-30 min</span>
-      </div>
-
-      <!-- Emergency Call Button -->
-      <a href="tel:065700387" class="btn-primary call-btn">
-        <span class="material-symbols-outlined">phone_in_talk</span>
-        <span>065 70 03 87</span>
+  <!-- Main Navigation Bar -->
+  <div class="main-navbar">
+    <div class="container header-container">
+      <!-- Brand Logo -->
+      <a href="/" class="brand-link" aria-label="Plombier Mons Urgent - Accueil">
+        <div class="brand-icon">
+          <span class="material-symbols-outlined icon-display">plumbing</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">PLOMBIER MONS URGENT</span>
+          <span class="brand-sub">Artisan Dépannage 24/7 Hainaut</span>
+        </div>
       </a>
 
-      <!-- Mobile Menu Trigger -->
-      <button
-        id="mobile-menu-toggle"
-        class="mobile-toggle"
-        aria-label="Ouvrir le menu de navigation"
-        aria-expanded="false"
-      >
-        <span class="material-symbols-outlined" id="menu-icon-bars">menu</span>
-        <span class="material-symbols-outlined hide" id="menu-icon-close">close</span>
-      </button>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={['nav-link', { 'active': currentPage === item.id }]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Live Status Pill (Large Desktop only to prevent crowding) -->
+        <div class="status-pill">
+          <span class="pulse-dot teal"></span>
+          <span class="status-text">Disponible • 24h/24 & 7j/7</span>
+        </div>
+
+        <!-- Emergency Call Button -->
+        <a href="tel:0489164378" class="btn-primary call-btn" aria-label="Appeler d'urgence le 0489 16 43 78">
+          <span class="material-symbols-outlined call-icon">phone_in_talk</span>
+          <span class="call-number">0489 16 43 78</span>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button
+          id="mobile-menu-toggle"
+          class="mobile-toggle"
+          aria-label="Ouvrir le menu de navigation"
+          aria-expanded="false"
+        >
+          <span class="material-symbols-outlined" id="menu-icon-bars">menu</span>
+          <span class="material-symbols-outlined hide" id="menu-icon-close">close</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -112,11 +115,11 @@ const navItems = [
         ))}
       </nav>
       <div class="mobile-drawer-cta">
-        <a href="tel:065700387" class="btn-tertiary w-full">
+        <a href="tel:0489164378" class="btn-tertiary w-full">
           <span class="material-symbols-outlined">call</span>
-          <span>Appeler le 065 70 03 87</span>
+          <span>Appeler le 0489 16 43 78</span>
         </a>
-        <a href="https://wa.me/3265700387" class="btn-secondary w-full" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/32489164378" class="btn-secondary w-full" target="_blank" rel="noopener noreferrer">
           <span class="material-symbols-outlined text-teal">chat</span>
           <span>WhatsApp Direct</span>
         </a>
@@ -131,13 +134,97 @@ const navItems = [
     top: 0;
     left: 0;
     right: 0;
-    z-index: 50;
-    height: 80px;
-    background-color: rgba(255, 255, 255, 0.94);
+    z-index: 100;
+    width: 100%;
+  }
+
+  /* Top Trust Bar */
+  .top-trust-bar {
+    background: #0B1728;
+    color: #94A3B8;
+    font-size: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.35rem 0;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 991px) {
+    .top-trust-bar {
+      display: none;
+    }
+  }
+
+  .top-trust-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .trust-left {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+  }
+
+  .trust-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #CBD5E1;
+    white-space: nowrap;
+  }
+
+  .trust-badge strong {
+    color: #F8FAFC;
+  }
+
+  .trust-icon {
+    font-size: 14px;
+    color: var(--primary-container, #008080);
+    line-height: 1;
+  }
+
+  .alert-icon {
+    color: #FCA5A5;
+  }
+
+  .urgent-highlight {
+    color: #FCA5A5;
+    font-weight: 600;
+  }
+
+  .trust-divider {
+    color: #475569;
+  }
+
+  .trust-quote {
+    color: #E2E8F0;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1200px) {
+    .hide-tablet {
+      display: none;
+    }
+  }
+
+  /* Main Nav Bar */
+  .main-navbar {
+    background-color: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--outline-variant);
-    box-shadow: 0 2px 12px rgba(12, 29, 42, 0.04);
+    border-bottom: 1px solid var(--outline-variant, #E2E8F0);
+    box-shadow: 0 2px 12px rgba(12, 29, 42, 0.05);
+    height: 72px;
   }
 
   .header-container {
@@ -148,28 +235,31 @@ const navItems = [
     gap: 1rem;
   }
 
+  /* Brand */
   .brand-link {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
     color: var(--on-surface);
+    flex-shrink: 0;
   }
 
   .brand-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-lg);
-    background-color: var(--primary-container);
-    color: var(--on-primary);
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-lg, 0.75rem);
+    background-color: var(--primary-container, #008080);
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 128, 128, 0.25);
+    flex-shrink: 0;
   }
 
   .icon-display {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .brand-text {
@@ -178,26 +268,30 @@ const navItems = [
   }
 
   .brand-name {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: var(--secondary);
+    color: var(--secondary, #10213A);
     line-height: 1.2;
+    white-space: nowrap;
   }
 
   .brand-sub {
-    font-family: var(--font-inter);
-    font-size: 0.7rem;
+    font-family: var(--font-inter, sans-serif);
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--primary-container);
+    color: var(--primary-container, #008080);
+    white-space: nowrap;
   }
 
+  /* Desktop Nav */
   .desktop-nav {
     display: none;
     align-items: center;
-    gap: 1.75rem;
+    gap: 1.15rem;
+    flex-shrink: 0;
   }
 
   @media (min-width: 1024px) {
@@ -206,68 +300,130 @@ const navItems = [
     }
   }
 
+  @media (min-width: 1200px) {
+    .desktop-nav {
+      gap: 1.5rem;
+    }
+  }
+
   .nav-link {
-    font-family: var(--font-inter);
-    font-size: 0.95rem;
+    font-family: var(--font-inter, sans-serif);
+    font-size: 0.92rem;
     font-weight: 600;
-    color: var(--on-surface-variant);
+    color: var(--on-surface-variant, #475569);
     transition: color 0.2s ease;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0.1rem;
     position: relative;
+    white-space: nowrap !important;
+    text-decoration: none;
   }
 
   .nav-link:hover {
-    color: var(--primary-container);
+    color: var(--primary-container, #008080);
   }
 
   .nav-link.active {
-    color: var(--primary-container);
+    color: var(--primary-container, #008080);
     font-weight: 700;
   }
 
   .nav-link.active::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: -6px;
     left: 0;
     width: 100%;
-    height: 2px;
-    background-color: var(--primary-container);
+    height: 2.5px;
+    background-color: var(--primary-container, #008080);
     border-radius: 2px;
   }
 
+  /* Actions */
   .header-actions {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-shrink: 0;
   }
 
+  /* Status Pill - only visible on wide screens to avoid crushing nav links */
   .status-pill {
     display: none;
     align-items: center;
-    gap: 0.5rem;
-    background-color: var(--surface-container-low);
+    gap: 0.45rem;
+    background-color: var(--surface-container-low, #ecf4ff);
     border: 1px solid rgba(0, 128, 128, 0.2);
-    padding: 0.4rem 0.85rem;
-    border-radius: var(--radius-full);
+    padding: 0.38rem 0.75rem;
+    border-radius: var(--radius-full, 9999px);
+    white-space: nowrap;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1300px) {
     .status-pill {
       display: inline-flex;
     }
   }
 
   .status-text {
-    font-family: var(--font-inter);
+    font-family: var(--font-inter, sans-serif);
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--on-surface-variant);
+    color: var(--on-surface-variant, #3e4949);
+    white-space: nowrap;
   }
 
+  .pulse-dot.teal {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #008080;
+    box-shadow: 0 0 0 0 rgba(0, 128, 128, 0.7);
+    animation: pulse-animation 2s infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 128, 128, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(0, 128, 128, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 128, 128, 0);
+    }
+  }
+
+  /* Call Button */
   .call-btn {
-    padding: 0.65rem 1.15rem;
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    white-space: nowrap !important;
+    text-decoration: none;
+    border-radius: var(--radius-full, 9999px);
+    background-color: var(--primary-container, #008080);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 128, 128, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+
+  .call-btn:hover {
+    background-color: var(--primary, #006565);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 128, 128, 0.35);
+  }
+
+  .call-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .call-number {
+    letter-spacing: 0.01em;
   }
 
   @media (max-width: 640px) {
@@ -276,17 +432,23 @@ const navItems = [
     }
   }
 
+  /* Mobile Hamburger */
   .mobile-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 42px;
     height: 42px;
-    border-radius: var(--radius-md);
-    background-color: var(--surface-container-low);
-    border: 1px solid var(--outline-variant);
-    color: var(--on-surface);
+    border-radius: var(--radius-md, 0.5rem);
+    background-color: var(--surface-container-low, #ecf4ff);
+    border: 1px solid var(--outline-variant, #bdc9c8);
+    color: var(--on-surface, #0c1d2a);
     cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-toggle:hover {
+    background-color: var(--surface-container, #e2efff);
   }
 
   @media (min-width: 1024px) {
@@ -295,10 +457,11 @@ const navItems = [
     }
   }
 
+  /* Mobile Drawer */
   .mobile-drawer {
     background-color: #ffffff;
-    border-bottom: 1px solid var(--outline-variant);
-    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--outline-variant, #bdc9c8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     padding-bottom: 1.5rem;
   }
 
@@ -318,12 +481,12 @@ const navItems = [
     align-items: center;
     gap: 0.6rem;
     padding: 0.6rem 0.85rem;
-    background-color: var(--surface-container-low);
-    border-radius: var(--radius-md);
-    font-family: var(--font-inter);
+    background-color: var(--surface-container-low, #ecf4ff);
+    border-radius: var(--radius-md, 0.5rem);
+    font-family: var(--font-inter, sans-serif);
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--on-surface);
+    color: var(--on-surface, #0c1d2a);
   }
 
   .mobile-nav-links {
@@ -336,14 +499,15 @@ const navItems = [
     padding: 0.75rem 0.5rem;
     font-size: 1.05rem;
     font-weight: 600;
-    border-radius: var(--radius-md);
-    color: var(--on-surface);
-    transition: background-color 0.2s ease;
+    border-radius: var(--radius-md, 0.5rem);
+    color: var(--on-surface, #0c1d2a);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .mobile-nav-link:hover, .mobile-nav-link.active {
-    background-color: var(--surface-container-low);
-    color: var(--primary-container);
+    background-color: var(--surface-container-low, #ecf4ff);
+    color: var(--primary-container, #008080);
   }
 
   .mobile-drawer-cta {
@@ -358,7 +522,7 @@ const navItems = [
   }
 
   .text-teal {
-    color: var(--primary-container);
+    color: var(--primary-container, #008080);
   }
 
   .hide {
