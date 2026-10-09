@@ -1,0 +1,841 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllArticles, type Article } from '../../lib/articles';
+
+export async function getStaticPaths() {
+  const articles = getAllArticles();
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: {
+      article,
+      allArticles: articles,
+    },
+  }));
+}
+
+interface Props {
+  article: Article;
+  allArticles: Article[];
+}
+
+const { article, allArticles } = Astro.props;
+
+const canonicalUrl = `https://www.plombiermonsurgent.be/blog/${article.slug}`;
+
+// Select 3 related articles (prioritize same category, fallback to others)
+const relatedArticles = allArticles
+  .filter((a) => a.slug !== article.slug)
+  .sort((a, b) => {
+    if (a.category === article.category && b.category !== article.category) return -1;
+    if (b.category === article.category && a.category !== article.category) return 1;
+    return 0;
+  })
+  .slice(0, 3);
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "headline": article.title,
+  "description": article.description,
+  "image": "https://www.plombiermonsurgent.be/logo-512.webp",
+  "datePublished": "2026-10-09T08:00:00+02:00",
+  "dateModified": "2026-10-09T08:00:00+02:00",
+  "inLanguage": "fr-BE",
+  "author": {
+    "@type": "Organization",
+    "name": "Roveo Plombier Mons Urgent",
+    "url": "https://www.plombiermonsurgent.be"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Plombier Mons Urgent",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.plombiermonsurgent.be/logo-512.webp"
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://www.plombiermonsurgent.be/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.plombiermonsurgent.be/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": article.title,
+      "item": canonicalUrl
+    }
+  ]
+};
+---
+
+<Layout
+  title={article.title}
+  description={article.description}
+  canonicalPath={`/blog/${article.slug}`}
+  currentPage="blog"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} is:inline />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} is:inline />
+
+  <article class="single-article-page">
+    <!-- Header Hero -->
+    <header class="article-hero">
+      <div class="container article-hero-inner">
+        <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+          <a href="/">Accueil</a>
+          <span class="sep">/</span>
+          <a href="/blog">Blog</a>
+          <span class="sep">/</span>
+          <span class="current" aria-current="page">{article.title}</span>
+        </nav>
+
+        <div class="article-meta-tags">
+          <span class="category-pill">{article.category}</span>
+          <span class="meta-item">
+            <span class="material-symbols-outlined">schedule</span>
+            {article.readingTime}
+          </span>
+          <span class="meta-item">
+            <span class="material-symbols-outlined">calendar_today</span>
+            Mis à jour le {article.publishedDate}
+          </span>
+        </div>
+
+        <h1 class="article-main-title">{article.h1}</h1>
+
+        <div class="trust-author-strip">
+          <div class="author-badge">
+            <span class="material-symbols-outlined author-icon">verified_user</span>
+            <span>Rédigé & validé par l'équipe d'artisans agréés CERGA</span>
+          </div>
+          <span class="dot">•</span>
+          <div class="location-badge">
+            <span class="material-symbols-outlined location-icon">location_on</span>
+            <span>Grand Mons & Borinage (7000)</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Urgent Help Callout Bar -->
+    <section class="emergency-bar">
+      <div class="container emergency-bar-inner">
+        <div class="emergency-icon-wrap">
+          <span class="material-symbols-outlined">faucet</span>
+        </div>
+        <div class="emergency-text">
+          <strong>Vous subissez cette panne actuellement ?</strong>
+          <span>Nos techniciens interviennent chez vous en 20 à 30 minutes, 24h/24 et 7j/7. Devis gratuit et ferme.</span>
+        </div>
+        <a href="tel:0489164378" class="btn-call-emergency">
+          <span class="material-symbols-outlined">phone_in_talk</span>
+          0489 16 43 78
+        </a>
+      </div>
+    </section>
+
+    <!-- Main Content Layout with Sidebar -->
+    <section class="article-body-section">
+      <div class="container article-layout">
+        <!-- Main Prose Column -->
+        <div class="article-prose-col">
+          <div class="prose-content" set:html={article.contentHtml} />
+
+          <!-- Bottom Reassurance Card -->
+          <div class="article-trust-card">
+            <div class="trust-card-header">
+              <span class="material-symbols-outlined shield-icon">shield</span>
+              <div>
+                <h3>Besoin d'un artisan plombier de confiance à Mons ?</h3>
+                <p>Intervention rapide, agréments certifiés et tarifs réglementés</p>
+              </div>
+            </div>
+            <ul class="trust-card-list">
+              <li>
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span><strong>Intervention en 20 à 30 min</strong> à Mons, Nimy, Cuesmes, Ghlin, Jemappes et communes voisines.</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span><strong>Agrément CERGA Gaz & Chauffage</strong> et certification PEB officielle en Wallonie.</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span><strong>Devis 100% ferme et gratuit</strong> présenté avant tout démarrage des travaux.</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span><strong>Garantie décennale & RC AXA</strong> : couverture complète pour vos dossiers d'assurance.</span>
+              </li>
+            </ul>
+            <div class="trust-card-action">
+              <a href="tel:0489164378" class="btn-card-call">
+                <span class="material-symbols-outlined">phone_in_talk</span>
+                Appeler le 0489 16 43 78 (Urgence 24/7)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Sticky Column -->
+        <aside class="article-sidebar">
+          <div class="sidebar-sticky-box">
+            <div class="sidebar-contact-card">
+              <span class="sidebar-badge">DISPONIBILITÉ 24H/24</span>
+              <h4>Dépannage d'Urgence</h4>
+              <p>Une question ou un diagnostic immédiat par téléphone ?</p>
+              <a href="tel:0489164378" class="sidebar-phone-btn">
+                <span class="material-symbols-outlined">call</span>
+                0489 16 43 78
+              </a>
+              <span class="sidebar-note">Ligne prioritaire Mons 7j/7</span>
+            </div>
+
+            <div class="sidebar-links-card">
+              <h4>Services Associés</h4>
+              <ul class="sidebar-service-links">
+                <li><a href="/services/depannage-urgence">Dépannage Plomberie Urgence</a></li>
+                <li><a href="/services/debouchage">Débouchage WC & Canalisation</a></li>
+                <li><a href="/services/detection-fuites">Détection de Fuite d'Eau</a></li>
+                <li><a href="/services/chauffage-chaudieres">Chauffage & Entretien Boiler</a></li>
+                <li><a href="/services/installations-sanitaires">Installations Sanitaires</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Related Articles -->
+    {relatedArticles.length > 0 && (
+      <section class="related-section">
+        <div class="container">
+          <h2 class="related-title">Articles et guides complémentaires</h2>
+          <div class="related-grid">
+            {relatedArticles.map((rel) => (
+              <div class="related-card">
+                <span class="related-cat">{rel.category}</span>
+                <h3 class="related-card-title">
+                  <a href={`/blog/${rel.slug}`}>{rel.title}</a>
+                </h3>
+                <p class="related-excerpt">{rel.excerpt}</p>
+                <a href={`/blog/${rel.slug}`} class="related-link">
+                  <span>Consulter le guide</span>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .single-article-page {
+    background-color: var(--surface);
+  }
+
+  .article-hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, #152c48 100%);
+    color: #ffffff;
+    padding: 3rem 0 2.5rem;
+    border-bottom: 3px solid var(--primary);
+  }
+
+  .article-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #cbdcee;
+    margin-bottom: 1.25rem;
+  }
+
+  .breadcrumb-nav a {
+    color: #cbdcee;
+    text-decoration: underline;
+  }
+
+  .breadcrumb-nav .sep {
+    opacity: 0.5;
+  }
+
+  .breadcrumb-nav .current {
+    color: #ffffff;
+    font-weight: 600;
+    max-width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .article-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-pill {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.825rem;
+    color: #cbdcee;
+  }
+
+  .meta-item .material-symbols-outlined {
+    font-size: 1rem;
+    color: var(--primary-fixed);
+  }
+
+  .article-main-title {
+    font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .trust-author-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: #d9eafd;
+    padding-top: 0.5rem;
+  }
+
+  .author-badge, .location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .author-icon, .location-icon {
+    font-size: 1.1rem;
+    color: var(--primary-fixed);
+  }
+
+  .dot {
+    opacity: 0.5;
+  }
+
+  /* Emergency Bar */
+  .emergency-bar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--outline-variant);
+    padding: 1rem 0;
+  }
+
+  .emergency-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .emergency-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: rgba(224, 90, 71, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary);
+    flex-shrink: 0;
+  }
+
+  .emergency-text {
+    flex-grow: 1;
+    min-width: 260px;
+  }
+
+  .emergency-text strong {
+    display: block;
+    color: var(--secondary);
+    font-size: 0.95rem;
+  }
+
+  .emergency-text span {
+    font-size: 0.85rem;
+    color: #475569;
+  }
+
+  .btn-call-emergency {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--tertiary);
+    color: #ffffff;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn-call-emergency:hover {
+    background: var(--tertiary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Article Body Section */
+  .article-body-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .article-prose-col {
+    background: #ffffff;
+    border: 1px solid rgba(16, 33, 58, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Prose Styling */
+  .prose-content {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #1e293b;
+    word-break: break-word;
+  }
+
+  .prose-content :global(h2) {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    border-bottom: 2px solid var(--surface-container);
+    padding-bottom: 0.4rem;
+  }
+
+  .prose-content :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 1.8rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .prose-content :global(h4) {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose-content :global(ul), .prose-content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-content :global(strong) {
+    color: var(--secondary);
+    font-weight: 700;
+  }
+
+  .prose-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .prose-content :global(th), .prose-content :global(td) {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--outline-variant);
+    text-align: left;
+  }
+
+  .prose-content :global(th) {
+    background-color: var(--surface-container-low);
+    color: var(--secondary);
+    font-weight: 700;
+  }
+
+  .prose-content :global(tr:nth-child(even)) {
+    background-color: var(--surface);
+  }
+
+  .prose-content :global(blockquote) {
+    border-left: 4px solid var(--primary);
+    padding: 1rem 1.25rem;
+    background: var(--surface-container-low);
+    color: var(--secondary);
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .prose-content :global(hr) {
+    border: 0;
+    height: 1px;
+    background: var(--outline-variant);
+    margin: 2.5rem 0;
+  }
+
+  .prose-content :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  /* Trust Card Inside Article */
+  .article-trust-card {
+    background: var(--surface-container-low);
+    border: 2px solid var(--primary-fixed-dim);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .trust-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .shield-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+  }
+
+  .trust-card-header h3 {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin: 0;
+    font-weight: 800;
+  }
+
+  .trust-card-header p {
+    font-size: 0.9rem;
+    color: #475569;
+    margin: 0;
+  }
+
+  .trust-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+
+  .trust-card-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .check-icon {
+    font-size: 1.25rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .trust-card-action {
+    text-align: center;
+  }
+
+  .btn-card-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--tertiary);
+    color: #ffffff;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn-card-call:hover {
+    background: var(--tertiary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Sidebar */
+  .article-sidebar {
+    position: relative;
+  }
+
+  .sidebar-sticky-box {
+    position: sticky;
+    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-contact-card {
+    background: #ffffff;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sidebar-badge {
+    display: inline-block;
+    background: rgba(224, 90, 71, 0.12);
+    color: var(--tertiary);
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .sidebar-contact-card h4 {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-contact-card p {
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-phone-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--tertiary);
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .sidebar-phone-btn:hover {
+    background: var(--tertiary-dark);
+  }
+
+  .sidebar-note {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--outline);
+    margin-top: 0.5rem;
+  }
+
+  .sidebar-links-card {
+    background: #ffffff;
+    border: 1px solid rgba(16, 33, 58, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sidebar-links-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--outline-variant);
+  }
+
+  .sidebar-service-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-service-links li {
+    margin-bottom: 0.65rem;
+  }
+
+  .sidebar-service-links a {
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+    display: block;
+    transition: color 0.15s ease;
+  }
+
+  .sidebar-service-links a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+
+  /* Related Section */
+  .related-section {
+    background: #ffffff;
+    border-top: 1px solid var(--outline-variant);
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .related-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .related-cat {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .related-card-title {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .related-card-title a {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+
+  .related-card-title a:hover {
+    color: var(--primary);
+  }
+
+  .related-excerpt {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #475569;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .related-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .article-sidebar {
+      order: 2;
+    }
+    .sidebar-sticky-box {
+      position: static;
+    }
+    .article-prose-col {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .emergency-bar-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn-call-emergency {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

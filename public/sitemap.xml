@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- 1. Accueil (Home) -->
+  <!-- 1. Pages Principales & Services -->
   <url>
     <loc>https://www.plombiermonsurgent.be/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- 2. Services Hub & Urgences -->
   <url>
     <loc>https://www.plombiermonsurgent.be/services</loc>
     <lastmod>2026-10-09</lastmod>
@@ -52,8 +50,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 3. Zones d'Intervention Hub & Communes -->
   <url>
     <loc>https://www.plombiermonsurgent.be/locations</loc>
     <lastmod>2026-10-09</lastmod>
@@ -108,8 +104,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- 4. Contact & À propos -->
   <url>
     <loc>https://www.plombiermonsurgent.be/contact</loc>
     <lastmod>2026-10-09</lastmod>
@@ -118,6 +112,194 @@
   </url>
   <url>
     <loc>https://www.plombiermonsurgent.be/about</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 2. Guides Pratiques & Blog Plomberie Mons (30 Dossiers d'Experts) -->
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-appeler-en-urgence-a-mons-24h24</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-un-plombier-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-appeler-pour-une-fuite-d-eau-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-un-debouchage-de-canalisation-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-appeler-pour-deboucher-un-wc-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/comment-trouver-un-plombier-fiable-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-la-reparation-d-une-fuite-d-eau-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-est-le-prix-d-un-plombier-en-urgence-a-mons-la-nuit-ou-le-week-end</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-intervient-le-dimanche-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-appeler-pour-reparer-un-boiler-ou-chauffe-eau-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-fait-une-recherche-de-fuite-non-destructive-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/qui-appeler-pour-une-fuite-d-eau-encastree-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-choisir-pour-renover-une-salle-de-bain-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-une-renovation-de-salle-de-bain-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-le-remplacement-d-un-boiler-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-installe-un-chauffe-eau-electrique-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/pourquoi-mon-boiler-ne-chauffe-plus-et-qui-appeler-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/qui-appeler-pour-un-egout-bouche-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-appeler-pour-deboucher-un-evier-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-une-inspection-camera-de-canalisation-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-appeler-pour-une-chasse-d-eau-qui-coule-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/combien-coute-le-remplacement-d-un-robinet-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/qui-appeler-en-cas-de-baisse-de-pression-d-eau-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/pourquoi-l-eau-remonte-dans-ma-douche-ou-mon-evier-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/locataire-ou-proprietaire-qui-doit-payer-le-plombier-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/mon-assurance-habitation-rembourse-t-elle-la-recherche-d-une-fuite-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/que-faire-avant-l-arrivee-du-plombier-en-cas-de-fuite-d-eau-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-est-le-delai-d-intervention-d-un-plombier-en-urgence-a-mons</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quel-plombier-intervient-a-jemappes-cuesmes-ou-ghlin</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.plombiermonsurgent.be/blog/quand-faut-il-faire-une-inspection-camera-apres-un-debouchage-a-mons</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

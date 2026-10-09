@@ -1,0 +1,600 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getAllArticles, CATEGORIES } from '../../lib/articles';
+
+const articles = getAllArticles();
+
+const pageTitle = "Blog & Guides Plomberie Mons : Tarifs, Conseils & Urgences";
+const pageDescription = "Consultez tous nos guides pratiques de plomberie à Mons : tarifs 2026, dépannage express, débouchage WC et réparation boiler. Artisan joignable au 0489 16 43 78.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": pageTitle,
+  "description": pageDescription,
+  "url": "https://www.plombiermonsurgent.be/blog",
+  "inLanguage": "fr-BE",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Plombier Mons Urgent",
+    "url": "https://www.plombiermonsurgent.be"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://www.plombiermonsurgent.be/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog & Guides",
+        "item": "https://www.plombiermonsurgent.be/blog"
+      }
+    ]
+  }
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/blog"
+  currentPage="blog"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+
+  <main class="blog-hub-page">
+    <!-- Hero Banner -->
+    <section class="blog-hero">
+      <div class="container blog-hero-inner">
+        <nav class="breadcrumb-nav" aria-label="Fil d'Ariane">
+          <a href="/">Accueil</a>
+          <span class="sep">/</span>
+          <span aria-current="page">Blog & Guides Plomberie</span>
+        </nav>
+        
+        <div class="hero-badge">
+          <span class="material-symbols-outlined">menu_book</span>
+          <span>Centre de Ressources & Conseils Pratiques</span>
+        </div>
+
+        <h1 class="hero-title">Guides & Conseils Plomberie à Mons</h1>
+        
+        <p class="hero-subtitle">
+          Retrouvez les conseils de nos artisans plombiers agréés CERGA : tarifs détaillés, réflexes en cas de fuite d'eau, techniques de débouchage et guides pour entretenir vos sanitaires dans tout le Grand Mons.
+        </p>
+
+        <div class="hero-cta-bar">
+          <div class="hero-urgency-card">
+            <span class="material-symbols-outlined call-icon">emergency</span>
+            <div>
+              <strong>Une urgence plomberie en cours ?</strong>
+              <span>Intervention garantie en 20 à 30 min sur Mons et alentours</span>
+            </div>
+            <a href="tel:0489164378" class="btn-hero-call">
+              <span class="material-symbols-outlined">phone_in_talk</span>
+              0489 16 43 78
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content & Articles Grid -->
+    <section class="articles-section">
+      <div class="container">
+        <!-- Category Filter Bar -->
+        <div class="filter-wrapper">
+          <div class="category-tabs" id="categoryTabs" role="tablist">
+            {CATEGORIES.map((cat, idx) => (
+              <button
+                type="button"
+                class={`category-pill ${idx === 0 ? 'active' : ''}`}
+                data-category={cat}
+                role="tab"
+                aria-selected={idx === 0 ? "true" : "false"}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Articles Counter -->
+        <div class="articles-header-bar">
+          <h2 class="section-title">
+            <span>Tous nos dossiers d'experts</span>
+            <span class="count-badge" id="articleCount">{articles.length} articles</span>
+          </h2>
+        </div>
+
+        <!-- Grid -->
+        <div class="articles-grid" id="articlesGrid">
+          {articles.map((art) => (
+            <article class="article-card" data-category={art.category}>
+              <div class="card-top">
+                <span class="category-tag">{art.category}</span>
+                <span class="reading-time">
+                  <span class="material-symbols-outlined">schedule</span>
+                  {art.readingTime}
+                </span>
+              </div>
+
+              <h3 class="card-title">
+                <a href={`/blog/${art.slug}`}>{art.title}</a>
+              </h3>
+
+              <p class="card-excerpt">{art.excerpt}</p>
+
+              <div class="card-footer">
+                <span class="card-date">Publié le {art.publishedDate}</span>
+                <a href={`/blog/${art.slug}`} class="card-read-more" aria-label={`Lire l'article : ${art.title}`}>
+                  <span>Lire le guide</span>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- No Results Fallback (JS) -->
+        <div class="no-results" id="noResults" style="display: none;">
+          <p>Aucun article trouvé dans cette catégorie.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Reassurance Banner -->
+    <section class="blog-reassurance">
+      <div class="container reassurance-inner">
+        <div class="reassurance-text">
+          <h2>Vous préférez qu'un artisan prenne les choses en main ?</h2>
+          <p>
+            Plombier Mons Urgent est à votre disposition 24h/24 et 7j/7 pour tout dépannage, débouchage mécanique, recherche de fuite non destructive et remplacement de chaudière.
+          </p>
+        </div>
+        <div class="reassurance-action">
+          <a href="tel:0489164378" class="btn-urgency-large">
+            <span class="material-symbols-outlined">phone_in_talk</span>
+            <span>0489 16 43 78 (Appel direct 24/7)</span>
+          </a>
+          <span class="sub-text">Devis gratuit et sans engagement avant toute intervention</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.category-pill');
+    const cards = document.querySelectorAll('.article-card');
+    const countBadge = document.getElementById('articleCount');
+    const noResults = document.getElementById('noResults');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const selectedCat = tab.getAttribute('data-category');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (selectedCat === 'Tous les articles' || cardCat === selectedCat) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countBadge) {
+          countBadge.textContent = `${visibleCount} article${visibleCount > 1 ? 's' : ''}`;
+        }
+
+        if (noResults) {
+          noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .blog-hub-page {
+    background-color: var(--surface);
+    min-height: 80vh;
+  }
+
+  .blog-hero {
+    background: linear-gradient(135deg, var(--secondary) 0%, #173254 100%);
+    color: #ffffff;
+    padding: 3.5rem 0 3rem;
+    border-bottom: 3px solid var(--primary);
+  }
+
+  .blog-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .breadcrumb-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #cbdcee;
+    margin-bottom: 1.25rem;
+  }
+
+  .breadcrumb-nav a {
+    color: #cbdcee;
+    text-decoration: underline;
+  }
+
+  .breadcrumb-nav .sep {
+    opacity: 0.6;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(0, 101, 101, 0.4);
+    border: 1px solid rgba(147, 242, 242, 0.3);
+    color: var(--primary-fixed);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #d9eafd;
+    max-width: 760px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-urgency-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    text-align: left;
+    backdrop-filter: blur(8px);
+    flex-wrap: wrap;
+  }
+
+  .hero-urgency-card .call-icon {
+    font-size: 2rem;
+    color: var(--tertiary);
+  }
+
+  .hero-urgency-card strong {
+    display: block;
+    font-size: 1rem;
+    color: #ffffff;
+  }
+
+  .hero-urgency-card span {
+    font-size: 0.85rem;
+    color: #cbdcee;
+  }
+
+  .btn-hero-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--tertiary);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-hero-call:hover {
+    background: var(--tertiary-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Articles Section */
+  .articles-section {
+    padding: 3rem 0 5rem;
+  }
+
+  .filter-wrapper {
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .category-pill {
+    background: #ffffff;
+    border: 1px solid var(--outline-variant);
+    color: var(--secondary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .category-pill:hover {
+    background: var(--surface-container-low);
+    border-color: var(--primary);
+  }
+
+  .category-pill.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+
+  .articles-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--outline-variant);
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .count-badge {
+    font-size: 0.8rem;
+    background: var(--surface-container);
+    color: var(--primary);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+  }
+
+  /* Grid */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .article-card {
+    background: #ffffff;
+    border: 1px solid rgba(16, 33, 58, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .category-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--surface-container-low);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .reading-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--outline);
+  }
+
+  .reading-time .material-symbols-outlined {
+    font-size: 0.95rem;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--secondary);
+  }
+
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .card-title a:hover {
+    color: var(--primary);
+  }
+
+  .card-excerpt {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: #475569;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.8rem;
+  }
+
+  .card-date {
+    color: var(--outline);
+  }
+
+  .card-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: gap 0.15s ease;
+  }
+
+  .card-read-more:hover {
+    gap: 0.45rem;
+  }
+
+  .card-read-more .material-symbols-outlined {
+    font-size: 1rem;
+  }
+
+  /* Bottom Reassurance */
+  .blog-reassurance {
+    background: #ffffff;
+    border-top: 1px solid var(--outline-variant);
+    padding: 3.5rem 0;
+  }
+
+  .reassurance-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .reassurance-text {
+    max-width: 650px;
+  }
+
+  .reassurance-text h2 {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .reassurance-text p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .reassurance-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .btn-urgency-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--tertiary);
+    color: #ffffff;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn-urgency-large:hover {
+    background: var(--tertiary-dark);
+    transform: translateY(-2px);
+  }
+
+  .sub-text {
+    font-size: 0.8rem;
+    color: var(--outline);
+  }
+
+  @media (max-width: 768px) {
+    .hero-urgency-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn-hero-call {
+      width: 100%;
+      justify-content: center;
+    }
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+    .reassurance-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn-urgency-large {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
