@@ -5,6 +5,7 @@ import MobileStickyBar from '../components/MobileStickyBar.astro';
 import DesktopStickyCall from '../components/DesktopStickyCall.astro';
 import WhatsAppChatWidget from '../components/WhatsAppChatWidget.astro';
 import GuaranteesBanner from '../components/GuaranteesBanner.astro';
+import GoogleMapSection from '../components/GoogleMapSection.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -161,6 +162,7 @@ const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
       <slot />
     </main>
     <GuaranteesBanner />
+    <GoogleMapSection />
     <Footer />
     <DesktopStickyCall />
     <WhatsAppChatWidget />

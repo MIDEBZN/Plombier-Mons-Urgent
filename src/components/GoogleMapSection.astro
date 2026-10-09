@@ -1,0 +1,209 @@
+---
+// Google Maps Embed Section for Plombier Mons Urgent (Roveo Plombier Mons Urgent)
+// Location: Rue du Fisch Club 31B, 7000 Mons
+---
+
+<section class="google-map-section" id="plan-acces" aria-label="Carte et localisation de notre atelier à Mons">
+  <div class="container">
+    <div class="map-section-header">
+      <div class="header-left">
+        <span class="map-badge">
+          <span class="material-symbols-outlined icon-badge">location_on</span>
+          <span>PLAN D'ACCÈS & ATELIER TECHNIQUE</span>
+        </span>
+        <h2 class="map-heading">Roveo Plombier Mons Urgent sur Google Maps</h2>
+        <p class="map-subheading">
+          Retrouvez notre base technique et nos véhicules d'intervention d'urgence stationnés à Mons pour un départ immédiat en 20 à 30 minutes.
+        </p>
+      </div>
+      <div class="header-right">
+        <a
+          href="https://maps.app.goo.gl/kYQARdAPhii8cHBj6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary map-directions-btn"
+          title="Ouvrir l'itinéraire dans Google Maps"
+        >
+          <span class="material-symbols-outlined">directions</span>
+          <span>Ouvrir l'Itinéraire GPS</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Map Embed Frame Card -->
+    <div class="map-frame-wrapper">
+      <div class="map-info-topbar">
+        <div class="map-info-item">
+          <span class="material-symbols-outlined topbar-icon">store</span>
+          <div>
+            <strong class="info-strong">Roveo Plombier Mons Urgent</strong>
+            <span class="info-span">Rue du Fisch Club 31B, 7000 Mons</span>
+          </div>
+        </div>
+        <div class="map-info-item">
+          <span class="material-symbols-outlined topbar-icon pulse-green">schedule</span>
+          <div>
+            <strong class="info-strong">Permanence 24h/24 & 7j/7</strong>
+            <span class="info-span">Dépannage d'urgence sans interruption</span>
+          </div>
+        </div>
+        <div class="map-info-item">
+          <span class="material-symbols-outlined topbar-icon">call</span>
+          <div>
+            <strong class="info-strong">0489 16 43 78</strong>
+            <span class="info-span">Ligne directe technicien de garde</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-iframe-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2735.574490902284!2d3.9590346765573177!3d50.45204127159257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4245728183ffea61%3A0xecde6bdf247445c5!2sRoveo%20Plombier%20Mons%20Urgent!5e1!3m2!1sen!2sbe!4v1791504250879!5m2!1sen!2sbe"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Carte Google Maps - Roveo Plombier Mons Urgent à Mons"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .google-map-section {
+    padding: 3.5rem 0 4rem;
+    background-color: var(--surface);
+    border-top: 1px solid var(--outline-variant);
+  }
+
+  .map-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .header-left {
+    max-width: 680px;
+  }
+
+  .map-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background-color: rgba(0, 128, 128, 0.08);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.65rem;
+  }
+
+  .icon-badge {
+    font-size: 16px;
+    color: var(--primary);
+  }
+
+  .map-heading {
+    font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+    font-weight: 800;
+    color: var(--on-surface);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .map-subheading {
+    font-size: 0.95rem;
+    color: var(--on-surface-variant);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .map-directions-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Map Frame Wrapper */
+  .map-frame-wrapper {
+    background-color: #ffffff;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(16, 33, 58, 0.07);
+  }
+
+  .map-info-topbar {
+    background-color: var(--surface-container-lowest);
+    border-bottom: 1px solid var(--outline-variant);
+    padding: 1rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .map-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .topbar-icon {
+    font-size: 24px;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .pulse-green {
+    color: #16a34a;
+  }
+
+  .info-strong {
+    display: block;
+    font-family: var(--font-manrope);
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    line-height: 1.2;
+  }
+
+  .info-span {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--on-surface-variant);
+    margin-top: 0.15rem;
+  }
+
+  .map-iframe-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background-color: #e2e8f0;
+  }
+
+  .map-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+  }
+
+  @media (max-width: 640px) {
+    .map-iframe-container {
+      height: 360px;
+    }
+  }
+</style>
