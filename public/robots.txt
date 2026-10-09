@@ -1,4 +1,20 @@
+# ==============================================================================
+# Robots.txt for Plombier Mons Urgent (https://www.plombiermonsurgent.be)
+# Optimized for Googlebot, Bingbot, Applebot and major search engine crawlers
+# ==============================================================================
+
 User-agent: *
 Allow: /
+Allow: /_astro/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.png$
+Allow: /*.svg$
 
+# Sitemaps
+Sitemap: https://www.plombiermonsurgent.be/sitemap.xml
 Sitemap: https://www.plombiermonsurgent.be/sitemap-index.xml
+
+# Primary Host
+Host: https://www.plombiermonsurgent.be

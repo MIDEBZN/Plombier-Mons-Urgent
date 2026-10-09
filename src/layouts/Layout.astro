@@ -107,100 +107,167 @@ const canonicalUrl = `https://www.plombiermonsurgent.be${canonicalPath}`;
       />
     </noscript>
 
-    <!-- LocalBusiness Schema JSON-LD -->
+    <!-- Complete Plumbing Schema Markup with Service Catalog (JSON-LD) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Plumber",
-        "name": "Plombier Mons Urgent",
-        "legalName": "Plombier Mons Urgent SRL",
-        "url": "https://www.plombiermonsurgent.be",
-        "logo": "https://www.plombiermonsurgent.be/logo-512.webp",
-        "image": "https://www.plombiermonsurgent.be/logo-512.webp",
-        "telephone": "+32489164378",
-        "email": "contact@plombiermonsurgent.be",
-        "hasMap": "https://maps.app.goo.gl/kYQARdAPhii8cHBj6",
-        "priceRange": "€€",
-        "foundingDate": "2009",
-        "knowsAbout": [
-          "Dépannage d'urgence 24/7 en 20 à 30 minutes",
-          "Agréé CERGA Gaz N° 09-34821",
-          "Attestation PEB Région Wallonne",
-          "Assurance AXA Belgium Police N° 730.294.108",
-          "Habilité Belgaqua eau potable",
-          "Garantie décennale"
-        ],
-        "description": "Artisan plombier et chauffagiste d'urgence à Mons et dans le Borinage depuis 2009. Agréé CERGA & PEB, assuré AXA Belgium. Dépannage 24h/24 et 7j/7 en 20 à 30 minutes.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Rue du Fisch Club 31B",
-          "addressLocality": "Mons",
-          "postalCode": "7000",
-          "addressRegion": "Hainaut",
-          "addressCountry": "BE"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "50.4542",
-          "longitude": "3.9567"
-        },
-        "openingHoursSpecification": [
+        "@graph": [
           {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "00:00",
-            "closes": "23:59"
-          }
-        ],
-        "areaServed": [
-          { "@type": "City", "name": "Mons", "postalCode": "7000" },
-          { "@type": "City", "name": "Ghlin", "postalCode": "7011" },
-          { "@type": "City", "name": "Jemappes", "postalCode": "7012" },
-          { "@type": "City", "name": "Flénu", "postalCode": "7012" },
-          { "@type": "City", "name": "Nimy", "postalCode": "7020" },
-          { "@type": "City", "name": "Maisières", "postalCode": "7020" },
-          { "@type": "City", "name": "Havré", "postalCode": "7021" },
-          { "@type": "City", "name": "Hyon", "postalCode": "7022" },
-          { "@type": "City", "name": "Cuesmes", "postalCode": "7033" },
-          { "@type": "City", "name": "Frameries", "postalCode": "7080" },
-          { "@type": "City", "name": "Quaregnon", "postalCode": "7390" },
-          { "@type": "City", "name": "Boussu", "postalCode": "7300" },
-          { "@type": "City", "name": "Saint-Ghislain", "postalCode": "7330" }
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Services de plomberie et chauffage",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Dépannage d'urgence fuite d'eau"
-              }
+            "@type": ["Plumber", "EmergencyService"],
+            "@id": "https://www.plombiermonsurgent.be/#organization",
+            "name": "Plombier Mons Urgent",
+            "alternateName": "Plombier Mons 24/7 Dépannage",
+            "legalName": "Plombier Mons Urgent SRL",
+            "url": "https://www.plombiermonsurgent.be",
+            "logo": "https://www.plombiermonsurgent.be/logo-512.webp",
+            "image": "https://www.plombiermonsurgent.be/logo-512.webp",
+            "telephone": "+32489164378",
+            "email": "contact@plombiermonsurgent.be",
+            "hasMap": "https://maps.app.goo.gl/kYQARdAPhii8cHBj6",
+            "priceRange": "€€",
+            "currenciesAccepted": "EUR",
+            "paymentAccepted": "Cash, Bancontact, Payconiq, Maestro, Visa, Mastercard, Virement bancaire instantané",
+            "foundingDate": "2009",
+            "description": "Artisan plombier et chauffagiste d'urgence à Mons et dans tout le Borinage. Dépannage 24h/24 et 7j/7 en 20 à 30 minutes pour fuite d'eau, canalisation bouchée, panne de chaudière, boiler et adoucisseur. Agréé CERGA Gaz et PEB Wallonie, assuré AXA Belgium.",
+            "knowsAbout": [
+              "Dépannage d'urgence plomberie 24/7 en 20 à 30 minutes",
+              "Agréé CERGA Gaz N° 09-34821",
+              "Attestation PEB Région Wallonne",
+              "Assurance AXA Belgium Police N° 730.294.108",
+              "Habilité Belgaqua eau potable",
+              "Garantie décennale travaux sanitaires"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rue du Fisch Club 31B",
+              "addressLocality": "Mons",
+              "postalCode": "7000",
+              "addressRegion": "Hainaut",
+              "addressCountry": "BE"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Débouchage de canalisation et WC haute pression"
-              }
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 50.4542,
+              "longitude": 3.9567
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Entretien de chaudière agréé avec attestation PEB"
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
               }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "348",
+              "bestRating": "5",
+              "worstRating": "1"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Dépannage et détartrage de boiler"
-              }
+            "areaServed": [
+              { "@type": "City", "name": "Mons", "postalCode": "7000" },
+              { "@type": "City", "name": "Ghlin", "postalCode": "7011" },
+              { "@type": "City", "name": "Jemappes", "postalCode": "7012" },
+              { "@type": "City", "name": "Flénu", "postalCode": "7012" },
+              { "@type": "City", "name": "Nimy", "postalCode": "7020" },
+              { "@type": "City", "name": "Maisières", "postalCode": "7020" },
+              { "@type": "City", "name": "Casteau", "postalCode": "7020" },
+              { "@type": "City", "name": "Havré", "postalCode": "7021" },
+              { "@type": "City", "name": "Hyon", "postalCode": "7022" },
+              { "@type": "City", "name": "Cuesmes", "postalCode": "7033" },
+              { "@type": "City", "name": "Frameries", "postalCode": "7080" },
+              { "@type": "City", "name": "Quaregnon", "postalCode": "7390" },
+              { "@type": "City", "name": "Boussu", "postalCode": "7300" },
+              { "@type": "City", "name": "Saint-Ghislain", "postalCode": "7330" }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Catalogue Complet des Services de Plomberie et Dépannage Mons",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Dépannage d'urgence fuite d'eau 24/7",
+                    "description": "Intervention express en 20 à 30 minutes sur fuite de canalisation, tuyau percé, robinet cassé, vanne d'arrêt bloquée ou fuite de chasse d'eau encastrée.",
+                    "url": "https://www.plombiermonsurgent.be/services/depannage-urgence",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Débouchage haute pression de canalisation et WC",
+                    "description": "Hydrocurage haute pression 350 bars et passage caméra sans destruction pour débouchage de WC, évier, baignoire, égout et colonne générale.",
+                    "url": "https://www.plombiermonsurgent.be/services/debouchage",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Recherche et détection de fuite non destructive",
+                    "description": "Localisation millimétrique par caméra infrarouge, gaz traceur et sonde électro-acoustique sans casser les murs. Rapport agréé assurances fourni.",
+                    "url": "https://www.plombiermonsurgent.be/services/detection-fuites",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Dépannage de chaudière et entretien agréé PEB Wallonie",
+                    "description": "Chauffagiste agréé CERGA pour dépannage de chaudière gaz et mazout toutes marques (Bulex, Vaillant, Viessmann) et attestation officielle de contrôle PEB.",
+                    "url": "https://www.plombiermonsurgent.be/services/chauffage-chaudieres",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Réparation, détartrage et remplacement de boiler",
+                    "description": "Dépannage d'urgence sur absence d'eau chaude sanitaire, détartrage de cuve et résistance, remplacement de chauffe-eau électrique ou thermodynamique en 24h.",
+                    "url": "https://www.plombiermonsurgent.be/services/chauffage-chaudieres",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Installations sanitaires et rénovation de salle de bain",
+                    "description": "Pose de WC suspendus Geberit, douches à l'italienne, robinetterie thermostatique Grohe/Hansgrohe et mise aux normes des réseaux sanitaires.",
+                    "url": "https://www.plombiermonsurgent.be/services/installations-sanitaires",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Adoucisseur d'eau anti-calcaire et filtration",
+                    "description": "Installation, réglage et entretien d'adoucisseurs d'eau volumétriques BWT, EcoWater, Minimax pour protéger tuyauteries et appareils ménagers de la dureté montoise.",
+                    "url": "https://www.plombiermonsurgent.be/services/traitement-eau",
+                    "provider": { "@id": "https://www.plombiermonsurgent.be/#organization" }
+                  }
+                }
+              ]
             }
-          ]
-        }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.plombiermonsurgent.be/#website",
+            "url": "https://www.plombiermonsurgent.be",
+            "name": "Plombier Mons Urgent",
+            "description": "Dépannage plomberie d'urgence 24/7 en 20 à 30 minutes dans le Grand Mons et le Borinage.",
+            "publisher": { "@id": "https://www.plombiermonsurgent.be/#organization" },
+            "inLanguage": "fr-BE"
+          }
+        ]
       }
     </script>
   </head>
