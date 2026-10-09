@@ -49,7 +49,7 @@ const navItems = [
       <!-- Brand Logo -->
       <a href="/" class="brand-link" aria-label="Plombier Mons Urgent - Accueil">
         <div class="brand-icon">
-          <span class="material-symbols-outlined icon-display">plumbing</span>
+          <img src="/brand-mark.png" alt="Logo Plombier Mons Urgent" width="44" height="44" class="brand-logo-img" />
         </div>
         <div class="brand-text">
           <span class="brand-name">PLOMBIER MONS URGENT</span>
@@ -246,20 +246,23 @@ const navItems = [
   }
 
   .brand-icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     border-radius: var(--radius-lg, 0.75rem);
-    background-color: var(--primary-container, #008080);
-    color: #ffffff;
+    background-color: #0B1728;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 128, 128, 0.25);
+    box-shadow: 0 4px 12px rgba(11, 23, 40, 0.25);
     flex-shrink: 0;
   }
 
-  .icon-display {
-    font-size: 24px;
+  .brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .brand-text {
