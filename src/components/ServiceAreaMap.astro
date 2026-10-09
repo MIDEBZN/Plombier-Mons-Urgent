@@ -1,0 +1,450 @@
+---
+// Service Area Map Component for Plombier Mons Urgent
+// Visual map & coverage zone breakdown for Grand Mons and Borinage
+---
+
+<section class="service-area-section" id="carte-intervention" aria-label="Carte des zones d'intervention à Mons">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-tag">RAYON D'ACTION & SECTEURS COUVERTS</div>
+      <h2 class="section-title">Zones d'Intervention Rapide à Mons et Environs</h2>
+      <p class="section-desc">
+        Grâce à nos techniciens postés sur les axes stratégiques (R5, autoroutes E19 et E42, N6), nous garantissons une arrivée chez vous en 20 à 30 minutes maximum, 24h/24 et 7j/7.
+      </p>
+    </div>
+
+    <!-- Map & Dispatch Grid -->
+    <div class="area-map-grid">
+      <!-- Left Column: Visual Schematic Vector Map -->
+      <div class="schematic-map-card">
+        <div class="map-card-header">
+          <div class="dispatch-status">
+            <span class="live-dot"></span>
+            <span>Permanence d'astreinte active • Départs en temps réel</span>
+          </div>
+          <span class="map-legend-note">Rayon : 25 km autour de la Grand'Place</span>
+        </div>
+
+        <div class="vector-map-viewport">
+          <svg viewBox="0 0 540 380" class="map-svg" aria-label="Carte schématique des zones de dépannage Grand Mons">
+            <!-- Background Radial Zones -->
+            <defs>
+              <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#008080" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#008080" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="roadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.4" />
+                <stop offset="100%" stop-color="#cbd5e1" stop-opacity="0.2" />
+              </linearGradient>
+            </defs>
+
+            <!-- Zone 3 Outer Ring (20-30 min) -->
+            <ellipse cx="270" cy="190" rx="240" ry="165" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 4" />
+            <text x="35" y="45" font-family="var(--font-inter)" font-size="11" font-weight="700" fill="#94a3b8">ZONE 3 • Borinage (20 à 30 min)</text>
+
+            <!-- Zone 2 Intermediate Ring (15-20 min) -->
+            <ellipse cx="270" cy="190" rx="170" ry="115" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="2" />
+            <text x="110" y="95" font-family="var(--font-inter)" font-size="11" font-weight="700" fill="#0d9488">ZONE 2 • Première Couronne (15 à 20 min)</text>
+
+            <!-- Zone 1 Priority Hub (10-15 min) -->
+            <circle cx="270" cy="190" r="75" fill="url(#hubGlow)" stroke="#008080" stroke-width="2" />
+            <ellipse cx="270" cy="190" rx="72" ry="52" fill="#ffffff" stroke="#14b8a6" stroke-width="1.5" />
+
+            <!-- Main Arterial Roadways (E19/E42 & R5 Ring) -->
+            <path d="M 50 190 Q 200 185 270 190 T 490 190" stroke="#94a3b8" stroke-width="3" fill="none" opacity="0.6" />
+            <text x="440" y="180" font-family="var(--font-inter)" font-size="9" font-weight="700" fill="#64748b">E19 / E42</text>
+
+            <!-- Ring R5 -->
+            <ellipse cx="270" cy="190" rx="100" ry="72" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="4 3" fill="none" opacity="0.7" />
+            <text x="350" y="145" font-family="var(--font-inter)" font-size="9" font-weight="700" fill="#0284c7">Ring R5</text>
+
+            <!-- Node: MONS CENTRE (HQ) -->
+            <circle cx="270" cy="190" r="10" fill="#E05A47" />
+            <circle cx="270" cy="190" r="18" fill="none" stroke="#E05A47" stroke-width="2" opacity="0.6">
+              <animate attributeName="r" values="10;22;10" dur="2.5s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.8;0;0.8" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+            <text x="270" y="174" text-anchor="middle" font-family="var(--font-manrope)" font-size="12" font-weight="800" fill="#10213A">MONS-CENTRE</text>
+            <text x="270" y="215" text-anchor="middle" font-family="var(--font-inter)" font-size="10" font-weight="700" fill="#E05A47">Atelier & 10-15 min</text>
+
+            <!-- Node: GHLIN -->
+            <circle cx="230" cy="105" r="6" fill="#008080" />
+            <text x="230" y="93" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Ghlin (7011)</text>
+
+            <!-- Node: NIMY -->
+            <circle cx="330" cy="115" r="6" fill="#008080" />
+            <text x="330" y="103" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Nimy (7020)</text>
+
+            <!-- Node: MAISIERES / SHAPE -->
+            <circle cx="395" cy="85" r="6" fill="#008080" />
+            <text x="395" y="73" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Maisières / SHAPE</text>
+
+            <!-- Node: CUESMES -->
+            <circle cx="240" cy="245" r="6" fill="#008080" />
+            <text x="240" y="263" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Cuesmes (7033)</text>
+
+            <!-- Node: JEMAPPES -->
+            <circle cx="165" cy="180" r="6" fill="#008080" />
+            <text x="165" y="168" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Jemappes (7012)</text>
+
+            <!-- Node: FRAMERIES -->
+            <circle cx="215" cy="315" r="6" fill="#008080" />
+            <text x="215" y="333" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Frameries (7080)</text>
+
+            <!-- Node: QUAREGNON -->
+            <circle cx="120" cy="225" r="6" fill="#008080" />
+            <text x="120" y="243" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Quaregnon (7390)</text>
+
+            <!-- Node: SAINT-GHISLAIN -->
+            <circle cx="75" cy="205" r="6" fill="#008080" />
+            <text x="75" y="223" text-anchor="middle" font-family="var(--font-manrope)" font-size="10" font-weight="700" fill="#10213A">Saint-Ghislain (7330)</text>
+          </svg>
+        </div>
+
+        <div class="map-bottom-strip">
+          <span class="material-symbols-outlined nav-icon">local_shipping</span>
+          <span>3 véhicules utilitaires légers équipés en permanence d'outils et de pièces d'origine dans le bassin montois.</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Zones & Travel Times -->
+      <div class="zones-breakdown-card">
+        <h3 class="breakdown-title">Délais d'Arrivée par Commune</h3>
+
+        <div class="zones-list">
+          <!-- Zone 1 item -->
+          <div class="zone-row priority-zone">
+            <div class="zone-header-line">
+              <span class="zone-badge badge-z1">Zone 1 • Cœur de Mons</span>
+              <span class="arrival-time time-fast">10 à 15 min</span>
+            </div>
+            <p class="zone-communes">
+              <strong>Mons-Centre (7000)</strong>, <strong>Nimy (7020)</strong>, <strong>Ghlin (7011)</strong>, <strong>Cuesmes (7033)</strong>, <strong>Jemappes & Flénu (7012)</strong>.
+            </p>
+            <div class="zone-meta">
+              <span>Départ direct Grand'Place ou Avenue Frère Orban</span>
+            </div>
+          </div>
+
+          <!-- Zone 2 item -->
+          <div class="zone-row medium-zone">
+            <div class="zone-header-line">
+              <span class="zone-badge badge-z2">Zone 2 • Proximité Immédiate</span>
+              <span class="arrival-time time-med">15 à 20 min</span>
+            </div>
+            <p class="zone-communes">
+              <strong>Maisières (7020)</strong>, <strong>Casteau & Base SHAPE</strong>, <strong>Havré (7021)</strong>, <strong>Hyon & Ciply (7022)</strong>, <strong>Harmignies</strong>.
+            </p>
+            <div class="zone-meta">
+              <span>Accès direct via chaussée de Bruxelles ou N90</span>
+            </div>
+          </div>
+
+          <!-- Zone 3 item -->
+          <div class="zone-row outer-zone">
+            <div class="zone-header-line">
+              <span class="zone-badge badge-z3">Zone 3 • Borinage & Hauts-Pays</span>
+              <span class="arrival-time time-standard">20 à 30 min</span>
+            </div>
+            <p class="zone-communes">
+              <strong>Frameries (7080)</strong>, <strong>Quaregnon (7390)</strong>, <strong>Saint-Ghislain (7330)</strong>, <strong>Boussu (7300)</strong>, <strong>Colfontaine (7340)</strong>.
+            </p>
+            <div class="zone-meta">
+              <span>Liaison rapide par l'axe R5 et autoroute E19/E42</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-callout">
+          <div class="callout-inner">
+            <span class="material-symbols-outlined callout-icon">bolt</span>
+            <div>
+              <strong>Votre commune ne figure pas dans cette liste ?</strong>
+              <p>Nous couvrons l'ensemble des entités du Hainaut limitrophes. Appelez notre régulateur d'astreinte pour valider l'heure exacte d'arrivée.</p>
+            </div>
+          </div>
+          <a href="tel:065700387" class="btn-primary w-full">
+            <span class="material-symbols-outlined">call</span>
+            <span>Vérifier la disponibilité : 065 70 03 87</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-area-section {
+    padding: 4.5rem 0;
+    background-color: var(--surface);
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background-color: rgba(0, 128, 128, 0.08);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: var(--on-surface);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-desc {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    color: var(--on-surface-variant);
+    line-height: 1.6;
+  }
+
+  .area-map-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .area-map-grid {
+      grid-template-columns: 1.25fr 1fr;
+      align-items: stretch;
+    }
+  }
+
+  /* Left Column: Vector Map Card */
+  .schematic-map-card {
+    background-color: #ffffff;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(16, 33, 58, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .map-card-header {
+    padding: 1.25rem 1.5rem;
+    background-color: var(--surface-container-lowest);
+    border-bottom: 1px solid var(--outline-variant);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .dispatch-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #15803d;
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  }
+
+  .map-legend-note {
+    font-size: 0.75rem;
+    color: var(--on-surface-variant);
+  }
+
+  .vector-map-viewport {
+    padding: 1.5rem;
+    background-color: #fafbfc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-svg {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    border-radius: var(--radius-lg);
+  }
+
+  .map-bottom-strip {
+    padding: 1rem 1.5rem;
+    background-color: var(--surface-container-low);
+    border-top: 1px solid var(--outline-variant);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--on-surface-variant);
+    line-height: 1.45;
+  }
+
+  .nav-icon {
+    font-size: 22px;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  /* Right Column: Zones Breakdown */
+  .zones-breakdown-card {
+    background-color: #ffffff;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-2xl);
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(16, 33, 58, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .breakdown-title {
+    font-family: var(--font-manrope);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    margin: 0;
+  }
+
+  .zones-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .zone-row {
+    border-radius: var(--radius-xl);
+    padding: 1.15rem;
+    border: 1px solid var(--outline-variant);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .priority-zone {
+    background-color: rgba(0, 128, 128, 0.04);
+    border-color: rgba(0, 128, 128, 0.25);
+  }
+
+  .medium-zone {
+    background-color: rgba(14, 165, 233, 0.04);
+    border-color: rgba(14, 165, 233, 0.25);
+  }
+
+  .outer-zone {
+    background-color: rgba(100, 116, 139, 0.04);
+    border-color: rgba(100, 116, 139, 0.2);
+  }
+
+  .zone-header-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .zone-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  .badge-z1 {
+    background-color: rgba(0, 128, 128, 0.12);
+    color: var(--primary);
+  }
+
+  .badge-z2 {
+    background-color: rgba(14, 165, 233, 0.12);
+    color: #0284c7;
+  }
+
+  .badge-z3 {
+    background-color: rgba(100, 116, 139, 0.12);
+    color: #475569;
+  }
+
+  .arrival-time {
+    font-family: var(--font-manrope);
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+
+  .time-fast {
+    color: var(--primary);
+  }
+
+  .time-med {
+    color: #0284c7;
+  }
+
+  .time-standard {
+    color: #475569;
+  }
+
+  .zone-communes {
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .zone-meta {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  /* Callout Footer */
+  .zone-callout {
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .callout-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .callout-icon {
+    font-size: 22px;
+    color: var(--tertiary);
+    flex-shrink: 0;
+  }
+
+  .callout-inner strong {
+    font-family: var(--font-manrope);
+    font-size: 0.88rem;
+    display: block;
+    color: var(--on-surface);
+  }
+
+  .callout-inner p {
+    font-size: 0.78rem;
+    color: var(--on-surface-variant);
+    margin: 0.25rem 0 0;
+    line-height: 1.4;
+  }
+</style>

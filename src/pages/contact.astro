@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ResponseTimeStats from '../components/ResponseTimeStats.astro';
+import ReviewBadges from '../components/ReviewBadges.astro';
 ---
 
 <Layout
@@ -176,6 +178,12 @@ import ContactForm from '../components/ContactForm.astro';
       </div>
     </div>
   </section>
+
+  <!-- RESPONSE TIME STATS COMPONENT -->
+  <ResponseTimeStats />
+
+  <!-- REVIEW BADGES COMPONENT -->
+  <ReviewBadges />
 
   <!-- Legal & Fiscal Info -->
   <section class="section">

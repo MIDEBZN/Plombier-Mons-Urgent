@@ -1,0 +1,286 @@
+---
+// Review Badges Component for Plombier Mons Urgent
+// Certified platforms & local reputation indicators
+---
+
+<section class="review-badges-section" aria-label="Avis clients et labels de confiance">
+  <div class="container">
+    <div class="review-badges-wrapper">
+      <div class="review-badges-intro">
+        <span class="badge-mini-tag">RECONNAISSANCE ARTISANALE</span>
+        <h3 class="badges-heading">Évaluations et Plateformes Certifiées</h3>
+        <p class="badges-subtext">
+          La transparence est au cœur de notre métier. Retrouvez les avis impartiaux laissés par nos clients sur l'ensemble des plateformes vérifiées en Belgique.
+        </p>
+      </div>
+
+      <div class="badges-grid">
+        <!-- Google Reviews Badge -->
+        <div class="badge-card google-card">
+          <div class="badge-card-top">
+            <div class="platform-logo-box">
+              <svg viewBox="0 0 24 24" class="platform-icon" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+              </svg>
+              <span class="platform-name">Google Avis</span>
+            </div>
+            <span class="verification-pill">Certifié</span>
+          </div>
+          <div class="badge-rating-row">
+            <span class="score-number">4.9</span>
+            <div class="stars-cluster">
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+            </div>
+          </div>
+          <p class="badge-caption">Basé sur 348 avis de propriétaires et locataires dans le Grand Mons.</p>
+        </div>
+
+        <!-- Trustpilot Badge -->
+        <div class="badge-card trustpilot-card">
+          <div class="badge-card-top">
+            <div class="platform-logo-box">
+              <span class="material-symbols-outlined trustpilot-icon">star_rate</span>
+              <span class="platform-name">Trustpilot</span>
+            </div>
+            <span class="trust-badge-label">Excellent</span>
+          </div>
+          <div class="badge-rating-row">
+            <span class="score-number">4.8</span>
+            <div class="stars-cluster trust-stars">
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+              <span class="material-symbols-outlined star-icon filled">star</span>
+            </div>
+          </div>
+          <p class="badge-caption">Indice de confiance maximal pour le dépannage plomberie d'urgence.</p>
+        </div>
+
+        <!-- Pages d'Or Badge -->
+        <div class="badge-card pagesdor-card">
+          <div class="badge-card-top">
+            <div class="platform-logo-box">
+              <span class="material-symbols-outlined gold-book-icon">menu_book</span>
+              <span class="platform-name">Pages d'Or</span>
+            </div>
+            <span class="verification-pill">Vérifié BCE</span>
+          </div>
+          <div class="badge-rating-row">
+            <span class="score-number">98%</span>
+            <span class="recommend-tag">Recommandé</span>
+          </div>
+          <p class="badge-caption">Artisan de référence référencé dans la catégorie Plombiers Hainaut.</p>
+        </div>
+
+        <!-- Embuild / Confédération Construction -->
+        <div class="badge-card embuild-card">
+          <div class="badge-card-top">
+            <div class="platform-logo-box">
+              <span class="material-symbols-outlined guild-icon">apartment</span>
+              <span class="platform-name">Embuild Wallonie</span>
+            </div>
+            <span class="verification-pill">Membre Pro</span>
+          </div>
+          <div class="badge-rating-row">
+            <span class="status-strong">Artisan Enregistré</span>
+          </div>
+          <p class="badge-caption">Membre actif de la Confédération de la Construction belge depuis 2009.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .review-badges-section {
+    background-color: var(--surface-container-lowest);
+    border-top: 1px solid var(--outline-variant);
+    border-bottom: 1px solid var(--outline-variant);
+    padding: 3rem 0;
+  }
+
+  .review-badges-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .review-badges-intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .badge-mini-tag {
+    display: inline-block;
+    font-family: var(--font-inter);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary);
+    background-color: rgba(0, 128, 128, 0.08);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.5rem;
+  }
+
+  .badges-heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .badges-subtext {
+    font-size: 0.92rem;
+    color: var(--on-surface-variant);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .badge-card {
+    background: #ffffff;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    padding: 1.35rem 1.25rem;
+    box-shadow: 0 4px 14px rgba(16, 33, 58, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.85rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .badge-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(16, 33, 58, 0.08);
+  }
+
+  .badge-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .platform-logo-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .platform-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .trustpilot-icon {
+    font-size: 24px;
+    color: #00b67a;
+  }
+
+  .gold-book-icon {
+    font-size: 22px;
+    color: #d97706;
+  }
+
+  .guild-icon {
+    font-size: 22px;
+    color: var(--primary);
+  }
+
+  .platform-name {
+    font-family: var(--font-manrope);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--on-surface);
+  }
+
+  .verification-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #15803d;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+  }
+
+  .trust-badge-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: #00b67a;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+  }
+
+  .badge-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .score-number {
+    font-family: var(--font-manrope);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--on-surface);
+    line-height: 1;
+  }
+
+  .status-strong {
+    font-family: var(--font-manrope);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .recommend-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #b45309;
+    background: #fef3c7;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .stars-cluster {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .star-icon {
+    font-size: 18px;
+    color: #fbbf24;
+  }
+
+  .trust-stars .star-icon {
+    color: #00b67a;
+  }
+
+  .badge-caption {
+    font-size: 0.8rem;
+    color: var(--on-surface-variant);
+    line-height: 1.45;
+    margin: 0;
+  }
+</style>

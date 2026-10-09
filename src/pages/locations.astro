@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import ResponseTimeStats from '../components/ResponseTimeStats.astro';
 
 const zones = [
   {
@@ -191,6 +193,12 @@ const zones = [
       </div>
     </div>
   </section>
+
+  <!-- SERVICE AREA MAP COMPONENT -->
+  <ServiceAreaMap />
+
+  <!-- RESPONSE TIME STATS COMPONENT -->
+  <ResponseTimeStats />
 
   <!-- Fast Lead Form Section -->
   <section class="section-py">

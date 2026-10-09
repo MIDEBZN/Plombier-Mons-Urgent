@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ReviewBadges from '../components/ReviewBadges.astro';
+import ResponseTimeStats from '../components/ResponseTimeStats.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
 ---
 
 <Layout
@@ -76,48 +81,8 @@ import ContactForm from '../components/ContactForm.astro';
     </div>
   </section>
 
-  <!-- 2. TRUST STATS STRIP -->
-  <section class="trust-strip">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-stat-box">
-          <div class="stat-top">
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="stat-num">4.9 / 5</span>
-          </div>
-          <span class="stat-sub">Avis clients locaux vérifiés</span>
-        </div>
-        <div class="trust-stat-box">
-          <div class="stat-top">
-            <span class="material-symbols-outlined stat-icon">speed</span>
-            <span class="stat-num">20 à 30 min</span>
-          </div>
-          <span class="stat-sub">Délai moyen d'arrivée sur Mons</span>
-        </div>
-        <div class="trust-stat-box">
-          <div class="stat-top">
-            <span class="material-symbols-outlined stat-icon alert">emergency</span>
-            <span class="stat-num">24h/24 - 7j/7</span>
-          </div>
-          <span class="stat-sub">Nuits, dimanches et fériés</span>
-        </div>
-        <div class="trust-stat-box">
-          <div class="stat-top">
-            <span class="material-symbols-outlined stat-icon">task_alt</span>
-            <span class="stat-num">0 EUR Devis</span>
-          </div>
-          <span class="stat-sub">Prix validé avant tout geste</span>
-        </div>
-        <div class="trust-stat-box">
-          <div class="stat-top">
-            <span class="material-symbols-outlined stat-icon">shield</span>
-            <span class="stat-num">Garantie 2 ans</span>
-          </div>
-          <span class="stat-sub">Pièces et main-d'œuvre</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 2. REVIEW BADGES SECTION -->
+  <ReviewBadges />
 
   <!-- 3. SERVICES SECTION -->
   <section class="section-py services-section">
@@ -223,6 +188,9 @@ import ContactForm from '../components/ContactForm.astro';
       </div>
     </div>
   </section>
+
+  <!-- RESPONSE TIME STATS SECTION -->
+  <ResponseTimeStats />
 
   <!-- 4. COMPETITIVE ADVANTAGE (WHY WE BEAT COMPETITORS) -->
   <section class="section-py bg-light">
@@ -331,76 +299,14 @@ import ContactForm from '../components/ContactForm.astro';
     </div>
   </section>
 
-  <!-- 5. VERIFIED REVIEWS SECTION -->
-  <section class="section-py">
-    <div class="container">
-      <div class="section-header text-center">
-        <div class="stars-row">
-          <span class="material-symbols-outlined star-icon">star</span>
-          <span class="material-symbols-outlined star-icon">star</span>
-          <span class="material-symbols-outlined star-icon">star</span>
-          <span class="material-symbols-outlined star-icon">star</span>
-          <span class="material-symbols-outlined star-icon">star</span>
-          <span class="stars-val">4.9 / 5</span>
-        </div>
-        <h2 class="section-title">Témoignages de nos clients dans le Grand Mons</h2>
-        <p class="section-desc">Des retours authentiques de particuliers et commerçants de notre région.</p>
-      </div>
+  <!-- 5. SERVICE AREA MAP SECTION -->
+  <ServiceAreaMap />
 
-      <div class="grid-3">
-        <div class="card review-card">
-          <div class="stars-mini">
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-          </div>
-          <p class="review-quote">
-            "Tuyau d'évacuation fendu un dimanche matin à Jemappes. Le technicien est arrivé en 25 minutes montre en main. Réparation très propre et facture conforme au devis annoncé par téléphone."
-          </p>
-          <div class="review-author">
-            <span class="author-name">Bernard D.</span>
-            <span class="author-loc">Jemappes (7012)</span>
-          </div>
-        </div>
+  <!-- 6. TRUST BADGES SECTION -->
+  <TrustBadges />
 
-        <div class="card review-card">
-          <div class="stars-mini">
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-          </div>
-          <p class="review-quote">
-            "WC suspendu Geberit totalement bouché dans notre restaurant du centre-ville. Débouchage express sans rien abîmer grâce à leur furet professionnel. Artisan très poli et efficace."
-          </p>
-          <div class="review-author">
-            <span class="author-name">Émilie R.</span>
-            <span class="author-loc">Mons-Centre (7000)</span>
-          </div>
-        </div>
-
-        <div class="card review-card">
-          <div class="stars-mini">
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-            <span class="material-symbols-outlined star-icon">star</span>
-          </div>
-          <p class="review-quote">
-            "Panne totale sur ma chaudière Bulex en plein mois de décembre. Diagnostic rapide de la sonde de température et remplacement de la pièce immédiatement disponible dans leur camionnette."
-          </p>
-          <div class="review-author">
-            <span class="author-name">Philippe V.</span>
-            <span class="author-loc">Ghlin (7011)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 7. CUSTOMER TESTIMONIALS SECTION -->
+  <TestimonialsSection />
 
   <!-- 6. FAQ ACCORDION SECTION -->
   <section class="section-py bg-light">
