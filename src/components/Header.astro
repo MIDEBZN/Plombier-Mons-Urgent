@@ -49,7 +49,19 @@ const navItems = [
       <!-- Brand Logo -->
       <a href="/" class="brand-link" aria-label="Plombier Mons Urgent - Accueil">
         <div class="brand-icon">
-          <img src="/brand-mark.png" alt="Logo Plombier Mons Urgent" width="44" height="44" class="brand-logo-img" />
+          <picture>
+            <source srcset="/brand-mark.webp" type="image/webp" />
+            <img
+              src="/brand-mark.png"
+              alt="Logo Plombier Mons Urgent"
+              width="44"
+              height="44"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="brand-logo-img"
+            />
+          </picture>
         </div>
         <div class="brand-text">
           <span class="brand-name">PLOMBIER MONS URGENT</span>

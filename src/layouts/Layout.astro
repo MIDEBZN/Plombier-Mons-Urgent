@@ -7,6 +7,7 @@ import WhatsAppChatWidget from '../components/WhatsAppChatWidget.astro';
 import GuaranteesBanner from '../components/GuaranteesBanner.astro';
 import GoogleMapSection from '../components/GoogleMapSection.astro';
 import '../styles/global.css';
+import criticalCss from '../styles/critical.css?raw';
 
 interface Props {
   title: string;
@@ -35,21 +36,27 @@ const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content="index, follow" />
     
-    <!-- Favicon & Touch Icons -->
+    <!-- Critical CSS (Inlined for instant FCP and zero layout shift) -->
+    <style is:inline set:html={criticalCss}></style>
+
+    <!-- Favicon & Touch Icons (WebP & SVG Prioritized) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" sizes="32x32" href="/favicon-32x32.webp" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/webp" sizes="16x16" href="/favicon-16x16.webp" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp" />
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph (WebP Format) -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_BE" />
     <meta property="og:site_name" content="Plombier Mons Urgent" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content="https://plombier-mons-urgent.be/logo-512.png" />
+    <meta property="og:image" content="https://plombier-mons-urgent.be/logo-512.webp" />
+    <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     
@@ -57,19 +64,48 @@ const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://plombier-mons-urgent.be/logo-512.png" />
+    <meta name="twitter:image" content="https://plombier-mons-urgent.be/logo-512.webp" />
 
-    <!-- Google Fonts & Material Symbols -->
+    <!-- DNS Prefetch, Preconnect & Non-Blocking Font Loading (Core Web Vitals) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      />
+    </noscript>
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      />
+    </noscript>
 
     <!-- LocalBusiness Schema JSON-LD -->
     <script type="application/ld+json">
@@ -79,8 +115,8 @@ const canonicalUrl = `https://plombier-mons-urgent.be${canonicalPath}`;
         "name": "Plombier Mons Urgent",
         "legalName": "Plombier Mons Urgent SRL",
         "url": "https://plombier-mons-urgent.be",
-        "logo": "https://plombier-mons-urgent.be/logo-512.png",
-        "image": "https://plombier-mons-urgent.be/logo-512.png",
+        "logo": "https://plombier-mons-urgent.be/logo-512.webp",
+        "image": "https://plombier-mons-urgent.be/logo-512.webp",
         "telephone": "+32489164378",
         "email": "contact@plombiermonsurgent.be",
         "hasMap": "https://maps.app.goo.gl/kYQARdAPhii8cHBj6",

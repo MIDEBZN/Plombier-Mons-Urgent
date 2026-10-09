@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plombier-mons-urgent.be/sitemap-index.xml
